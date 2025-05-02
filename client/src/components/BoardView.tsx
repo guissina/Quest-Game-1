@@ -31,7 +31,7 @@ export default function BoardView({ board }: BoardViewProps) {
                         justifyContent: "space-around",
                         alignItems: "center",
                         padding: "8px",
-                        backgroundColor: "#fff",
+                        backgroundColor: "Black",
                         border: "1px solid #ccc",
                         borderRadius: "6px",
                         boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
@@ -49,7 +49,14 @@ export default function BoardView({ board }: BoardViewProps) {
                         ) : (
                             tile.players.map((p, i) => (
                                 <div key={i}>
-                                    {p.name} ({p.score} pts)
+                                    {"ID: "}{p.id}
+                                    {p.name} ({p.score} pts) {p.movementTokens.length}{" Tokens de movimento: "}
+                                    {p.movementTokens.filter(mt => !mt.isLost).map((mt) => (
+                                        <span key={mt.id}>
+                                            {mt.value}{" "}
+                                            {mt.isLost ? "true" : ""}
+                                        </span>
+                                    ))}
                                 </div>
                             ))
                         )}
