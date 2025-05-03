@@ -10,6 +10,8 @@ public interface IPlayerServices {
 
     Player findPlayerById(long id);
 
+    PlayerResponseDTO create(PlayerUpdateDTO playerCreateDTO);
+
     PlayerResponseDTO findById(long id);
 
     void deletePlayerById(long id);

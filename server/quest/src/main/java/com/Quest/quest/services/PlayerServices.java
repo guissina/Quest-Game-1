@@ -27,6 +27,13 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
+    public PlayerResponseDTO create(PlayerUpdateDTO playerCreateDTO) {
+        Player player = playerMapper.toEntity(playerCreateDTO);
+        Player savedPlayer = playerRepository.save(player);
+        return playerMapper.toPlayerResponseDTO(savedPlayer);
+    }
+
+    @Override
     public Player findPlayerById(long id) {
         return playerRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found with id: " + id));

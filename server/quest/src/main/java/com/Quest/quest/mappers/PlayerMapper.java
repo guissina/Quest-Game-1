@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
+import com.Quest.quest.dto.Player.PlayerCreateDTO;
 import com.Quest.quest.dto.Player.PlayerResponseDTO;
 import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.models.Player;
@@ -14,6 +15,8 @@ public interface PlayerMapper {
     PlayerResponseDTO toPlayerResponseDTO(Player player);
 
     Player toEntity(PlayerResponseDTO playerResponseDTO);
+
+    Player toEntity(PlayerCreateDTO playerCreateDTO);
 
     Player toEntity(PlayerUpdateDTO playerUpdateDTO);
 
