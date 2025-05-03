@@ -1,22 +1,26 @@
 import { SpecialCard } from "./SpecialCards";
 
-export class PlayerSpecialDeck {
-    readonly id: string;
-    readonly playerId: string;
-    private specialCards: SpecialCard[];
+export interface PlayerSpecialDeckProps {
+    playerId: string;
+}
 
-    constructor(id: string, playerId: string, specialCards: SpecialCard[]) {
-        this.specialCards = specialCards.map(card => new SpecialCard(card.id, card.name, card.description, card.type, card.effect));
-        this.id = id;
+export class PlayerSpecialDeck {
+    id: string;
+    playerId: string;
+    specialCards: SpecialCard[];
+
+    constructor({ playerId }: PlayerSpecialDeckProps) {
+        this.id = '1';
         this.playerId = playerId;
+        this.specialCards = [];
     }
 
     getCards(): SpecialCard[] {
-        return [...this.specialCards];
+        return this.specialCards;
     }
 
     addCard(card: SpecialCard): void {
-        this.specialCards.push(new SpecialCard(card.id, card.name, card.description, card.type, card.effect));
+        this.specialCards.push(card);
     }
 
     removeCard(cardId: string): void {

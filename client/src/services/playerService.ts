@@ -15,11 +15,11 @@ export const getPlayers = async (): Promise<Player[]> => {
 export const getPlayerById = async (id: string): Promise<Player> => {
     const dto: Player = await api.get(`players/${id}`).then((res) => res.data);
 
-    return new Player(dto.id, dto.name, dto.score, dto.movementTokens);
+    return new Player(dto.id, dto.name);
 };
 
 export const createPlayer = async (name: string): Promise<Player> => {
     const dto: Player = await api.post("players", { name }).then((res) => res.data);
 
-    return new Player(dto.id, dto.name, dto.score, dto.movementTokens);
+    return new Player(dto.id, dto.name);
 };

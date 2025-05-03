@@ -1,9 +1,7 @@
 import { Board } from "../models/Board";
 import { TileProps } from "../models/Tile";
-import { Player } from "../models/Player";
 import { Theme } from "../enums/Theme";
-import { MovementToken } from "../models/MovementToken";
-import { createTokensForPlayer } from "../services/gameServices";
+import { SpecialCard, SpecialCardProps } from "../models/SpecialCards";
 
 // function createTokensForPlayer(prefix: string): MovementToken[] {
 //     return [1, 2, 3, 4, 5].map(v => {
@@ -12,11 +10,20 @@ import { createTokensForPlayer } from "../services/gameServices";
 //     });
 // }
 
-const alice = new Player("1", "Alice", 5, createTokensForPlayer("1"));
-const bob = new Player("2", "Bob", 3, createTokensForPlayer("2"));
-const carol = new Player("3", "Carol", 8, createTokensForPlayer("3"));
-const dave = new Player("4", "Dave", 2, createTokensForPlayer("4"));
-const eve = new Player("5", "Eve", 7, createTokensForPlayer("5"));
+const specialCard1: SpecialCardProps = {
+    id: "special-1",
+    name: "Special Card 1",
+    description: "This is a special card.",
+    effect: "Some effect",
+    type: "type1",
+};
+const specialCard2: SpecialCardProps = {
+    id: "special-2",
+    name: "Special Card 2",
+    description: "This is another special card.",
+    effect: "Some effect",
+    type: "type2",
+};
 
 const tileProps1: TileProps = {
     id: "tile-1",
@@ -26,33 +33,63 @@ const tileProps1: TileProps = {
 const tileProps2: TileProps = {
     id: "tile-2",
     questionTheme: Theme.GAMES,
-    players: [alice, bob],
+    players: [],
 };
 const tileProps3: TileProps = {
     id: "tile-3",
     questionTheme: Theme.TECHNOLOGY,
-    players: [carol],
+    specialCard: new SpecialCard(specialCard1),
+    players: [],
 };
 const tileProps4: TileProps = {
     id: "tile-4",
     questionTheme: Theme.MUSIC,
-    players: [dave],
+    specialCard: new SpecialCard(specialCard2),
+    players: [],
 };
 const tileProps5: TileProps = {
     id: "tile-5",
     questionTheme: Theme.GAMES,
-    players: [eve, alice],
+    players: [],
 };
 const tileProps6: TileProps = {
     id: "tile-6",
     questionTheme: Theme.TECHNOLOGY,
+    specialCard: new SpecialCard(specialCard1),
     players: [],
 };
+const tileProps7: TileProps = {
+    id: "tile-7",
+    questionTheme: Theme.MUSIC,
+    players: [],
+};
+const tileProps8: TileProps = {
+    id: "tile-8",
+    questionTheme: Theme.GAMES,
+    players: [],
+};
+const tileProps9: TileProps = {
+    id: "tile-9",
+    questionTheme: Theme.TECHNOLOGY,
+    specialCard: new SpecialCard(specialCard2),
+    players: [],
+};
+const tileProps10: TileProps = {
+    id: "tile-10",
+    questionTheme: Theme.MUSIC,
+    players: [],
+};
+const tileProps11: TileProps = {
+    id: "tile-11",
+    questionTheme: Theme.GAMES,
+    players: [],
+};
+
 
 const boardA = new Board({
     id: "board-A",
     layoutId: "layout-1",
-    tiles: [tileProps1, tileProps2, tileProps3, tileProps4, tileProps5],
+    tiles: [tileProps1, tileProps2, tileProps3, tileProps4, tileProps5, tileProps6, tileProps7, tileProps8, tileProps9, tileProps10, tileProps11],
 });
 
 const boardB = new Board({
