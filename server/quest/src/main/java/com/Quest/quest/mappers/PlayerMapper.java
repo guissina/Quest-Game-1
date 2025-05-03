@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.Quest.quest.dto.Player.PlayerResponseDTO;
+import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.models.Player;
 
 @Mapper(componentModel = "spring")
@@ -15,11 +16,7 @@ public interface PlayerMapper {
 
     Player toEntity(PlayerResponseDTO playerResponseDTO);
 
+    Player toEntity(PlayerUpdateDTO playerUpdateDTO);
+
     List<PlayerResponseDTO> toPlayerResponseDTOs(List<Player> players);
-
-    @Mapping(target = "id", ignore = true)
-    Player toEntityWithoutId(PlayerResponseDTO playerResponseDTO);
-
-    @Mapping(target = "id", ignore = true)
-    Player toEntityWithoutId(Player player);
 }
