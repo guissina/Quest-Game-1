@@ -1,0 +1,47 @@
+package com.Quest.quest.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.Quest.quest.dto.Question.QuestionCreateDTO;
+import com.Quest.quest.dto.Question.QuestionResponseDTO;
+import com.Quest.quest.interfaces.IQuestionServices;
+import com.Quest.quest.mappers.QuestionMapper;
+import com.Quest.quest.models.Question;
+import com.Quest.quest.repositories.QuestionRepository;
+
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.constraints.NotNull;
+
+@Service
+public class QuestionServices implements IQuestionServices {
+    private final QuestionMapper questionMapper;
+    private final QuestionRepository questionRepository;
+
+    @Autowired
+    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository) {
+        this.questionMapper = questionMapper;
+        this.questionRepository = questionRepository;
+    }
+
+    @Override
+    public QuestionResponseDTO create(@NotNull QuestionCreateDTO QuestionCreateDTO) {
+        Question question = questionMapper.toEntity(QuestionCreateDTO);
+        Question savedQuestion = questionRepository.save(question);
+        return questionMapper.toQuestionResponseDTO(savedQuestion);
+    }
+
+    @Override
+    public Question findQuestionById(long id) {
+        return questionRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Question not found with id: " + id));
+    }
+
+    @Override
+    public QuestionResponseDTO findById(long id) {
+        Question question = findQuestionById(id);
+        return questionMapper.toQuestionResponseDTO(question);
+    }
+
+}
