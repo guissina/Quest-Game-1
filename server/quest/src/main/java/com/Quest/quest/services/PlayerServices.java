@@ -1,5 +1,7 @@
 package com.Quest.quest.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,12 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
+    public List<PlayerResponseDTO> findAll() {
+        List<Player> players = playerRepository.findAll();
+        return playerMapper.toPlayerResponseDTOs(players);
+    }
+
+    @Override
     public PlayerResponseDTO findById(long id) {
         Player player = findPlayerById(id);
         return playerMapper.toPlayerResponseDTO(player);
@@ -52,7 +60,19 @@ public class PlayerServices implements IPlayerServices {
         return playerMapper.toPlayerResponseDTO(updatedPlayer);
     }
 
-    
+    @Override
+    public PlayerResponseDTO findByName(String name) {
+        Player player = playerRepository.findByName(name)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found with name: " + name));
+        return playerMapper.toPlayerResponseDTO(player);
+    }
+
+    @Override
+    public PlayerResponseDTO findByEmail(String email) {
+        Player player = playerRepository.findByEmail(email)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found with email: " + email));
+        return playerMapper.toPlayerResponseDTO(player);
+    }
 
     @Override
     public void deletePlayerById(long id) {
