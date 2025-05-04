@@ -1,15 +1,20 @@
 package com.Quest.quest.controllers;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Quest.quest.dto.Player.PlayerCreateDTO;
 import com.Quest.quest.dto.Player.PlayerResponseDTO;
+import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.services.PlayerServices;
 
 @RestController
@@ -26,6 +31,42 @@ public class PlayerController {
     public ResponseEntity<PlayerResponseDTO> createPlayer(@RequestBody PlayerCreateDTO playerCreateDTO) {
         PlayerResponseDTO createdPlayer = playerServices.create(playerCreateDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPlayer);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PlayerResponseDTO> updatePlayer(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+        PlayerResponseDTO updatedPlayer = playerServices.update(playerUpdateDTO);
+        return ResponseEntity.ok(updatedPlayer);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PlayerResponseDTO> getPlayerById(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+        PlayerResponseDTO player = playerServices.findById(playerUpdateDTO.getId());
+        return ResponseEntity.ok(player);
+    }
+
+    @GetMapping("/findByEmail")
+    public ResponseEntity<PlayerResponseDTO> getPlayerByEmail(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+        PlayerResponseDTO player = playerServices.findById(playerUpdateDTO.getId());
+        return ResponseEntity.ok(player);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PlayerResponseDTO>> getAllPlayers() {
+        List<PlayerResponseDTO> players = playerServices.findAll();
+        return ResponseEntity.ok(players);
+    }
+
+    @GetMapping("/findByName")
+    public ResponseEntity<List<PlayerResponseDTO>> getPlayersByName(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+        List<PlayerResponseDTO> players = playerServices.findAll();
+        return ResponseEntity.ok(players);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePlayer(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+        playerServices.deletePlayerById(playerUpdateDTO.getId());
+        return ResponseEntity.noContent().build();
     }
 
 }
