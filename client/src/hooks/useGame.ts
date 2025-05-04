@@ -12,31 +12,28 @@ export const useGame = () => {
             board,
             players,
         });
-        newGame.initializePlayers();
+        newGame.seedPlayers();
         setGame(newGame);
     };
 
-    const movePlayerToTile = (playerId: string, toTileId: string) => {
+    const updateGame = (callback: (g: Game) => void) => {
         if (!game) return;
-        const updated = new Game({
-            id: game.id,
-            board: game.board,
-            players: game.players,
-        });
-        updated.movePlayerTo(playerId, toTileId);
-        setGame(updated);
+        const cloned = game.clone();
+        callback(cloned);
+        setGame(cloned);
+    };
+
+    const movePlayerToTile = (playerId: string, toTileId: string) => {
+        updateGame((g) => g.moveToTile(playerId, toTileId));
     };
 
     const movePlayerBySteps = (playerId: string, steps: number) => {
-        if (!game) return;
-        const updated = new Game({
-            id: game.id,
-            board: game.board,
-            players: game.players,
-        });
-        updated.movePlayerBy(playerId, steps);
-        setGame(updated);
+        updateGame((g) => g.moveBySteps(playerId, steps));
     };
 
-    return { game, startGame, movePlayerToTile, movePlayerBySteps };
+    const answerQuestion = (playerId: string, steps: number, correct: boolean) => {
+        updateGame((g) => g.answerQuestion(playerId, steps, correct));
+    };
+
+    return { game, startGame, movePlayerToTile, movePlayerBySteps, answerQuestion };
 };
