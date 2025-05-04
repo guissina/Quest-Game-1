@@ -4,16 +4,19 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.Quest.quest.dto.SpecialCard.SpecialCardResponse;
+import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
+import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
 import com.Quest.quest.models.SpecialCard;
 
 @Mapper(componentModel = "spring")
 public interface SpecialCardMapper {
 
-    SpecialCardResponse toSpecialCardResponseDTO(SpecialCard specialCard);
+    SpecialCardResponseDTO toSpecialCardResponseDTO(SpecialCard specialCard);
 
-    SpecialCard toEntity(SpecialCardResponse specialCardResponseDTO);
+    SpecialCard toEntity(SpecialCardResponseDTO specialCardResponseDTO);
 
-    List<SpecialCardResponse> toSpecialCardResponseDTOs(List<SpecialCard> specialCards);
+    SpecialCard toEntity(SpecialCardCreateDTO specialCardCreateDTO);
+
+    List<SpecialCardResponseDTO> toSpecialCardResponseDTOs(List<SpecialCard> specialCards);
 
 }

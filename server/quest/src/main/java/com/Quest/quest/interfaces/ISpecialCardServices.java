@@ -1,0 +1,16 @@
+package com.Quest.quest.interfaces;
+
+import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
+import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
+import com.Quest.quest.models.SpecialCard;
+
+public interface ISpecialCardServices {
+    SpecialCard findSpecialCardById(long id);
+
+    SpecialCardResponseDTO findById(long id);
+
+    SpecialCardResponseDTO update(SpecialCardCreateDTO specialCardCreateDTO);
+
+    SpecialCardResponseDTO create(SpecialCardCreateDTO specialCardCreateDTO);
+
+}
