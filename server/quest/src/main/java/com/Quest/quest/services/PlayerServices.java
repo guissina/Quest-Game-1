@@ -41,15 +41,15 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
-    public List<PlayerResponseDTO> findAll() {
-        List<Player> players = playerRepository.findAll();
-        return playerMapper.toPlayerResponseDTOs(players);
-    }
-
-    @Override
     public PlayerResponseDTO findById(long id) {
         Player player = findPlayerById(id);
         return playerMapper.toPlayerResponseDTO(player);
+    }
+
+    @Override
+    public List<PlayerResponseDTO> findAll() {
+        List<Player> players = playerRepository.findAll();
+        return playerMapper.toPlayerResponseDTOs(players);
     }
 
     @Override
@@ -87,5 +87,4 @@ public class PlayerServices implements IPlayerServices {
         Player player = findPlayerById(id);
         playerRepository.delete(player);
     }
-
 }
