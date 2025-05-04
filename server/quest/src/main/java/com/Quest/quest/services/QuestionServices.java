@@ -1,11 +1,11 @@
 package com.Quest.quest.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.Quest.quest.dto.Question.QuestionCreateDTO;
 import com.Quest.quest.dto.Question.QuestionResponseDTO;
+import com.Quest.quest.dto.Question.QuestionUpdateDTO;
 import com.Quest.quest.interfaces.IQuestionServices;
 import com.Quest.quest.mappers.QuestionMapper;
 import com.Quest.quest.models.Question;
@@ -44,4 +44,26 @@ public class QuestionServices implements IQuestionServices {
         return questionMapper.toQuestionResponseDTO(question);
     }
 
+    @Override
+    public QuestionResponseDTO update(@NotNull QuestionUpdateDTO questionUpdateDTO) {
+        Question currentQuestion = findQuestionById(questionUpdateDTO.getId());
+
+        if (!currentQuestion.getQuestionText().equals(questionUpdateDTO.getQuestionText()))
+            currentQuestion.setQuestionText(questionUpdateDTO.getQuestionText());
+        if (!currentQuestion.getAnswer().equals(questionUpdateDTO.getAnswer()))
+            currentQuestion.setAnswer(questionUpdateDTO.getAnswer());
+        if (!currentQuestion.getDifficulty().equals(questionUpdateDTO.getDifficulty()))
+            currentQuestion.setDifficulty(questionUpdateDTO.getDifficulty());
+        if (!currentQuestion.getThemes().equals(questionUpdateDTO.getThemes()))
+            currentQuestion.setThemes(questionUpdateDTO.getThemes());
+
+        Question updatedQuestion = questionRepository.save(currentQuestion);
+        return questionMapper.toQuestionResponseDTO(updatedQuestion);
+    }
+
+    @Override
+    public void delete(long id) {
+        Question question = findQuestionById(id);
+        questionRepository.delete(question);
+    }
 }
