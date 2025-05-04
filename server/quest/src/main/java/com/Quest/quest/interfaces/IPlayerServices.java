@@ -11,7 +11,7 @@ public interface IPlayerServices {
 
     Player findPlayerById(long id);
 
-    PlayerCreateDTO create(PlayerCreateDTO playerCreateDTO);
+    PlayerResponseDTO create(PlayerCreateDTO playerCreateDTO);
 
     PlayerResponseDTO findById(long id);
 
