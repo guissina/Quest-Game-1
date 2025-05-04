@@ -18,7 +18,7 @@ export default function BoardView({ board, onTileClick }: BoardViewProps) {
                 gridTemplateColumns: `repeat(${cols}, 1fr)`,
                 gap: 8,
                 padding: 16,
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "pink",
                 borderRadius: 8,
             }}
         >
@@ -41,7 +41,7 @@ export default function BoardView({ board, onTileClick }: BoardViewProps) {
                     }}
                 >
                     <strong>{tile.id}</strong>
-                    <small>{tile.questionTheme}</small>
+                    <small>Tema: {tile.questionTheme.name}</small>
                     {tile.specialCard && <em>{tile.specialCard.name}</em>}
                     <div style={{ fontSize: 12 }}>
                         {tile.players.length === 0 ? (

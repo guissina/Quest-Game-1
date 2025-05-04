@@ -1,5 +1,5 @@
-import { SpecialCard } from "../models/SpecialCards";
-import { PlayerSpecialDeck } from "../models/PlayerSpecialDeck";
+import { SpecialCard } from "../models/Card";
+import { PlayerSpecialDeck } from "../models/PlayerDeck";
 
 export class SpecialCardService {
     addSpecialCardToDeck(deck: PlayerSpecialDeck, card: SpecialCard): void {

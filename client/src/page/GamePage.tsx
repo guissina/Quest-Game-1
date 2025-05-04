@@ -1,3 +1,4 @@
+// src/pages/GamePage.tsx
 import { ChangeEvent, useState } from "react";
 import { useBoard } from "../hooks/useBoard";
 import { useGame } from "../hooks/useGame";
@@ -7,7 +8,14 @@ import { Player, PlayerProps } from "../models/Player";
 
 export default function GamePage() {
     const { boards, loading, error } = useBoard();
-    const { game, startGame, movePlayerToTile, movePlayerBySteps } = useGame();
+    const {
+        game,
+        startGame,
+        movePlayerToTile,
+        movePlayerBySteps,
+        answerQuestion,
+    } = useGame();
+
     const [selectedId, setSelectedId] = useState("");
 
     const handleSelect = async (e: ChangeEvent<HTMLSelectElement>) => {
@@ -17,10 +25,10 @@ export default function GamePage() {
 
         const board = await getBoardById(id);
         const players: Player[] = [
-            new Player({ id: "0", name: "Alice", score: 0 } as PlayerProps),
-            new Player({ id: "1", name: "Bob", score: 0 } as PlayerProps),
-            new Player({ id: "2", name: "Carol", score: 0 } as PlayerProps),
-            new Player({ id: "3", name: "Dave", score: 0 } as PlayerProps),
+            new Player({ id: "0", name: "Alice" } as PlayerProps),
+            new Player({ id: "1", name: "Bob" } as PlayerProps),
+            new Player({ id: "2", name: "Carol" } as PlayerProps),
+            new Player({ id: "3", name: "Dave" } as PlayerProps),
         ];
         startGame(board, players);
     };
@@ -61,13 +69,26 @@ export default function GamePage() {
                     </div>
 
                     <div style={{ marginBottom: 16 }}>
+                        <strong>Tokens disponíveis:</strong>{" "}
+                        {game.currentPlayer.movementTokens.join(", ")}
+                    </div>
+
+                    <div style={{ marginBottom: 16 }}>
                         <button
                             onClick={() =>
-                                movePlayerBySteps(game.currentPlayer.id, 2)
+                                answerQuestion(game.currentPlayer.id, 2, true)
+                            }
+                            style={{ marginRight: 8, padding: "8px 12px" }}
+                        >
+                            Answer Correct (move 2)
+                        </button>
+                        <button
+                            onClick={() =>
+                                answerQuestion(game.currentPlayer.id, 2, false)
                             }
                             style={{ padding: "8px 12px" }}
                         >
-                            Avançar 2 casas
+                            Answer Wrong (lose 2)
                         </button>
                     </div>
 

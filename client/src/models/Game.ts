@@ -14,10 +14,10 @@ export class Game {
     
     protected currentTurn: number;
 
-    constructor({ id, board, players }: GameProps) {
-        this.id = id;
-        this.board = board;
-        this.players = players;
+    constructor(props: GameProps) {
+        this.id = props.id;
+        this.board = props.board;
+        this.players = props.players;
         this.currentTurn = 0;
     }
 
@@ -64,6 +64,17 @@ export class Game {
 
         origin.players = origin.players.filter((p) => p.id !== playerId);
         destination.players.push(this.players.find((p) => p.id === playerId)!);
+    }
+
+    public answerQuestion(playerId: string, steps: number, correct: boolean): void {
+        if (this.currentPlayer.id !== playerId)
+            throw new Error(`Not ${playerId}’s turn`);
+    
+        if (correct) 
+            this.moveBySteps(playerId, steps);
+        else 
+            this.currentPlayer.consumeToken(steps);
+            
         this.advanceTurn();
     }
 

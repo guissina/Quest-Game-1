@@ -31,5 +31,9 @@ export const useGame = () => {
         updateGame((g) => g.moveBySteps(playerId, steps));
     };
 
-    return { game, startGame, movePlayerToTile, movePlayerBySteps };
+    const answerQuestion = (playerId: string, steps: number, correct: boolean) => {
+        updateGame((g) => g.answerQuestion(playerId, steps, correct));
+    };
+
+    return { game, startGame, movePlayerToTile, movePlayerBySteps, answerQuestion };
 };

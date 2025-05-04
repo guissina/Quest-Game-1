@@ -1,24 +1,23 @@
+import { Card, CardProps } from "./Card";
 import { Player } from "./Player";
-import { Theme } from "../enums/Theme";
-import { SpecialCard } from "./SpecialCards";
+import { Theme, ThemeProps } from "./Theme";
 
 export interface TileProps {
     id: string;
-    questionTheme: Theme;
-    players: Player[];
-    specialCard?: SpecialCard;
+    specialCard?: CardProps;
+    questionTheme: ThemeProps;
 }
 
 export class Tile {
-    id: string;
-    questionTheme: Theme;
-    players: Player[];
-    specialCard?: SpecialCard;
+    public readonly id: string;
+    public readonly questionTheme: Theme;
+    public specialCard: Card | null;
+    public players: Player[];
 
     constructor(props: TileProps) {
         this.id = props.id;
-        this.questionTheme = props.questionTheme;
-        this.players = props.players;
-        this.specialCard = props.specialCard;
+        this.questionTheme = new Theme(props.questionTheme);
+        this.specialCard = props.specialCard ? new Card(props.specialCard) : null;
+        this.players = [];
     }
 }
