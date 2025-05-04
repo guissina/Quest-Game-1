@@ -3,11 +3,10 @@ import { Tile as TileModel } from "../models/Tile";
 
 interface BoardViewProps {
     board: Board;
-    movePlayerToTile: (playerId: string, toTileId: string) => void;
-    movePlayerBySteps: (playerId: string, steps: number) => void;
+    onTileClick: (tileId: string) => void;
 }
-  
-export default function BoardView({ board, movePlayerToTile, movePlayerBySteps }: BoardViewProps) {
+
+export default function BoardView({ board, onTileClick }: BoardViewProps) {
     const total = board.tiles.length;
     const cols = Math.ceil(Math.sqrt(total));
 
@@ -17,65 +16,42 @@ export default function BoardView({ board, movePlayerToTile, movePlayerBySteps }
             style={{
                 display: "grid",
                 gridTemplateColumns: `repeat(${cols}, 1fr)`,
-                gap: "8px",
-                padding: "16px",
+                gap: 8,
+                padding: 16,
                 backgroundColor: "#f0f0f0",
-                borderRadius: "8px",
+                borderRadius: 8,
             }}
         >
-            {board.tiles.map((tile: TileModel, idx: number) => (
-                (console.log(tile.id)),
+            {board.tiles.map((tile: TileModel) => (
                 <div
                     key={tile.id}
                     className='tile-card'
+                    onClick={() => onTileClick(tile.id)}
                     style={{
+                        cursor: "pointer",
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "space-around",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        padding: "8px",
-                        backgroundColor: "Black",
-                        border: "1px solid #ccc",
-                        borderRadius: "6px",
-                        boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                        padding: 8,
+                        backgroundColor: "black",
+                        border: "1px solid #333",
+                        borderRadius: 6,
+                        minHeight: 80,
                     }}
                 >
-                    <div>
-                        <strong>{tile.id}</strong>
-                    </div>
-                    <div>Tema: {tile.questionTheme}</div>
-                    <div>Carta Especial: {tile.specialCard?.name}</div>
-                    <div>
+                    <strong>{tile.id}</strong>
+                    <small>{tile.questionTheme}</small>
+                    {tile.specialCard && <em>{tile.specialCard.name}</em>}
+                    <div style={{ fontSize: 12 }}>
                         {tile.players.length === 0 ? (
                             <span style={{ fontStyle: "italic" }}>
+                                – vazio –
                             </span>
                         ) : (
-                            tile.players.map((p, i) => (
-                                <div key={i}>
-                                    {p.name}
-                                    {p.movementTokens.length}{" Tokens de movimento: "}
-                                    {p.movementTokens.filter(mt => !mt.isLost).map((mt) => (
-                                        <span key={mt.id}>
-                                            {mt.value}{" "}
-                                            {mt.isLost ? "true" : ""}
-                                        </span>
-                                    ))}
-                                </div>
-                            ))
+                            tile.players.map((p) => p.name).join(", ")
                         )}
                     </div>
-                    <button
-                        style={{ marginTop: "8px" }}
-                        onClick={() => movePlayerToTile("0", tile.id)}
-                    >
-                        Move Alice here
-                    </button>
-                    <button
-                        style={{ marginTop: "8px" }}
-                        onClick={() => movePlayerBySteps("0", 2)}
-                    >
-                        Move By Step
-                    </button>
                 </div>
             ))}
         </div>
