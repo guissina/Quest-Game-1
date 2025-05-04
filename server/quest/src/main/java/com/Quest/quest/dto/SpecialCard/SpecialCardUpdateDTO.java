@@ -3,7 +3,7 @@ package com.Quest.quest.dto.SpecialCard;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class SpecialCardUpdate {
+public class SpecialCardUpdateDTO {
     private long id;
 
     @NotBlank(message = "Card name is required")

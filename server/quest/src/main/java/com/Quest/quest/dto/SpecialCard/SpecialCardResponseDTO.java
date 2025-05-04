@@ -1,6 +1,6 @@
 package com.Quest.quest.dto.SpecialCard;
 
-public class SpecialCardResponse {
+public class SpecialCardResponseDTO {
     private Long id;
     private String cardName;
     private String cardDescription;
