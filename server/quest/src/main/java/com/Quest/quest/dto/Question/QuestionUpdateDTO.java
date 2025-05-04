@@ -1,5 +1,6 @@
 package com.Quest.quest.dto.Question;
 
+import com.Quest.quest.enums.Difficulty;
 import com.Quest.quest.enums.Themes;
 
 import jakarta.validation.constraints.NotBlank;
@@ -15,6 +16,10 @@ public class QuestionUpdateDTO {
     @NotBlank(message = "Answer is required")
     @Size(min = 1, max = 255, message = "Answer must be between 1 and 255 characters")
     private String answer;
+
+    @NotBlank(message = "Difficulty is required")
+    @Size(min = 1, max = 50, message = "Difficulty must be between 1 and 50 characters")
+    private Difficulty difficulty;
 
     @NotBlank(message = "Theme is required")
     @Size(min = 1, max = 100, message = "Theme must be between 1 and 100 characters")
@@ -50,5 +55,13 @@ public class QuestionUpdateDTO {
 
     public void setThemes(Themes themes) {
         this.themes = themes;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
