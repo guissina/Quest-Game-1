@@ -2,6 +2,7 @@ package com.Quest.quest.interfaces;
 
 import java.util.List;
 
+import com.Quest.quest.dto.Player.PlayerCreateDTO;
 import com.Quest.quest.dto.Player.PlayerResponseDTO;
 import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.models.Player;
@@ -10,7 +11,7 @@ public interface IPlayerServices {
 
     Player findPlayerById(long id);
 
-    PlayerResponseDTO create(PlayerUpdateDTO playerCreateDTO);
+    PlayerCreateDTO create(PlayerCreateDTO playerCreateDTO);
 
     PlayerResponseDTO findById(long id);
 

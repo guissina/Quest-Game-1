@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Quest.quest.dto.Player.PlayerCreateDTO;
 import com.Quest.quest.dto.Player.PlayerResponseDTO;
 import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.interfaces.IPlayerServices;
@@ -27,7 +28,7 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
-    public PlayerResponseDTO create(PlayerUpdateDTO playerCreateDTO) {
+    public PlayerResponseDTO create(PlayerCreateDTO playerCreateDTO) {
         Player player = playerMapper.toEntity(playerCreateDTO);
         Player savedPlayer = playerRepository.save(player);
         return playerMapper.toPlayerResponseDTO(savedPlayer);
