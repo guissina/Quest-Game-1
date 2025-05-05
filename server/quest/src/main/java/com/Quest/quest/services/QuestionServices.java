@@ -62,9 +62,8 @@ public class QuestionServices implements IQuestionServices {
             currentQuestion.setAnswer(questionUpdateDTO.getAnswer());
         if (!currentQuestion.getDifficulty().equals(questionUpdateDTO.getDifficulty()))
             currentQuestion.setDifficulty(questionUpdateDTO.getDifficulty());
-        if (!currentQuestion.getThemes().equals(questionUpdateDTO.getThemes()))
-            currentQuestion.setThemes(questionUpdateDTO.getThemes());
 
+        currentQuestion = questionRepository.save(currentQuestion);
         Question updatedQuestion = questionRepository.save(currentQuestion);
         return questionMapper.toQuestionResponseDTO(updatedQuestion);
     }

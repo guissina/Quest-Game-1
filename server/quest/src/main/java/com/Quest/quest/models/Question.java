@@ -1,7 +1,6 @@
 package com.Quest.quest.models;
 
 import com.Quest.quest.enums.Difficulty;
-import com.Quest.quest.enums.Themes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -32,10 +33,9 @@ public class Question {
     @Column(name = "answer", nullable = false)
     private String answer;
 
-    @NotBlank(message = "Theme is required")
-    @Size(min = 1, max = 100, message = "Category must be between 1 and 100 characters")
-    @Column(name = "themes", nullable = false)
-    private Themes themes;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "theme_id", referencedColumnName = "id", nullable = false)
+    private Theme themes;
 
     @NotNull(message = "Difficulty is required")
     @Column(name = "difficulty", nullable = false)
@@ -66,20 +66,20 @@ public class Question {
         this.answer = answer;
     }
 
-    public Themes getThemes() {
-        return themes;
-    }
-
-    public void setThemes(Themes themes) {
-        this.themes = themes;
-    }
-
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Theme getThemes() {
+        return themes;
+    }
+
+    public void setThemes(Theme themes) {
+        this.themes = themes;
     }
 
 }
