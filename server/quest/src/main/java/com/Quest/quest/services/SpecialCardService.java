@@ -3,6 +3,7 @@ package com.Quest.quest.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
 import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
 import com.Quest.quest.interfaces.ISpecialCardServices;
@@ -35,6 +36,12 @@ public class SpecialCardService implements ISpecialCardServices {
     public SpecialCard findSpecialCardById(long id) {
         return specialCardRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("SpecialCard not found with id: " + id));
+    }
+
+    @Override
+    public List<SpecialCardResponseDTO> findAll() {
+        List<SpecialCard> specialCards = specialCardRepository.findAll();
+        return specialCardMapper.toSpecialCardResponseDTOs(specialCards);
     }
 
     @Override
