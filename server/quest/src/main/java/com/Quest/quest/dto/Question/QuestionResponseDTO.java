@@ -4,8 +4,8 @@ public class QuestionResponseDTO {
     private Long id;
     private String questionText;
     private String answer;
-    private String themes;
     private String difficulty;
+    private long themeId;
 
     public Long getId() {
         return id;
@@ -31,19 +31,19 @@ public class QuestionResponseDTO {
         this.answer = answer;
     }
 
-    public String getThemes() {
-        return themes;
-    }
-
-    public void setThemes(String themes) {
-        this.themes = themes;
-    }
-
     public String getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public long getThemeId() {
+        return themeId;
+    }
+
+    public void setThemeId(long themeId) {
+        this.themeId = themeId;
     }
 }

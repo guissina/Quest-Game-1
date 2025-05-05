@@ -1,7 +1,6 @@
 package com.Quest.quest.dto.Question;
 
 import com.Quest.quest.enums.Difficulty;
-import com.Quest.quest.enums.Themes;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
@@ -20,9 +19,7 @@ public class QuestionCreateDTO {
     private String answer;
 
     @NotNull(message = "Theme is required")
-    @Size(min = 1, max = 100, message = "Theme must be between 1 and 100 characters")
-    @Column(name = "themes", nullable = false)
-    private Themes themes;
+    private long themeId;
 
     @NotNull(message = "Difficulty is required")
     private Difficulty difficulty;
@@ -43,20 +40,20 @@ public class QuestionCreateDTO {
         this.answer = answer;
     }
 
-    public Themes getThemes() {
-        return themes;
-    }
-
-    public void setThemes(Themes themes) {
-        this.themes = themes;
-    }
-
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public long getThemeId() {
+        return themeId;
+    }
+
+    public void setThemeId(long themeId) {
+        this.themeId = themeId;
     }
 
 }
