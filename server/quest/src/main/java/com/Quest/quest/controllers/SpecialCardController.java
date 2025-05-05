@@ -2,7 +2,6 @@ package com.Quest.quest.controllers;
 
 import java.util.List;
 
-import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
 import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
 import com.Quest.quest.services.SpecialCardService;
 
-@Mapper(componentModel = "spring")
 @RequestMapping("/specialCards")
 public class SpecialCardController {
     private final SpecialCardService specialCardService;

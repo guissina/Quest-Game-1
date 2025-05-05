@@ -2,7 +2,6 @@ package com.Quest.quest.controllers;
 
 import java.util.List;
 
-import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,6 @@ import com.Quest.quest.dto.Question.QuestionResponseDTO;
 import com.Quest.quest.dto.Question.QuestionUpdateDTO;
 import com.Quest.quest.services.QuestionServices;
 
-@Mapper(componentModel = "spring")
 @RequestMapping("/questions")
 public class QuestionController {
     private final QuestionServices questionServices;
