@@ -1,0 +1,57 @@
+.qm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qm-modal {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    width: 320px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.qm-title {
+    font-size: 20px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+.qm-text {
+    margin-bottom: 16px;
+    color: #374151;
+}
+.qm-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+.qm-actions {
+    text-align: right;
+}
+.qm-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.qm-cancel {
+    background-color: #e5e7eb;
+    margin-right: 8px;
+}
+.qm-submit {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+.qm-cancel:hover {
+    background-color: #d1d5db;
+}
+.qm-submit:hover {
+    background-color: #1d4ed8;
+}

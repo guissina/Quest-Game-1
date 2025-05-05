@@ -11,100 +11,12 @@ export class Game {
     public readonly id: string;
     public readonly board: Board;
     public readonly players: Player[];
-    
-    protected currentTurn: number;
+    public mustAnswerBeforeMoving: Record<string, boolean> = {};
 
     constructor(props: GameProps) {
         this.id = props.id;
         this.board = props.board;
         this.players = props.players;
-        this.currentTurn = 0;
-    }
-
-    public clone(): Game {
-        const clone = new Game({
-            id: this.id,
-            board: this.board,
-            players: this.players,
-        });
-        clone.currentTurn = this.currentTurn;
-        return clone;
-    }
-    
-    public seedPlayers(): void {
-        const start = this.board.tiles[0];
-        this.clearAllTiles();
-        this.players.forEach((p) => start.players.push(p));
-    }
-
-    public get currentPlayer(): Player {
-        return this.players[this.currentTurn];
-    }
-
-    public advanceTurn(): void {
-        this.currentTurn = (this.currentTurn + 1) % this.players.length;
-    }
-
-    public moveToTile(playerId: string, tileId: string): void {
-        this.assertIsCurrentPlayer(playerId);
-
-        this.clearPlayerFromTiles(playerId);
-        const destination = this.findTileOrThrow(tileId);
-        destination.players.push(this.currentPlayer);
-
-        this.advanceTurn();
-    }
-
-    public moveBySteps(playerId: string, steps: number): void {
-        const origin = this.findPlayerTileOrThrow(playerId);
-        const originIndex = this.board.tiles.indexOf(origin);
-
-        const destIndex = (originIndex + steps) % this.board.tiles.length;
-        const destination = this.board.tiles[destIndex];
-
-        origin.players = origin.players.filter((p) => p.id !== playerId);
-        destination.players.push(this.players.find((p) => p.id === playerId)!);
-    }
-
-    public answerQuestion(playerId: string, steps: number, correct: boolean): void {
-        if (this.currentPlayer.id !== playerId)
-            throw new Error(`Not ${playerId}’s turn`);
-    
-        if (correct) 
-            this.moveBySteps(playerId, steps);
-        else 
-            this.currentPlayer.consumeToken(steps);
-            
-        this.advanceTurn();
-    }
-
-    private clearAllTiles(): void {
-        this.board.tiles.forEach((t) => (t.players = []));
-    }
-
-    private clearPlayerFromTiles(playerId: string): void {
-        this.board.tiles.forEach((t) => {
-            t.players = t.players.filter((p) => p.id !== playerId);
-        });
-    }
-
-    private assertIsCurrentPlayer(playerId: string): void {
-        if (this.currentPlayer.id !== playerId)
-            throw new Error(`Não é a vez de ${playerId}`);
-    }
-
-    private findTileOrThrow(tileId: string) {
-        const tile = this.board.tiles.find((t) => t.id === tileId);
-        if (!tile) throw new Error(`Tile "${tileId}" não existe`);
-        return tile;
-    }
-
-    private findPlayerTileOrThrow(playerId: string) {
-        const tile = this.board.tiles.find((t) =>
-            t.players.some((p) => p.id === playerId)
-        );
-        if (!tile)
-            throw new Error(`Player "${playerId}" não está em nenhuma tile`);
-        return tile;
+        this.players.forEach(p => this.mustAnswerBeforeMoving[p.id] = false);
     }
 }

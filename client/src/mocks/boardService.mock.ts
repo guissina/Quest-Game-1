@@ -46,7 +46,7 @@ const specialCard2: CardProps = {
     type: "skip"
 };
 
-const tileProps1: TileProps = { id: "tile-1", questionTheme: themeMusic };
+const tileProps1: TileProps = { id: "tile-1" };
 const tileProps2: TileProps = { id: "tile-2", questionTheme: themeGames };
 const tileProps3: TileProps = { id: "tile-3", questionTheme: themeTech };
 const tileProps4: TileProps = { id: "tile-4", questionTheme: themeMusic, specialCard: specialCard2 };

@@ -5,18 +5,18 @@ import { Theme, ThemeProps } from "./Theme";
 export interface TileProps {
     id: string;
     specialCard?: CardProps;
-    questionTheme: ThemeProps;
+    questionTheme?: ThemeProps;
 }
 
 export class Tile {
     public readonly id: string;
-    public readonly questionTheme: Theme;
+    public questionTheme: Theme | null;
     public specialCard: Card | null;
     public players: Player[];
 
     constructor(props: TileProps) {
         this.id = props.id;
-        this.questionTheme = new Theme(props.questionTheme);
+        this.questionTheme = props.questionTheme ? new Theme(props.questionTheme) : null;
         this.specialCard = props.specialCard ? new Card(props.specialCard) : null;
         this.players = [];
     }
