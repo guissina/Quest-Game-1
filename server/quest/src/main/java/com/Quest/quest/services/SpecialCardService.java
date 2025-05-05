@@ -49,4 +49,11 @@ public class SpecialCardService implements ISpecialCardServices {
         SpecialCard specialCard = findSpecialCardById(id);
         return specialCardMapper.toSpecialCardResponseDTO(specialCard);
     }
+
+    @Override
+    public void delete(long id) {
+        SpecialCard specialCard = findSpecialCardById(id);
+        specialCardRepository.delete(specialCard);
+    }
+
 }
