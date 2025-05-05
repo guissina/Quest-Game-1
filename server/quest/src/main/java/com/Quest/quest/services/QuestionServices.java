@@ -63,7 +63,6 @@ public class QuestionServices implements IQuestionServices {
         if (!currentQuestion.getDifficulty().equals(questionUpdateDTO.getDifficulty()))
             currentQuestion.setDifficulty(questionUpdateDTO.getDifficulty());
 
-        currentQuestion = questionRepository.save(currentQuestion);
         Question updatedQuestion = questionRepository.save(currentQuestion);
         return questionMapper.toQuestionResponseDTO(updatedQuestion);
     }
