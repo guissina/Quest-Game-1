@@ -1,6 +1,10 @@
 package com.Quest.quest.models;
 
+import com.Quest.quest.enums.SpecialtyType;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,6 +30,9 @@ public class SpecialCard {
     @NotBlank(message = "Effect is required")
     @Size(min = 1, max = 50, message = "Card type must be between 1 and 50 characters")
     private String effect;
+
+    @Enumerated(EnumType.STRING)
+    private SpecialtyType specialtyType;
 
     public Long getId() {
         return id;
@@ -57,6 +64,14 @@ public class SpecialCard {
 
     public void setEffect(String effect) {
         this.effect = effect;
+    }
+
+    public SpecialtyType getSpecialtyType() {
+        return specialtyType;
+    }
+
+    public void setSpecialtyType(SpecialtyType specialtyType) {
+        this.specialtyType = specialtyType;
     }
 
 }
