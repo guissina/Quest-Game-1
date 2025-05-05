@@ -1,5 +1,7 @@
 package com.Quest.quest.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,12 @@ public class QuestionServices implements IQuestionServices {
     public QuestionResponseDTO findById(long id) {
         Question question = findQuestionById(id);
         return questionMapper.toQuestionResponseDTO(question);
+    }
+
+    @Override
+    public List<QuestionResponseDTO> findAll() {
+        List<Question> questions = questionRepository.findAll();
+        return questionMapper.toQuestionResponseDTOs(questions);
     }
 
     @Override

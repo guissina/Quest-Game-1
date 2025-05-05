@@ -1,10 +1,13 @@
 package com.Quest.quest.controllers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,13 +34,19 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdQuestion);
     }
 
+    @GetMapping
+    public ResponseEntity<List<QuestionResponseDTO>> findAllQuestions() {
+        List<QuestionResponseDTO> questions = questionServices.findAll();
+        return ResponseEntity.ok(questions);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<QuestionResponseDTO> updateQuestion(@RequestBody QuestionUpdateDTO questionUpdateDTO) {
         QuestionResponseDTO updatedQuestion = questionServices.update(questionUpdateDTO);
         return ResponseEntity.ok(updatedQuestion);
     }
 
-    @PostMapping("/findById")
+    @GetMapping("/{id}")
     public ResponseEntity<QuestionResponseDTO> findQuestionById(@RequestBody long id) {
         QuestionResponseDTO question = questionServices.findById(id);
         return ResponseEntity.ok(question);
