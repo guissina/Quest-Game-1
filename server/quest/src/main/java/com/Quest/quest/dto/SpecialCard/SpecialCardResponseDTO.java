@@ -4,6 +4,7 @@ public class SpecialCardResponseDTO {
     private Long id;
     private String cardName;
     private String cardDescription;
+    private String specialtyType;
     private String effect;
 
     public Long getId() {
@@ -36,5 +37,13 @@ public class SpecialCardResponseDTO {
 
     public void setEffect(String effect) {
         this.effect = effect;
+    }
+
+    public String getSpecialtyType() {
+        return specialtyType;
+    }
+
+    public void setSpecialtyType(String specialtyType) {
+        this.specialtyType = specialtyType;
     }
 }
