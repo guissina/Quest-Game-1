@@ -19,6 +19,9 @@ import com.Quest.quest.dto.Theme.ThemeResponseDTO;
 import com.Quest.quest.dto.Theme.ThemeUpdateDTO;
 import com.Quest.quest.services.ThemeServices;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+
 @RestController
 @RequestMapping("/themes")
 public class ThemeController {
@@ -36,13 +39,15 @@ public class ThemeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ThemeResponseDTO> updateTheme(@RequestBody ThemeUpdateDTO themeUpdateDTO) {
+    public ResponseEntity<ThemeResponseDTO> updateTheme(@PathVariable long id,
+            @Valid @RequestBody @NotNull ThemeUpdateDTO themeUpdateDTO) {
+        themeUpdateDTO.setId(id);
         ThemeResponseDTO updatedTheme = themeServices.update(themeUpdateDTO);
         return ResponseEntity.ok(updatedTheme);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ThemeResponseDTO> getThemeById(@RequestBody ThemeUpdateDTO themeUpdateDTO) {
+    public ResponseEntity<ThemeResponseDTO> getThemeById(@PathVariable ThemeUpdateDTO themeUpdateDTO) {
         ThemeResponseDTO theme = themeServices.findById(themeUpdateDTO.getId());
         return ResponseEntity.ok(theme);
     }

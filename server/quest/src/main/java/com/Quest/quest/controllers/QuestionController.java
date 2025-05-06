@@ -19,6 +19,8 @@ import com.Quest.quest.dto.Question.QuestionResponseDTO;
 import com.Quest.quest.dto.Question.QuestionUpdateDTO;
 import com.Quest.quest.services.QuestionServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/questions")
 public class QuestionController {
@@ -42,13 +44,17 @@ public class QuestionController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<QuestionResponseDTO> updateQuestion(@RequestBody QuestionUpdateDTO questionUpdateDTO) {
+    public ResponseEntity<QuestionResponseDTO> updateQuestion(@PathVariable long id,
+            @Valid @RequestBody QuestionUpdateDTO questionUpdateDTO) {
+
+        questionUpdateDTO.setId(id);
         QuestionResponseDTO updatedQuestion = questionServices.update(questionUpdateDTO);
+
         return ResponseEntity.ok(updatedQuestion);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<QuestionResponseDTO> findQuestionById(@RequestBody long id) {
+    public ResponseEntity<QuestionResponseDTO> findQuestionById(@PathVariable long id) {
         QuestionResponseDTO question = questionServices.findById(id);
         return ResponseEntity.ok(question);
     }

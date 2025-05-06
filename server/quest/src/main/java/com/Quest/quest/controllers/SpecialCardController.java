@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
 import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
+import com.Quest.quest.dto.SpecialCard.SpecialCardUpdateDTO;
 import com.Quest.quest.services.SpecialCardService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/specialCards")
@@ -42,15 +45,16 @@ public class SpecialCardController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SpecialCardResponseDTO> findSpecialCardById(@RequestBody long id) {
+    public ResponseEntity<SpecialCardResponseDTO> findSpecialCardById(@PathVariable long id) {
         SpecialCardResponseDTO specialCard = specialCardService.findById(id);
         return ResponseEntity.ok(specialCard);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SpecialCardResponseDTO> updateSpecialCard(
-            @RequestBody SpecialCardCreateDTO specialCardCreateDTO) {
-        SpecialCardResponseDTO updatedSpecialCard = specialCardService.update(specialCardCreateDTO);
+    public ResponseEntity<SpecialCardResponseDTO> updateSpecialCard(@PathVariable long id,
+            @Valid @RequestBody SpecialCardUpdateDTO specialCardUpdateDTO) {
+        specialCardUpdateDTO.setId(id);
+        SpecialCardResponseDTO updatedSpecialCard = specialCardService.update(specialCardUpdateDTO);
         return ResponseEntity.ok(updatedSpecialCard);
     }
 

@@ -19,6 +19,8 @@ import com.Quest.quest.dto.Player.PlayerResponseDTO;
 import com.Quest.quest.dto.Player.PlayerUpdateDTO;
 import com.Quest.quest.services.PlayerServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/players")
 public class PlayerController {
@@ -36,7 +38,10 @@ public class PlayerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PlayerResponseDTO> updatePlayer(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
+    public ResponseEntity<PlayerResponseDTO> updatePlayer(@PathVariable long id,
+            @Valid @RequestBody PlayerUpdateDTO playerUpdateDTO) {
+
+        playerUpdateDTO.setId(id);
         PlayerResponseDTO updatedPlayer = playerServices.update(playerUpdateDTO);
         return ResponseEntity.ok(updatedPlayer);
     }
