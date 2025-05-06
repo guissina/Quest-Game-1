@@ -11,6 +11,7 @@ import com.Quest.quest.dto.Question.QuestionUpdateDTO;
 import com.Quest.quest.interfaces.IQuestionServices;
 import com.Quest.quest.mappers.QuestionMapper;
 import com.Quest.quest.models.Question;
+import com.Quest.quest.models.Theme;
 import com.Quest.quest.repositories.QuestionRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -20,16 +21,22 @@ import jakarta.validation.constraints.NotNull;
 public class QuestionServices implements IQuestionServices {
     private final QuestionMapper questionMapper;
     private final QuestionRepository questionRepository;
+    private final ThemeServices themeServices;
 
     @Autowired
-    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository) {
+    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository,
+            ThemeServices themeServices) {
         this.questionMapper = questionMapper;
         this.questionRepository = questionRepository;
+        this.themeServices = themeServices;
     }
 
     @Override
-    public QuestionResponseDTO create(@NotNull QuestionCreateDTO QuestionCreateDTO) {
-        Question question = questionMapper.toEntity(QuestionCreateDTO);
+    public QuestionResponseDTO create(@NotNull QuestionCreateDTO questionCreateDTO) {
+        Theme theme = themeServices.findThemeById(questionCreateDTO.getThemeId());
+        Question question = questionMapper.toEntity(questionCreateDTO);
+        question.setThemes(theme);
+
         Question savedQuestion = questionRepository.save(question);
         return questionMapper.toQuestionResponseDTO(savedQuestion);
     }
