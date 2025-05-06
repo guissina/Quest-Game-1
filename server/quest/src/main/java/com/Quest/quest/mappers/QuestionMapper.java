@@ -13,7 +13,6 @@ import com.Quest.quest.models.Question;
 
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface QuestionMapper {
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "themeId", source = "themes.id")
     QuestionResponseDTO toQuestionResponseDTO(Question question);
 

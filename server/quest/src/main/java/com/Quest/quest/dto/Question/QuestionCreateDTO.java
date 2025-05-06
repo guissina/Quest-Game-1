@@ -2,7 +2,6 @@ package com.Quest.quest.dto.Question;
 
 import com.Quest.quest.enums.Difficulty;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -10,12 +9,10 @@ import jakarta.validation.constraints.Size;
 public class QuestionCreateDTO {
     @NotBlank(message = "Title is required")
     @Size(min = 1, max = 255, message = "Title must be between 1 and 255 characters")
-    @Column(name = "title", length = 255, nullable = false)
     private String questionText;
 
     @NotBlank(message = "Question text is required")
     @Size(min = 1, max = 500, message = "Question text must be between 1 and 500 characters")
-    @Column(name = "question_text", length = 500, nullable = false)
     private String answer;
 
     @NotNull(message = "Theme is required")
