@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Quest.quest.dto.SpecialCard.SpecialCardCreateDTO;
 import com.Quest.quest.dto.SpecialCard.SpecialCardResponseDTO;
+import com.Quest.quest.dto.SpecialCard.SpecialCardUpdateDTO;
 import com.Quest.quest.interfaces.ISpecialCardServices;
 import com.Quest.quest.mappers.SpecialCardMapper;
 import com.Quest.quest.models.SpecialCard;
@@ -46,8 +47,8 @@ public class SpecialCardService implements ISpecialCardServices {
     }
 
     @Override
-    public SpecialCardResponseDTO update(SpecialCardCreateDTO specialCardCreateDTO) {
-        SpecialCard specialCard = specialCardMapper.toEntity(specialCardCreateDTO);
+    public SpecialCardResponseDTO update(SpecialCardUpdateDTO specialCardUpdateDTO) {
+        SpecialCard specialCard = specialCardMapper.toEntity(specialCardUpdateDTO);
         SpecialCard updatedSpecialCard = specialCardRepository.save(specialCard);
         return specialCardMapper.toSpecialCardResponseDTO(updatedSpecialCard);
     }

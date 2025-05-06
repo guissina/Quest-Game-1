@@ -14,6 +14,9 @@ public class SpecialCardUpdateDTO {
     @Size(min = 1, max = 255, message = "Card description must be between 1 and 255 characters")
     private String cardDescription;
 
+    @NotBlank(message = "Specialty type is required")
+    private String specialtyType;
+
     @NotBlank(message = "Effect is required")
     @Size(min = 1, max = 50, message = "Effect must be between 1 and 50 characters")
     private String effect;
@@ -48,6 +51,14 @@ public class SpecialCardUpdateDTO {
 
     public void setEffect(String effect) {
         this.effect = effect;
+    }
+
+    public String getSpecialtyType() {
+        return specialtyType;
+    }
+
+    public void setSpecialtyType(String specialtyType) {
+        this.specialtyType = specialtyType;
     }
 
 }
