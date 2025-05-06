@@ -1,0 +1,15 @@
+[
+    {
+      "cardName": "Double Move",
+      "cardDescription": "Allows the player to move twice in one turn",
+      "effect": "DOUBLE_MOVE",
+      "specialtyType": "MOVEMENT"
+    },
+    {
+      "cardName": "Skip Question",
+      "cardDescription": "Skip a question without penalty",
+      "effect": "SKIP_QUESTION",
+      "specialtyType": "QUESTION"
+    }
+  ]
+  
