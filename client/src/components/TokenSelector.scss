@@ -1,0 +1,25 @@
+.gp-tokens {
+    margin: 16px 0;
+}
+.gp-token-list {
+    display: flex;
+    gap: 8px;
+}
+.gp-token {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #2563eb;
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.gp-token:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.1);
+}

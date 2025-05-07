@@ -1,10 +1,13 @@
-// src/page/GamePage.tsx
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { useBoard } from "../hooks/useBoard";
 import { useGame } from "../hooks/useGame";
 import { getBoardById } from "../mocks/boardService.mock";
 import BoardView from "../components/BoardView";
 import QuestionModal from "../components/QuestionModal";
+import { BoardSelector } from "../components/BoardSelector";
+import { TurnIndicator } from "../components/TurnIndicator";
+import { TokenSelector } from "../components/TokenSelector";
+import { FeedbackMessage } from "../components/FeedbackMessage";
 import { Player, PlayerProps } from "../models/Player";
 import "./GamePage.scss";
 
@@ -24,14 +27,12 @@ export default function GamePage() {
         submitAnswer,
     } = useGame();
 
-    const [selectedId, setSelectedId] = useState("");
+    const [selectedId, setSelectedId] = useState<string>("");
     const [feedback, setFeedback] = useState<Feedback | null>(null);
 
-    const handleSelect = async (e: ChangeEvent<HTMLSelectElement>) => {
-        const id = e.target.value;
+    const handleSelect = async (id: string) => {
         setSelectedId(id);
         if (!id) return;
-
         const board = await getBoardById(id);
         const players = ["Alice", "Bob"].map(
             (name, i) => new Player({ id: `${i + 1}`, name } as PlayerProps)
@@ -54,32 +55,18 @@ export default function GamePage() {
             <h1 className='gp-title'>Board Game</h1>
 
             {!engine && (
-                <div className='gp-select-area'>
-                    <label htmlFor='board-select' className='gp-label'>
-                        Select board:
-                    </label>
-                    <select
-                        id='board-select'
-                        value={selectedId}
-                        onChange={handleSelect}
-                        className='gp-select'
-                    >
-                        <option value=''>-- choose --</option>
-                        {boards.map((b) => (
-                            <option key={b.id} value={b.id}>
-                                {b.id}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+                <BoardSelector
+                    boards={boards}
+                    selected={selectedId}
+                    onSelect={handleSelect}
+                />
             )}
 
             {engine && (
                 <>
-                    <div className='gp-turn'>
-                        <strong>Turn:&nbsp;</strong>
-                        <span>{engine.state.currentPlayer.name}</span>
-                    </div>
+                    <TurnIndicator
+                        playerName={engine.state.currentPlayer.name}
+                    />
 
                     {currentQuestion && (
                         <QuestionModal
@@ -90,36 +77,17 @@ export default function GamePage() {
                     )}
 
                     {feedback && (
-                        <div
-                            className={
-                                feedback.correct
-                                    ? "gp-feedback gp-feedback-correct"
-                                    : "gp-feedback gp-feedback-wrong"
-                            }
-                        >
-                            {feedback.correct
-                                ? "🎉 Você acertou!"
-                                : `❌ Errou! A resposta certa era "${feedback.correctAnswer}".`}
-                        </div>
+                        <FeedbackMessage
+                            correct={feedback.correct}
+                            correctAnswer={feedback.correctAnswer}
+                        />
                     )}
 
                     {!currentQuestion && (
-                        <div className='gp-tokens'>
-                            <p>Select movement token:</p>
-                            <div className='gp-token-list'>
-                                {engine.state.currentPlayer.movementTokens.map(
-                                    (steps) => (
-                                        <button
-                                            key={steps}
-                                            className='gp-token'
-                                            onClick={() => moveBySteps(steps)}
-                                        >
-                                            {steps}
-                                        </button>
-                                    )
-                                )}
-                            </div>
-                        </div>
+                        <TokenSelector
+                            tokens={engine.state.currentPlayer.movementTokens}
+                            onMove={moveBySteps}
+                        />
                     )}
 
                     <BoardView
