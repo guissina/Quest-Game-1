@@ -1,9 +1,10 @@
-import { useState } from "react";
+// src/hooks/useGame.ts
+import { useState, useEffect } from "react";
 import { Board } from "../models/Board";
 import { Player } from "../models/Player";
 import { Question } from "../models/Question";
-import { GameEngine } from "../services/game/GameEngine";
 import { Game } from "../models/Game";
+import { GameEngine } from "../services/game/GameEngine";
 import { TurnManager } from "../services/game/TurnManager";
 import { BoardManager } from "../services/game/BoardManager";
 import { QuestionService } from "../services/game/QuestionService";
@@ -12,6 +13,21 @@ export const useGame = () => {
     const [engine, setEngine] = useState<GameEngine | null>(null);
     const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
     const [pendingSteps, setPendingSteps] = useState<number>(0);
+
+    useEffect(() => {
+        if (!engine) return;
+
+        const playerId = engine.state.currentPlayer.id;
+        const blocked = engine.state.aggregate.mustAnswerBeforeMoving[playerId];
+
+        if (blocked && !currentQuestion) {
+            const tile = engine.state.aggregate.board.tiles.find((t) =>
+                t.players.some((p) => p.id === playerId)
+            )!;
+            setPendingSteps(0);
+            setCurrentQuestion(tile.questionTheme!.questions[0]);
+        }
+    }, [engine, currentQuestion]);
 
     const startGame = (board: Board, players: Player[]) => {
         const aggregate = new Game({ id: crypto.randomUUID(), board, players });
@@ -36,17 +52,14 @@ export const useGame = () => {
     const moveBySteps = (steps: number) => {
         if (!engine) return;
         const playerId = engine.state.currentPlayer.id;
-
-        const tiles = engine.state.aggregate.board.tiles;
-        const origin = tiles.find((t) =>
-            t.players.some((p) => p.id === playerId)
-        )!;
-        const originIndex = tiles.indexOf(origin);
-        const dest = tiles[(originIndex + steps) % tiles.length];
         
-        updateEngine((e) => {
-            e.move(playerId, dest.id);
-        });
+        const tiles = engine.state.aggregate.board.tiles;
+        const originIndex = tiles.findIndex((t) =>
+            t.players.some((p) => p.id === playerId)
+        );
+        const dest = tiles[(originIndex + steps) % tiles.length];
+
+        updateEngine((e) => e.move(playerId, dest.id));
 
         if (dest.questionTheme?.questions.length) {
             setPendingSteps(steps);
@@ -60,13 +73,12 @@ export const useGame = () => {
         const correct =
             answer.trim().toLowerCase() ===
             currentQuestion.answer.trim().toLowerCase();
-    
+
         updateEngine((e) => e.answer(playerId, pendingSteps, correct));
         setCurrentQuestion(null);
         setPendingSteps(0);
         return correct;
     };
-  
 
     return {
         engine,

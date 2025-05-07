@@ -75,3 +75,27 @@
     background: #fdecea;
     color: #c62828;
 }
+.gp-turn-banner {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 200;
+}
+.gp-start-turn-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.gp-start-turn-btn:hover {
+    background-color: #2563eb;
+}

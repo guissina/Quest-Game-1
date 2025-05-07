@@ -1,3 +1,4 @@
+// src/page/GamePage.tsx
 import { ChangeEvent, useState } from "react";
 import { useBoard } from "../hooks/useBoard";
 import { useGame } from "../hooks/useGame";
@@ -6,6 +7,11 @@ import BoardView from "../components/BoardView";
 import QuestionModal from "../components/QuestionModal";
 import { Player, PlayerProps } from "../models/Player";
 import "./GamePage.scss";
+
+interface Feedback {
+    correct: boolean;
+    correctAnswer: string;
+}
 
 export default function GamePage() {
     const { boards, loading, error } = useBoard();
@@ -17,24 +23,27 @@ export default function GamePage() {
         moveBySteps,
         submitAnswer,
     } = useGame();
+
     const [selectedId, setSelectedId] = useState("");
+    const [feedback, setFeedback] = useState<Feedback | null>(null);
 
     const handleSelect = async (e: ChangeEvent<HTMLSelectElement>) => {
         const id = e.target.value;
         setSelectedId(id);
         if (!id) return;
+
         const board = await getBoardById(id);
-        const players = ["Alice", "Bob", "Carol", "Dave"].map(
-            (name, i) => new Player({ id: `${i}`, name } as PlayerProps)
+        const players = ["Alice", "Bob"].map(
+            (name, i) => new Player({ id: `${i + 1}`, name } as PlayerProps)
         );
         startGame(board, players);
     };
 
-    const [answerFeedback, setAnswerFeedback] = useState<null | boolean>(null);
     const handleAnswer = (answer: string) => {
+        if (!currentQuestion) return;
         const correct = submitAnswer(answer);
-        setAnswerFeedback(correct);
-        setTimeout(() => setAnswerFeedback(null), 3000);
+        setFeedback({ correct, correctAnswer: currentQuestion.answer });
+        setTimeout(() => setFeedback(null), 3000);
     };
 
     if (loading) return <p className='gp-loading'>Loading boards…</p>;
@@ -80,33 +89,35 @@ export default function GamePage() {
                         />
                     )}
 
-                    {answerFeedback !== null && (
+                    {feedback && (
                         <div
                             className={
-                                answerFeedback
-                                ? "gp-feedback gp-feedback-correct"
-                                : "gp-feedback gp-feedback-wrong"
+                                feedback.correct
+                                    ? "gp-feedback gp-feedback-correct"
+                                    : "gp-feedback gp-feedback-wrong"
                             }
                         >
-                            {answerFeedback
+                            {feedback.correct
                                 ? "🎉 Você acertou!"
-                                : `❌ Errou! A resposta certa era "${currentQuestion?.answer}".`}
+                                : `❌ Errou! A resposta certa era "${feedback.correctAnswer}".`}
                         </div>
                     )}
 
                     {!currentQuestion && (
-                        <div className="gp-tokens">
+                        <div className='gp-tokens'>
                             <p>Select movement token:</p>
-                            <div className="gp-token-list">
-                                {engine.state.currentPlayer.movementTokens.map((steps) => (
-                                    <button
-                                        key={steps}
-                                        className="gp-token"
-                                        onClick={() => moveBySteps(steps)}
-                                    >
-                                        {steps}
-                                    </button>
-                                ))}
+                            <div className='gp-token-list'>
+                                {engine.state.currentPlayer.movementTokens.map(
+                                    (steps) => (
+                                        <button
+                                            key={steps}
+                                            className='gp-token'
+                                            onClick={() => moveBySteps(steps)}
+                                        >
+                                            {steps}
+                                        </button>
+                                    )
+                                )}
                             </div>
                         </div>
                     )}
