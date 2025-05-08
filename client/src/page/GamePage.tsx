@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useGame } from "../hooks/useGame";
 import { useTurnOverlay } from "../hooks/ui/useTurnOverlay";
+import { Board } from "../models/Board";
+import { Player, PlayerProps } from "../models/Player";
 import { BoardSelector } from "../components/Board/BoardSelector";
 import { TurnIndicator } from "../components/Player/TurnIndicator";
 import { TokenSelector } from "../components/Player/TokenSelector";
@@ -8,8 +10,6 @@ import { BoardView } from "../components/Board/BoardView";
 import { QuestionModal } from "../components/Question/QuestionModal";
 import { FeedbackMessage } from "../components/Question/FeedbackMessage";
 import "./GamePage.scss";
-import { Board } from "../models/Board";
-import { Player, PlayerProps } from "../models/Player";
 
 interface FeedbackProps {
     correct: boolean;
@@ -63,7 +63,7 @@ export default function GamePage() {
             {showTurnOverlay && (
                 <div className='overlay turn-overlay'>
                     <div className='overlay-box'>
-                        <h2>It’s {engine.state.currentPlayer.name}’s turn</h2>
+                        <h2>It's {engine.state.currentPlayer.name}'s turn</h2>
                     </div>
                 </div>
             )}
