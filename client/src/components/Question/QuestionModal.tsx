@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Question } from "../models/Question";
+import { Question } from "../../models/Question";
 import "./QuestionModal.scss";
 
 interface QuestionModalProps {
@@ -8,7 +8,7 @@ interface QuestionModalProps {
     onCancel: () => void;
 }
 
-export default function QuestionModal({
+export function QuestionModal({
     question,
     onSubmit,
     onCancel,

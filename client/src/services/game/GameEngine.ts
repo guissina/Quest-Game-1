@@ -1,4 +1,5 @@
 import { Game } from "../../models/Game";
+import { Question } from "../../models/Question";
 import { BoardManager } from "./BoardManager";
 import { QuestionService } from "./QuestionService";
 import { TurnManager } from "./TurnManager";

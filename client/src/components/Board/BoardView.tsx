@@ -1,5 +1,4 @@
-import React from "react";
-import { Board } from "../models/Board";
+import { Board } from "../../models/Board";
 import "./BoardView.scss";
 
 interface BoardViewProps {
@@ -7,7 +6,7 @@ interface BoardViewProps {
     onTileClick(tileId: string): void;
 }
 
-export default function BoardView({ board, onTileClick }: BoardViewProps) {
+export function BoardView({ board, onTileClick }: BoardViewProps) {
     const { rows, cols, tiles } = board;
 
     return (

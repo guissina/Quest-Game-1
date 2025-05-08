@@ -1,16 +1,65 @@
 .gp-container {
+    position: relative;
     padding: 16px;
-    background-color: #f9fafb;
+    background: gray;
     min-height: 100vh;
+    font-family: sans-serif;
 }
+
 .gp-title {
-    font-size: 24px;
-    color: #1f2937;
-    margin-bottom: 16px;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: black;
 }
-.gp-loading {
-    color: #6b7280;
+
+.gp-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
-.gp-error {
-    color: #b91c1c;
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.overlay-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.turn-overlay .overlay-box {
+    border: 2px dashed #4f46e5;
+}
+.turn-overlay h2 {
+    color: #4f46e5;
+    margin: 0;
+}
+
+.ready-overlay .overlay-box {
+    border: 2px solid #f59e0b;
+}
+.ready-overlay p {
+    color: black;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.ready-overlay button {
+    padding: 0.5rem 1rem;
+    background: #f59e0b;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.ready-overlay button:hover {
+    background: #d97706;
 }

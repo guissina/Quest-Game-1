@@ -47,31 +47,22 @@ const specialCardSkip: CardProps = {
     type: "skip",
 };
 
-const tilePropsRing: TileProps[] = [
-    // Linha 0: todas as colunas
+export const tilePropsRing: TileProps[] = [
     { id: "1",  row: 0, col: 0, questionTheme: themeGames },
     { id: "2",  row: 0, col: 1, questionTheme: themeMusic },
-    { id: "3",  row: 0, col: 2, questionTheme: themeTech },
+    { id: "3",  row: 0, col: 2, questionTheme: themeTech  },
     { id: "4",  row: 0, col: 3, questionTheme: themeGames },
     { id: "5",  row: 0, col: 4, questionTheme: themeMusic },
-  
-    // Linha 1: só coluna 4
     { id: "6",  row: 1, col: 4, questionTheme: themeTech },
-  
-    // Linha 2: todas as colunas
-    { id: "7",  row: 2, col: 0, questionTheme: themeGames },
-    { id: "8",  row: 2, col: 1, questionTheme: themeMusic },
-    { id: "9",  row: 2, col: 2, questionTheme: themeTech },
-    { id: "10", row: 2, col: 3, questionTheme: themeGames },
-    { id: "11", row: 2, col: 4, questionTheme: themeMusic },
-  
-    // Linha 3: só coluna 0
+    { id: "7",  row: 2, col: 4, questionTheme: themeGames },
+    { id: "8",  row: 2, col: 3, questionTheme: themeMusic },
+    { id: "9",  row: 2, col: 2, questionTheme: themeTech  },
+    { id: "10", row: 2, col: 1, questionTheme: themeGames },
+    { id: "11", row: 2, col: 0, questionTheme: themeMusic },
     { id: "12", row: 3, col: 0, questionTheme: themeTech },
-  
-    // Linha 4: todas as colunas
     { id: "13", row: 4, col: 0, questionTheme: themeGames },
     { id: "14", row: 4, col: 1, questionTheme: themeMusic },
-    { id: "15", row: 4, col: 2, questionTheme: themeTech },
+    { id: "15", row: 4, col: 2, questionTheme: themeTech  },
     { id: "16", row: 4, col: 3, questionTheme: themeGames },
     { id: "17", row: 4, col: 4, questionTheme: themeMusic },
 ];

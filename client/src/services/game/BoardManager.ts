@@ -1,7 +1,7 @@
 import { Game } from "../../models/Game";
+import { Tile } from "../../models/Tile";
 
 export class BoardManager {
-    
     public seed(aggregate: Game) {
         const start = aggregate.board.tiles[0];
         this.clearAll(aggregate);
@@ -24,9 +24,10 @@ export class BoardManager {
         );
     }
 
-    private findTile(aggregate: Game, tileId: string) {
+    private findTile(aggregate: Game, tileId: string): Tile {
         const tile = aggregate.board.tiles.find((t) => t.id === tileId);
-        if (!tile) throw new Error(`Tile ${tileId} não existe`);
+        if (!tile) 
+            throw new Error(`Tile ${tileId} não existe`);
         return tile;
     }
 }

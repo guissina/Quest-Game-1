@@ -1,100 +1,102 @@
 import { useState } from "react";
-import { useBoard } from "../hooks/useBoard";
 import { useGame } from "../hooks/useGame";
-import { getBoardById } from "../mocks/boardService.mock";
-import BoardView from "../components/BoardView";
-import QuestionModal from "../components/QuestionModal";
-import { BoardSelector } from "../components/BoardSelector";
-import { TurnIndicator } from "../components/TurnIndicator";
-import { TokenSelector } from "../components/TokenSelector";
-import { FeedbackMessage } from "../components/FeedbackMessage";
-import { Player, PlayerProps } from "../models/Player";
+import { useTurnOverlay } from "../hooks/ui/useTurnOverlay";
+import { BoardSelector } from "../components/Board/BoardSelector";
+import { TurnIndicator } from "../components/Player/TurnIndicator";
+import { TokenSelector } from "../components/Player/TokenSelector";
+import { BoardView } from "../components/Board/BoardView";
+import { QuestionModal } from "../components/Question/QuestionModal";
+import { FeedbackMessage } from "../components/Question/FeedbackMessage";
 import "./GamePage.scss";
+import { Board } from "../models/Board";
+import { Player, PlayerProps } from "../models/Player";
 
-interface Feedback {
+interface FeedbackProps {
     correct: boolean;
     correctAnswer: string;
 }
 
 export default function GamePage() {
-    const { boards, loading, error } = useBoard();
-    const {
-        engine,
-        currentQuestion,
-        pendingSteps,
-        startGame,
-        moveBySteps,
-        submitAnswer,
-    } = useGame();
+    const { engine, currentQuestion, pendingSteps, moveBySteps, submitAnswer, startGame, revealPendingQuestion } = useGame();
+    const { showTurnOverlay, showReadyPrompt, hideReadyPrompt } = useTurnOverlay(engine);
 
-    const [selectedId, setSelectedId] = useState<string>("");
-    const [feedback, setFeedback] = useState<Feedback | null>(null);
+    const [feedback, setFeedback] = useState<FeedbackProps | null>(null);
+    const [hasSelectedBoard, setHasSelectedBoard] = useState(false);
 
-    const handleSelect = async (id: string) => {
-        setSelectedId(id);
-        if (!id) return;
-        const board = await getBoardById(id);
+    const handleBoardSelected = (board: Board) => {
         const players = ["Alice", "Bob"].map(
-            (name, i) => new Player({ id: `${i + 1}`, name } as PlayerProps)
+            (name, idx) => new Player({ id: `${idx+1}`, name } as PlayerProps)
         );
         startGame(board, players);
+        setHasSelectedBoard(true);
     };
 
     const handleAnswer = (answer: string) => {
-        if (!currentQuestion) return;
+        if (!currentQuestion || !engine) return;
         const correct = submitAnswer(answer);
         setFeedback({ correct, correctAnswer: currentQuestion.answer });
         setTimeout(() => setFeedback(null), 3000);
     };
 
-    if (loading) return <p className='gp-loading'>Loading boards…</p>;
-    if (error) return <p className='gp-error'>{error}</p>;
+    if (!hasSelectedBoard || !engine)
+        return <BoardSelector onSelectBoard={handleBoardSelected} />;
 
     return (
         <div className='gp-container'>
             <h1 className='gp-title'>Board Game</h1>
 
-            {!engine && (
-                <BoardSelector
-                    boards={boards}
-                    selected={selectedId}
-                    onSelect={handleSelect}
+            <TurnIndicator playerName={engine.state.currentPlayer.name} />
+
+            <div className='gp-content'>
+                {!currentQuestion && (
+                    <TokenSelector
+                        tokens={engine.state.currentPlayer.movementTokens}
+                        onMove={moveBySteps}
+                    />
+                )}
+                <BoardView
+                    board={engine.state.aggregate.board}
+                    onTileClick={() => moveBySteps(pendingSteps || 1)}
+                />
+            </div>
+
+            {showTurnOverlay && (
+                <div className='overlay turn-overlay'>
+                    <div className='overlay-box'>
+                        <h2>It’s {engine.state.currentPlayer.name}’s turn</h2>
+                    </div>
+                </div>
+            )}
+
+            {showReadyPrompt && (
+                <div className='overlay ready-overlay'>
+                    <div className='overlay-box'>
+                        <p>Ready to answer your pending question?</p>
+                        <button
+                            onClick={() => {
+                                revealPendingQuestion();  
+                                hideReadyPrompt();        
+                            }}
+                        >
+                            Yes
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {currentQuestion && !showTurnOverlay && !showReadyPrompt && (
+                <QuestionModal
+                    question={currentQuestion}
+                    onSubmit={handleAnswer}
+                    onCancel={() => submitAnswer("")}
                 />
             )}
 
-            {engine && (
-                <>
-                    <TurnIndicator
-                        playerName={engine.state.currentPlayer.name}
-                    />
-
-                    {currentQuestion && (
-                        <QuestionModal
-                            question={currentQuestion}
-                            onSubmit={handleAnswer}
-                            onCancel={() => submitAnswer("")}
-                        />
-                    )}
-
-                    {feedback && (
-                        <FeedbackMessage
-                            correct={feedback.correct}
-                            correctAnswer={feedback.correctAnswer}
-                        />
-                    )}
-
-                    {!currentQuestion && (
-                        <TokenSelector
-                            tokens={engine.state.currentPlayer.movementTokens}
-                            onMove={moveBySteps}
-                        />
-                    )}
-
-                    <BoardView
-                        board={engine.state.aggregate.board}
-                        onTileClick={() => moveBySteps(pendingSteps || 1)}
-                    />
-                </>
+            {feedback && (
+                <FeedbackMessage
+                    correct={feedback.correct}
+                    correctAnswer={feedback.correctAnswer}
+                />
             )}
         </div>
     );

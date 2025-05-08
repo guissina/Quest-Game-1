@@ -1,4 +1,4 @@
-import { PlayerDeck } from "./PlayerDeck";
+import { Deck } from "./Deck";
 
 export interface PlayerProps {
     id: string;
@@ -9,13 +9,13 @@ export class Player {
     public readonly id: string;
     public readonly name: string;
     public movementTokens: number[];
-    public specialDeck: PlayerDeck;
+    public specialDeck: Deck;
 
     constructor(props: PlayerProps) {
         this.id = props.id;
         this.name = props.name;
         this.movementTokens = [1, 2, 3, 4, 5];
-        this.specialDeck = new PlayerDeck({ playerId: props.id });
+        this.specialDeck = new Deck({ playerId: props.id });
     }
 
     public consumeToken(steps: number): void {
