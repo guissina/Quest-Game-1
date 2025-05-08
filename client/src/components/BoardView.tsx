@@ -1,26 +1,32 @@
+import React from "react";
 import { Board } from "../models/Board";
-import { Tile as TileModel } from "../models/Tile";
 import "./BoardView.scss";
 
 interface BoardViewProps {
     board: Board;
-    onTileClick: (tileId: string) => void;
+    onTileClick(tileId: string): void;
 }
 
 export default function BoardView({ board, onTileClick }: BoardViewProps) {
-    const total = board.tiles.length;
-    const cols = Math.ceil(Math.sqrt(total));
+    const { rows, cols, tiles } = board;
 
     return (
         <div
-            className='bv-container'
-            style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+            className='board-view'
+            style={{
+                gridTemplateColumns: `repeat(${cols}, 1fr)`,
+                gridTemplateRows: `repeat(${rows}, 1fr)`,
+            }}
         >
-            {board.tiles.map((tile: TileModel) => (
+            {tiles.map((tile) => (
                 <div
                     key={tile.id}
-                    onClick={() => onTileClick(tile.id)}
                     className='bv-tile'
+                    style={{
+                        gridColumn: tile.col + 1,
+                        gridRow: tile.row + 1,
+                    }}
+                    onClick={() => onTileClick(tile.id)}
                 >
                     <strong className='bv-tile-id'>{tile.id}</strong>
                     {tile.questionTheme && (
@@ -33,7 +39,7 @@ export default function BoardView({ board, onTileClick }: BoardViewProps) {
                     )}
                     <div className='bv-players'>
                         {tile.players.length === 0 ? (
-                            <span className='bv-empty'>– vazio –</span>
+                            <span className='bv-empty'></span>
                         ) : (
                             tile.players.map((p) => p.name).join(", ")
                         )}

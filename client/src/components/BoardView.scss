@@ -1,10 +1,11 @@
-.bv-container {
+.board-view {
     display: grid;
     gap: 16px;
     padding: 16px;
     background-color: #e0f2fe;
     border-radius: 8px;
 }
+
 .bv-tile {
     cursor: pointer;
     display: flex;
@@ -17,23 +18,29 @@
     border: 1px solid #cbd5e1;
     transition: box-shadow 0.2s;
 }
+
 .bv-tile:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .bv-tile-id {
     color: #1e3a8a;
 }
+
 .bv-theme {
     color: #4338ca;
 }
+
 .bv-special {
     color: #047857;
 }
+
 .bv-players {
     margin-top: 8px;
     font-size: 14px;
     color: #4b5563;
 }
+
 .bv-empty {
     font-style: italic;
 }

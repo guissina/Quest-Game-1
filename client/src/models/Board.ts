@@ -2,18 +2,21 @@ import { Tile, TileProps } from "./Tile";
 
 export interface BoardProps {
     id: string;
-    layoutId: string;
+    rows: number;
+    cols: number;
     tiles: TileProps[];
 }
 
 export class Board {
-    id: string;
-    layoutId: string;
-    tiles: Tile[];
+    public readonly id: string;
+    public readonly rows: number;
+    public readonly cols: number;
+    public readonly tiles: Tile[];
 
-    constructor({ id, layoutId, tiles }: BoardProps) {
-        this.id = id;
-        this.layoutId = layoutId;
-        this.tiles = tiles.map((props) => new Tile(props));
+    constructor(props: BoardProps) {
+        this.id = props.id;
+        this.rows = props.rows;
+        this.cols = props.cols;
+        this.tiles = props.tiles.map((tile) => new Tile(tile));
     }
 }
