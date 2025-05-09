@@ -1,11 +1,18 @@
 [
-    {
-      "name": "Mathematics",
-      "code": "MATH"
-    },
-    {
-      "name": "Science",
-      "code": "SCI"
-    }
-  ]
-  
+  {
+    "name": "Science",
+    "code": "SCI"
+  },
+  {
+    "name": "Musica",
+    "code": "MUSIC"
+  },
+  {
+    "name": "Games",
+    "code": "GAMES"
+  },
+  {
+    "name": "Historia",
+    "code": "HISTORIA"
+  }
+]
