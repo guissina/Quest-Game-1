@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useBoard } from "../../hooks/useBoard";
+import { useBoard } from "../../hooks/data/useBoard";
 import { Board } from "../../models/Board";
 
 interface Props {
