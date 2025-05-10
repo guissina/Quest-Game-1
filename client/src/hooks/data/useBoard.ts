@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
-import { Board } from "../models/Board";
+import { Board } from "../../models/Board";
 //import { getBoards } from "../services/boardService";
-import { getBoards } from "../mocks/boardService.mock"; // TODO Usar a API real
-import { extractErrorMessage } from "../services/api";
+import { getBoards } from "../../mocks/boardService.mock"; // TODO Usar a API real
+import { extractErrorMessage } from "../../services/api";
 
 export const useBoard = () => {
     const [boards, setBoards] = useState<Board[]>([]);
