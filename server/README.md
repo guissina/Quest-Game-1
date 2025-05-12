@@ -76,10 +76,3 @@ Este documento lista todos os endpoints expostos pelas Controllers do projeto, d
   * **204 No Content** para exclusões.
 
 * **Validações**: DTOs com `@Valid` utilizam Jakarta Validation para garantir campos obrigatórios, formatos, etc.
-
-* **Possíveis correções**:
-
-  1. `PlayerController`: ajustar endpoint de email para `@RequestParam("email")` ou `@GetMapping("/email/{email}")`.
-  2. `ThemeController`: consertar método GET por ID para usar `@PathVariable long id`.
-
-* **Arquitetura**: cada Controller delega a lógica à camada de serviços (ex.: `PlayerServices`, `QuestionServices`, etc.), retornando DTOs para desacoplar da persistência.
