@@ -1,4 +1,4 @@
-package com.quest.dto.Question;
+package com.quest.dto.rest.Question;
 
 import com.quest.enums.Difficulty;
 

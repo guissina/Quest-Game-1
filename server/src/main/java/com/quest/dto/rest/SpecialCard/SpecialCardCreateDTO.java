@@ -1,19 +1,23 @@
-package com.quest.dto.SpecialCard;
+package com.quest.dto.rest.SpecialCard;
 
-public class SpecialCardResponseDTO {
-    private Long id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public class SpecialCardCreateDTO {
+    @NotBlank(message = "Card name is required")
+    @Size(min = 1, max = 100, message = "Card name must be between 1 and 100 characters")
     private String cardName;
+
+    @NotBlank(message = "Card description is required")
+    @Size(min = 1, max = 255, message = "Card description must be between 1 and 255 characters")
     private String cardDescription;
+
+    @NotBlank(message = "Specialty type is required")
     private String specialtyType;
+
+    @NotBlank(message = "Effect is required")
+    @Size(min = 1, max = 50, message = "Effect must be between 1 and 50 characters")
     private String effect;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCardName() {
         return cardName;
@@ -46,4 +50,5 @@ public class SpecialCardResponseDTO {
     public void setSpecialtyType(String specialtyType) {
         this.specialtyType = specialtyType;
     }
+
 }

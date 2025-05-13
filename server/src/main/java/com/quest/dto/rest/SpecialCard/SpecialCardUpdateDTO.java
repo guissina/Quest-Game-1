@@ -1,4 +1,4 @@
-package com.quest.dto.SpecialCard;
+package com.quest.dto.rest.SpecialCard;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

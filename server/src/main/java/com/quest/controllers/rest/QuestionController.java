@@ -1,4 +1,4 @@
-package com.quest.controllers;
+package com.quest.controllers.rest;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quest.dto.Question.QuestionCreateDTO;
-import com.quest.dto.Question.QuestionResponseDTO;
-import com.quest.dto.Question.QuestionUpdateDTO;
-import com.quest.services.QuestionServices;
+import com.quest.dto.rest.Question.QuestionCreateDTO;
+import com.quest.dto.rest.Question.QuestionResponseDTO;
+import com.quest.dto.rest.Question.QuestionUpdateDTO;
+import com.quest.services.rest.QuestionServices;
 
 import jakarta.validation.Valid;
 

@@ -2,9 +2,9 @@ package com.quest.interfaces;
 
 import java.util.List;
 
-import com.quest.dto.Question.QuestionCreateDTO;
-import com.quest.dto.Question.QuestionResponseDTO;
-import com.quest.dto.Question.QuestionUpdateDTO;
+import com.quest.dto.rest.Question.QuestionCreateDTO;
+import com.quest.dto.rest.Question.QuestionResponseDTO;
+import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.models.Question;
 
 public interface IQuestionServices {

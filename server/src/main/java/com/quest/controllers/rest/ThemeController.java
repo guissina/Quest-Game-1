@@ -1,4 +1,4 @@
-package com.quest.controllers;
+package com.quest.controllers.rest;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quest.dto.Theme.ThemeCreateDTO;
-import com.quest.dto.Theme.ThemeResponseDTO;
-import com.quest.dto.Theme.ThemeUpdateDTO;
-import com.quest.services.ThemeServices;
+import com.quest.dto.rest.Theme.ThemeCreateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
+import com.quest.dto.rest.Theme.ThemeUpdateDTO;
+import com.quest.services.rest.ThemeServices;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

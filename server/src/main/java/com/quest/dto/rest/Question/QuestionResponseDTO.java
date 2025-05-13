@@ -1,4 +1,4 @@
-package com.quest.dto.Question;
+package com.quest.dto.rest.Question;
 
 public class QuestionResponseDTO {
     private Long id;

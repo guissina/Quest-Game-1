@@ -1,4 +1,4 @@
-package com.quest.dto.Theme;
+package com.quest.dto.rest.Theme;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

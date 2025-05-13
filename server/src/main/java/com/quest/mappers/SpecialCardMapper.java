@@ -5,9 +5,9 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.quest.dto.SpecialCard.SpecialCardCreateDTO;
-import com.quest.dto.SpecialCard.SpecialCardResponseDTO;
-import com.quest.dto.SpecialCard.SpecialCardUpdateDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardCreateDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardResponseDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardUpdateDTO;
 import com.quest.models.SpecialCard;
 
 @Mapper(componentModel = "spring")

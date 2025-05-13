@@ -1,4 +1,4 @@
-package com.quest.controllers;
+package com.quest.controllers.rest;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quest.dto.SpecialCard.SpecialCardCreateDTO;
-import com.quest.dto.SpecialCard.SpecialCardResponseDTO;
-import com.quest.dto.SpecialCard.SpecialCardUpdateDTO;
-import com.quest.services.SpecialCardService;
+import com.quest.dto.rest.SpecialCard.SpecialCardCreateDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardResponseDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardUpdateDTO;
+import com.quest.services.rest.SpecialCardService;
 
 import jakarta.validation.Valid;
 

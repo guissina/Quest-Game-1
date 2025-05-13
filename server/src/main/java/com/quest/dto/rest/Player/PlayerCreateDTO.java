@@ -1,4 +1,4 @@
-package com.quest.dto.Player;
+package com.quest.dto.rest.Player;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

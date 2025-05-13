@@ -1,13 +1,13 @@
-package com.quest.services;
+package com.quest.services.rest;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.quest.dto.Player.PlayerCreateDTO;
-import com.quest.dto.Player.PlayerResponseDTO;
-import com.quest.dto.Player.PlayerUpdateDTO;
+import com.quest.dto.rest.Player.PlayerCreateDTO;
+import com.quest.dto.rest.Player.PlayerResponseDTO;
+import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.interfaces.IPlayerServices;
 import com.quest.mappers.PlayerMapper;
 import com.quest.models.Player;

@@ -1,13 +1,13 @@
-package com.quest.services;
+package com.quest.services.rest;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.quest.dto.SpecialCard.SpecialCardCreateDTO;
-import com.quest.dto.SpecialCard.SpecialCardResponseDTO;
-import com.quest.dto.SpecialCard.SpecialCardUpdateDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardCreateDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardResponseDTO;
+import com.quest.dto.rest.SpecialCard.SpecialCardUpdateDTO;
 import com.quest.interfaces.ISpecialCardServices;
 import com.quest.mappers.SpecialCardMapper;
 import com.quest.models.SpecialCard;

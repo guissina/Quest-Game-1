@@ -5,8 +5,8 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.quest.dto.Theme.ThemeCreateDTO;
-import com.quest.dto.Theme.ThemeResponseDTO;
+import com.quest.dto.rest.Theme.ThemeCreateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import com.quest.models.Theme;
 
 @Mapper(componentModel = "spring")

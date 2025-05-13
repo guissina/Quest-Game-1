@@ -1,13 +1,13 @@
-package com.quest.services;
+package com.quest.services.rest;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.quest.dto.Theme.ThemeCreateDTO;
-import com.quest.dto.Theme.ThemeResponseDTO;
-import com.quest.dto.Theme.ThemeUpdateDTO;
+import com.quest.dto.rest.Theme.ThemeCreateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
+import com.quest.dto.rest.Theme.ThemeUpdateDTO;
 import com.quest.interfaces.IThemeServices;
 import com.quest.mappers.ThemeMapper;
 import com.quest.models.Theme;

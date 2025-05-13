@@ -1,4 +1,4 @@
-package com.quest.controllers;
+package com.quest.controllers.rest;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quest.dto.Player.PlayerCreateDTO;
-import com.quest.dto.Player.PlayerResponseDTO;
-import com.quest.dto.Player.PlayerUpdateDTO;
-import com.quest.services.PlayerServices;
+import com.quest.dto.rest.Player.PlayerCreateDTO;
+import com.quest.dto.rest.Player.PlayerResponseDTO;
+import com.quest.dto.rest.Player.PlayerUpdateDTO;
+import com.quest.services.rest.PlayerServices;
 
 import jakarta.validation.Valid;
 

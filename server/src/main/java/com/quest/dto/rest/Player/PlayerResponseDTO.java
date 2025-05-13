@@ -1,4 +1,4 @@
-package com.quest.dto.Player;
+package com.quest.dto.rest.Player;
 
 public class PlayerResponseDTO {
     private Long id;

@@ -5,9 +5,9 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.quest.dto.Player.PlayerCreateDTO;
-import com.quest.dto.Player.PlayerResponseDTO;
-import com.quest.dto.Player.PlayerUpdateDTO;
+import com.quest.dto.rest.Player.PlayerCreateDTO;
+import com.quest.dto.rest.Player.PlayerResponseDTO;
+import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.models.Player;
 
 @Mapper(componentModel = "spring")

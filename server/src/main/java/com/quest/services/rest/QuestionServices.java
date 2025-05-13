@@ -1,13 +1,13 @@
-package com.quest.services;
+package com.quest.services.rest;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.quest.dto.Question.QuestionCreateDTO;
-import com.quest.dto.Question.QuestionResponseDTO;
-import com.quest.dto.Question.QuestionUpdateDTO;
+import com.quest.dto.rest.Question.QuestionCreateDTO;
+import com.quest.dto.rest.Question.QuestionResponseDTO;
+import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.interfaces.IQuestionServices;
 import com.quest.mappers.QuestionMapper;
 import com.quest.models.Question;

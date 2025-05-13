@@ -6,9 +6,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
-import com.quest.dto.Question.QuestionCreateDTO;
-import com.quest.dto.Question.QuestionResponseDTO;
-import com.quest.dto.Question.QuestionUpdateDTO;
+import com.quest.dto.rest.Question.QuestionCreateDTO;
+import com.quest.dto.rest.Question.QuestionResponseDTO;
+import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.models.Question;
 
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
