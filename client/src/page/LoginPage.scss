@@ -1,0 +1,86 @@
+.login-page-container {
+    content: "";
+    height: 95vh;
+    width: 95vw;
+    overflow: hidden;
+    background-color: #536DFE;
+    background: url("../assets/questBgImage.png");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-page-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: #1A237E;
+    width: 600px;
+    max-width: 100%;
+    height: 500px;
+    border: 2px solid #FBC300;
+    border-radius: 4px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.399)
+}
+
+h1 {
+    color: #fff;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.399);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.form-group,
+.submit-button-container {
+    text-align: start;
+    margin-left: 12px;
+}
+
+input {
+    background-color: #fff;
+    padding: 12px;
+    width: 450px;
+    max-width: 100%;
+}
+
+.submit-button {
+    width: 470px;
+    border-radius: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #fff;
+}
+
+button {
+    padding: 0;
+}
+
+.first-access-container {
+    margin: 0 auto;
+    border-top: 1px solid #fff;
+    width: 450px;
+}
+
+.first-access-content {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 8px;
+    text-align: left;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.first-access-content:hover {
+    opacity: 1;
+}

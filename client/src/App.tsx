@@ -1,13 +1,12 @@
-import GamePage from "./page/GamePage";
-import { HelloPage } from "./page/HelloPage";
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes";
 
 function App() {
     return (
-        <div className='App'>
-            {/* <GamePage /> */}
-            <HelloPage />
-        </div>
+    <BrowserRouter>
+        <AppRoutes />
+    </BrowserRouter>
     );
 }
 
