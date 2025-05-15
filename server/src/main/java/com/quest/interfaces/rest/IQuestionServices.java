@@ -1,4 +1,4 @@
-package com.quest.interfaces;
+package com.quest.interfaces.rest;
 
 import java.util.List;
 
