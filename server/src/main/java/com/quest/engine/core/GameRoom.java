@@ -8,18 +8,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameRoom {
 
-    private final String roomId;
-    private GameEngine engine;
     private final List<Player> players = new CopyOnWriteArrayList<>();
     private boolean started = false;
-
-    public GameRoom(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public String getRoomId() { return roomId; }
-
-    public GameEngine getEngine() { return engine; }
 
     public List<Player> getPlayers() { return players; }
 
@@ -38,12 +28,11 @@ public class GameRoom {
         players.removeIf(p -> p.getId().equals(playerId));
     }
 
-    public void startGame(GameEngine engine) {
-        if (started) return;
-        this.engine = engine;
-        this.engine.seed();
-        started = true;
+    public void markStarted() {
+        this.started = true;
     }
 
-    public boolean isStarted() { return started; }
+    public boolean isStarted() {
+        return started;
+    }
 }

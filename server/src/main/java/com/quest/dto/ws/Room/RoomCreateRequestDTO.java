@@ -1,5 +1,5 @@
 package com.quest.dto.ws.Room;
 
-public class RoomCreateRequestDTO {
+public record RoomCreateRequestDTO() {
     // TODO Atributos do criador?
 }

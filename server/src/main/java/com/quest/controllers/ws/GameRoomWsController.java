@@ -3,6 +3,7 @@ package com.quest.controllers.ws;
 import com.quest.dto.ws.Room.JoinRoomRequestDTO;
 import com.quest.dto.ws.Room.RoomCreateRequestDTO;
 import com.quest.dto.ws.Room.RoomCreateResponseDTO;
+import com.quest.dto.ws.Room.StartRoomRequestDTO;
 import com.quest.services.ws.GameRoomService;
 import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.annotation.SendToUser;
@@ -28,10 +29,10 @@ public class GameRoomWsController {
         service.joinRoom(req);
     }
 
-    @MessageMapping("/room/{roomId}/start")
-    public void start(@DestinationVariable String roomId) {
-        service.startRoom(roomId, null);
+    @MessageMapping("/room/start")
+    public void start(StartRoomRequestDTO req) {
+        service.startRoom(req);
     }
 
-    // TODO Remover player da sala
+    // TODO Implementar leave utilizando RemovePlayerRequestDTO
 }

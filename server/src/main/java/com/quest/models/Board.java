@@ -56,10 +56,10 @@ public class Board {
         this.tiles = tiles;
     }
 
-    public Tile initialTile() {
-        return tiles.stream()
-                .findFirst()
-                .orElseThrow(() -> new IllegalStateException("No tiles found in the board"));
+    public Tile getStartTile() {
+        if (tiles.isEmpty())
+            throw new IllegalStateException("No tiles found in the board");
+        return tiles.get(0);
     }
 
     public Optional<Tile> findTileById(Long id) {

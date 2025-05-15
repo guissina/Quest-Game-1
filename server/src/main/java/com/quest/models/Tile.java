@@ -28,9 +28,6 @@ public class Tile {
     @Transient
     private Theme questionTheme;
 
-    @Transient
-    private Set<Player> players = new HashSet<>();
-
     public int getRow() {
         return row;
     }
@@ -77,14 +74,6 @@ public class Tile {
 
     public void setQuestionTheme(Theme questionTheme) {
         this.questionTheme = questionTheme;
-    }
-
-    public Set<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(Set<Player> players) {
-        this.players = players;
     }
 }
 
