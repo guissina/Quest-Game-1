@@ -16,13 +16,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry
                 .addEndpoint("/ws")
                 // .setAllowedOriginPatterns("*"); // USE THIS TO USE WITH POSTMAN
-                .setAllowedOrigins("http://localhost:5173").withSockJS();
+                .setAllowedOrigins("http://localhost:5173")
+                .withSockJS();
     }
 
     @Override
     public void configureMessageBroker(@NonNull MessageBrokerRegistry registry) {
-        registry
-                .setApplicationDestinationPrefixes("/app")
-                .enableSimpleBroker("/topic");
+        registry.setApplicationDestinationPrefixes("/app")
+                .enableSimpleBroker("/topic", "/queue");
+        registry.setUserDestinationPrefix("/user");
     }
 }

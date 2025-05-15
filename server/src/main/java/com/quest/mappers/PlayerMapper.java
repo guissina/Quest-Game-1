@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
+import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
 import com.quest.models.Player;
 
 @Mapper(componentModel = "spring")
@@ -24,4 +25,6 @@ public interface PlayerMapper {
     Player toEntity(PlayerUpdateDTO playerUpdateDTO);
 
     List<PlayerResponseDTO> toPlayerResponseDTOs(List<Player> players);
+
+    List<PlayerRoomResponseDTO> toPlayerRoomResponseDTOs(List<Player> players);
 }
