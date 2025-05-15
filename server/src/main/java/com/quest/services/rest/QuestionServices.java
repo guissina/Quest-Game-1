@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quest.dto.rest.Question.QuestionCreateDTO;
 import com.quest.dto.rest.Question.QuestionResponseDTO;
 import com.quest.dto.rest.Question.QuestionUpdateDTO;
-import com.quest.interfaces.IQuestionServices;
+import com.quest.interfaces.rest.IQuestionServices;
 import com.quest.mappers.QuestionMapper;
 import com.quest.models.Question;
 import com.quest.models.Theme;

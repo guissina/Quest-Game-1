@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quest.dto.rest.SpecialCard.SpecialCardCreateDTO;
 import com.quest.dto.rest.SpecialCard.SpecialCardResponseDTO;
 import com.quest.dto.rest.SpecialCard.SpecialCardUpdateDTO;
-import com.quest.interfaces.ISpecialCardServices;
+import com.quest.interfaces.rest.ISpecialCardServices;
 import com.quest.mappers.SpecialCardMapper;
 import com.quest.models.SpecialCard;
 import com.quest.repositories.SpecialCardRepository;

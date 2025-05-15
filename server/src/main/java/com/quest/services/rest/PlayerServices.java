@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
-import com.quest.interfaces.IPlayerServices;
+import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.mappers.PlayerMapper;
 import com.quest.models.Player;
 import com.quest.repositories.PlayerRepository;

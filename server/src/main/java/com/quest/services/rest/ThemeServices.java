@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quest.dto.rest.Theme.ThemeCreateDTO;
 import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import com.quest.dto.rest.Theme.ThemeUpdateDTO;
-import com.quest.interfaces.IThemeServices;
+import com.quest.interfaces.rest.IThemeServices;
 import com.quest.mappers.ThemeMapper;
 import com.quest.models.Theme;
 import com.quest.repositories.ThemeRepository;
