@@ -1,8 +1,9 @@
-package com.quest.engine.room;
+package com.quest.engine.core;
 
 import com.quest.models.Player;
-import com.quest.engine.core.GameEngine;
+
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GameRoom {
@@ -21,6 +22,12 @@ public class GameRoom {
     public GameEngine getEngine() { return engine; }
 
     public List<Player> getPlayers() { return players; }
+
+    public Optional<Player> findPlayerById(Long playerId) {
+        return players.stream()
+                .filter(p -> p.getId().equals(playerId))
+                .findFirst();
+    }
 
     public boolean addPlayer(Player p) {
         if (players.size() >= 4 || started) return false;

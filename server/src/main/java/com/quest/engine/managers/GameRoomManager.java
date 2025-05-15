@@ -1,5 +1,6 @@
-package com.quest.engine.room;
+package com.quest.engine.managers;
 
+import com.quest.engine.core.GameRoom;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

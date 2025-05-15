@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "boards")
@@ -53,5 +54,17 @@ public class Board {
 
     public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
+    }
+
+    public Tile initialTile() {
+        return tiles.stream()
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("No tiles found in the board"));
+    }
+
+    public Optional<Tile> findTileById(Long id) {
+        return tiles.stream()
+                .filter(t -> t.getId().equals(id))
+                .findFirst();
     }
 }

@@ -7,8 +7,8 @@ import com.quest.dto.ws.Room.JoinRoomResponseDTO;
 import com.quest.dto.ws.Room.RoomCreateRequestDTO;
 import com.quest.dto.ws.Room.RoomCreateResponseDTO;
 import com.quest.engine.core.GameEngine;
-import com.quest.engine.room.GameRoom;
-import com.quest.engine.room.GameRoomManager;
+import com.quest.engine.core.GameRoom;
+import com.quest.engine.managers.GameRoomManager;
 import com.quest.interfaces.IPlayerServices;
 import com.quest.models.Board;
 import com.quest.models.Player;
@@ -63,9 +63,10 @@ public class GameRoomService {
         );
     }
 
+    // TODO Isso deve receber boardId
     public void startRoom(String roomId, Board board) {
         GameRoom room = roomManager.getRoom(roomId);
-        GameEngine engine = new GameEngine(roomId, board, room.getPlayers());
+        GameEngine engine = new GameEngine(room, board);
         room.startGame(engine);
 
         messagingTemplate.convertAndSend(

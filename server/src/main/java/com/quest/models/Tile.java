@@ -10,7 +10,7 @@ public class Tile {
 
     @Id
     @Column(name = "id", nullable = false, updatable = false)
-    private String id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id", nullable = false)
@@ -39,11 +39,11 @@ public class Tile {
         this.row = row;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
