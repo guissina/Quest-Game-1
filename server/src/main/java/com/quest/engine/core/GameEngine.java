@@ -1,12 +1,12 @@
 package com.quest.engine.core;
 
-import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.engine.managers.BoardManager;
 import com.quest.engine.managers.QuestionManager;
 import com.quest.engine.managers.TurnManager;
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Player;
 import com.quest.models.Board;
+import com.quest.models.Question;
 import com.quest.models.Tile;
 
 import java.util.*;
@@ -61,8 +61,11 @@ public class GameEngine {
         boardManager.seed(stateByPlayer);
     }
 
-    public void answerQuestion(Long playerId, int steps, boolean correct) {
-        questionManager.process(playerId, steps, correct);
+    public boolean answerQuestion(Long playerId, Question question, Long optionId, int steps) {
+        turnManager.verifyTurn(playerId);
+        boolean correct = questionManager.handleAnswer(playerId, question, optionId, steps);
+        turnManager.nextTurn();
+        return correct;
     }
 
     public void move(Long playerId, Long tileId) {
@@ -76,6 +79,5 @@ public class GameEngine {
                 .orElseThrow(() -> new RuntimeException("Tile not found."));
 
         boardManager.movePlayer(ps, tile);
-        turnManager.nextTurn();
     }
 }

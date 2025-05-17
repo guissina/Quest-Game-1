@@ -2,6 +2,7 @@ package com.quest.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.quest.enums.Difficulty;
 
@@ -85,4 +86,9 @@ public class Question {
         this.theme = theme;
     }
 
+    public Optional<QuestionOption> getOptionById(Long optionId) {
+        return options.stream()
+                .filter(option -> option.getId().equals(optionId))
+                .findFirst();
+    }
 }

@@ -1,5 +1,6 @@
 package com.quest.engine.managers;
 
+import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameSession;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,10 @@ public class GameSessionManager {
         GameSession session = sessions.get(sessionId);
         if (session == null) throw new IllegalArgumentException("Session not found");
         return session;
+    }
+
+    public GameEngine getEngine(String sessionId) {
+        return getSession(sessionId).getEngine();
     }
 
     public void removeSession(String sessionId) {
