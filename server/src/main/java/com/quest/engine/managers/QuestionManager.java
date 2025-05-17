@@ -20,7 +20,7 @@ public class QuestionManager {
         Optional<QuestionOption> option = question.getOptionById(optionId);
         if (option.isEmpty())
             throw new RuntimeException("Opção inválida");
-        boolean correct = option.get().isCorrect();
+        boolean correct = option.get().getCorrect();
 
         if (correct)
             ps.setMustAnswerBeforeMoving(false);
@@ -34,7 +34,8 @@ public class QuestionManager {
 
     public void verifyCanMove(Long playerId) {
         PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null) throw new RuntimeException("Player not found.");
+        if (ps == null)
+            throw new RuntimeException("Player not found.");
         if (ps.isMustAnswerBeforeMoving())
             throw new RuntimeException("You must answer before moving.");
     }

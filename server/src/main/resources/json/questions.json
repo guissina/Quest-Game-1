@@ -1,92 +1,23 @@
-[
-  {
-    "questionText": "What is 2 + 2?",
-    "answer": "4",
-    "difficulty": "EASY",
-    "themeId": "1"
-  },
-  {
-    "questionText": "What is the chemical symbol for water?",
-    "answer": "H2O",
-    "difficulty": "EASY",
-    "themeId": 2
-  },
-  {
-    "questionText": "Qual cantor é conhecido como o 'Rei do Pop'?",
-    "answer": "Michael Jackson",
-    "difficulty": "EASY",
-    "themeId": 2
-  },
-  {
-    "questionText": "Qual instrumento possui teclas e é muito usado em músicas clássicas?",
-    "answer": "Piano",
-    "difficulty": "EASY",
-    "themeId": 2
-  },
-  {
-    "questionText": "Qual é o nome do bruxo protagonista da série de filmes e livros criada por J.K. Rowling?",
-    "answer": "Harry Potter",
-    "difficulty": "EASY",
-    "themeId": 3
-  },
-  {
-    "questionText": "Qual super-herói é conhecido como o 'Homem de Ferro'?",
-    "answer": "Tony Stark",
-    "difficulty": "EASY",
-    "themeId": 3
-  },
-  {
-    "questionText": "Quem foi o primeiro presidente do Brasil?",
-    "answer": "Deodoro da Fonseca",
-    "difficulty": "EASY",
-    "themeId": 4
-  },
-  {
-    "questionText": "Em que ano o Brasil se tornou independente de Portugal?",
-    "answer": "1822",
-    "difficulty": "EASY",
-    "themeId": 4
-  },
-  {
-    "questionText": "Qual é o valor aproximado da aceleração da gravidade na Terra?",
-    "answer": "9,8 m/s²",
-    "difficulty": "MEDIUM",
-    "themeId": 1
-  },
-  {
-    "questionText": "Quem é conhecido como o \"Pai da Música Clássica\"?",
-    "answer": "Joseph Haydn",
-    "difficulty": "HARD",
-    "themeId": 2
-  },
-  {
-    "questionText": "Qual indicação dinâmica indica um aumento gradual de volume na partitura?",
-    "answer": "Crescendo",
-    "difficulty": "EASY",
-    "themeId": 2
-  },
-  {
-    "questionText": "No xadrez, qual peça só pode se mover na diagonal?",
-    "answer": "Bispo",
-    "difficulty": "EASY",
-    "themeId": 3
-  },
-  {
-    "questionText": "No clássico jogo de tabuleiro Monopoly, qual é o número máximo de jogadores permitido?",
-    "answer": "8",
-    "difficulty": "MEDIUM",
-    "themeId": 3
-  },
-  {
-    "questionText": "Em que ano o Muro de Berlim caiu?",
-    "answer": "1989",
-    "difficulty": "MEDIUM",
-    "themeId": 4
-  },
-  {
-    "questionText": "Quem foi o primeiro imperador do Império Romano?",
-    "answer": "Augusto",
-    "difficulty": "HARD",
-    "themeId": 4
-  }
-]
+{
+  "questionText": "Quem descobriu o Brasil em 1500?",
+  "themeId": 1,
+  "difficulty": "MEDIUM",
+  "options": [
+    {
+      "optionText": "Pedro Álvares Cabral",
+      "correct": 1
+    },
+    {
+      "optionText": "Vasco da Gama",
+      "correct": 0
+    },
+    {
+      "optionText": "Cristóvão Colombo",
+      "correct": 0
+    },
+    {
+      "optionText": "Fernão de Magalhães",
+      "correct": 0
+    }
+  ]
+}

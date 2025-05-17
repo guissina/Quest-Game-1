@@ -22,7 +22,7 @@ public class QuestionOption {
     private String optionText;
 
     @Column(name = "is_correct", nullable = false)
-    private boolean isCorrect;
+    private Boolean correct;
 
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
@@ -44,20 +44,20 @@ public class QuestionOption {
         this.optionText = optionText;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
-    }
-
-    public void setCorrect(boolean isCorrect) {
-        this.isCorrect = isCorrect;
-    }
-
     public Question getQuestion() {
         return question;
     }
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public Boolean getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(Boolean correct) {
+        this.correct = correct;
     }
 
 }

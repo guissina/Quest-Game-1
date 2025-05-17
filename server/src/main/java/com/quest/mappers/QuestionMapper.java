@@ -11,8 +11,7 @@ import com.quest.dto.rest.Question.QuestionResponseDTO;
 import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.models.Question;
 
-@Mapper(componentModel = "spring", uses = QuestionOptionsMapper.class, // <— inclusão obrigatória
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapper(componentModel = "spring", uses = QuestionOptionsMapper.class, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface QuestionMapper {
 
     @Mapping(target = "options", source = "question.options")

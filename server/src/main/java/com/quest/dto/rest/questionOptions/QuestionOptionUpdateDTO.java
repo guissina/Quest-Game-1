@@ -10,7 +10,7 @@ public class QuestionOptionUpdateDTO {
     private String optionText;
 
     @NotNull(message = "Correct answer is required")
-    private boolean isCorrect;
+    private Boolean correct;
 
     @NotNull(message = "Question ID is required")
     private Long questionId;
@@ -31,19 +31,19 @@ public class QuestionOptionUpdateDTO {
         this.optionText = optionText;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
-    }
-
-    public void setCorrect(boolean isCorrect) {
-        this.isCorrect = isCorrect;
-    }
-
     public Long getQuestionId() {
         return questionId;
     }
 
     public void setQuestionId(Long questionId) {
         this.questionId = questionId;
+    }
+
+    public Boolean getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(Boolean correct) {
+        this.correct = correct;
     }
 }
