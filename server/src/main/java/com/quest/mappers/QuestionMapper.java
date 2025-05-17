@@ -11,19 +11,20 @@ import com.quest.dto.rest.Question.QuestionResponseDTO;
 import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.models.Question;
 
-@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapper(componentModel = "spring", uses = QuestionOptionsMapper.class, // <— inclusão obrigatória
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface QuestionMapper {
-    @Mapping(target = "themeId", source = "themes.id")
+
+    @Mapping(target = "options", source = "question.options")
+    @Mapping(target = "themeId", source = "theme.id")
     QuestionResponseDTO toQuestionResponseDTO(Question question);
 
-    @Mapping(target = "themes.id", source = "themeId")
-    Question toEntity(QuestionResponseDTO questionResponseDTO);
-
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "themes.id", source = "themeId")
+    @Mapping(target = "theme.id", source = "themeId")
     Question toEntity(QuestionCreateDTO questionCreateDTO);
 
-    @Mapping(target = "themes.id", source = "themeId")
+    @Mapping(target = "theme.id", source = "themeId")
+    @Mapping(target = "id", ignore = true)
     Question toEntity(QuestionUpdateDTO questionUpdateDTO);
 
     List<QuestionResponseDTO> toQuestionResponseDTOs(List<Question> questions);

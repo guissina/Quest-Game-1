@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "question_options")
@@ -22,8 +21,7 @@ public class QuestionOption {
     @Column(name = "option_text", nullable = false)
     private String optionText;
 
-    @NotNull(message = "Question ID is required")
-    @Column(name = "question_id", nullable = false)
+    @Column(name = "is_correct", nullable = false)
     private boolean isCorrect;
 
     @ManyToOne

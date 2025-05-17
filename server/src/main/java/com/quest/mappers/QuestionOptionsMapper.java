@@ -13,14 +13,14 @@ import com.quest.models.QuestionOption;
 @Mapper(componentModel = "spring")
 public interface QuestionOptionsMapper {
 
-    @Mapping(target = "question.id", source = "questionId")
-    QuestionOption toQuestionOption(QuestionOptionUpdateDTO questionOptionUpdateDTO);
-
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "question.id", source = "questionId")
-    QuestionOption toQuestionOption(QuestionOptionCreateDTO questionOptionCreateDTO);
+    @Mapping(target = "question", ignore = true)
+    QuestionOption toEntity(QuestionOptionCreateDTO dto);
 
-    QuestionOptionResponseDTO toQuestionResponseDTO(QuestionOption question);
+    @Mapping(target = "question", ignore = true)
+    QuestionOption toEntity(QuestionOptionUpdateDTO dto);
 
-    List<QuestionOptionResponseDTO> toQuestionOptionResponseDTOs(List<QuestionOption> questionOptions);
+    QuestionOptionResponseDTO toDto(QuestionOption entity);
+
+    List<QuestionOptionResponseDTO> toDtos(List<QuestionOption> entities);
 }

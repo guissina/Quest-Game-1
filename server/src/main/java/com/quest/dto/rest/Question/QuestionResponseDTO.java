@@ -1,9 +1,13 @@
 package com.quest.dto.rest.Question;
 
+import java.util.List;
+
+import com.quest.dto.rest.questionOptions.QuestionOptionResponseDTO;
+
 public class QuestionResponseDTO {
     private Long id;
     private String questionText;
-    private String answer;
+    private List<QuestionOptionResponseDTO> options;
     private String difficulty;
     private long themeId;
 
@@ -23,14 +27,6 @@ public class QuestionResponseDTO {
         this.questionText = questionText;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
     public String getDifficulty() {
         return difficulty;
     }
@@ -45,5 +41,13 @@ public class QuestionResponseDTO {
 
     public void setThemeId(long themeId) {
         this.themeId = themeId;
+    }
+
+    public List<QuestionOptionResponseDTO> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<QuestionOptionResponseDTO> options) {
+        this.options = options;
     }
 }

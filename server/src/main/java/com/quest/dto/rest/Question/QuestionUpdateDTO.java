@@ -1,5 +1,9 @@
 package com.quest.dto.rest.Question;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.quest.dto.rest.questionOptions.QuestionOptionCreateDTO;
 import com.quest.enums.Difficulty;
 
 import jakarta.validation.constraints.NotBlank;
@@ -13,16 +17,16 @@ public class QuestionUpdateDTO {
     @Size(min = 1, max = 500, message = "Question text must be between 1 and 500 characters")
     private String questionText;
 
-    @NotBlank(message = "Answer is required")
-    @Size(min = 1, max = 255, message = "Answer must be between 1 and 255 characters")
-    private String answer;
-
     @NotBlank(message = "Difficulty is required")
     @Size(min = 1, max = 50, message = "Difficulty must be between 1 and 50 characters")
     private Difficulty difficulty;
 
     @NotNull(message = "Theme is required")
     private long themeId;
+
+    @NotNull(message = "Options are required")
+    @Size(min = 2, message = "At least two options are required")
+    private List<QuestionOptionCreateDTO> options = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -40,14 +44,6 @@ public class QuestionUpdateDTO {
         this.questionText = questionText;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
     public Difficulty getDifficulty() {
         return difficulty;
     }
@@ -62,5 +58,13 @@ public class QuestionUpdateDTO {
 
     public void setThemeId(long themeId) {
         this.themeId = themeId;
+    }
+
+    public List<QuestionOptionCreateDTO> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<QuestionOptionCreateDTO> options) {
+        this.options = options;
     }
 }
