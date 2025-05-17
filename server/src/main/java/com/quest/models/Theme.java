@@ -1,10 +1,14 @@
 package com.quest.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -25,6 +29,9 @@ public class Theme {
     @Size(min = 2, max = 30, message = "Theme Code must be between 2 and 30 characters")
     @Column(name = "code", nullable = false, unique = true)
     private String code;
+
+    @OneToMany(mappedBy = "theme")
+    private List<Question> questions = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -48,6 +55,14 @@ public class Theme {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
 }

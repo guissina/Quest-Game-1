@@ -22,7 +22,6 @@ public class Player {
     private String name;
 
     @NotBlank(message = "Email is required")
-    @Size(min = 5, max = 50, message = "Email must be between 5 and 50 characters")
     @Column(name = "email", nullable = false, unique = true)
     @Size(min = 5, max = 50, message = "Email must be between 5 and 50 characters")
     private String email;

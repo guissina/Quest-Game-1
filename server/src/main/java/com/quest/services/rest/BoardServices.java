@@ -1,9 +1,8 @@
 package com.quest.services.rest;
 
-import java.lang.annotation.Target;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.quest.dto.rest.Board.BoardCreateDTO;
@@ -24,7 +23,7 @@ public class BoardServices implements IBoardServices {
     private final BoardMapper boardMapper;
 
     @Autowired
-    public BoardServices(BoardRepository boardRepository, TileRepository tileRepository, BoardMapper boardMapper) {
+    public BoardServices(BoardRepository boardRepository, BoardMapper boardMapper) {
         this.boardRepository = boardRepository;
         this.boardMapper = boardMapper;
     }
@@ -46,6 +45,12 @@ public class BoardServices implements IBoardServices {
     public BoardResponseDTO findById(long id) {
         Board board = findBoardById(id);
         return boardMapper.toBoardResponseDTO(board);
+    }
+
+    @Override
+    public List<BoardResponseDTO> findAll() {
+        List<Board> boards = boardRepository.findAll();
+        return boardMapper.toBoardResponseDTOs(boards);
     }
 
     @Override
