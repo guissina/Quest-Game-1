@@ -1,6 +1,7 @@
 package com.quest.engine.managers;
 
 import com.quest.engine.core.GameEngine;
+import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,10 @@ public class GameSessionManager {
 
     public GameEngine getEngine(String sessionId) {
         return getSession(sessionId).getEngine();
+    }
+
+    public GameRoom getRoom(String sessionId) {
+        return getSession(sessionId).getRoom();
     }
 
     public void removeSession(String sessionId) {

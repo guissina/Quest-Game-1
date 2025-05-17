@@ -1,15 +1,15 @@
 package com.quest.interfaces.ws;
 
-import com.quest.dto.ws.Room.JoinRoomRequestDTO;
-import com.quest.dto.ws.Room.RoomCreateRequestDTO;
-import com.quest.dto.ws.Room.RoomCreateResponseDTO;
-import com.quest.models.Board;
+import com.quest.dto.ws.Room.*;
 
 public interface IGameRoomService {
     RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req);
 
     void joinRoom(JoinRoomRequestDTO req);
 
-    void startRoom(String roomId, Board board);
+    void startRoom(StartRoomRequestDTO req);
 
+    void leaveRoom(LeaveRoomRequestDTO req);
+
+    void removeAndBroadcast(String roomId, Long playerId);
 }

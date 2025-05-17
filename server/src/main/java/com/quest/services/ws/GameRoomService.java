@@ -9,6 +9,7 @@ import com.quest.engine.core.GameSession;
 import com.quest.engine.managers.GameSessionManager;
 import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
+import com.quest.interfaces.ws.IGameRoomService;
 import com.quest.models.Board;
 import com.quest.models.Player;
 import com.quest.mappers.PlayerMapper;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GameRoomService {
+public class GameRoomService implements IGameRoomService {
 
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
@@ -43,14 +44,16 @@ public class GameRoomService {
         this.playerMapper = playerMapper;
     }
 
+    @Override
     public RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req) {
         String sessionId = sessionManager.createSession();
+        joinRoom(new JoinRoomRequestDTO(sessionId, req.creatorPlayerId()));
         return new RoomCreateResponseDTO(sessionId);
     }
 
+    @Override
     public void joinRoom(JoinRoomRequestDTO req) {
-        GameSession session = sessionManager.getSession(req.sessionId());
-        GameRoom room = session.getRoom();
+        GameRoom room = sessionManager.getRoom(req.sessionId());
 
         // TODO Verificar se o player ja esta na sala (Service ou Manager?)
         Player player = playerServices.findPlayerById(req.playerId());
@@ -58,17 +61,10 @@ public class GameRoomService {
         if (!ok)
             throw new IllegalStateException("Room full or already started");
 
-        List<PlayerRoomResponseDTO> playersDTO =
-                playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
-
-        JoinRoomResponseDTO joinResponse =
-                new JoinRoomResponseDTO(playersDTO, room.isStarted());
-
-        String destination = String.format(WsDestinations.ROOM_PLAYERS, req.sessionId());
-        messagingTemplate.convertAndSend(destination, joinResponse);
+        broadcastRoomState(req.sessionId(), false);
     }
 
-
+    @Override
     public void startRoom(StartRoomRequestDTO req) {
         GameSession session = sessionManager.getSession(req.sessionId());
         GameRoom room = session.getRoom();
@@ -83,5 +79,34 @@ public class GameRoomService {
 
         String destination = String.format(WsDestinations.ROOM_START, session.getSessionId());
         messagingTemplate.convertAndSend(destination, stateDto);
+    }
+
+    @Override
+    public void leaveRoom(LeaveRoomRequestDTO req) {
+        removeAndBroadcast(req.sessionId(), req.playerId());
+    }
+
+    private void broadcastRoomState(String sessionId, boolean closed) {
+        GameSession session = sessionManager.getSession(sessionId);
+        GameRoom room = session.getRoom();
+
+        List<PlayerRoomResponseDTO> playersDTO =
+                playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
+
+        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed);
+        String destination = String.format("/topic/room/%s/state", sessionId);
+        messagingTemplate.convertAndSend(destination, dto);
+    }
+
+    public void removeAndBroadcast(String sessionId, Long playerId) {
+        GameRoom room = sessionManager.getRoom(sessionId);
+
+        room.removePlayer(playerId);
+        if (room.getPlayers().isEmpty()) {
+            sessionManager.removeSession(sessionId);
+            broadcastRoomState(sessionId, true);
+        }
+        else
+            broadcastRoomState(sessionId, false);
     }
 }

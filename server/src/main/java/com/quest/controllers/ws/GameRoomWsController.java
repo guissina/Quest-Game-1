@@ -1,9 +1,6 @@
 package com.quest.controllers.ws;
 
-import com.quest.dto.ws.Room.JoinRoomRequestDTO;
-import com.quest.dto.ws.Room.RoomCreateRequestDTO;
-import com.quest.dto.ws.Room.RoomCreateResponseDTO;
-import com.quest.dto.ws.Room.StartRoomRequestDTO;
+import com.quest.dto.ws.Room.*;
 import com.quest.services.ws.GameRoomService;
 import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.annotation.SendToUser;
@@ -34,5 +31,8 @@ public class GameRoomWsController {
         service.startRoom(req);
     }
 
-    // TODO Implementar leave utilizando RemovePlayerRequestDTO
+    @MessageMapping("/room/leave")
+    public void leave(LeaveRoomRequestDTO req) {
+        service.leaveRoom(req);
+    }
 }
