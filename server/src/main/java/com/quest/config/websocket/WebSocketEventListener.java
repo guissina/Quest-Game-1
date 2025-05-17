@@ -39,8 +39,7 @@ public class WebSocketEventListener {
         String simpSessionId = headerAccessor.getSessionId();
         String destination = headerAccessor.getDestination(); // ex: /topic/game/abc-123/state
 
-        // Verifica /topic/room/{sessionId}/players ou /topic/game/{sessionId}/state
-        if (destination != null && destination.matches("/topic/(room|game)/[^/]+/.+")) {
+        if (destination != null && destination.matches("/topic/game/.+/state")) {
             String gameSessionId = destination.split("/")[3];
             wsSessionToGameSession.put(simpSessionId, gameSessionId);
 

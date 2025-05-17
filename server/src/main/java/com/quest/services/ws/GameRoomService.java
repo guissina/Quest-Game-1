@@ -1,7 +1,6 @@
 package com.quest.services.ws;
 
 import com.quest.config.websocket.WsDestinations;
-import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.dto.ws.Room.*;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
@@ -44,10 +43,22 @@ public class GameRoomService implements IGameRoomService {
         this.playerMapper = playerMapper;
     }
 
+    private void broadcastRoomState(String sessionId, boolean closed) {
+        GameSession session = sessionManager.getSession(sessionId);
+        GameRoom room = session.getRoom();
+
+        List<PlayerRoomResponseDTO> playersDTO =
+                playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
+
+        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed);
+        String destination = String.format(WsDestinations.ROOM_STATE, sessionId);
+        messagingTemplate.convertAndSend(destination, dto);
+    }
+
     @Override
     public RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req) {
         String sessionId = sessionManager.createSession();
-        joinRoom(new JoinRoomRequestDTO(sessionId, req.creatorPlayerId()));
+        System.out.println("Session created: " + sessionId);
         return new RoomCreateResponseDTO(sessionId);
     }
 
@@ -69,16 +80,15 @@ public class GameRoomService implements IGameRoomService {
         GameSession session = sessionManager.getSession(req.sessionId());
         GameRoom room = session.getRoom();
 
+        // TODO só o creator (ou host) deve conseguir iniciar a sala
+
         Board board = boardService.findBoardById(req.boardId());
         GameEngine engine = new GameEngine(room, board);
         engine.initializeGameState(req.initialTokens());
         engine.seed();
         session.startGame(engine);
 
-        EngineStateDTO stateDto = EngineStateDTO.from(session.getSessionId(), engine);
-
-        String destination = String.format(WsDestinations.ROOM_START, session.getSessionId());
-        messagingTemplate.convertAndSend(destination, stateDto);
+        broadcastRoomState(req.sessionId(), false);
     }
 
     @Override
@@ -86,18 +96,7 @@ public class GameRoomService implements IGameRoomService {
         removeAndBroadcast(req.sessionId(), req.playerId());
     }
 
-    private void broadcastRoomState(String sessionId, boolean closed) {
-        GameSession session = sessionManager.getSession(sessionId);
-        GameRoom room = session.getRoom();
-
-        List<PlayerRoomResponseDTO> playersDTO =
-                playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
-
-        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed);
-        String destination = String.format("/topic/room/%s/state", sessionId);
-        messagingTemplate.convertAndSend(destination, dto);
-    }
-
+    @Override
     public void removeAndBroadcast(String sessionId, Long playerId) {
         GameRoom room = sessionManager.getRoom(sessionId);
 

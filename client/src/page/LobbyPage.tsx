@@ -14,6 +14,11 @@ export function LobbyPage() {
         if (sessionId) setInputSessionId(sessionId);
     }, [sessionId]);
 
+    const handleCreate = () => {
+        if (!inputPlayerId) return;
+        createRoom(Number(inputPlayerId));
+    };
+
     const handleJoin = () => {
         if (!inputSessionId || !inputPlayerId) return;
         joinRoom(inputSessionId, Number(inputPlayerId));
@@ -29,7 +34,7 @@ export function LobbyPage() {
             <h2>Game Lobby</h2>
 
             {!sessionId && (
-                <button onClick={createRoom} style={{ marginBottom: 16 }}>
+                <button onClick={handleCreate} style={{ marginBottom: 16 }}>
                     Create Session
                 </button>
             )}

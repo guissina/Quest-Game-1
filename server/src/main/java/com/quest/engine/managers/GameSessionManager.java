@@ -3,6 +3,7 @@ package com.quest.engine.managers;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -35,5 +36,12 @@ public class GameSessionManager {
 
     public void removeSession(String sessionId) {
         sessions.remove(sessionId);
+    }
+
+    @Scheduled(fixedDelay = 600_000) // 10 min
+    public void cleanupEmptySessions() {
+        sessions.entrySet().removeIf(entry ->
+                entry.getValue().getRoom().getPlayers().isEmpty()
+        );
     }
 }
