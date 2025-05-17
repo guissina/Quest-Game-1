@@ -1,12 +1,12 @@
 import GamePage from "./page/GamePage";
-import { HelloPage } from "./page/HelloPage";
+import { LobbyPage } from "./page/LobbyPage";
 import "./App.css";
 
 function App() {
     return (
         <div className='App'>
             {/* <GamePage /> */}
-            <HelloPage />
+            <LobbyPage />
         </div>
     );
 }

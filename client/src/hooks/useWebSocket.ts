@@ -2,7 +2,7 @@ import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { useEffect, useRef } from "react";
 
-export function useWebSocket(onGreeting: (msg: string) => void) {
+export function useWebSocket(onGreeting: (msg: string) => void) { 
     const clientRef = useRef<Client | null>(null);
 
     useEffect(() => {
@@ -15,12 +15,13 @@ export function useWebSocket(onGreeting: (msg: string) => void) {
                     const body = JSON.parse(frame.body);
                     onGreeting(body.content);
                 });
+                
             },
             onStompError: (frame) => {
                 console.error("Broker error:", frame.headers["message"]);
             },
         });
-        stomp.activate();
+        
         clientRef.current = stomp;
 
         return () => {
