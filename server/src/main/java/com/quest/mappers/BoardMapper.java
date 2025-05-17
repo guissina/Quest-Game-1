@@ -10,13 +10,14 @@ import com.quest.dto.rest.Board.BoardResponseDTO;
 import com.quest.dto.rest.Board.BoardUpdateDTO;
 import com.quest.models.Board;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = TileMapper.class)
 public interface BoardMapper {
 
+    @Mapping(target = "tiles", source = "tiles")
     BoardResponseDTO toBoardResponseDTO(Board board);
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "tiles", ignore = true)
+    @Mapping(target = "id", ignore = true)
     Board toBoardCreate(BoardCreateDTO boardCreateDTO);
 
     @Mapping(target = "tiles", ignore = true)

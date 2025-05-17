@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class BoardCreateDTO {
+
     @NotBlank(message = "Name is required")
     private String name;
 

@@ -1,5 +1,6 @@
 package com.quest.services.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import com.quest.dto.rest.Board.BoardUpdateDTO;
 import com.quest.interfaces.rest.IBoardServices;
 import com.quest.mappers.BoardMapper;
 import com.quest.models.Board;
+import com.quest.models.Tile;
 import com.quest.repositories.BoardRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -30,8 +32,26 @@ public class BoardServices implements IBoardServices {
 
     @Override
     public BoardResponseDTO createBoard(BoardCreateDTO boardCreateDTO) {
+        // 1. Mapeia DTO para entidade Board (sem tiles ainda)
         Board board = boardMapper.toBoardCreate(boardCreateDTO);
+
+        // 2. Gera todos os tiles com base em rows x cols
+        List<Tile> tiles = new ArrayList<>();
+        for (int r = 0; r < board.getRows(); r++) {
+            for (int c = 0; c < board.getCols(); c++) {
+                Tile tile = new Tile();
+                tile.setRow(r);
+                tile.setCol(c);
+                tile.setBoard(board); // VERY IMPORTANT: vincula o tile ao board
+                tiles.add(tile);
+            }
+        }
+        board.setTiles(tiles); // adiciona a lista de tiles no board
+
+        // 3. Salva o board (vai persistir também todos os tiles, pelo CascadeType.ALL)
         Board savedBoard = boardRepository.save(board);
+
+        // 4. Retorna DTO de resposta
         return boardMapper.toBoardResponseDTO(savedBoard);
     }
 

@@ -1,10 +1,15 @@
 package com.quest.dto.rest.Board;
 
+import java.util.List;
+
+import com.quest.dto.rest.tile.TileResponseDTO;
+
 public class BoardResponseDTO {
     private Long id;
     private String name;
     private int rows;
     private int cols;
+    private List<TileResponseDTO> tiles;
 
     public Long getId() {
         return id;
@@ -36,5 +41,13 @@ public class BoardResponseDTO {
 
     public void setCols(int cols) {
         this.cols = cols;
+    }
+
+    public List<TileResponseDTO> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(List<TileResponseDTO> tiles) {
+        this.tiles = tiles;
     }
 }
