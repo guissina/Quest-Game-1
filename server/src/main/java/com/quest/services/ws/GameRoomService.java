@@ -7,6 +7,7 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
 import com.quest.engine.managers.GameSessionManager;
+import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.models.Board;
 import com.quest.models.Player;
@@ -17,26 +18,27 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class GameRoomService {
 
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
+    private final IBoardServices boardService;
     private final IPlayerServices playerServices;
     private final PlayerMapper playerMapper;
-    //private final BoardService boardService;
 
     @Autowired
     public GameRoomService(
             GameSessionManager sessionManager,
             SimpMessagingTemplate messagingTemplate,
+            IBoardServices boardService,
             IPlayerServices playerServices,
             PlayerMapper playerMapper
     ) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
+        this.boardService = boardService;
         this.playerServices = playerServices;
         this.playerMapper = playerMapper;
     }
@@ -71,7 +73,7 @@ public class GameRoomService {
         GameSession session = sessionManager.getSession(req.sessionId());
         GameRoom room = session.getRoom();
 
-        Board board = /*TODO boardService.findById(req.boardId())*/ null;
+        Board board = boardService.findBoardById(req.boardId());
         GameEngine engine = new GameEngine(room, board);
         engine.initializeGameState(req.initialTokens());
         engine.seed();

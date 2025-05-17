@@ -15,7 +15,6 @@ import com.quest.mappers.QuestionOptionsMapper;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
 import com.quest.models.Theme;
-import com.quest.repositories.QuestionOptionsRepository;
 import com.quest.repositories.QuestionRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -30,8 +29,7 @@ public class QuestionServices implements IQuestionServices {
     private final QuestionOptionsMapper questionOptionsMapper;
 
     @Autowired
-    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository,
-            QuestionOptionsRepository questionOptionRepository, ThemeServices themeServices,
+    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository, ThemeServices themeServices,
             QuestionOptionsMapper questionOptionsMapper) {
         this.questionOptionsMapper = questionOptionsMapper;
         this.questionMapper = questionMapper;
