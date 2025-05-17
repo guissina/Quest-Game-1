@@ -29,6 +29,9 @@ public class PlayerServices implements IPlayerServices {
 
     @Override
     public PlayerResponseDTO create(PlayerCreateDTO playerCreateDTO) {
+        if (existsByEmail(playerCreateDTO.getEmail()))
+            throw new IllegalArgumentException("Email already exists");
+
         Player player = playerMapper.toEntity(playerCreateDTO);
         Player savedPlayer = playerRepository.save(player);
         return playerMapper.toPlayerResponseDTO(savedPlayer);
@@ -86,5 +89,9 @@ public class PlayerServices implements IPlayerServices {
     public void deletePlayerById(long id) {
         Player player = findPlayerById(id);
         playerRepository.delete(player);
+    }
+
+    private Boolean existsByEmail(String email) {
+        return playerRepository.existsByEmail(email);
     }
 }
