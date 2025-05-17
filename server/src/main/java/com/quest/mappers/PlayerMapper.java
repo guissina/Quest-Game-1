@@ -10,14 +10,13 @@ import org.mapstruct.Named;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
-
+import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
 import com.quest.models.Board;
 import com.quest.models.Player;
 
 @Mapper(componentModel = "spring", uses = BoardMapper.class)
 public interface PlayerMapper {
 
-    @Mapping(target = "password", ignore = true)
     @Mapping(target = "boardIds", source = "boards", qualifiedByName = "boardsToIds")
     PlayerResponseDTO toPlayerResponseDTO(Player player);
 
@@ -34,6 +33,12 @@ public interface PlayerMapper {
     @Mapping(target = "boards", source = "boardIds", qualifiedByName = "idsToBoards")
     @Mapping(target = "balance", ignore = true)
     Player toEntity(PlayerUpdateDTO playerUpdateDTO);
+
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "name", source = "name")
+    PlayerRoomResponseDTO toPlayerRoomResponseDTO(Player player);
+
+    List<PlayerRoomResponseDTO> toPlayerRoomResponseDTOs(List<Player> players);
 
     List<PlayerResponseDTO> toPlayerResponseDTOs(List<Player> players);
 
