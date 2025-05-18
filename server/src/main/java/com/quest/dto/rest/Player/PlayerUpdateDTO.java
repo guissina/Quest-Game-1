@@ -18,6 +18,17 @@ public class PlayerUpdateDTO {
     @Size(min = 5, max = 50, message = "Email must be between 5 and 50 characters")
     private String email;
 
+    @NotNull(message = "Password is required")
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @NotEmpty(message = "É necessário informar ao menos um boardId")
     private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
 

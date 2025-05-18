@@ -29,7 +29,6 @@ public interface PlayerMapper {
     @Mapping(target = "balance", source = "balance")
     Player toEntity(PlayerCreateDTO playerCreateDTO);
 
-    @Mapping(target = "password", ignore = true)
     @Mapping(target = "boards", source = "boardIds", qualifiedByName = "idsToBoards")
     @Mapping(target = "balance", ignore = true)
     Player toEntity(PlayerUpdateDTO playerUpdateDTO);

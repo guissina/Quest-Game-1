@@ -52,20 +52,20 @@ public class PlayerController {
         return ResponseEntity.ok(player);
     }
 
-    @GetMapping("/email")
-    public ResponseEntity<PlayerResponseDTO> getPlayerByEmail(@PathVariable String email) {
+    @GetMapping("/email/{email}")
+    public ResponseEntity<PlayerResponseDTO> getPlayerByEmail(@PathVariable("email") String email) {
         PlayerResponseDTO player = playerServices.findByEmail(email);
+        return ResponseEntity.ok(player);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<PlayerResponseDTO> getPlayersByName(@PathVariable("name") String name) {
+        PlayerResponseDTO player = playerServices.findByName(name);
         return ResponseEntity.ok(player);
     }
 
     @GetMapping
     public ResponseEntity<List<PlayerResponseDTO>> getAllPlayers() {
-        List<PlayerResponseDTO> players = playerServices.findAll();
-        return ResponseEntity.ok(players);
-    }
-
-    @GetMapping("/findByName")
-    public ResponseEntity<List<PlayerResponseDTO>> getPlayersByName(@RequestBody PlayerUpdateDTO playerUpdateDTO) {
         List<PlayerResponseDTO> players = playerServices.findAll();
         return ResponseEntity.ok(players);
     }
