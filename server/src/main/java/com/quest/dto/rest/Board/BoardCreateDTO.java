@@ -1,5 +1,9 @@
 package com.quest.dto.rest.Board;
 
+import java.util.List;
+
+import com.quest.dto.rest.Theme.ThemeCreateDTO;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,6 +17,17 @@ public class BoardCreateDTO {
 
     @NotNull(message = "Cols are required")
     private int cols;
+
+    @NotNull(message = "Themes are required")
+    private List<ThemeCreateDTO> themes;
+
+    public List<ThemeCreateDTO> getThemes() {
+        return themes;
+    }
+
+    public void setThemes(List<ThemeCreateDTO> themes) {
+        this.themes = themes;
+    }
 
     public String getName() {
         return name;
