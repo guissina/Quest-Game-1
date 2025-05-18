@@ -6,21 +6,22 @@ const LoginPage = () => {
     {
       name: "username",
       type: "text",
-      placeholder: "Digite o nome do seu usuário",
+      placeholder: "email",
       required: true,
     },
     {
       name: "password",
       type: "password",
-      placeholder: "Digite a sua senha",
+      placeholder: "senha",
       required: true,
     },
   ];
 
   return (
     <div className="login-page-container">
+      <img src="/login-page/logo-novo-1.svg" alt="Logo da página de login" />
       <div className="login-page-content">
-        <h1>Quest</h1>
+        <h1>Bem-vindo</h1>
         <GenericForm
           method="POST"
           fields={fields}

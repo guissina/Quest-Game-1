@@ -1,6 +1,6 @@
 .button {
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -9,12 +9,13 @@
 }
 
   .login {
-    background-color: #3b82f6;
-    color: #ffffff;
+    background-color: #256100;
+    color: #ffff;
+    box-shadow: 5px 4px rgba(0, 0, 0, 0.25)
   }
 
     .login:hover {
-      background-color: #2563eb;
+      background-color: lightgreen;
     }
 
 
