@@ -1,18 +1,20 @@
 import GenericForm from "../components/Form"
 import "./LoginPage.scss";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate()
   const fields = [
     {
       name: "username",
       type: "text",
-      placeholder: "email",
+      placeholder: "Email",
       required: true,
     },
     {
       name: "password",
       type: "password",
-      placeholder: "senha",
+      placeholder: "Senha",
       required: true,
     },
   ];
@@ -30,7 +32,7 @@ const LoginPage = () => {
           className=""
         />
         <div className="first-access-container">
-          <div className="first-access-content">
+          <div className="first-access-content" onClick={() => navigate('/register')}>
             Primeiro acesso? Clique aqui e cadastre-se
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import GenericButton from "../Button";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 type Field = {
   name: string;
@@ -24,6 +26,7 @@ const GenericForm: React.FC<GenericFormProps> = ({
   variant,
   method,
 }) => {
+  
   const [values, setValues] = useState<Record<string, string>>(() => {
     const initial: Record<string, string> = {};
     fields.forEach(({ name, defaultValue }) => {
@@ -32,6 +35,8 @@ const GenericForm: React.FC<GenericFormProps> = ({
     return initial;
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -39,8 +44,21 @@ const GenericForm: React.FC<GenericFormProps> = ({
     setValues((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+
+    try {
+      const response =  await axios.post("http://localhost:8080/players", values);
+      navigate("/game")
+    } catch (error) {
+      console.error("Não foi possível criar o jogador", error)
+      navigate("/game")
+    }
+    
+  }
+
   return (
-    <form method={method}>
+    <form onSubmit={handleSubmit}>
       {fields.map(({ name, label, type = "text", placeholder, required, ...rest }) => (
         <div key={name}>
           {label && (
