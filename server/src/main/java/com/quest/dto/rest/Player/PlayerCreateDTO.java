@@ -1,11 +1,9 @@
 package com.quest.dto.rest.Player;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -26,19 +24,19 @@ public class PlayerCreateDTO {
             "uma letra minúscula, um número e um caractere especial")
     private String password;
 
-    @NotEmpty(message = "É necessário informar ao menos um boardId")
-    private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
-
     @NotNull(message = "Balance is required")
     private BigDecimal balance;
 
-    public List<Long> getBoardIds() {
-        return boardIds;
-    }
+    // @NotEmpty(message = "É necessário informar ao menos um boardId")
+    // private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
 
-    public void setBoardIds(List<Long> boardIds) {
-        this.boardIds = boardIds;
-    }
+    // public List<Long> getBoardIds() {
+    // return boardIds;
+    // }
+
+    // public void setBoardIds(List<Long> boardIds) {
+    // this.boardIds = boardIds;
+    // }
 
     public String getName() {
         return name;

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.quest.dto.rest.Player.PlayerBalanceDTO;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
@@ -62,6 +64,18 @@ public class PlayerController {
     public ResponseEntity<PlayerResponseDTO> getPlayersByName(@PathVariable("name") String name) {
         PlayerResponseDTO player = playerServices.findByName(name);
         return ResponseEntity.ok(player);
+    }
+
+    @PatchMapping("/{id}/addBalance")
+    public ResponseEntity<Void> addBalance(@PathVariable long id, @RequestBody PlayerBalanceDTO playerBalanceDTO) {
+        playerServices.addBalance(id, playerBalanceDTO.getBalance());
+        return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}/decreaseBalance")
+    public ResponseEntity<Void> decreaseBalance(@PathVariable long id, @RequestBody PlayerBalanceDTO playerBalanceDTO) {
+        playerServices.decreaseBalance(id, playerBalanceDTO.getBalance());
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping

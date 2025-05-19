@@ -1,5 +1,6 @@
 package com.quest.services.rest;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,12 @@ public class PlayerServices implements IPlayerServices {
         if (!currentPlayer.getName().equals(playerUpdateDTO.getName()))
             currentPlayer.setName(playerUpdateDTO.getName());
 
+        if (existsByEmail(playerUpdateDTO.getEmail()))
+            throw new IllegalArgumentException("Email already exists");
+
+        if (existsByName(playerUpdateDTO.getName()))
+            throw new IllegalArgumentException("Name already exists");
+
         Player player = playerMapper.toEntity(playerUpdateDTO);
 
         Player updatedPlayer = playerRepository.save(player);
@@ -92,6 +99,23 @@ public class PlayerServices implements IPlayerServices {
     public void deletePlayerById(long id) {
         Player player = findPlayerById(id);
         playerRepository.delete(player);
+    }
+
+    @Override
+    public void addBalance(long id, BigDecimal balance) {
+        Player player = findPlayerById(id);
+        player.setBalance(player.getBalance().add(balance));
+        playerRepository.save(player);
+    }
+
+    @Override
+    public void decreaseBalance(long id, BigDecimal balance) {
+        Player player = findPlayerById(id);
+        player.setBalance(player.getBalance().subtract(balance));
+        if (player.getBalance().compareTo(BigDecimal.ZERO) < 0)
+            throw new IllegalArgumentException("Insufficient balance");
+
+        playerRepository.save(player);
     }
 
     private Boolean existsByEmail(String email) {
