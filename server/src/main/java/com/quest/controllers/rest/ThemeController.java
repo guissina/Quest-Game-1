@@ -20,7 +20,6 @@ import com.quest.dto.rest.Theme.ThemeUpdateDTO;
 import com.quest.services.rest.ThemeServices;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/themes")
@@ -40,14 +39,17 @@ public class ThemeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ThemeResponseDTO> updateTheme(@PathVariable long id,
-            @Valid @RequestBody @NotNull ThemeUpdateDTO themeUpdateDTO) {
+            @Valid @RequestBody ThemeUpdateDTO themeUpdateDTO) {
         themeUpdateDTO.setId(id);
         ThemeResponseDTO updatedTheme = themeServices.update(themeUpdateDTO);
         return ResponseEntity.ok(updatedTheme);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ThemeResponseDTO> getThemeById(@PathVariable ThemeUpdateDTO themeUpdateDTO) {
+    public ResponseEntity<ThemeResponseDTO> getThemeById(@PathVariable("id") long id,
+            @Valid @RequestBody ThemeUpdateDTO themeUpdateDTO) {
+
+        themeUpdateDTO.setId(id);
         ThemeResponseDTO theme = themeServices.findById(themeUpdateDTO.getId());
         return ResponseEntity.ok(theme);
     }
@@ -58,9 +60,15 @@ public class ThemeController {
         return ResponseEntity.ok(themes);
     }
 
-    @GetMapping("/findByName")
-    public ResponseEntity<ThemeResponseDTO> getThemeByName(@RequestBody ThemeUpdateDTO themeUpdateDTO) {
-        ThemeResponseDTO theme = themeServices.findById(themeUpdateDTO.getId());
+    @GetMapping("/name/{name}")
+    public ResponseEntity<ThemeResponseDTO> getThemeByName(@PathVariable("name") String name) {
+        ThemeResponseDTO theme = themeServices.findByName(name);
+        return ResponseEntity.ok(theme);
+    }
+
+    @GetMapping("/code/{code}")
+    public ResponseEntity<ThemeResponseDTO> getThemeByCode(@PathVariable("code") String code) {
+        ThemeResponseDTO theme = themeServices.findByCode(code);
         return ResponseEntity.ok(theme);
     }
 

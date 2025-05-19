@@ -7,10 +7,14 @@ import org.mapstruct.Mapping;
 
 import com.quest.dto.rest.Theme.ThemeCreateDTO;
 import com.quest.dto.rest.Theme.ThemeResponseDTO;
+import com.quest.dto.rest.Theme.ThemeUpdateDTO;
 import com.quest.models.Theme;
 
 @Mapper(componentModel = "spring")
 public interface ThemeMapper {
+
+    @Mapping(target = "id", ignore = true)
+    ThemeUpdateDTO toThemeUpdateDTO(Theme theme);
 
     ThemeResponseDTO toThemeResponseDTO(Theme theme);
 

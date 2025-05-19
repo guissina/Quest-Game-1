@@ -53,6 +53,24 @@ public class ThemeServices implements IThemeServices {
     }
 
     @Override
+    public ThemeResponseDTO findByName(String name) {
+        Theme theme = themeRepository.findByName(name);
+        if (theme == null) {
+            throw new EntityNotFoundException("Theme not found with name: " + name);
+        }
+        return themeMapper.toThemeResponseDTO(theme);
+    }
+
+    @Override
+    public ThemeResponseDTO findByCode(String code) {
+        Theme theme = themeRepository.findByCode(code);
+        if (theme == null) {
+            throw new EntityNotFoundException("Theme not found with code: " + code);
+        }
+        return themeMapper.toThemeResponseDTO(theme);
+    }
+
+    @Override
     public ThemeResponseDTO update(ThemeUpdateDTO themeUpdateDTO) {
         Theme currentTheme = findThemeById(themeUpdateDTO.getId());
 
