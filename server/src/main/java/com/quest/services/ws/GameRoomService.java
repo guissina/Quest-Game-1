@@ -58,7 +58,6 @@ public class GameRoomService implements IGameRoomService {
     @Override
     public RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req) {
         String sessionId = sessionManager.createSession();
-        System.out.println("Session created: " + sessionId);
         return new RoomCreateResponseDTO(sessionId);
     }
 
@@ -102,8 +101,8 @@ public class GameRoomService implements IGameRoomService {
 
         room.removePlayer(playerId);
         if (room.getPlayers().isEmpty()) {
-            sessionManager.removeSession(sessionId);
             broadcastRoomState(sessionId, true);
+            sessionManager.removeSession(sessionId);
         }
         else
             broadcastRoomState(sessionId, false);

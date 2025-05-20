@@ -29,6 +29,8 @@ export function LobbyPage() {
         startRoom(Number(inputBoardId), Number(inputInitialTokens));
     };
 
+    
+
     return (
         <div style={{ padding: 20, maxWidth: 400, margin: "auto" }}>
             <h2>Game Lobby</h2>

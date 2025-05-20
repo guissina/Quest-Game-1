@@ -14,20 +14,11 @@ export function useRoomWebSocket() {
     useEffect(() => {
         if (!client || !isConnected) return;
 
-        const sub = client.subscribe("/user/queue/room-created", ({ body }) => {
-            const { sessionId } = JSON.parse(body) as { sessionId: string };
-            setSessionId(sessionId);
-
-            if (playerRef.current) {
-                client.publish({
-                    destination: "/app/room/join",
-                    body: JSON.stringify({
-                        sessionId: sessionId,
-                        playerId: playerRef.current,
-                    }),
-                });
-                playerRef.current = null;
-            }
+        const sub = client.subscribe("/user/queue/room-created", (msg) => {
+            const { sessionId: newSessionId } = JSON.parse(msg.body) as {
+                sessionId: string;
+            };
+            setSessionId(newSessionId);
         });
 
         return () => sub.unsubscribe();
@@ -36,49 +27,55 @@ export function useRoomWebSocket() {
     useEffect(() => {
         if (!client || !isConnected || !sessionId) return;
 
-        const dest = `/topic/room/${sessionId}/state`;
-        const sub = client.subscribe(dest, ({ body }) => {
-            const { players: list, started: isStarted, closed } = JSON.parse(body) as {
+        const topic = `/topic/room/${sessionId}/state`;
+        const sub = client.subscribe(topic, (msg) => {
+            const { players: list, started: isStarted } = JSON.parse(msg.body) as {
                 players: PlayerProps[];
                 started: boolean;
-                closed: boolean; // TODO Limpar quando fechar a sala
             };
 
             setPlayers(list);
             setStarted(isStarted);
-
-            // Log completo do estado da sala
-            console.log("[ROOM STATE]", {
-                sessionId,
-                players: list,
-                started: isStarted,
-                closed,
-            });
+            console.log("[ROOM STATE]", { sessionId, list, isStarted });
         });
 
         return () => sub.unsubscribe();
     }, [client, isConnected, sessionId]);
 
+    useEffect(() => {
+        if (!client || !isConnected || !sessionId) return;
+        const playerId = playerRef.current;
+        if (playerId == null) return;
+
+        client.publish({
+            destination: "/app/room/join",
+            body: JSON.stringify({ sessionId, playerId }),
+        });
+        playerRef.current = null;
+    }, [client, isConnected, sessionId]);
+
     const createRoom = useCallback((playerId: number) => {
-        if (!client || !isConnected) return console.warn("WebSocket not ready");
+        if (!client || !isConnected) {
+            console.warn("WS not ready");
+            return;
+        }
         playerRef.current = playerId;
-        client.publish({ 
+
+        client.publish({
             destination: "/app/room/create",
             body: JSON.stringify({ creatorPlayerId: playerId }),
-        });
+        }); 
     }, [client, isConnected]);
 
     const joinRoom = useCallback((id: string, playerId: number) => {
         if (!client || !isConnected) return;
+        playerRef.current = playerId;
         setSessionId(id);
-        client.publish({
-            destination: "/app/room/join",
-            body: JSON.stringify({ sessionId: id, playerId }),
-        });
     }, [client, isConnected]);
 
     const startRoom = useCallback((boardId: number, initialTokens: number) => {
         if (!client || !isConnected || !sessionId) return;
+
         client.publish({
             destination: "/app/room/start",
             body: JSON.stringify({ sessionId, boardId, initialTokens }),

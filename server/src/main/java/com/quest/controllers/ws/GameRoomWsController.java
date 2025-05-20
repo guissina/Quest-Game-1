@@ -1,7 +1,8 @@
 package com.quest.controllers.ws;
 
+import com.quest.config.websocket.WebSocketSessionRegistry;
 import com.quest.dto.ws.Room.*;
-import com.quest.services.ws.GameRoomService;
+import com.quest.interfaces.ws.IGameRoomService;
 import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
@@ -9,10 +10,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class GameRoomWsController {
 
-    private final GameRoomService service;
+    private final IGameRoomService service;
+    private final WebSocketSessionRegistry registry;
 
-    public GameRoomWsController(GameRoomService service) {
+    public GameRoomWsController(IGameRoomService service,
+                                WebSocketSessionRegistry registry) {
         this.service = service;
+        this.registry = registry;
     }
 
     @MessageMapping("/room/create")
@@ -22,8 +26,10 @@ public class GameRoomWsController {
     }
 
     @MessageMapping("/room/join")
-    public void join(JoinRoomRequestDTO req) {
+    public void join(@Header("simpSessionId") String wsSessionId,
+                     JoinRoomRequestDTO req) {
         service.joinRoom(req);
+        registry.register(wsSessionId, req.sessionId(), req.playerId());
     }
 
     @MessageMapping("/room/start")
