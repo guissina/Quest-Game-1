@@ -7,6 +7,7 @@ import org.mapstruct.Mapping;
 
 import com.quest.dto.rest.Player.PlayerBalanceDTO;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
+import com.quest.dto.rest.Player.PlayerLoginDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
@@ -40,6 +41,8 @@ public interface PlayerMapper {
     PlayerRoomResponseDTO toPlayerRoomResponseDTO(Player player);
 
     PlayerBalanceDTO toPlayerBalanceDTO(Player player);
+
+    PlayerLoginDTO toPlayerLoginDTO(Player player);
 
     List<PlayerRoomResponseDTO> toPlayerRoomResponseDTOs(List<Player> players);
 
