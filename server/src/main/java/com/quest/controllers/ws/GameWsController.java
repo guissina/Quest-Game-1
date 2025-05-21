@@ -1,11 +1,13 @@
 package com.quest.controllers.ws;
 
+import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.dto.ws.Game.MoveRequestDTO;
 import com.quest.dto.ws.Game.AnswerRequestDTO;
 import com.quest.services.ws.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -16,6 +18,12 @@ public class GameWsController {
     @Autowired
     public GameWsController(GameService gameService) {
         this.gameService = gameService;
+    }
+
+    @MessageMapping("/game/{sessionId}/state")
+    @SendToUser("/queue/game-state")
+    public EngineStateDTO getState(@DestinationVariable String sessionId) {
+        return gameService.getGameState(sessionId);
     }
 
     @MessageMapping("/app/game/{sessionId}/move")

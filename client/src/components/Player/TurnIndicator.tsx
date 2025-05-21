@@ -1,10 +1,10 @@
 import "./TurnIndicator.scss";
 
-interface Props {
-    playerName: string;
+interface TurnIndicatorProps {
+    playerName: number;
 }
 
-export function TurnIndicator({ playerName }: Props) {
+export function TurnIndicator({ playerName }: TurnIndicatorProps) {
     return (
         <div className='gp-turn'>
             <strong>Turn:&nbsp;</strong>

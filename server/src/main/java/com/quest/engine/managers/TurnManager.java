@@ -8,6 +8,7 @@ public class TurnManager {
     private final List<PlayerState> players;
     private int currentTurn = 0; // TODO Se o jogador sair no meio do turno
 
+    // TODO Essa lista pode quebrar caso remova ou adicione um player novo, pois e um clone e nao referencia
     public TurnManager(List<PlayerState> players) {
         this.players = players;
     }

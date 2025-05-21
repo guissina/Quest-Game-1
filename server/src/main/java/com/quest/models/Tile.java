@@ -1,5 +1,6 @@
 package com.quest.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +12,7 @@ public class Tile {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "board_id", nullable = false)
     private Board board;

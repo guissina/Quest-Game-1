@@ -1,14 +1,18 @@
 package com.quest.engine.state;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class PlayerState {
     private final Long playerId;
-    private int tokens;
+    private final List<Integer> tokens;
     private Long currentTileId;
     private boolean mustAnswerBeforeMoving;
 
-    public PlayerState(Long playerId, int initialTokens, Long startTileId) {
+    public PlayerState(Long playerId, List<Integer> initialTokens, Long startTileId) {
         this.playerId = playerId;
-        this.tokens = initialTokens;
+        this.tokens = new ArrayList<>(initialTokens);
         this.currentTileId = startTileId;
         this.mustAnswerBeforeMoving = false;
     }
@@ -17,12 +21,16 @@ public class PlayerState {
         return playerId;
     }
 
-    public int getTokens() {
-        return tokens;
+    public List<Integer> getTokens() {
+        return Collections.unmodifiableList(tokens);
     }
 
-    public void consumeTokens(int amount) {
-        this.tokens = Math.max(0, tokens - amount);
+    public void addToken(int value) {
+        tokens.add(value);
+    }
+
+    public boolean consumeToken(int value) {
+        return tokens.remove((Integer) value);
     }
 
     public Long getCurrentTileId() {

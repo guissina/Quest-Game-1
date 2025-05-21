@@ -3,10 +3,12 @@ package com.quest.dto.ws.Game;
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Player;
 
+import java.util.List;
+
 public record PlayerStateDTO(
         Long playerId,
         Long tileId,
-        int tokens,
+        List<Integer> tokens,
         boolean mustAnswerBeforeMoving,
         boolean isCurrentTurn
 ) {

@@ -12,6 +12,8 @@ import com.quest.models.Tile;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class GameEngine {
 
@@ -44,12 +46,9 @@ public class GameEngine {
     }
 
     public void initializeGameState(int initialTokens) {
-        Long startTileId = boardManager.getBoard().getStartTile().getId();
+        List<Integer> tokenList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
         for (Player p : room.getPlayers()) {
-            stateByPlayer.put(
-                    p.getId(),
-                    new PlayerState(p.getId(), initialTokens, startTileId)
-            );
+            stateByPlayer.put(p.getId(), new PlayerState(p.getId(), tokenList, null));
         }
         List<PlayerState> states = new ArrayList<>(stateByPlayer.values());
         this.turnManager = new TurnManager(states);

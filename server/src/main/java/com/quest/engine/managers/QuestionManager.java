@@ -26,7 +26,7 @@ public class QuestionManager {
             ps.setMustAnswerBeforeMoving(false);
         else {
             if (!ps.isMustAnswerBeforeMoving())
-                ps.consumeTokens(steps);
+                ps.consumeToken(steps);
             ps.setMustAnswerBeforeMoving(true);
         }
         return correct;

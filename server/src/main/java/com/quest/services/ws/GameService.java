@@ -36,9 +36,9 @@ public class GameService {
         messagingTemplate.convertAndSend(destination, stateDto);
     }
 
-    public void getGameState(String sessionId) {
+    public EngineStateDTO getGameState(String sessionId) {
         GameEngine engine = sessionManager.getEngine(sessionId);
-        broadcastGameState(sessionId, engine);
+        return EngineStateDTO.from(sessionId, engine);
     }
 
     public void movePlayer(String sessionId, MoveRequestDTO req) {

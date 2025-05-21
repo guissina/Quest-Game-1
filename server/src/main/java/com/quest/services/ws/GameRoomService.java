@@ -13,6 +13,7 @@ import com.quest.models.Board;
 import com.quest.models.Player;
 import com.quest.mappers.PlayerMapper;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -74,6 +75,7 @@ public class GameRoomService implements IGameRoomService {
         broadcastRoomState(req.sessionId(), false);
     }
 
+    @Transactional
     @Override
     public void startRoom(StartRoomRequestDTO req) {
         GameSession session = sessionManager.getSession(req.sessionId());
@@ -81,7 +83,7 @@ public class GameRoomService implements IGameRoomService {
 
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
-        Board board = boardService.findBoardById(req.boardId());
+        Board board = boardService.findBoardById(req.boardId()); // TODO Quebrando conexao caso nao exista
         GameEngine engine = new GameEngine(room, board);
         engine.initializeGameState(req.initialTokens());
         engine.seed();
