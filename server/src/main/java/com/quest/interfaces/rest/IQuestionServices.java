@@ -11,6 +11,10 @@ public interface IQuestionServices {
 
     Question findQuestionById(long id);
 
+    QuestionResponseDTO findRandomByTheme(Long themeId);
+
+    List<QuestionResponseDTO> createMany(List<QuestionCreateDTO> questionCreateDTOs);
+
     List<QuestionResponseDTO> findAll();
 
     QuestionResponseDTO create(QuestionCreateDTO questionCreateDTO);
