@@ -6,7 +6,6 @@ import com.quest.dto.ws.Game.AnswerRequestDTO;
 import com.quest.dto.ws.Game.MoveRequestDTO;
 import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.engine.core.GameEngine;
-import com.quest.engine.core.GameSession;
 import com.quest.engine.managers.GameSessionManager;
 import com.quest.interfaces.rest.IQuestionServices;
 import com.quest.models.Question;
@@ -43,8 +42,7 @@ public class GameService {
 
     public void movePlayer(String sessionId, MoveRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
-
-        engine.move(req.playerId(), req.tileId());
+        engine.move(req.playerId(), req.steps());
         broadcastGameState(sessionId, engine);
     }
 
@@ -59,7 +57,6 @@ public class GameService {
         Question question = questionService.findQuestionById(req.questionId());
 
         boolean correct = engine.answerQuestion(req.playerId(), question, req.selectedOptionId(), req.steps());
-        // TODO Mecanica de acertar a questao
         broadcastGameState(sessionId, engine);
     }
 }

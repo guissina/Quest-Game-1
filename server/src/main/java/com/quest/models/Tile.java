@@ -17,6 +17,9 @@ public class Tile {
     @JoinColumn(name = "board_id", nullable = false)
     private Board board;
 
+    @Column(name = "sequence", nullable = false)
+    private int sequence;
+
     @Column(name = "row_index", nullable = false)
     private int row;
 
@@ -28,14 +31,6 @@ public class Tile {
 
     @Transient
     private Theme questionTheme;
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
 
     public Long getId() {
         return id;
@@ -51,6 +46,22 @@ public class Tile {
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 
     public int getCol() {

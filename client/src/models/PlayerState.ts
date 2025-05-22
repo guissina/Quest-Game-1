@@ -1,7 +1,7 @@
 export interface PlayerStateProps {
     playerId: number;
     tileId: number;
-    tokens: number;
+    tokens: number[];
     mustAnswerBeforeMoving: boolean;
     isCurrentTurn: boolean;
 }
@@ -9,7 +9,7 @@ export interface PlayerStateProps {
 export class PlayerState {
     public readonly playerId: number;
     public readonly tileId: number;
-    public readonly tokens: number;
+    public readonly tokens: number[];
     public readonly mustAnswerBeforeMoving: boolean;
     public readonly isCurrentTurn: boolean;
 

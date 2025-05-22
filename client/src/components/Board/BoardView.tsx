@@ -5,10 +5,9 @@ import "./BoardView.scss";
 interface BoardViewProps {
     board: Board;
     playerStates: PlayerState[];
-    onTileClick(tileId: number): void;
 }
 
-export function BoardView({ board, playerStates, onTileClick }: BoardViewProps) {
+export function BoardView({ board, playerStates }: BoardViewProps) {
     const { rows, cols, tiles, /*name*/ } = board;
 
     return (
@@ -30,7 +29,6 @@ export function BoardView({ board, playerStates, onTileClick }: BoardViewProps) 
                             gridColumn: tile.col + 1,
                             gridRow: tile.row + 1,
                         }}
-                        onClick={() => onTileClick(tile.id)}
                     >
                         <strong className='bv-tile-id'>{tile.id}</strong>
 

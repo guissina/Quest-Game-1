@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GameEngine {
-
+    // TODO Todas as ações devem ter verificação se realmente foi o player que jogou
     private final GameRoom room;
     private final BoardManager boardManager;
     private TurnManager turnManager;
@@ -67,16 +67,16 @@ public class GameEngine {
         return correct;
     }
 
-    public void move(Long playerId, Long tileId) {
+    public void move(Long playerId, int steps) {
         turnManager.verifyTurn(playerId);
         questionManager.verifyCanMove(playerId);
 
         PlayerState ps = stateByPlayer.get(playerId);
         if (ps == null) throw new RuntimeException("Player not found.");
 
-        Tile tile = boardManager.getBoard().findTileById(tileId)
-                .orElseThrow(() -> new RuntimeException("Tile not found."));
+        Tile tile = boardManager.getTileAtOffset(ps.getCurrentTileId(), steps);
 
         boardManager.movePlayer(ps, tile);
+        turnManager.nextTurn(); // TODO Retirar isso (apenas para teste)
     }
 }

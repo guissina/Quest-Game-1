@@ -2,5 +2,5 @@ package com.quest.dto.ws.Game;
 
 public record MoveRequestDTO(
         Long playerId,
-        Long tileId
+        int steps
 ) { }

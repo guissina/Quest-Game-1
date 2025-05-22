@@ -26,12 +26,12 @@ public class GameWsController {
         return gameService.getGameState(sessionId);
     }
 
-    @MessageMapping("/app/game/{sessionId}/move")
+    @MessageMapping("/game/{sessionId}/move")
     public void move(@DestinationVariable String sessionId, MoveRequestDTO payload) {
         gameService.movePlayer(sessionId, payload);
     }
 
-    @MessageMapping("/app/game/{sessionId}/answer")
+    @MessageMapping("/game/{sessionId}/answer")
     public void answer(@DestinationVariable String sessionId, AnswerRequestDTO payload) {
         gameService.answerQuestion(sessionId, payload);
     }

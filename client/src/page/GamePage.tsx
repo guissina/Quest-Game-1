@@ -32,19 +32,13 @@ export default function GamePage({ sessionId, players }: GamePageProps) {
 
             <div className='gp-content'>
                 <TokenSelector
-                    tokens={Array.from(
-                        { length: currentPlayer.tokens },
-                        (_, i) => i + 1
-                    )}
+                    tokens={currentPlayer.tokens}
                     onMove={(steps) => movePlayer(currentPlayerId, steps)}
                 />
 
                 <BoardView
                     board={gameState.board}
                     playerStates={gameState.playerStates}
-                    onTileClick={(tileId) =>
-                        movePlayer(currentPlayer.playerId, Number(tileId))
-                    }
                 />
             </div>
         </div>

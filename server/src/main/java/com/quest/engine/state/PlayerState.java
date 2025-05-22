@@ -29,8 +29,8 @@ public class PlayerState {
         tokens.add(value);
     }
 
-    public boolean consumeToken(int value) {
-        return tokens.remove((Integer) value);
+    public void consumeToken(int value) {
+        tokens.remove((Integer) value);
     }
 
     public Long getCurrentTileId() {

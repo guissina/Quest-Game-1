@@ -6,7 +6,7 @@ export function useGameWebSocket(sessionId: string | null) {
     const client = useWebSocketClient();
     const isConnected = useWebSocketStatus();
 
-    const [gameState, setGameState] = useState<Game | null>(null); // TODO Tirar o any
+    const [gameState, setGameState] = useState<Game | null>(null);
 
     useEffect(() => {
         if (!client || !isConnected || !sessionId) return;
@@ -16,11 +16,6 @@ export function useGameWebSocket(sessionId: string | null) {
             const state = JSON.parse(body) as GameProps;
             setGameState(new Game(state));
             console.log("[GAME STATE]", state);
-        });
-
-        client.publish({
-            destination: `/app/game/${sessionId}/init`,
-            body: JSON.stringify({ sessionId }),
         });
 
         return () => sub.unsubscribe();
@@ -48,12 +43,12 @@ export function useGameWebSocket(sessionId: string | null) {
         });
     }, [client, isConnected, sessionId]);
 
-    const movePlayer = useCallback((playerId: number, tileId: number) => {
+    const movePlayer = useCallback((playerId: number, steps: number) => {
         if (!client || !isConnected || !sessionId) return;
 
         client.publish({
             destination: `/app/game/${sessionId}/move`,
-            body: JSON.stringify({ playerId, tileId }),
+            body: JSON.stringify({ playerId, steps }),
         });
     }, [client, isConnected, sessionId]);
 
