@@ -2,8 +2,5 @@
       "name": "Bobb Smith",
       "email": "bWasdb@examplle.com",
       "password": "anotherSecurePass4564",
-      "balance": 20.00,
-      "boardIds": [
-        1
-      ]
+      "balance": 20.00
     }
