@@ -103,4 +103,17 @@ public class QuestionServices implements IQuestionServices {
         Question question = findQuestionById(id);
         questionRepository.delete(question);
     }
+
+    public QuestionResponseDTO getRandomByTheme(Long themeId) {
+        themeServices.findThemeById(themeId);
+
+        Question question = questionRepository
+                .findRandomByThemeId(themeId)
+                .orElseThrow(() ->
+                        new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId)
+                );
+
+        return questionMapper.toQuestionResponseDTO(question);
+    }
 }
+
