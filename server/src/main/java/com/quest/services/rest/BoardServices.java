@@ -1,8 +1,12 @@
 package com.quest.services.rest;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import com.quest.dto.rest.tile.TileCreateDTO;
+import com.quest.mappers.TileMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,36 +27,63 @@ public class BoardServices implements IBoardServices {
 
     private final BoardRepository boardRepository;
     private final BoardMapper boardMapper;
+    private final TileMapper tileMapper;
 
     @Autowired
-    public BoardServices(BoardRepository boardRepository, BoardMapper boardMapper) {
+    public BoardServices(BoardRepository boardRepository, BoardMapper boardMapper, TileMapper tileMapper) {
         this.boardRepository = boardRepository;
         this.boardMapper = boardMapper;
+        this.tileMapper = tileMapper;
+    }
+
+    private void validateTiles(BoardCreateDTO dto) {
+        List<TileCreateDTO> tiles = dto.getTiles();
+        int count = tiles.size();
+
+        Set<Integer> actualSequence = tiles.stream()
+                .map(TileCreateDTO::getSequence)
+                .collect(Collectors.toSet());
+
+        Set<Integer> expectedSequence = IntStream.range(0, count)
+                .boxed()
+                .collect(Collectors.toSet());
+
+        if (!actualSequence.equals(expectedSequence))
+            throw new IllegalArgumentException("Sequências inválidas: espere exatamente " + expectedSequence);
+
+        tiles.forEach(tileDto -> {
+            int row = tileDto.getRow();
+            int col = tileDto.getCol();
+
+            if (row < 0 || row >= dto.getRows())
+                throw new IllegalArgumentException(
+                        String.format("Row fora do grid: %d (válido: 0 a %d)", row, dto.getRows() - 1)
+                );
+            if (col < 0 || col >= dto.getCols())
+                throw new IllegalArgumentException(
+                        String.format("Coluna fora do grid: %d (válido: 0 a %d)", col, dto.getCols() - 1)
+                );
+        });
+
     }
 
     @Override
-    public BoardResponseDTO createBoard(BoardCreateDTO boardCreateDTO) {
-        // 1. Mapeia DTO para entidade Board (sem tiles ainda)
-        Board board = boardMapper.toBoardCreate(boardCreateDTO);
+    @Transactional
+    public BoardResponseDTO createBoard(BoardCreateDTO dto) {
+        validateTiles(dto);
+        Board board = boardMapper.toEntity(dto);
 
-        // 2. Gera todos os tiles com base em rows x cols
-        List<Tile> tiles = new ArrayList<>();
-        for (int r = 0; r < board.getRows(); r++) {
-            for (int c = 0; c < board.getCols(); c++) {
-                Tile tile = new Tile();
-                tile.setRow(r);
-                tile.setCol(c);
-                tile.setBoard(board); // VERY IMPORTANT: vincula o tile ao board
-                tiles.add(tile);
-            }
-        }
-        board.setTiles(tiles); // adiciona a lista de tiles no board
+        List<Tile> tiles = dto.getTiles().stream()
+                .map(tileDto -> {
+                    Tile tile = tileMapper.toEntity(tileDto);
+                    tile.setBoard(board);
+                    return tile;
+                })
+                .toList();
+        board.setTiles(tiles);
 
-        // 3. Salva o board (vai persistir também todos os tiles, pelo CascadeType.ALL)
-        Board savedBoard = boardRepository.save(board);
-
-        // 4. Retorna DTO de resposta
-        return boardMapper.toBoardResponseDTO(savedBoard);
+        Board saved = boardRepository.save(board);
+        return boardMapper.toBoardResponseDTO(saved);
     }
 
     @Override

@@ -1,46 +1,17 @@
 package com.quest.dto.rest.tile;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class TileCreateDTO {
-    Long id;
 
-    @NotBlank(message = "Tile name is required")
-    private String name;
-
-    @NotNull(message = "Board ID is required")
-    private Long boardId;
-
-    @NotNull(message = "Row index is required")
+    @NotNull(message = "Tile row index is required")
     private int row;
 
-    @NotNull(message = "Column index is required")
+    @NotNull(message = "Tile column index is required")
     private int col;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getBoardId() {
-        return boardId;
-    }
-
-    public void setBoardId(Long boardId) {
-        this.boardId = boardId;
-    }
+    @NotNull(message = "Tile sequence is required")
+    private int sequence;
 
     public int getRow() {
         return row;
@@ -58,5 +29,11 @@ public class TileCreateDTO {
         this.col = col;
     }
 
-    
+    public int getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
+    }
 }

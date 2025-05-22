@@ -16,14 +16,12 @@ public interface BoardMapper {
     @Mapping(target = "tiles", source = "tiles")
     BoardResponseDTO toBoardResponseDTO(Board board);
 
-    @Mapping(target = "tiles", ignore = true)
     @Mapping(target = "id", ignore = true)
-    Board toBoardCreate(BoardCreateDTO boardCreateDTO);
+    Board toEntity(BoardCreateDTO dto);
 
     @Mapping(target = "tiles", ignore = true)
     @Mapping(target = "id", ignore = true)
     Board toBoardUpdate(BoardUpdateDTO boardUpdateDTO);
 
     List<BoardResponseDTO> toBoardResponseDTOs(List<Board> boards);
-
 }

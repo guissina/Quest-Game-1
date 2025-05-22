@@ -2,8 +2,7 @@ package com.quest.dto.rest.Board;
 
 import java.util.List;
 
-import com.quest.dto.rest.Theme.ThemeCreateDTO;
-
+import com.quest.dto.rest.tile.TileCreateDTO;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -18,16 +17,8 @@ public class BoardCreateDTO {
     @NotNull(message = "Cols are required")
     private int cols;
 
-    @NotNull(message = "Themes are required")
-    private List<ThemeCreateDTO> themes;
-
-    public List<ThemeCreateDTO> getThemes() {
-        return themes;
-    }
-
-    public void setThemes(List<ThemeCreateDTO> themes) {
-        this.themes = themes;
-    }
+    @NotNull(message = "Tiles are required")
+    private List<TileCreateDTO> tiles;
 
     public String getName() {
         return name;
@@ -53,4 +44,11 @@ public class BoardCreateDTO {
         this.cols = cols;
     }
 
+    public List<TileCreateDTO> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(List<TileCreateDTO> tiles) {
+        this.tiles = tiles;
+    }
 }
