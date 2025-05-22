@@ -37,6 +37,13 @@ public class ThemeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTheme);
     }
 
+    @PostMapping("/many")
+    public ResponseEntity<List<ThemeResponseDTO>> createManyThemes(
+            @RequestBody List<ThemeCreateDTO> themeCreateDTOs) {
+        List<ThemeResponseDTO> createdThemes = themeServices.createMany(themeCreateDTOs);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdThemes);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<ThemeResponseDTO> updateTheme(@PathVariable long id,
             @Valid @RequestBody ThemeUpdateDTO themeUpdateDTO) {
@@ -46,11 +53,8 @@ public class ThemeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ThemeResponseDTO> getThemeById(@PathVariable("id") long id,
-            @Valid @RequestBody ThemeUpdateDTO themeUpdateDTO) {
-
-        themeUpdateDTO.setId(id);
-        ThemeResponseDTO theme = themeServices.findById(themeUpdateDTO.getId());
+    public ResponseEntity<ThemeResponseDTO> getThemeById(@PathVariable("id") long id) {
+        ThemeResponseDTO theme = themeServices.findById(id);
         return ResponseEntity.ok(theme);
     }
 

@@ -28,7 +28,8 @@ public interface PlayerMapper {
     @Mapping(target = "id", ignore = true)
     // @Mapping(target = "boards", source = "boardIds", qualifiedByName =
     // "idsToBoards")
-    @Mapping(target = "balance", source = "balance")
+    // @Mapping(target = "balance", source = "balance")
+    @Mapping(target = "balance", ignore = true)
     Player toEntity(PlayerCreateDTO playerCreateDTO);
 
     // @Mapping(target = "boards", source = "boardIds", qualifiedByName =

@@ -37,6 +37,13 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdQuestion);
     }
 
+    @PostMapping("/many")
+    public ResponseEntity<List<QuestionResponseDTO>> createManyQuestions(
+            @RequestBody List<QuestionCreateDTO> questionCreateDTOs) {
+        List<QuestionResponseDTO> createdQuestions = questionServices.createMany(questionCreateDTOs);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdQuestions);
+    }
+
     @GetMapping
     public ResponseEntity<List<QuestionResponseDTO>> findAllQuestions() {
         List<QuestionResponseDTO> questions = questionServices.findAll();
@@ -66,8 +73,8 @@ public class QuestionController {
     }
 
     @GetMapping("/random/theme/{themeId}")
-    public ResponseEntity<QuestionResponseDTO> getRandomQuestionByTheme(@PathVariable Long themeId) {
-        QuestionResponseDTO question = questionServices.getRandomByTheme(themeId);
+    public ResponseEntity<QuestionResponseDTO> findRandomQuestionByTheme(@PathVariable Long themeId) {
+        QuestionResponseDTO question = questionServices.findRandomByTheme(themeId);
         return ResponseEntity.ok(question);
     }
 

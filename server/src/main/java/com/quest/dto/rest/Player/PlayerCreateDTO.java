@@ -25,7 +25,7 @@ public class PlayerCreateDTO {
     private String password;
 
     @NotNull(message = "Balance is required")
-    private BigDecimal balance;
+    private BigDecimal balance = BigDecimal.ZERO;
 
     // @NotEmpty(message = "É necessário informar ao menos um boardId")
     // private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;

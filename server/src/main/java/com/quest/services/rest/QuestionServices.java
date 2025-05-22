@@ -1,6 +1,8 @@
 package com.quest.services.rest;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import com.quest.repositories.QuestionRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 @Service
@@ -29,7 +32,8 @@ public class QuestionServices implements IQuestionServices {
     private final QuestionOptionsMapper questionOptionsMapper;
 
     @Autowired
-    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository, ThemeServices themeServices,
+    public QuestionServices(QuestionMapper questionMapper, QuestionRepository questionRepository,
+            ThemeServices themeServices,
             QuestionOptionsMapper questionOptionsMapper) {
         this.questionOptionsMapper = questionOptionsMapper;
         this.questionMapper = questionMapper;
@@ -59,6 +63,35 @@ public class QuestionServices implements IQuestionServices {
         Question saved = questionRepository.save(question);
 
         return questionMapper.toQuestionResponseDTO(saved);
+    }
+
+    @Override
+    @Transactional
+    public List<QuestionResponseDTO> createMany(List<@Valid QuestionCreateDTO> questionCreateDTOList) {
+        List<Question> questionsToSave = new ArrayList<>();
+
+        for (QuestionCreateDTO dto : questionCreateDTOList) {
+            Theme theme = themeServices.findThemeById(dto.getThemeId());
+
+            Question question = questionMapper.toEntity(dto);
+            question.setTheme(theme);
+
+            question.getOptions().clear();
+
+            for (QuestionOptionCreateDTO optionDTO : dto.getOptions()) {
+                QuestionOption option = questionOptionsMapper.toEntity(optionDTO);
+                option.setQuestion(question);
+                question.getOptions().add(option);
+            }
+
+            questionsToSave.add(question);
+        }
+
+        List<Question> savedQuestions = questionRepository.saveAll(questionsToSave);
+
+        return savedQuestions.stream()
+                .map(questionMapper::toQuestionResponseDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -104,16 +137,14 @@ public class QuestionServices implements IQuestionServices {
         questionRepository.delete(question);
     }
 
-    public QuestionResponseDTO getRandomByTheme(Long themeId) {
+    @Override
+    public QuestionResponseDTO findRandomByTheme(Long themeId) {
         themeServices.findThemeById(themeId);
 
         Question question = questionRepository
                 .findRandomByThemeId(themeId)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId)
-                );
+                .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
 
         return questionMapper.toQuestionResponseDTO(question);
     }
 }
-

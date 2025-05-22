@@ -16,6 +16,8 @@ public interface IThemeServices {
 
     ThemeResponseDTO create(ThemeCreateDTO themeCreateDTO);
 
+    List<ThemeResponseDTO> createMany(List<ThemeCreateDTO> themeCreateDTOs);
+
     List<ThemeResponseDTO> findAll();
 
     ThemeResponseDTO findById(long id);

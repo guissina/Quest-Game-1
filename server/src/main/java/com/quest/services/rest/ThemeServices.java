@@ -1,6 +1,7 @@
 package com.quest.services.rest;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,8 @@ import com.quest.models.Theme;
 import com.quest.repositories.ThemeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @Service
 public class ThemeServices implements IThemeServices {
@@ -32,6 +35,23 @@ public class ThemeServices implements IThemeServices {
         Theme theme = themeMapper.toEntity(themeCreateDTO);
         Theme savedTheme = themeRepository.save(theme);
         return themeMapper.toThemeResponseDTO(savedTheme);
+    }
+
+    @Override
+    @Transactional
+    public List<ThemeResponseDTO> createMany(List<@Valid ThemeCreateDTO> themeCreateDTOList) {
+        // Converte cada DTO em entidade
+        List<Theme> themesToSave = themeCreateDTOList.stream()
+                .map(dto -> themeMapper.toEntity(dto))
+                .collect(Collectors.toList());
+
+        // Persiste todos em batch
+        List<Theme> savedThemes = themeRepository.saveAll(themesToSave);
+
+        // Mapeia entidades salvas para DTOs de resposta
+        return savedThemes.stream()
+                .map(themeMapper::toThemeResponseDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
