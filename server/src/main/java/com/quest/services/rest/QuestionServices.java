@@ -46,22 +46,26 @@ public class QuestionServices implements IQuestionServices {
     public QuestionResponseDTO create(@NotNull QuestionCreateDTO questionCreateDTO) {
         Theme theme = themeServices.findThemeById(questionCreateDTO.getThemeId());
 
+        long correctCount = questionCreateDTO.getOptions().stream()
+                .filter(QuestionOptionCreateDTO::isCorrect)
+                .count();
+
+        if (correctCount != 1) {
+            throw new IllegalArgumentException("Question must have exactly one correct option.");
+        }
+
         Question question = questionMapper.toEntity(questionCreateDTO);
         question.setTheme(theme);
 
-        // garante lista limpa
         question.getOptions().clear();
 
-        // 2) use o mapper injetado, não de forma estática
         for (QuestionOptionCreateDTO dto : questionCreateDTO.getOptions()) {
             QuestionOption option = questionOptionsMapper.toEntity(dto);
             option.setQuestion(question);
             question.getOptions().add(option);
         }
 
-        // aqui a Question e as QuestionOption são salvas em cascata
         Question saved = questionRepository.save(question);
-
         return questionMapper.toQuestionResponseDTO(saved);
     }
 
@@ -114,11 +118,18 @@ public class QuestionServices implements IQuestionServices {
 
     @Override
     public QuestionResponseDTO update(@NotNull QuestionUpdateDTO dto) {
+        long correctCount = dto.getOptions().stream()
+                .filter(opt -> opt.isCorrect())
+                .count();
+
+        if (correctCount != 1)
+            throw new IllegalArgumentException("Question must have exactly one correct option.");
+
         Question existing = findQuestionById(dto.getId());
-        // campos simples
+
         existing.setQuestionText(dto.getQuestionText());
         existing.setDifficulty(dto.getDifficulty());
-        // remover e recriar opções
+
         existing.getOptions().clear();
         dto.getOptions().forEach(optDto -> {
             QuestionOption opt = new QuestionOption();
@@ -132,12 +143,6 @@ public class QuestionServices implements IQuestionServices {
     }
 
     @Override
-    public void delete(long id) {
-        Question question = findQuestionById(id);
-        questionRepository.delete(question);
-    }
-
-    @Override
     public QuestionResponseDTO findRandomByTheme(Long themeId) {
         themeServices.findThemeById(themeId);
 
@@ -146,5 +151,11 @@ public class QuestionServices implements IQuestionServices {
                 .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
 
         return questionMapper.toQuestionResponseDTO(question);
+    }
+
+    @Override
+    public void delete(long id) {
+        Question question = findQuestionById(id);
+        questionRepository.delete(question);
     }
 }
