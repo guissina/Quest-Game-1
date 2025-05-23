@@ -8,6 +8,8 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.managers.GameSessionManager;
 import com.quest.interfaces.rest.IQuestionServices;
 import com.quest.models.Question;
+import jakarta.transaction.Transactional;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,7 @@ public class GameService {
         return EngineStateDTO.from(sessionId, engine);
     }
 
+    @Transactional
     public void drawQuestion(String sessionId, QuestionRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
         Question question;
@@ -46,6 +49,8 @@ public class GameService {
             question = questionService.findRandomByTheme(req.themeId());
             System.out.println("Peguei: " + question.getId());
         } while (engine.hasUsedQuestion(question.getId()));
+
+        Hibernate.initialize(question.getOptions());
 
         engine.registerQuestionFor(req.playerId(), question);
         broadcastGameState(sessionId, engine);
