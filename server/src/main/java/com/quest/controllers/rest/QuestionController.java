@@ -71,11 +71,4 @@ public class QuestionController {
         questionServices.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-    @GetMapping("/random/theme/{themeId}")
-    public ResponseEntity<QuestionResponseDTO> findRandomQuestionByTheme(@PathVariable Long themeId) {
-        QuestionResponseDTO question = questionServices.findRandomByTheme(themeId);
-        return ResponseEntity.ok(question);
-    }
-
 }

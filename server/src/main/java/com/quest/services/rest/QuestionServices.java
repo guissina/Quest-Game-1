@@ -138,13 +138,11 @@ public class QuestionServices implements IQuestionServices {
     }
 
     @Override
-    public QuestionResponseDTO findRandomByTheme(Long themeId) {
+    public Question findRandomByTheme(Long themeId) {
         themeServices.findThemeById(themeId);
 
-        Question question = questionRepository
+        return questionRepository
                 .findRandomByThemeId(themeId)
                 .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
-
-        return questionMapper.toQuestionResponseDTO(question);
     }
 }

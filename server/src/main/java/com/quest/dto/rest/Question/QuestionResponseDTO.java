@@ -3,12 +3,14 @@ package com.quest.dto.rest.Question;
 import java.util.List;
 
 import com.quest.dto.rest.questionOptions.QuestionOptionResponseDTO;
+import com.quest.enums.Difficulty;
+import com.quest.models.Question;
 
 public class QuestionResponseDTO {
     private Long id;
     private String questionText;
     private List<QuestionOptionResponseDTO> options;
-    private String difficulty;
+    private Difficulty difficulty;
     private long themeId;
 
     public Long getId() {
@@ -27,11 +29,11 @@ public class QuestionResponseDTO {
         this.questionText = questionText;
     }
 
-    public String getDifficulty() {
+    public Difficulty getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
+    public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
 
@@ -49,5 +51,15 @@ public class QuestionResponseDTO {
 
     public void setOptions(List<QuestionOptionResponseDTO> options) {
         this.options = options;
+    }
+
+    public static QuestionResponseDTO from(Question question) {
+        QuestionResponseDTO dto = new QuestionResponseDTO();
+        dto.setId(question.getId());
+        dto.setQuestionText(question.getQuestionText());
+        dto.setDifficulty(question.getDifficulty());
+        dto.setThemeId(question.getTheme().getId());
+        dto.setOptions(question.getOptions().stream().map(QuestionOptionResponseDTO::from).toList());
+        return dto;
     }
 }

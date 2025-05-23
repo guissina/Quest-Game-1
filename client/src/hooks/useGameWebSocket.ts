@@ -52,6 +52,15 @@ export function useGameWebSocket(sessionId: string | null) {
         });
     }, [client, isConnected, sessionId]);
 
+    const drawQuestion = useCallback((playerId: number, themeId: number) => {
+        if (!client || !isConnected || !sessionId) return;
+
+        client.publish({
+            destination: `/app/game/${sessionId}/draw`,
+            body: JSON.stringify({ playerId, themeId }),
+        });
+    }, [client, isConnected, sessionId]);
+
     const answerQuestion = useCallback(
         (playerId: number, questionId: number, selectedOptionId: number, steps: number) => {
 
@@ -70,6 +79,7 @@ export function useGameWebSocket(sessionId: string | null) {
     return {
         gameState,
         movePlayer,
+        drawQuestion,
         answerQuestion,
         fetchGameState
     };

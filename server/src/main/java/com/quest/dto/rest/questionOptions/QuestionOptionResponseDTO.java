@@ -1,9 +1,10 @@
 package com.quest.dto.rest.questionOptions;
 
+import com.quest.models.QuestionOption;
+
 public class QuestionOptionResponseDTO {
     private Long id;
     private String optionText;
-    private Boolean correct;
 
     public Long getId() {
         return id;
@@ -21,20 +22,10 @@ public class QuestionOptionResponseDTO {
         this.optionText = optionText;
     }
 
-    public boolean isCorrect() {
-        return correct;
+    public static QuestionOptionResponseDTO from(QuestionOption option) {
+        QuestionOptionResponseDTO dto = new QuestionOptionResponseDTO();
+        dto.setId(option.getId());
+        dto.setOptionText(option.getOptionText());
+        return dto;
     }
-
-    public void setCorrect(boolean correct) {
-        this.correct = correct;
-    }
-
-    public Boolean getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(Boolean correct) {
-        this.correct = correct;
-    }
-
 }
