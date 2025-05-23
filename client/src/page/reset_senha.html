@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Senha - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="login.html">
+            <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+        </a>
+    </div>
+
+    <div class="container">
+        <h2 class="form-title">Alterar Senha!</h2>
+        <ul style="font-size: 0.8rem; color: #555; margin-bottom: 20px; text-align: left; list-style-position: inside; padding-left: 5px;">
+            <li>Deve conter ao menos: 8 caracteres</li>
+            <li>Um caractere especial</li>
+            </ul>
+
+        <form id="reset-password-form">
+            <div class="input-group">
+                <input type="password" id="new-password" name="new-password" placeholder="Digite sua nova senha" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirm-new-password" name="confirm-new-password" placeholder="Confirme sua nova senha" required>
+            </div>
+
+            <div id="reset-error-message" class="message error-message"></div>
+            <div id="reset-success-message" class="message success-message"></div>
+
+            <button type="submit" class="btn btn-primary">Alterar senha</button>
+        </form>
+    </div>
+
+    </body>
+</html>

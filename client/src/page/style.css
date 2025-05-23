@@ -1,0 +1,371 @@
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap');
+
+/* Reset Básico e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFD95A; /* Amarelo principal de fundo */
+    color: #3A3A3A; /* Cor de texto principal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Container Principal (para formulários, etc.) */
+.container {
+    background-color: #FFFFFF;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px; /* Largura padrão para a maioria dos containers */
+    text-align: center;
+}
+
+.container-large { /* Para telas como Meu Perfil ou Selecionar Avatar */
+    max-width: 650px;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 25px;
+}
+
+.logo-container img {
+    max-width: 220px; /* Ajuste conforme o tamanho do seu logo */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Títulos */
+h1, h2 {
+    font-family: 'Fredoka One', cursive; /* Fonte especial para títulos principais */
+    color: #4A4A4A; /* Cor escura para títulos */
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 2.5rem; /* Tela de Login "Bem-vindo" */
+}
+h2.form-title { /* Títulos dentro dos formulários como "Criar conta" */
+    font-size: 2rem;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+h2.page-title { /* Títulos de página como "Meu Perfil" */
+    font-size: 2.2rem;
+    color: #4A4A4A;
+    margin-bottom: 25px;
+}
+
+
+/* Inputs de Formulário */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left; /* Alinhar labels à esquerda */
+    position: relative; /* Para ícones dentro dos inputs */
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555555;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #DCDCDC;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* Estilo para ícone dentro do input (se for usar) */
+.input-group input.has-icon {
+    padding-left: 40px; /* Espaço para o ícone */
+}
+.input-group .input-icon {
+    position: absolute;
+    left: 12px;
+    top: calc(50% + 10px); /* Ajustar se label estiver presente */
+    transform: translateY(-50%);
+    color: #999999;
+    font-size: 1.1rem; /* Tamanho do ícone */
+}
+
+
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #FCA311; /* Laranja/Amarelo escuro no foco */
+    box-shadow: 0 0 0 3px rgba(252, 163, 17, 0.25);
+    outline: none;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary { /* Botão verde escuro (Entrar, Cadastrar, Salvar) */
+    background-color: #1E5631; /* Verde escuro */
+    color: white;
+    text-transform: uppercase; /* Como nas imagens */
+}
+.btn-primary:hover {
+    background-color: #163d23;
+    transform: translateY(-2px);
+}
+
+.btn-secondary { /* Botão vermelho (Cancelar) */
+    background-color: #D9534F; /* Vermelho */
+    color: white;
+    text-transform: uppercase;
+}
+.btn-secondary:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px);
+}
+
+.btn-link { /* Links que parecem botões ou links de navegação */
+    color: #1E5631; /* Cor do botão primário */
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.btn-link:hover {
+    color: #163d23;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px; /* Espaço entre botões lado a lado */
+    margin-top: 25px;
+}
+.button-group .btn {
+    flex: 1; /* Para que os botões dividam o espaço */
+}
+
+
+/* Mensagens de Erro/Sucesso */
+.message {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 6px;
+    display: none; /* Escondido por padrão */
+}
+.error-message {
+    color: #A94442; /* Vermelho para erro */
+    background-color: #F2DEDE;
+    border: 1px solid #EBCCD1;
+}
+.success-message { /* Para mensagens de sucesso (ex: email de recuperação enviado) */
+    color: #3C763D;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}
+
+/* Links abaixo do formulário */
+.form-links {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.form-links p {
+    margin-bottom: 8px;
+}
+
+/* Avatar */
+.avatar-display {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.avatar-display img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #E0E0E0;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.avatar-display .btn-link { /* Para "Selecionar avatar" ou "Alterar avatar" */
+    font-size: 0.9rem;
+}
+
+/* Tela de Selecionar Avatar */
+body.bg-dark-yellow { /* Fundo para tela de selecionar avatar */
+    background-color: #E6B90F; /* Amarelo mais escuro */
+}
+
+.avatar-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 20px;
+    margin: 25px 0;
+    justify-items: center;
+}
+.avatar-option img {
+    width: 90px; /* Tamanho dos avatares na grade */
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+.avatar-option img:hover {
+    border-color: #FFD95A; /* Amarelo claro ao passar o mouse */
+    transform: scale(1.05);
+}
+.avatar-option img.selected {
+    border-color: #1E5631; /* Verde escuro para selecionado */
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(30, 86, 49, 0.4);
+}
+
+/* Botão Voltar (canto superior esquerdo) */
+.back-button-container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+.back-button-container .btn-link {
+    font-size: 1rem;
+    color: #3A3A3A; /* Cor escura para contraste */
+    text-decoration: none;
+    font-weight: 600;
+}
+.back-button-container .btn-link:hover {
+    text-decoration: underline;
+}
+.back-button-container .btn-link svg { /* Estilo para o ícone de seta */
+    width: 1em;
+    height: 1em;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+/* Tela de Carregamento */
+.loading-container p {
+    font-size: 1.2rem;
+    color: #4A4A4A;
+    margin-bottom: 10px;
+}
+.loading-container .player-count {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+.loading-spinner {
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #1E5631; /* Cor do botão primário */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 25px auto;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Tela Como Jogar */
+.how-to-play-container {
+    background-color: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Mais largo para texto */
+    text-align: left;
+}
+.how-to-play-container h2.page-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.how-to-play-container .intro-text {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+}
+.how-to-play-container h3 {
+    font-family: 'Poppins', sans-serif; /* Fonte normal para subtítulos */
+    font-size: 1.25rem;
+    color: #FCA311; /* Laranja/Amarelo escuro */
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.how-to-play-container ul {
+    list-style-position: inside;
+    padding-left: 0; /* Resetar padding para controlar com li */
+}
+.how-to-play-container ul li {
+    margin-bottom: 8px;
+    color: #4A4A4A;
+    line-height: 1.7;
+}
+.how-to-play-container ul li::marker {
+    color: #FCA311; /* Cor do marcador da lista */
+}
+
+/* Ajustes para Meu Perfil */
+.profile-info-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.profile-info-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 3px;
+}
+.profile-info-group .info-text,
+.profile-info-group input[type="text"],
+.profile-info-group input[type="email"],
+.profile-info-group input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #F9F9F9; /* Fundo levemente diferente para campos não editáveis */
+}
+.profile-info-group input[readonly] {
+    color: #555;
+}
+.profile-info-group input:not([readonly]) {
+    background-color: #FFFFFF; /* Fundo branco quando editável */
+}

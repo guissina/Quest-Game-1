@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="back-button-container">
+         <a href="login.html" id="back-btn" class="btn-link"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width:1em; height:1em; margin-right:5px; vertical-align:middle;">
+              <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.56l2.72 2.72a.75.75 0 11-1.06 1.06l-4-4a.75.75 0 010-1.06l4-4a.75.75 0 011.06 1.06L5.56 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+            </svg>
+            Voltar
+        </a>
+    </div>
+    <div class="logo-container" style="margin-top: 60px;">
+        <a href="login.html">
+            <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+        </a>
+    </div>
+
+    <div class="container container-large">
+        <h2 class="page-title">Meu Perfil</h2>
+
+        <form id="profile-form">
+            <div class="avatar-display">
+                <img src="assets/images/avatar_default.png" alt="[Imagem de Avatar do usuário]" id="profile-avatar-img">
+                <a href="selecionar_avatar.html?redirect=meu-perfil" class="btn-link">Alterar Avatar</a>
+            </div>
+
+            <div class="profile-info-group">
+                <label for="profile-username">Nome de usuário</label>
+                <input type="text" id="profile-username" name="username" value="Rafael dos Santos" readonly>
+            </div>
+            <div class="profile-info-group">
+                <label for="profile-email">Email</label>
+                <input type="email" id="profile-email" name="email" value="rafael@email.com" readonly>
+            </div>
+            <div class="profile-info-group">
+                <label for="profile-password">Senha</label>
+                <input type="password" id="profile-password" name="password" placeholder="******** (deixe em branco para não alterar)" readonly>
+            </div>
+
+            <div id="profile-error-message" class="message error-message"></div>
+            <div id="profile-success-message" class="message success-message"></div>
+
+            <div class="button-group">
+                <button type="button" id="edit-profile-btn" class="btn" style="background-color: #FCA311; color:white;">Editar</button> <button type="submit" id="save-profile-btn" class="btn btn-primary" style="display: none;">Salvar</button>
+            </div>
+        </form>
+        <button type="button" id="logout-btn" class="btn btn-secondary" style="margin-top: 20px; width: auto; padding: 10px 30px;">Sair</button>
+    </div>
+
+    </body>
+</html>

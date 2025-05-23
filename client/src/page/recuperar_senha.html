@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="login.html">
+            <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+        </a>
+    </div>
+
+    <div class="container">
+        <h2 class="form-title">Recupere sua senha</h2>
+        <p style="font-size: 0.9rem; color: #555; margin-bottom: 20px;">
+            Preencha seu email para envio do link de recuperação da sua senha.
+        </p>
+
+        <form id="recover-password-form">
+            <div class="input-group">
+                 <input type="email" id="email" name="email" placeholder="E-mail" class="has-icon" required>
+            </div>
+
+            <div id="recover-error-message" class="message error-message"></div>
+            <div id="recover-success-message" class="message success-message"></div>
+
+            <button type="submit" class="btn btn-primary">Enviar e-mail</button>
+
+            <div class="form-links">
+                 <p><a href="login.html" class="btn-link">Voltar para Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Avatar - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-dark-yellow"> <div class="back-button-container">
+         <a href="cadastro.html" id="back-to-previous-page-btn" class="btn-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width:1em; height:1em; margin-right:5px; vertical-align:middle;">
+              <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.56l2.72 2.72a.75.75 0 11-1.06 1.06l-4-4a.75.75 0 010-1.06l4-4a.75.75 0 011.06 1.06L5.56 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+            </svg>
+            Voltar
+        </a>
+    </div>
+
+    <div class="logo-container" style="margin-top: 60px;"> 
+        <a href="login.html">
+            <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+        </a>
+    </div>
+
+    <div class="container container-large">
+        <h2 class="page-title">Selecione um avatar</h2>
+
+        <div id="avatar-grid" class="avatar-selection-grid">
+            <div class="avatar-option" data-avatar-url="assets/images/avatar1.png">
+                <img src="assets/images/avatar1.png" alt="[Imagem de Avatar 1]">
+            </div>
+            <div class="avatar-option" data-avatar-url="assets/images/avatar2.png">
+                <img src="assets/images/avatar2.png" alt="[Imagem de Avatar 2]">
+            </div>
+            <div class="avatar-option" data-avatar-url="assets/images/avatar3.png">
+                <img src="assets/images/avatar3.png" alt="[Imagem de Avatar 3]">
+            </div>
+            <div class="avatar-option" data-avatar-url="assets/images/avatar4.png">
+                <img src="assets/images/avatar4.png" alt="[Imagem de Avatar 4]">
+            </div>
+            <div class="avatar-option" data-avatar-url="assets/images/avatar5.png">
+                <img src="assets/images/avatar5.png" alt="[Imagem de Avatar 5]">
+            </div>
+            <div class="avatar-option" data-avatar-url="assets/images/avatar6.png">
+                <img src="assets/images/avatar6.png" alt="[Imagem de Avatar 6]">
+            </div>
+        </div>
+         <div id="avatar-error-message" class="message error-message"></div>
+
+        <div class="button-group">
+            <button type="button" id="cancel-avatar-selection" class="btn btn-secondary">Cancelar</button>
+            <button type="button" id="save-avatar-selection" class="btn btn-primary">Salvar</button>
+        </div>
+    </div>
+
+    </body>
+</html>

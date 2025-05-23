@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+    </div>
+
+    <div class="container">
+        <h2 class="form-title">Criar conta</h2>
+
+        <div class="avatar-display">
+            <img src="assets/images/avatar_default.png" alt="[Imagem de Avatar selecionado]" id="selected-avatar-preview">
+            <a href="selecionar_avatar.html?redirect=cadastro" class="btn-link">Selecionar avatar</a>
+        </div>
+
+        <form id="signup-form">
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Senha" required>
+            </div>
+
+            <div id="signup-error-message" class="message error-message"></div>
+            <div id="signup-success-message" class="message success-message"></div>
+
+            <div class="button-group">
+                <a href="login.html" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    </body>
+</html>

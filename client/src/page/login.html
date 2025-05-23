@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - QUEST</title>
+    <link rel="stylesheet" href="./style.css">
+    </head>
+<body>
+    <div class="logo-container">
+        <img src="C:\Users\xgame\Documents\GitHub\Quest-Game\client\src\assets\images\logo-quest.png" alt="[Imagem do Logo QUEST]">
+    </div>
+
+    <div class="container">
+        <h1>Bem-vindo</h1>
+        <form id="login-form">
+            <div class="input-group">
+                <input type="text" id="email-username" name="email-username" placeholder="fulaninho@gmail.com" class="has-icon" required>
+                 <!-- Para o ícone, você pode usar um SVG inline ou uma biblioteca de ícones.
+                      Exemplo com placeholder de texto para o ícone:
+                      <span style="position: absolute; left: 15px; top: 38px; color: #999;">@</span>
+                 -->
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="************" class="has-icon" required>
+            </div>
+
+            <div id="login-error-message" class="message error-message">
+                Usuário ou senha inválido. </div>
+
+            <button type="submit" class="btn btn-primary">Entrar</button>
+
+            <div class="form-links">
+                <p><a href="cadastro.html" class="btn-link">Não tem conta? Criar conta</a></p>
+                <p><a href="recuperar_senha.html" class="btn-link">Redefinir minha senha</a></p>
+            </div>
+        </form>
+    </div>
+
+    </body>
+</html>
