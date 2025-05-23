@@ -2,6 +2,7 @@ package com.quest.dto.rest.Player;
 
 import java.util.List;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -16,6 +17,7 @@ public class PlayerUpdateDTO {
 
     @NotBlank(message = "Email is required")
     @Size(min = 5, max = 50, message = "Email must be between 5 and 50 characters")
+    @Email(message = "Email should be valid")
     private String email;
 
     @NotNull(message = "Password is required")
