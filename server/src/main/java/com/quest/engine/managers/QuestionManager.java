@@ -4,39 +4,36 @@ import com.quest.engine.state.PlayerState;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
 
-import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class QuestionManager {
-    private final Map<Long, PlayerState> stateByPlayer;
 
-    public QuestionManager(Map<Long, PlayerState> stateByPlayer) {
-        this.stateByPlayer = stateByPlayer;
+    private final Set<Long> usedQuestionIds = ConcurrentHashMap.newKeySet();
+
+    public QuestionManager() {}
+
+    public boolean hasUsed(Long questionId) {
+        return usedQuestionIds.contains(questionId);
     }
 
-    public boolean handleAnswer(Long playerId, Question question, Long optionId, int steps) {
-        PlayerState ps = stateByPlayer.get(playerId);
+    public void markUsed(Long questionId) {
+        usedQuestionIds.add(questionId);
+    }
 
-        Optional<QuestionOption> option = question.getOptionById(optionId);
+    public boolean processAnswer(PlayerState ps, Long selectedOptionId, int steps) {
+        Question question = ps.getPendingQuestion();
+        if (question == null)
+            throw new IllegalStateException("No pending question");
+
+        Optional<QuestionOption> option = question.getOptionById(selectedOptionId);
         if (option.isEmpty())
-            throw new RuntimeException("Opção inválida");
+            throw new IllegalArgumentException("Invalid optionId");
+
         boolean correct = option.get().getCorrect();
-
-        if (correct)
-            ps.setMustAnswerBeforeMoving(false);
-        else {
-            if (!ps.isMustAnswerBeforeMoving())
-                ps.consumeToken(steps);
-            ps.setMustAnswerBeforeMoving(true);
-        }
+        if (!correct)
+            ps.consumeToken(steps);
         return correct;
-    }
-
-    public void verifyCanMove(Long playerId) {
-        PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null)
-            throw new RuntimeException("Player not found.");
-        if (ps.isMustAnswerBeforeMoving())
-            throw new RuntimeException("You must answer before moving.");
     }
 }

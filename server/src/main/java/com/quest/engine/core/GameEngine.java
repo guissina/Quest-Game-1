@@ -19,14 +19,15 @@ public class GameEngine {
     // TODO Todas as ações devem ter verificação se realmente foi o player que jogou
     private final GameRoom room;
     private final BoardManager boardManager;
+    private final QuestionManager questionManager;
     private TurnManager turnManager;
-    private QuestionManager questionManager;
 
     private final Map<Long, PlayerState> stateByPlayer = new ConcurrentHashMap<>();
 
     public GameEngine(GameRoom room, Board board) {
         this.room = room;
         this.boardManager = new BoardManager(board);
+        this.questionManager = new QuestionManager();
     }
 
     public GameRoom getRoom() {
@@ -52,7 +53,6 @@ public class GameEngine {
         }
         List<PlayerState> states = new ArrayList<>(stateByPlayer.values());
         this.turnManager = new TurnManager(states);
-        this.questionManager = new QuestionManager(stateByPlayer);
         room.markStarted();
     }
 
@@ -60,23 +60,35 @@ public class GameEngine {
         boardManager.seed(stateByPlayer);
     }
 
-    public boolean answerQuestion(Long playerId, Question question, Long optionId, int steps) {
-        turnManager.verifyTurn(playerId);
-        boolean correct = questionManager.handleAnswer(playerId, question, optionId, steps);
-        turnManager.nextTurn();
-        return correct;
+    public void move(PlayerState playerState, int steps) {
+        if (playerState == null)
+            throw new RuntimeException("Player not found.");
+        Tile tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), steps);
+        boardManager.movePlayer(playerState, tile);
     }
 
-    public void move(Long playerId, int steps) {
+    public boolean hasUsedQuestion(Long questionId) {
+        return questionManager.hasUsed(questionId);
+    }
+
+    public void registerQuestionFor(Long playerId, Question question) {
         turnManager.verifyTurn(playerId);
-        questionManager.verifyCanMove(playerId);
+        questionManager.markUsed(question.getId());
+        stateByPlayer.get(playerId).setPendingQuestion(question);
+    }
 
+    public boolean answerQuestion(Long playerId, Long selectedOptionId, int steps) {
+        turnManager.verifyTurn(playerId);
         PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null) throw new RuntimeException("Player not found.");
+        if (ps == null)
+            throw new IllegalArgumentException("Player not found");
 
-        Tile tile = boardManager.getTileAtOffset(ps.getCurrentTileId(), steps);
+        boolean correct = questionManager.processAnswer(ps, selectedOptionId, steps);
+        if (correct)
+            move(ps, steps);
 
-        boardManager.movePlayer(ps, tile);
-        turnManager.nextTurn(); // TODO Retirar isso (apenas para teste)
+        ps.clearPendingQuestion();
+        turnManager.nextTurn();
+        return correct;
     }
 }

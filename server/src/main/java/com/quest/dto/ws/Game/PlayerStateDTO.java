@@ -1,5 +1,6 @@
 package com.quest.dto.ws.Game;
 
+import com.quest.dto.rest.Question.QuestionResponseDTO;
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Player;
 
@@ -9,17 +10,17 @@ public record PlayerStateDTO(
         Long playerId,
         Long tileId,
         List<Integer> tokens,
-        boolean mustAnswerBeforeMoving,
-        boolean isCurrentTurn
+        boolean isCurrentTurn,
+        QuestionResponseDTO questionResponse
 ) {
 
-    public static PlayerStateDTO from(Player player, PlayerState state, boolean isCurrentTurn) {
+    public static PlayerStateDTO from(PlayerState state, boolean isCurrentTurn) {
         return new PlayerStateDTO(
-                player.getId(),
+                state.getPlayerId(),
                 state.getCurrentTileId(),
                 state.getTokens(),
-                state.isMustAnswerBeforeMoving(),
-                isCurrentTurn
+                isCurrentTurn,
+                state.getPendingQuestion() != null ? QuestionResponseDTO.from(state.getPendingQuestion()) : null
         );
     }
 }

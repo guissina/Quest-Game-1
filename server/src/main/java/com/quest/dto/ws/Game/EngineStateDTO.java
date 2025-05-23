@@ -4,8 +4,8 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Board;
 
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public record EngineStateDTO(
@@ -15,14 +15,13 @@ public record EngineStateDTO(
 ) {
     public static EngineStateDTO from(String sessionId, GameEngine engine) {
         Board board = engine.getBoardManager().getBoard();
-        Map<Long, PlayerState> stateMap = engine.getStateByPlayer();
+        Collection<PlayerState> players = engine.getStateByPlayer().values();
         Long currentPlayerId = engine.getTurnManager().getCurrentPlayerId();
 
-        List<PlayerStateDTO> states = engine.getRoom().getPlayers().stream()
-                .map(player -> {
-                    PlayerState ps = stateMap.get(player.getId());
-                    boolean isCurrent = player.getId().equals(currentPlayerId);
-                    return PlayerStateDTO.from(player, ps, isCurrent);
+        List<PlayerStateDTO> states = players.stream()
+                .map(ps -> {
+                    boolean isCurrent = ps.getPlayerId().equals(currentPlayerId);
+                    return PlayerStateDTO.from(ps, isCurrent);
                 })
                 .collect(Collectors.toList());
 

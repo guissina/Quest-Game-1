@@ -11,7 +11,7 @@ interface GamePageProps {
 }
 
 export default function GamePage({ sessionId, players }: GamePageProps) {
-    const { gameState, movePlayer, answerQuestion } = useGameWebSocket(sessionId);
+    const { gameState, movePlayer, drawQuestion, answerQuestion } = useGameWebSocket(sessionId);
 
     if (!gameState) {
         return (
@@ -29,6 +29,8 @@ export default function GamePage({ sessionId, players }: GamePageProps) {
             <h1 className='gp-title'>Board Game</h1>
 
             <TurnIndicator playerName={currentPlayer.playerId} />
+
+            <button onClick={() => drawQuestion(currentPlayerId, 1)}>Draw Question</button>
 
             <div className='gp-content'>
                 <TokenSelector
