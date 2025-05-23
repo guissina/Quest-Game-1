@@ -63,21 +63,21 @@ public class PlayerServices implements IPlayerServices {
     public PlayerResponseDTO update(PlayerUpdateDTO playerUpdateDTO) {
         Player currentPlayer = findPlayerById(playerUpdateDTO.getId());
 
-        if (!currentPlayer.getEmail().equals(playerUpdateDTO.getEmail()))
+        if (!currentPlayer.getEmail().equals(playerUpdateDTO.getEmail())) {
+            if (playerRepository.existsByEmailAndIdNot(playerUpdateDTO.getEmail(), currentPlayer.getId())) {
+                throw new IllegalArgumentException("Email already exists");
+            }
             currentPlayer.setEmail(playerUpdateDTO.getEmail());
+        }
 
-        if (!currentPlayer.getName().equals(playerUpdateDTO.getName()))
+        if (!currentPlayer.getName().equals(playerUpdateDTO.getName())) {
+            if (playerRepository.existsByNameAndIdNot(playerUpdateDTO.getName(), currentPlayer.getId())) {
+                throw new IllegalArgumentException("Name already exists");
+            }
             currentPlayer.setName(playerUpdateDTO.getName());
+        }
 
-        if (existsByEmail(playerUpdateDTO.getEmail()))
-            throw new IllegalArgumentException("Email already exists");
-
-        if (existsByName(playerUpdateDTO.getName()))
-            throw new IllegalArgumentException("Name already exists");
-
-        Player player = playerMapper.toEntity(playerUpdateDTO);
-
-        Player updatedPlayer = playerRepository.save(player);
+        Player updatedPlayer = playerRepository.save(currentPlayer);
         return playerMapper.toPlayerResponseDTO(updatedPlayer);
     }
 

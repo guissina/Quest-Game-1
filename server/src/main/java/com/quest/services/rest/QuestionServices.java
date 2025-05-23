@@ -152,15 +152,6 @@ public class QuestionServices implements IQuestionServices {
     }
 
     @Override
-    public Question findRandomByTheme(Long themeId) {
-        themeServices.findThemeById(themeId);
-
-        return questionRepository
-                .findRandomByThemeId(themeId)
-                .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
-    }
-
-    @Override
     public void delete(long id) {
         Question question = findQuestionById(id);
         questionRepository.delete(question);

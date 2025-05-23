@@ -40,6 +40,8 @@ public class Player {
     @Column(name = "balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal balance = BigDecimal.ZERO;
 
+    // TODO: Adicionar a relacao entre player e theme
+
     // @NotNull
     // @ManyToMany(fetch = FetchType.LAZY)
     // @JoinTable(name = "player_boards", joinColumns = @JoinColumn(name =

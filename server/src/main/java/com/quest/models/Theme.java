@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -25,6 +26,10 @@ public class Theme {
     @Size(min = 2, max = 30, message = "Theme Code must be between 2 and 30 characters")
     @Column(name = "code", nullable = false, unique = true)
     private String code;
+
+    @NotNull(message = "Must specify if the theme is free or paid")
+    @Column(name = "is_free", nullable = false)
+    private boolean free;
 
     public long getId() {
         return id;
@@ -48,6 +53,14 @@ public class Theme {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public boolean isFree() {
+        return free;
+    }
+
+    public void setFree(boolean free) {
+        this.free = free;
     }
 
 }
