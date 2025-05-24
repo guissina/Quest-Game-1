@@ -101,21 +101,29 @@ public class GameEngine {
 
     public void answerQuestion(Long playerId, Long selectedOptionId, int steps) {
         turnManager.verifyTurn(playerId);
-
-        PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null) throw new IllegalArgumentException("Player not found");
+        PlayerState ps = Optional.ofNullable(stateByPlayer.get(playerId))
+                .orElseThrow(() -> new IllegalArgumentException("Player not found"));
 
         boolean wasAtLast = boardManager.isLastTile(ps.getCurrentTileId());
-        boolean correct = questionManager.processAnswer(ps, selectedOptionId, steps);
+        boolean correct   = questionManager.processAnswer(ps, selectedOptionId, steps);
 
-        if (correct)
-            move(ps, steps);
-        if (wasAtLast && correct) {
-            this.finished = true;
-            this.winnerId = playerId;
+        applyMovementOrReset(ps, correct, steps);
+
+        if (correct && wasAtLast) {
+            finished  = true;
+            winnerId  = playerId;
         }
-
         ps.clearPendingQuestion();
         turnManager.nextTurn();
+    }
+
+    private void applyMovementOrReset(PlayerState ps, boolean correct, int steps) {
+        if (correct)
+            move(ps, steps);
+        else if (ps.getTokens().isEmpty()) {
+            Long startId = boardManager.getBoard().getStartTile().getId();
+            ps.moveTo(startId);
+            ps.resetTokens(initialTokensList);
+        }
     }
 }

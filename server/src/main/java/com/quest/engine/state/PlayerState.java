@@ -5,7 +5,6 @@ import com.quest.models.Question;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class PlayerState {
 
@@ -32,6 +31,11 @@ public class PlayerState {
         if (!tokens.contains(steps))
             throw new IllegalStateException("Player does not have enough tokens");
         tokens.remove((Integer) steps);
+    }
+
+    public void resetTokens(List<Integer> initialTokens) {
+        tokens.clear();
+        tokens.addAll(initialTokens);
     }
 
     public Long getCurrentTileId() {
