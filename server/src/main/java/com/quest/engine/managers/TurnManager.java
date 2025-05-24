@@ -2,35 +2,43 @@ package com.quest.engine.managers;
 
 import com.quest.engine.state.PlayerState;
 
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Deque;
 import java.util.List;
 
 public class TurnManager {
-    private final List<PlayerState> players;
-    private int currentTurn = 0; // TODO Se o jogador sair no meio do turno
+    private final Deque<PlayerState> turnQueue = new ArrayDeque<>();
 
-    // TODO Essa lista pode quebrar caso remova ou adicione um player novo, pois e um clone e nao referencia
-    public TurnManager(List<PlayerState> players) {
-        this.players = players;
+    public TurnManager(Collection<PlayerState> initialStates) {
+        turnQueue.addAll(initialStates);
+    }
+
+    public void enqueuePlayer(PlayerState ps) {
+        turnQueue.offerLast(ps);
+    }
+
+    public void dequeuePlayer(Long playerId) {
+        turnQueue.removeIf(ps -> ps.getPlayerId().equals(playerId));
     }
 
     public void verifyTurn(Long playerId) {
-        if (players.isEmpty())
-            throw new RuntimeException("No players in room.");
-
-        PlayerState current = players.get(currentTurn);
-        if (!current.getPlayerId().equals(playerId))
-            throw new RuntimeException("Not your turn.");
+        if (turnQueue.isEmpty())
+            throw new IllegalStateException("No players in turn queue.");
+        if (!turnQueue.peekFirst().getPlayerId().equals(playerId))
+            throw new IllegalStateException("Not your turn.");
     }
 
     public void nextTurn() {
-        if (players.isEmpty()) return;
-        currentTurn = (currentTurn + 1) % players.size();
+        if (turnQueue.isEmpty()) return;
+        PlayerState head = turnQueue.pollFirst();
+        turnQueue.offerLast(head);
     }
 
-    public int getCurrentTurn() { return currentTurn; }
-
     public Long getCurrentPlayerId() {
-        return players.get(currentTurn).getPlayerId();
+        if (turnQueue.isEmpty())
+            throw new IllegalStateException("No players in turn queue.");
+        return turnQueue.peekFirst().getPlayerId();
     }
 }
 

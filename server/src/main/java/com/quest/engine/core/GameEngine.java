@@ -21,18 +21,22 @@ public class GameEngine {
     private final TurnManager turnManager;
     private final Map<Long, PlayerState> stateByPlayer = new ConcurrentHashMap<>();
 
+    private final List<Integer> initialTokensList;
     private boolean finished = false;
     private Long winnerId = null;
 
     public GameEngine(List<Player> players, Board board, int initialTokens) {
         this.boardManager = new BoardManager(board);
         this.questionManager = new QuestionManager();
+        this.initialTokensList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
 
-        List<Integer> tokenList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
+        List<PlayerState> playerStates = new ArrayList<>();
         for (Player p : players) {
-            stateByPlayer.put(p.getId(), new PlayerState(p.getId(), tokenList, null));
+            PlayerState ps = new PlayerState(p.getId(), this.initialTokensList, null);
+            stateByPlayer.put(p.getId(), ps);
+            playerStates.add(ps);
         }
-        this.turnManager = new TurnManager(new ArrayList<>(stateByPlayer.values()));
+        this.turnManager = new TurnManager(playerStates);
     }
 
     public BoardManager getBoardManager() {
@@ -43,8 +47,24 @@ public class GameEngine {
         return turnManager;
     }
 
-    public Map<Long, PlayerState> getStateByPlayer() {
+    public Map<Long, PlayerState> getAllPlayerStates() {
         return Collections.unmodifiableMap(stateByPlayer);
+    }
+
+    public void joinGame(Player player) {
+        PlayerState ps = new PlayerState(player.getId(), this.initialTokensList,
+                boardManager.getBoard().getStartTile().getId());
+        stateByPlayer.put(player.getId(), ps);
+        turnManager.enqueuePlayer(ps);
+    }
+
+    public void leaveGame(Long playerId) {
+        stateByPlayer.remove(playerId);
+        turnManager.dequeuePlayer(playerId);
+        if (stateByPlayer.isEmpty()) {
+            finished = false;
+            winnerId = null;
+        }
     }
 
     public boolean isFinished() {

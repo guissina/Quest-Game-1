@@ -37,12 +37,18 @@ public class GameSession {
         room.markStarted();
     }
 
-    public boolean joinPlayer(Player p) {
-        return room.join(p);
+    public void joinPlayer(Player player) {
+        boolean ok = room.join(player);
+        if (!ok) throw new IllegalStateException("Sala cheia ou já iniciada");
+        if (isStarted())
+            engine.joinGame(player);
     }
 
     public void leavePlayer(Long playerId) {
         room.leave(playerId);
-        if (room.getPlayers().isEmpty()) this.engine = null;
+        if (isStarted())
+            engine.leaveGame(playerId);
+        if (room.getPlayers().isEmpty())
+            this.engine = null;
     }
 }

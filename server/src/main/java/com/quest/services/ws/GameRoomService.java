@@ -68,8 +68,7 @@ public class GameRoomService implements IGameRoomService {
         // TODO Verificar se o player ja esta na sala (Service ou Manager?)
 
         Player player = playerServices.findPlayerById(req.playerId());
-        boolean ok = session.joinPlayer(player);
-        if (!ok) throw new IllegalStateException("Sala lotada ou já iniciada");
+        session.joinPlayer(player);
         broadcastRoomState(req.sessionId(), false);
     }
 

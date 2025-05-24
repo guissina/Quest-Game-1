@@ -17,7 +17,7 @@ public record EngineStateDTO(
 ) {
     public static EngineStateDTO from(String sessionId, GameEngine engine) {
         Board board = engine.getBoardManager().getBoard();
-        Collection<PlayerState> players = engine.getStateByPlayer().values();
+        Collection<PlayerState> players = engine.getAllPlayerStates().values();
         Long currentPlayerId = engine.getTurnManager().getCurrentPlayerId();
 
         List<PlayerStateDTO> states = players.stream()
