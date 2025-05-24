@@ -4,16 +4,22 @@ import com.quest.engine.state.PlayerState;
 import com.quest.models.Board;
 import com.quest.models.Tile;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 public class BoardManager {
 
     private final Board board;
+    private final Map<Long,Integer> indexById;
 
     public BoardManager(Board board) {
         this.board = board;
+        this.indexById = new HashMap<>(board.getTiles().size());
+
+        List<Tile> tiles = board.getTiles();
+        for (int i = 0; i < tiles.size(); i++)
+            indexById.put(tiles.get(i).getId(), i);
     }
 
     public Board getBoard() {
@@ -21,7 +27,10 @@ public class BoardManager {
     }
 
     public void seed(Map<Long, PlayerState> stateByPlayer) {
-        Long startId = board.getStartTile().getId();
+        List<Tile> tiles = board.getTiles();
+        Long startId = tiles.isEmpty() ? null : tiles.get(0).getId();
+
+        if (startId == null) throw new IllegalStateException("Board sem tiles");
         stateByPlayer.values()
                 .forEach(ps -> ps.moveTo(startId));
     }
@@ -31,18 +40,14 @@ public class BoardManager {
     }
 
     public Tile getTileAtOffset(Long currentTileId, int steps) {
-        List<Tile> tiles = board.getTiles();
-        int size = tiles.size();
+        Integer currentIndex = indexById.get(currentTileId);
+        if (currentIndex == null)
+            throw new IllegalArgumentException("Tile atual não encontrado: " + currentTileId);
+        if (steps < 0)
+            throw new IllegalArgumentException("Steps não pode ser negativo: " + steps);
 
-        int currentIndex = IntStream.range(0, size)
-                .filter(i -> tiles.get(i).getId().equals(currentTileId))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Tile atual não encontrado"));
-
-        int destinationIndex = currentIndex + steps;
-        if (destinationIndex >= size)
-            destinationIndex = size - 1;
-        return tiles.get(destinationIndex);
+        int destinationIndex = Math.min(currentIndex + steps, board.getTiles().size() - 1);
+        return board.getTiles().get(destinationIndex);
     }
 
     public boolean isLastTile(Long tileId) {

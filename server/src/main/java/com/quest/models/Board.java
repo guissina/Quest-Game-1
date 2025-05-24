@@ -2,7 +2,6 @@ package com.quest.models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -75,12 +74,6 @@ public class Board {
         if (tiles.isEmpty())
             throw new IllegalStateException("No tiles found in the board");
         return tiles.get(0);
-    }
-
-    public Optional<Tile> findTileById(Long id) {
-        return tiles.stream()
-                .filter(t -> t.getId().equals(id))
-                .findFirst();
     }
 
     public String getName() {
