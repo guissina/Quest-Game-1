@@ -22,6 +22,8 @@ public class GameEngine {
     private TurnManager turnManager;
 
     private final Map<Long, PlayerState> stateByPlayer = new ConcurrentHashMap<>();
+    private boolean finished = false;
+    private Long winnerId = null;
 
     public GameEngine(GameRoom room, Board board) {
         this.room = room;
@@ -39,6 +41,14 @@ public class GameEngine {
 
     public Map<Long, PlayerState> getStateByPlayer() {
         return Collections.unmodifiableMap(stateByPlayer);
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public Optional<Long> getWinnerId() {
+        return Optional.ofNullable(winnerId);
     }
 
     public void initializeGameState(int initialTokens) {
@@ -74,13 +84,19 @@ public class GameEngine {
 
     public void answerQuestion(Long playerId, Long selectedOptionId, int steps) {
         turnManager.verifyTurn(playerId);
-        PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null)
-            throw new IllegalArgumentException("Player not found");
 
+        PlayerState ps = stateByPlayer.get(playerId);
+        if (ps == null) throw new IllegalArgumentException("Player not found");
+
+        boolean wasAtLast = boardManager.isLastTile(ps.getCurrentTileId());
         boolean correct = questionManager.processAnswer(ps, selectedOptionId, steps);
+
         if (correct)
             move(ps, steps);
+        if (wasAtLast && correct) {
+            this.finished = true;
+            this.winnerId = playerId;
+        }
 
         ps.clearPendingQuestion();
         turnManager.nextTurn();

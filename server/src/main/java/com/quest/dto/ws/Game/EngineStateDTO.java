@@ -11,7 +11,9 @@ import java.util.stream.Collectors;
 public record EngineStateDTO(
         String sessionId,
         Board board,
-        List<PlayerStateDTO> playerStates
+        List<PlayerStateDTO> playerStates,
+        Long winnerId,
+        boolean finished
 ) {
     public static EngineStateDTO from(String sessionId, GameEngine engine) {
         Board board = engine.getBoardManager().getBoard();
@@ -25,6 +27,7 @@ public record EngineStateDTO(
                 })
                 .collect(Collectors.toList());
 
-        return new EngineStateDTO(sessionId, board, states);
+        Long winnerId = engine.getWinnerId().orElse(null);
+        return new EngineStateDTO(sessionId, board, states, winnerId, engine.isFinished());
     }
 }

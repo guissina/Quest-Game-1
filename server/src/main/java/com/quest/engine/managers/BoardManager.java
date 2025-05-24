@@ -39,7 +39,15 @@ public class BoardManager {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Tile atual não encontrado"));
 
-        int destinationIndex = (currentIndex + steps) % size;
+        int destinationIndex = currentIndex + steps;
+        if (destinationIndex >= size)
+            destinationIndex = size - 1;
         return tiles.get(destinationIndex);
+    }
+
+    public boolean isLastTile(Long tileId) {
+        List<Tile> tiles = board.getTiles();
+        if (tiles.isEmpty()) return false;
+        return tiles.get(tiles.size() - 1).getId().equals(tileId);
     }
 }

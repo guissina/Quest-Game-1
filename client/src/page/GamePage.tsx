@@ -22,6 +22,14 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     const myState = gameState?.playerStates.find((ps) => ps.playerId === myPlayerId);
     const currentState = gameState?.playerStates.find((ps) => ps.isCurrentTurn);
 
+        useEffect(() => {
+        if (gameState?.finished) {
+            const winner = players.find((p) => p.id === gameState.winnerId);
+            if (winner) 
+                alert(`Game finished! Winner: ${winner.name}`);
+        }
+    }, [gameState]);
+
     useEffect(() => {
         if (gameState && currentState && gameState.playerStates.some((ps) => ps.pendingQuestion))
             setQuestionOpen(true);
