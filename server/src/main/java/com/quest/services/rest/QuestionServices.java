@@ -46,20 +46,24 @@ public class QuestionServices implements IQuestionServices {
     public QuestionResponseDTO create(@NotNull QuestionCreateDTO questionCreateDTO) {
         Theme theme = themeServices.findThemeById(questionCreateDTO.getThemeId());
 
-        long correctCount = questionCreateDTO.getOptions().stream()
+        List<QuestionOptionCreateDTO> options = questionCreateDTO.getOptions();
+
+        if (options.size() < 2 || options.size() > 4)
+            throw new IllegalArgumentException("A question must have at least two options and no more than 5.");
+
+        long correctCount = options.stream()
                 .filter(QuestionOptionCreateDTO::isCorrect)
                 .count();
 
-        if (correctCount != 1) {
+        if (correctCount != 1)
             throw new IllegalArgumentException("Question must have exactly one correct option.");
-        }
 
         Question question = questionMapper.toEntity(questionCreateDTO);
         question.setTheme(theme);
 
         question.getOptions().clear();
 
-        for (QuestionOptionCreateDTO dto : questionCreateDTO.getOptions()) {
+        for (QuestionOptionCreateDTO dto : options) {
             QuestionOption option = questionOptionsMapper.toEntity(dto);
             option.setQuestion(question);
             question.getOptions().add(option);
@@ -118,6 +122,12 @@ public class QuestionServices implements IQuestionServices {
 
     @Override
     public QuestionResponseDTO update(@NotNull QuestionUpdateDTO dto) {
+        int optionCount = dto.getOptions().size();
+        if (optionCount < 2 || optionCount > 4) {
+            throw new IllegalArgumentException(
+                    String.format("Question must have between 2 and 4 options (found %d).", optionCount));
+        }
+
         long correctCount = dto.getOptions().stream()
                 .filter(opt -> opt.isCorrect())
                 .count();
