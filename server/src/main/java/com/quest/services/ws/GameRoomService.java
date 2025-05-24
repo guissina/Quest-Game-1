@@ -80,7 +80,7 @@ public class GameRoomService implements IGameRoomService {
 
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
-        Board board = boardService.findBoardById(req.boardId()); // TODO Quebrando conexao caso nao exista
+        Board board = boardService.findBoardById(req.boardId());
         GameEngine engine = new GameEngine(room.getPlayers(), board, req.initialTokens());
         engine.seed();
         session.startGame(engine);
