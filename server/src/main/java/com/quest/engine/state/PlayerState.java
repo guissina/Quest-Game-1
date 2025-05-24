@@ -27,12 +27,18 @@ public class PlayerState {
         return Collections.unmodifiableList(tokens);
     }
 
-    public void addToken(int value) {
-        tokens.add(value);
+    public void consumeTokens(int steps) {
+        if (!tokens.contains(steps))
+            throw new IllegalStateException("Player does not have enough tokens");
+        tokens.remove((Integer) steps);
     }
 
-    public void consumeToken(int value) {
-        tokens.remove((Integer) value);
+    public Long getCurrentTileId() {
+        return currentTileId;
+    }
+
+    public void moveTo(Long tileId) {
+        this.currentTileId = tileId;
     }
 
     public Question getPendingQuestion() {
@@ -45,13 +51,5 @@ public class PlayerState {
 
     public void clearPendingQuestion() {
         this.pendingQuestion = null;
-    }
-
-    public Long getCurrentTileId() {
-        return currentTileId;
-    }
-
-    public void moveTo(Long tileId) {
-        this.currentTileId = tileId;
     }
 }

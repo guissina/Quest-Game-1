@@ -1,5 +1,7 @@
 package com.quest.engine.core;
 
+import com.quest.models.Player;
+
 public class GameSession {
 
     private final String sessionId;
@@ -19,21 +21,28 @@ public class GameSession {
         return room;
     }
 
-    public boolean isStarted()    {
-        return engine != null;
-    }
-
-    public void startGame(GameEngine engine) {
-        if (this.engine != null) return;
-        this.engine = engine;
-        room.markStarted();
-    }
-
     public GameEngine getEngine() {
         if (engine == null)
             throw new IllegalStateException("Game not started");
         return engine;
     }
+
+    public boolean isStarted()    {
+        return engine != null;
+    }
+
+    public void startGame(GameEngine engine) {
+        if (isStarted()) return;
+        this.engine = engine;
+        room.markStarted();
+    }
+
+    public boolean joinPlayer(Player p) {
+        return room.join(p);
+    }
+
+    public void leavePlayer(Long playerId) {
+        room.leave(playerId);
+        if (room.getPlayers().isEmpty()) this.engine = null;
+    }
 }
-
-

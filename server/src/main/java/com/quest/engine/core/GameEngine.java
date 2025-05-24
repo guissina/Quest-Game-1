@@ -16,19 +16,23 @@ import java.util.stream.IntStream;
 
 public class GameEngine {
 
-    private final GameRoom room;
     private final BoardManager boardManager;
     private final QuestionManager questionManager;
-    private TurnManager turnManager;
-
+    private final TurnManager turnManager;
     private final Map<Long, PlayerState> stateByPlayer = new ConcurrentHashMap<>();
+
     private boolean finished = false;
     private Long winnerId = null;
 
-    public GameEngine(GameRoom room, Board board) {
-        this.room = room;
+    public GameEngine(List<Player> players, Board board, int initialTokens) {
         this.boardManager = new BoardManager(board);
         this.questionManager = new QuestionManager();
+
+        List<Integer> tokenList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
+        for (Player p : players) {
+            stateByPlayer.put(p.getId(), new PlayerState(p.getId(), tokenList, null));
+        }
+        this.turnManager = new TurnManager(new ArrayList<>(stateByPlayer.values()));
     }
 
     public BoardManager getBoardManager() {
@@ -51,16 +55,6 @@ public class GameEngine {
         return Optional.ofNullable(winnerId);
     }
 
-    public void initializeGameState(int initialTokens) {
-        List<Integer> tokenList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
-        for (Player p : room.getPlayers()) {
-            stateByPlayer.put(p.getId(), new PlayerState(p.getId(), tokenList, null));
-        }
-        List<PlayerState> states = new ArrayList<>(stateByPlayer.values());
-        this.turnManager = new TurnManager(states);
-        room.markStarted();
-    }
-
     public void seed() {
         boardManager.seed(stateByPlayer);
     }
@@ -72,14 +66,17 @@ public class GameEngine {
         boardManager.movePlayer(playerState, tile);
     }
 
-    public boolean hasUsedQuestion(Long questionId) {
-        return questionManager.hasUsed(questionId);
-    }
-
     public void registerQuestionFor(Long playerId, Question question) {
         turnManager.verifyTurn(playerId);
         questionManager.markUsed(question.getId());
-        stateByPlayer.get(playerId).setPendingQuestion(question);
+
+        PlayerState ps = stateByPlayer.get(playerId);
+        if (ps == null) throw new IllegalArgumentException("Player not found");
+        ps.setPendingQuestion(question);
+    }
+
+    public boolean hasUsedQuestion(Long questionId) {
+        return questionManager.hasUsed(questionId);
     }
 
     public void answerQuestion(Long playerId, Long selectedOptionId, int steps) {

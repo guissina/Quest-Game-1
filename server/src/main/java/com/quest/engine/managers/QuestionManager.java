@@ -4,7 +4,6 @@ import com.quest.engine.state.PlayerState;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
 
-import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,26 +13,26 @@ public class QuestionManager {
 
     public QuestionManager() {}
 
-    public boolean hasUsed(Long questionId) {
-        return usedQuestionIds.contains(questionId);
-    }
-
     public void markUsed(Long questionId) {
         usedQuestionIds.add(questionId);
+    }
+
+    public boolean hasUsed(Long questionId) {
+        return usedQuestionIds.contains(questionId);
     }
 
     public boolean processAnswer(PlayerState ps, Long selectedOptionId, int steps) {
         Question question = ps.getPendingQuestion();
         if (question == null)
-            throw new IllegalStateException("No pending question");
+            throw new IllegalStateException("Nenhuma pergunta pendente");
 
-        Optional<QuestionOption> option = question.getOptionById(selectedOptionId);
-        if (option.isEmpty())
-            throw new IllegalArgumentException("Invalid optionId");
+        QuestionOption option = question.getOptionById(selectedOptionId)
+                .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId) );
 
-        boolean correct = option.get().getCorrect();
+        markUsed(question.getId());
+        boolean correct = option.getCorrect();
         if (!correct)
-            ps.consumeToken(steps);
+            ps.consumeTokens(steps);
         return correct;
     }
 }

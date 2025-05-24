@@ -64,14 +64,12 @@ public class GameRoomService implements IGameRoomService {
 
     @Override
     public void joinRoom(JoinRoomRequestDTO req) {
-        GameRoom room = sessionManager.getRoom(req.sessionId());
-
+        GameSession session = sessionManager.getSession(req.sessionId());
         // TODO Verificar se o player ja esta na sala (Service ou Manager?)
-        Player player = playerServices.findPlayerById(req.playerId());
-        boolean ok = room.addPlayer(player);
-        if (!ok)
-            throw new IllegalStateException("Room full or already started");
 
+        Player player = playerServices.findPlayerById(req.playerId());
+        boolean ok = session.joinPlayer(player);
+        if (!ok) throw new IllegalStateException("Sala lotada ou já iniciada");
         broadcastRoomState(req.sessionId(), false);
     }
 
@@ -84,8 +82,7 @@ public class GameRoomService implements IGameRoomService {
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
         Board board = boardService.findBoardById(req.boardId()); // TODO Quebrando conexao caso nao exista
-        GameEngine engine = new GameEngine(room, board);
-        engine.initializeGameState(req.initialTokens());
+        GameEngine engine = new GameEngine(room.getPlayers(), board, req.initialTokens());
         engine.seed();
         session.startGame(engine);
 
@@ -97,12 +94,12 @@ public class GameRoomService implements IGameRoomService {
         removeAndBroadcast(req.sessionId(), req.playerId());
     }
 
-    @Override
     public void removeAndBroadcast(String sessionId, Long playerId) {
-        GameRoom room = sessionManager.getRoom(sessionId);
+        GameSession session = sessionManager.getSession(sessionId);
+        session.leavePlayer(playerId);
 
-        room.removePlayer(playerId);
-        if (room.getPlayers().isEmpty()) {
+        boolean closed = session.getRoom().getPlayers().isEmpty();
+        if (closed) {
             broadcastRoomState(sessionId, true);
             sessionManager.removeSession(sessionId);
         }
