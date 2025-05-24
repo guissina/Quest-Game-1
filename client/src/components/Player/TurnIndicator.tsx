@@ -1,7 +1,7 @@
 import "./TurnIndicator.scss";
 
 interface TurnIndicatorProps {
-    playerName: number;
+    playerName: string;
 }
 
 export function TurnIndicator({ playerName }: TurnIndicatorProps) {

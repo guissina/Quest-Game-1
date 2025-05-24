@@ -18,5 +18,5 @@ export default function SessionPage() {
         );
     }
 
-    return <GamePage sessionId={sessionId!} players={players} />;
+    return <GamePage sessionId={sessionId!} myPlayerId={Number(localStorage.getItem('userId'))} players={players} />;
 }

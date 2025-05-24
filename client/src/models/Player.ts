@@ -1,10 +1,10 @@
 export interface PlayerProps {
-    id: string;
+    id: number;
     name: string;
 }
 
 export class Player {
-    public readonly id: string;
+    public readonly id: number;
     public readonly name: string;
 
     constructor(props: PlayerProps) {

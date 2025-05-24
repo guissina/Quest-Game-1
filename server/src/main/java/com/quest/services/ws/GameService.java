@@ -47,9 +47,8 @@ public class GameService {
         Question question;
         do {
             question = questionService.findRandomByTheme(req.themeId());
-            System.out.println("Peguei: " + question.getId());
-        } while (engine.hasUsedQuestion(question.getId()));
-
+            System.out.println("Peguei: " + question.getId()); // TODO Apenas para teste
+        } while (false && engine.hasUsedQuestion(question.getId()));
         Hibernate.initialize(question.getOptions());
 
         engine.registerQuestionFor(req.playerId(), question);
@@ -57,10 +56,8 @@ public class GameService {
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
-        /*GameEngine engine = sessionManager.getEngine(sessionId);
-        Question question = questionService.findQuestionById(req.questionId());
-
-        boolean correct = engine.answerQuestion(req.playerId(), question, req.selectedOptionId(), req.steps());
-        broadcastGameState(sessionId, engine);*/
+        GameEngine engine = sessionManager.getEngine(sessionId);
+        engine.answerQuestion(req.playerId(), req.selectedOptionId(), req.steps());
+        broadcastGameState(sessionId, engine);
     }
 }

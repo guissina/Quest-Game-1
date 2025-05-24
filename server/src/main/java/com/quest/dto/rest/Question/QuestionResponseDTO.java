@@ -2,13 +2,18 @@ package com.quest.dto.rest.Question;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.quest.dto.rest.questionOptions.QuestionOptionResponseDTO;
 import com.quest.enums.Difficulty;
 import com.quest.models.Question;
 
 public class QuestionResponseDTO {
     private Long id;
-    private String questionText;
+
+    @JsonProperty("text")
+    private String text;
+
+    @JsonProperty("options")
     private List<QuestionOptionResponseDTO> options;
     private Difficulty difficulty;
     private long themeId;
@@ -22,11 +27,11 @@ public class QuestionResponseDTO {
     }
 
     public String getQuestionText() {
-        return questionText;
+        return text;
     }
 
     public void setQuestionText(String questionText) {
-        this.questionText = questionText;
+        this.text = questionText;
     }
 
     public Difficulty getDifficulty() {

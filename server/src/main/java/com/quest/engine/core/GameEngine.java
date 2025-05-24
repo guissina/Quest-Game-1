@@ -12,11 +12,10 @@ import com.quest.models.Tile;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GameEngine {
-    // TODO Todas as ações devem ter verificação se realmente foi o player que jogou
+
     private final GameRoom room;
     private final BoardManager boardManager;
     private final QuestionManager questionManager;
@@ -28,10 +27,6 @@ public class GameEngine {
         this.room = room;
         this.boardManager = new BoardManager(board);
         this.questionManager = new QuestionManager();
-    }
-
-    public GameRoom getRoom() {
-        return room;
     }
 
     public BoardManager getBoardManager() {
@@ -77,7 +72,7 @@ public class GameEngine {
         stateByPlayer.get(playerId).setPendingQuestion(question);
     }
 
-    public boolean answerQuestion(Long playerId, Long selectedOptionId, int steps) {
+    public void answerQuestion(Long playerId, Long selectedOptionId, int steps) {
         turnManager.verifyTurn(playerId);
         PlayerState ps = stateByPlayer.get(playerId);
         if (ps == null)
@@ -89,6 +84,5 @@ public class GameEngine {
 
         ps.clearPendingQuestion();
         turnManager.nextTurn();
-        return correct;
     }
 }

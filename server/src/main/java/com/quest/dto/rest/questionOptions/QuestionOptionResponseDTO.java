@@ -1,9 +1,11 @@
 package com.quest.dto.rest.questionOptions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.quest.models.QuestionOption;
 
 public class QuestionOptionResponseDTO {
     private Long id;
+    @JsonProperty("text")
     private String optionText;
 
     public Long getId() {

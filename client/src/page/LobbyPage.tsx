@@ -21,6 +21,10 @@ export default function LobbyPage({ sessionId, players, started, createRoom, joi
         if (sessionId) setInputSessionId(sessionId);
     }, [sessionId]);
 
+    useEffect(() => {
+        if (inputPlayerId !== "") localStorage.setItem("userId", inputPlayerId.toString());
+    }, [inputPlayerId]);
+
     const handleCreate = () => {
         if (!inputPlayerId) return;
         createRoom(Number(inputPlayerId));
