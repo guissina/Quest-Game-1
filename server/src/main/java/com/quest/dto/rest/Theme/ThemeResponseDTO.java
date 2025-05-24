@@ -4,7 +4,7 @@ public class ThemeResponseDTO {
     private Long id;
     private String name;
     private String code;
-    private boolean free;
+    private Boolean free;
 
     public Long getId() {
         return id;
@@ -30,8 +30,16 @@ public class ThemeResponseDTO {
         this.code = code;
     }
 
-    public boolean isFree() {
+    public Boolean isFree() {
         return free;
+    }
+
+    public Boolean getFree() {
+        return free;
+    }
+
+    public void setFree(Boolean free) {
+        this.free = free;
     }
 
 }

@@ -19,7 +19,7 @@ public class Question {
     private Long id;
 
     @NotBlank(message = "Question text is required")
-    @Size(min = 1, max = 500, message = "Question text must be between 1 and 255 characters")
+    @Size(min = 1, max = 500, message = "Question text must be between 1 and 255")
     @Column(name = "question_text", length = 255, nullable = false)
     private String questionText;
 

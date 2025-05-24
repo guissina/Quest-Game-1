@@ -14,13 +14,13 @@ public class ThemeCreateDTO {
     private String code;
 
     @NotNull(message = "Must specify if the theme is free or paid")
-    private boolean free;
+    private Boolean free;
 
-    public boolean isFree() {
+    public Boolean isFree() {
         return free;
     }
 
-    public void setFree(boolean free) {
+    public void setFree(Boolean free) {
         this.free = free;
     }
 

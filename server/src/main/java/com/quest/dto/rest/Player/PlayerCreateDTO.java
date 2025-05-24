@@ -16,12 +16,10 @@ public class PlayerCreateDTO {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Email should be valid")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email should be valid")
     private String email;
 
     @NotNull(message = "Password is required")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, "
-            +
-            "uma letra minúscula, um número e um caractere especial")
     private String password;
 
     @NotNull(message = "Balance is required")

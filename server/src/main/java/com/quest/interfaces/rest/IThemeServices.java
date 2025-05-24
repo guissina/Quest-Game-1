@@ -24,5 +24,7 @@ public interface IThemeServices {
 
     ThemeResponseDTO update(ThemeUpdateDTO themeUpdateDTO);
 
+    ThemeResponseDTO updateThemeAvailability(long id, Boolean isFree);
+
     void delete(long id);
 }

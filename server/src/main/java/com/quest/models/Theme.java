@@ -29,7 +29,7 @@ public class Theme {
 
     @NotNull(message = "Must specify if the theme is free or paid")
     @Column(name = "is_free", nullable = false)
-    private boolean free;
+    private Boolean free;
 
     public long getId() {
         return id;
@@ -55,11 +55,11 @@ public class Theme {
         this.code = code;
     }
 
-    public boolean isFree() {
+    public Boolean isFree() {
         return free;
     }
 
-    public void setFree(boolean free) {
+    public void setFree(Boolean free) {
         this.free = free;
     }
 

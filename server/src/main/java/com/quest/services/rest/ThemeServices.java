@@ -97,9 +97,19 @@ public class ThemeServices implements IThemeServices {
         if (!currentTheme.getName().equals(themeUpdateDTO.getName()))
             currentTheme.setName(themeUpdateDTO.getName());
 
-        if (!currentTheme.getName().equals(themeUpdateDTO.getName()))
-            currentTheme.setName(themeUpdateDTO.getName());
+        if (!currentTheme.getCode().equals(themeUpdateDTO.getCode()))
+            currentTheme.setCode(themeUpdateDTO.getCode());
 
+        currentTheme.setFree(themeUpdateDTO.isFree());
+
+        Theme updatedTheme = themeRepository.save(currentTheme);
+        return themeMapper.toThemeResponseDTO(updatedTheme);
+    }
+
+    @Override
+    public ThemeResponseDTO updateThemeAvailability(long id, Boolean isFree) {
+        Theme currentTheme = findThemeById(id);
+        currentTheme.setFree(isFree);
         Theme updatedTheme = themeRepository.save(currentTheme);
         return themeMapper.toThemeResponseDTO(updatedTheme);
     }
