@@ -27,9 +27,6 @@ public class PlayerUpdateDTO {
         this.password = password;
     }
 
-    // @NotEmpty(message = "É necessário informar ao menos um boardId")
-    // private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
-
     public long getId() {
         return id;
     }

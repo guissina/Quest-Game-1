@@ -1,22 +1,15 @@
 package com.quest.dto.rest.Player;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class PlayerResponseDTO {
     private Long id;
     private String name;
     private String email;
     private String password;
-    // private List<Long> boardIds;
+    private List<Long> themeIds;
     private BigDecimal balance;
-
-    // public List<Long> getBoardIds() {
-    // return boardIds;
-    // }
-
-    // public void setBoardIds(List<Long> boardIds) {
-    // this.boardIds = boardIds;
-    // }
 
     public Long getId() {
         return id;
@@ -50,13 +43,19 @@ public class PlayerResponseDTO {
         this.password = password;
     }
 
-
-
     public BigDecimal getBalance() {
         return balance;
     }
 
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public List<Long> getThemeIds() {
+        return themeIds;
+    }
+
+    public void setThemeIds(List<Long> themeIds) {
+        this.themeIds = themeIds;
     }
 }

@@ -22,6 +22,8 @@ public interface IPlayerServices {
 
     void deletePlayerById(long id);
 
+    void addTheme(long playerId, long themeId);
+
     PlayerResponseDTO update(PlayerUpdateDTO playerUpdateDTO);
 
     PlayerResponseDTO findByName(String name);

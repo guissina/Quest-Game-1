@@ -74,6 +74,13 @@ public class PlayerController {
         return ResponseEntity.ok(player);
     }
 
+    @PatchMapping("/{id}/addTheme/{themeId}")
+    @Operation(summary = "Add a theme to a player")
+    public ResponseEntity<Void> addTheme(@PathVariable long id, @PathVariable long themeId) {
+        playerServices.addTheme(id, themeId);
+        return ResponseEntity.noContent().build();
+    }
+
     @PatchMapping("/{id}/addBalance")
     @Operation(summary = "Add balance to a player, when buying coins")
     public ResponseEntity<Void> addBalance(@PathVariable long id, @RequestBody PlayerBalanceDTO playerBalanceDTO) {

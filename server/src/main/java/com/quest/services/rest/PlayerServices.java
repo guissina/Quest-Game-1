@@ -12,7 +12,9 @@ import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.mappers.PlayerMapper;
 import com.quest.models.Player;
+import com.quest.models.Theme;
 import com.quest.repositories.PlayerRepository;
+import com.quest.repositories.ThemeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -21,11 +23,14 @@ public class PlayerServices implements IPlayerServices {
 
     private final PlayerMapper playerMapper;
     private final PlayerRepository playerRepository;
+    private final ThemeRepository themeRepository;
 
     @Autowired
-    public PlayerServices(PlayerMapper playerMapper, PlayerRepository playerRepository) {
+    public PlayerServices(PlayerMapper playerMapper, PlayerRepository playerRepository,
+            ThemeRepository themeRepository) {
         this.playerMapper = playerMapper;
         this.playerRepository = playerRepository;
+        this.themeRepository = themeRepository;
     }
 
     @Override
@@ -37,6 +42,11 @@ public class PlayerServices implements IPlayerServices {
             throw new IllegalArgumentException("Name already exists");
 
         Player player = playerMapper.toEntity(playerCreateDTO);
+
+        List<Theme> freeThemes = themeRepository.findAllByFreeTrue();
+
+        player.setThemes(freeThemes);
+
         Player savedPlayer = playerRepository.save(player);
         return playerMapper.toPlayerResponseDTO(savedPlayer);
     }
@@ -115,6 +125,20 @@ public class PlayerServices implements IPlayerServices {
         if (player.getBalance().compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Insufficient balance");
 
+        playerRepository.save(player);
+    }
+
+    @Override
+    public void addTheme(long playerId, long themeId) {
+        Player player = findPlayerById(playerId);
+        Theme theme = themeRepository.findById(themeId)
+                .orElseThrow(() -> new EntityNotFoundException("Theme not found with id: " + themeId));
+
+        if (player.getThemes().contains(theme)) {
+            throw new IllegalArgumentException("Theme already exists for this player");
+        }
+
+        player.getThemes().add(theme);
         playerRepository.save(player);
     }
 

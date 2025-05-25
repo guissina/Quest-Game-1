@@ -25,17 +25,6 @@ public class PlayerCreateDTO {
     @NotNull(message = "Balance is required")
     private BigDecimal balance = BigDecimal.ZERO;
 
-    // @NotEmpty(message = "É necessário informar ao menos um boardId")
-    // private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
-
-    // public List<Long> getBoardIds() {
-    // return boardIds;
-    // }
-
-    // public void setBoardIds(List<Long> boardIds) {
-    // this.boardIds = boardIds;
-    // }
-
     public String getName() {
         return name;
     }
