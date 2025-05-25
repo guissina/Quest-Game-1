@@ -22,7 +22,7 @@ public interface IPlayerServices {
 
     void deletePlayerById(long id);
 
-    void addTheme(long playerId, long themeId);
+    void addTheme(Long playerId, Long themeId);
 
     PlayerResponseDTO update(PlayerUpdateDTO playerUpdateDTO);
 

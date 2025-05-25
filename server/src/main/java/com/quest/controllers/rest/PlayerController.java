@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quest.dto.rest.Player.PlayerBalanceDTO;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
+import com.quest.dto.rest.Player.PlayerThemesDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.services.rest.PlayerServices;
 
@@ -74,10 +75,10 @@ public class PlayerController {
         return ResponseEntity.ok(player);
     }
 
-    @PatchMapping("/{id}/addTheme/{themeId}")
+    @PatchMapping("/{id}/addTheme")
     @Operation(summary = "Add a theme to a player")
-    public ResponseEntity<Void> addTheme(@PathVariable long id, @PathVariable long themeId) {
-        playerServices.addTheme(id, themeId);
+    public ResponseEntity<Void> addTheme(@PathVariable Long id, @Valid @RequestBody PlayerThemesDTO playerThemesDTO) {
+        playerServices.addTheme(id, playerThemesDTO.getThemeId());
         return ResponseEntity.noContent().build();
     }
 

@@ -129,10 +129,11 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
-    public void addTheme(long playerId, long themeId) {
+    public void addTheme(Long playerId, Long themeId) {
         Player player = findPlayerById(playerId);
         Theme theme = themeRepository.findById(themeId)
-                .orElseThrow(() -> new EntityNotFoundException("Theme not found with id: " + themeId));
+                .orElseThrow(
+                        () -> new EntityNotFoundException("Theme not found with id: " + themeId));
 
         if (player.getThemes().contains(theme)) {
             throw new IllegalArgumentException("Theme already exists for this player");
