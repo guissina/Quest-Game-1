@@ -3,11 +3,11 @@ package com.quest.engine.core;
 import com.quest.engine.managers.BoardManager;
 import com.quest.engine.managers.QuestionManager;
 import com.quest.engine.managers.TurnManager;
+import com.quest.engine.state.BoardState;
 import com.quest.engine.state.PlayerState;
+import com.quest.engine.state.TileState;
 import com.quest.models.Player;
-import com.quest.models.Board;
 import com.quest.models.Question;
-import com.quest.models.Tile;
 
 import java.util.*;
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class GameEngine {
     private boolean finished = false;
     private Long winnerId = null;
 
-    public GameEngine(List<Player> players, Board board, int initialTokens) {
-        this.boardManager = new BoardManager(board);
+    public GameEngine(List<Player> players, BoardState boardState, int initialTokens) {
+        this.boardManager = new BoardManager(boardState);
         this.questionManager = new QuestionManager();
         this.initialTokensList = IntStream.rangeClosed(1, initialTokens).boxed().toList();
 
@@ -53,7 +53,7 @@ public class GameEngine {
 
     public void joinGame(Player player) {
         PlayerState ps = new PlayerState(player.getId(), this.initialTokensList,
-                boardManager.getBoard().getStartTile().getId());
+                boardManager.getBoardState().getStartTile().getId());
         stateByPlayer.put(player.getId(), ps);
         turnManager.enqueuePlayer(ps);
     }
@@ -82,7 +82,7 @@ public class GameEngine {
     public void move(PlayerState playerState, int steps) {
         if (playerState == null)
             throw new RuntimeException("Player not found.");
-        Tile tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), steps);
+        TileState tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), steps);
         boardManager.movePlayer(playerState, tile);
     }
 
@@ -121,7 +121,7 @@ public class GameEngine {
         if (correct)
             move(ps, steps);
         else if (ps.getTokens().isEmpty()) {
-            Long startId = boardManager.getBoard().getStartTile().getId();
+            Long startId = boardManager.getBoardState().getStartTile().getId();
             ps.moveTo(startId);
             ps.resetTokens(initialTokensList);
         }

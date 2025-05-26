@@ -26,12 +26,6 @@ public class Tile {
     @Column(name = "col_index", nullable = false)
     private int col;
 
-    @Transient
-    private SpecialCard specialCard;
-
-    @Transient
-    private Theme questionTheme;
-
     public Long getId() {
         return id;
     }
@@ -70,21 +64,5 @@ public class Tile {
 
     public void setCol(int col) {
         this.col = col;
-    }
-
-    public SpecialCard getSpecialCard() {
-        return specialCard;
-    }
-
-    public void setSpecialCard(SpecialCard specialCard) {
-        this.specialCard = specialCard;
-    }
-
-    public Theme getQuestionTheme() {
-        return questionTheme;
-    }
-
-    public void setQuestionTheme(Theme questionTheme) {
-        this.questionTheme = questionTheme;
     }
 }

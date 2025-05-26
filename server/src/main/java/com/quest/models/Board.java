@@ -46,6 +46,14 @@ public class Board {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getRows() {
         return rows;
     }
@@ -68,19 +76,5 @@ public class Board {
 
     public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
-    }
-
-    public Tile getStartTile() {
-        if (tiles.isEmpty())
-            throw new IllegalStateException("No tiles found in the board");
-        return tiles.get(0);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

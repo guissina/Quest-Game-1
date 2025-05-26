@@ -47,20 +47,12 @@ public class Player {
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Theme> themes;
 
-    public BigDecimal getBalance() {
-        return balance;
+    public Long getId() {
+        return id;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -71,6 +63,14 @@ public class Player {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -79,12 +79,12 @@ public class Player {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public List<Theme> getThemes() {

@@ -6,6 +6,7 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
 import com.quest.engine.managers.GameSessionManager;
+import com.quest.engine.state.BoardState;
 import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.interfaces.ws.IGameRoomService;
@@ -13,11 +14,13 @@ import com.quest.models.Board;
 import com.quest.models.Player;
 import com.quest.mappers.PlayerMapper;
 
+import com.quest.models.Theme;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -80,8 +83,12 @@ public class GameRoomService implements IGameRoomService {
 
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
+        List<Theme> themes = new ArrayList<>(); // TODO Pegar os temas
+        themes.add(new Theme());
         Board board = boardService.findBoardById(req.boardId());
-        GameEngine engine = new GameEngine(room.getPlayers(), board, req.initialTokens());
+        BoardState boardState = BoardState.create(board, themes);
+
+        GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
 
