@@ -1,5 +1,6 @@
 package com.quest.engine.state;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.quest.models.SpecialCard;
 import com.quest.models.Theme;
 import com.quest.models.Tile;
@@ -13,7 +14,11 @@ public class TileState {
     private final int sequence;
     private final int row;
     private final int col;
+
+    @JsonProperty("theme")
     private final Theme assignedTheme;
+
+    @JsonProperty("specialCard")
     private final SpecialCard specialCard;
 
     public TileState(Long id,

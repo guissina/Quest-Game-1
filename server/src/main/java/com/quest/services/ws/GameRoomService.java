@@ -9,6 +9,7 @@ import com.quest.engine.managers.GameSessionManager;
 import com.quest.engine.state.BoardState;
 import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
+import com.quest.interfaces.rest.IThemeServices;
 import com.quest.interfaces.ws.IGameRoomService;
 import com.quest.models.Board;
 import com.quest.models.Player;
@@ -29,6 +30,7 @@ public class GameRoomService implements IGameRoomService {
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
     private final IBoardServices boardService;
+    private final IThemeServices themeServices;
     private final IPlayerServices playerServices;
     private final PlayerMapper playerMapper;
 
@@ -37,12 +39,14 @@ public class GameRoomService implements IGameRoomService {
             GameSessionManager sessionManager,
             SimpMessagingTemplate messagingTemplate,
             IBoardServices boardService,
+            IThemeServices themeServices,
             IPlayerServices playerServices,
             PlayerMapper playerMapper
     ) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.boardService = boardService;
+        this.themeServices = themeServices;
         this.playerServices = playerServices;
         this.playerMapper = playerMapper;
     }
@@ -83,8 +87,7 @@ public class GameRoomService implements IGameRoomService {
 
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
-        List<Theme> themes = new ArrayList<>(); // TODO Pegar os temas
-        themes.add(new Theme());
+        List<Theme> themes = themeServices.findThemesByIds(req.themeIds());
         Board board = boardService.findBoardById(req.boardId());
         BoardState boardState = BoardState.create(board, themes);
 

@@ -67,6 +67,11 @@ public class ThemeServices implements IThemeServices {
     }
 
     @Override
+    public List<Theme> findThemesByIds(List<Long> ids) {
+        return themeRepository.findAllById(ids);
+    }
+
+    @Override
     public ThemeResponseDTO findById(long id) {
         Theme theme = findThemeById(id);
         return themeMapper.toThemeResponseDTO(theme);

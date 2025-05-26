@@ -10,6 +10,8 @@ import com.quest.models.Theme;
 public interface IThemeServices {
     Theme findThemeById(long id);
 
+    List<Theme> findThemesByIds(List<Long> ids);
+
     ThemeResponseDTO findByName(String name);
 
     ThemeResponseDTO findByCode(String code);

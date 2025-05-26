@@ -1,5 +1,7 @@
 package com.quest.engine.state;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.quest.models.Board;
 import com.quest.models.Theme;
 import com.quest.models.Tile;
@@ -11,20 +13,22 @@ import java.util.stream.Collectors;
 
 public class BoardState {
 
-    private final Long boardId;
+    private final Long id;
     private final String name;
     private final int rows;
     private final int cols;
     private final List<TileState> tiles;
+
+    @JsonProperty("themes")
     private final List<Theme> selectedThemes;
 
-    public BoardState(Long boardId,
+    public BoardState(Long id,
                       String name,
                       int rows,
                       int cols,
                       List<TileState> tiles,
                       List<Theme> selectedThemes) {
-        this.boardId = boardId;
+        this.id = id;
         this.name = name;
         this.rows = rows;
         this.cols = cols;
@@ -32,8 +36,8 @@ public class BoardState {
         this.tiles = List.copyOf(tiles);
     }
 
-    public Long getBoardId() {
-        return boardId;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -56,6 +60,7 @@ public class BoardState {
         return selectedThemes;
     }
 
+    @JsonIgnore
     public TileState getStartTile() {
         return tiles.stream()
                 .filter(tile -> tile.getSequence() == 0)

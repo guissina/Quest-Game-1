@@ -7,7 +7,7 @@ interface LobbyPageProps {
     started: boolean;
     createRoom: (playerId: number) => void;
     joinRoom: (sessionId: string, playerId: number) => void;
-    startRoom: (boardId: number, initialTokens: number) => void;
+    startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
 }
 
 export default function LobbyPage({ sessionId, players, started, createRoom, joinRoom, startRoom }: LobbyPageProps) {
@@ -37,7 +37,7 @@ export default function LobbyPage({ sessionId, players, started, createRoom, joi
 
     const handleStart = () => {
         if (!sessionId || !inputBoardId || !inputInitialTokens) return;
-        startRoom(Number(inputBoardId), Number(inputInitialTokens));
+        startRoom(Number(inputBoardId), Number(inputInitialTokens), [1,2,3,4,5,6] /*TODO Selecionar temas*/);
     };
 
     return (

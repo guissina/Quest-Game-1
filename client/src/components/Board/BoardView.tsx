@@ -30,7 +30,8 @@ export function BoardView({ board, playerStates }: BoardViewProps) {
                             gridRow: tile.row + 1,
                         }}
                     >
-                        <strong className='bv-tile-id'>{tile.id}</strong>
+                        <strong className='bv-tile-id'>{tile.id}</strong> 
+                        <strong className='bv-tile-id'>{tile.theme?.name}</strong>
 
                         <div className='bv-players'>
                             {occupants.length === 0 ? (
