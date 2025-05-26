@@ -1,5 +1,7 @@
 package com.quest.dto.rest.Theme;
 
+import java.math.BigDecimal;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -17,6 +19,17 @@ public class ThemeUpdateDTO {
 
     @NotNull(message = "Must specify if the theme is free or paid")
     private Boolean free;
+
+    @NotNull(message = "Theme cost is required")
+    private BigDecimal cost;
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
+    }
 
     public Boolean isFree() {
         return free;

@@ -18,9 +18,11 @@ public interface ThemeMapper {
 
     ThemeResponseDTO toThemeResponseDTO(Theme theme);
 
+    @Mapping(target = "playerThemes", ignore = true)
     Theme toEntity(ThemeResponseDTO themeResponseDTO);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "playerThemes", ignore = true)
     Theme toEntity(ThemeCreateDTO themeCreateDTO);
 
     List<ThemeResponseDTO> toThemeResponseDTOs(List<Theme> themes);

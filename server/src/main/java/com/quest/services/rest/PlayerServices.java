@@ -12,11 +12,14 @@ import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.mappers.PlayerMapper;
 import com.quest.models.Player;
+import com.quest.models.PlayerTheme;
 import com.quest.models.Theme;
 import com.quest.repositories.PlayerRepository;
+import com.quest.repositories.PlayerThemeRepository;
 import com.quest.repositories.ThemeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PlayerServices implements IPlayerServices {
@@ -24,10 +27,12 @@ public class PlayerServices implements IPlayerServices {
     private final PlayerMapper playerMapper;
     private final PlayerRepository playerRepository;
     private final ThemeRepository themeRepository;
+    private final PlayerThemeRepository playerThemeRepository;
 
     @Autowired
     public PlayerServices(PlayerMapper playerMapper, PlayerRepository playerRepository,
-            ThemeRepository themeRepository) {
+            ThemeRepository themeRepository, PlayerThemeRepository playerThemeRepository) {
+        this.playerThemeRepository = playerThemeRepository;
         this.playerMapper = playerMapper;
         this.playerRepository = playerRepository;
         this.themeRepository = themeRepository;
@@ -44,8 +49,16 @@ public class PlayerServices implements IPlayerServices {
         Player player = playerMapper.toEntity(playerCreateDTO);
 
         List<Theme> freeThemes = themeRepository.findAllByFreeTrue();
+        List<PlayerTheme> playerThemes = freeThemes.stream()
+                .map(theme -> {
+                    PlayerTheme pt = new PlayerTheme();
+                    pt.setPlayer(player);
+                    pt.setTheme(theme);
+                    return pt;
+                })
+                .toList();
 
-        player.setThemes(freeThemes);
+        player.setPlayerThemes(playerThemes);
 
         Player savedPlayer = playerRepository.save(player);
         return playerMapper.toPlayerResponseDTO(savedPlayer);
@@ -128,19 +141,25 @@ public class PlayerServices implements IPlayerServices {
         playerRepository.save(player);
     }
 
+    @Transactional
     @Override
     public void addTheme(Long playerId, Long themeId) {
-        Player player = findPlayerById(playerId);
+        // busca Player e Theme
+        Player player = playerRepository.findById(playerId)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found with id: " + playerId));
         Theme theme = themeRepository.findById(themeId)
-                .orElseThrow(
-                        () -> new EntityNotFoundException("Theme not found with id: " + themeId));
+                .orElseThrow(() -> new EntityNotFoundException("Theme not found with id: " + themeId));
 
-        if (player.getThemes().contains(theme)) {
+        // verifica existência
+        if (playerThemeRepository.existsByPlayerIdAndThemeId(playerId, themeId)) {
             throw new IllegalArgumentException("Theme already exists for this player");
         }
 
-        player.getThemes().add(theme);
-        playerRepository.save(player);
+        // cria e salva relação
+        PlayerTheme pt = new PlayerTheme();
+        pt.setPlayer(player);
+        pt.setTheme(theme);
+        playerThemeRepository.save(pt);
     }
 
     private Boolean existsByEmail(String email) {

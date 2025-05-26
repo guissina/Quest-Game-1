@@ -1,10 +1,14 @@
 package com.quest.models;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -30,6 +34,21 @@ public class Theme {
     @NotNull(message = "Must specify if the theme is free or paid")
     @Column(name = "is_free", nullable = false)
     private Boolean free;
+
+    @NotNull(message = "Theme cost is required")
+    @Column(name = "cost", nullable = false)
+    private BigDecimal cost;
+
+    @OneToMany(mappedBy = "theme")
+    private List<PlayerTheme> playerThemes;
+
+    public List<PlayerTheme> getPlayerThemes() {
+        return playerThemes;
+    }
+
+    public void setPlayerThemes(List<PlayerTheme> playerThemes) {
+        this.playerThemes = playerThemes;
+    }
 
     public long getId() {
         return id;
@@ -61,6 +80,18 @@ public class Theme {
 
     public void setFree(Boolean free) {
         this.free = free;
+    }
+
+    public Boolean getFree() {
+        return free;
+    }
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
     }
 
 }

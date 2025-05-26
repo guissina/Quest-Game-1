@@ -3,13 +3,13 @@ package com.quest.models;
 import java.math.BigDecimal;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -43,40 +43,15 @@ public class Player {
     @Column(name = "balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal balance = BigDecimal.ZERO;
 
-    @NotNull
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Theme> themes;
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlayerTheme> playerThemes;
 
-    public Long getId() {
-        return id;
+    public List<PlayerTheme> getPlayerThemes() {
+        return playerThemes;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPlayerThemes(List<PlayerTheme> playerThemes) {
+        this.playerThemes = playerThemes;
     }
 
     public BigDecimal getBalance() {
@@ -87,11 +62,36 @@ public class Player {
         this.balance = balance;
     }
 
-    public List<Theme> getThemes() {
-        return themes;
+    public String getEmail() {
+        return email;
     }
 
-    public void setThemes(List<Theme> themes) {
-        this.themes = themes;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

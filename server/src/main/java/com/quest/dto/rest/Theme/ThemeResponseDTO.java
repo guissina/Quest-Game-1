@@ -1,10 +1,21 @@
 package com.quest.dto.rest.Theme;
 
+import java.math.BigDecimal;
+
 public class ThemeResponseDTO {
     private Long id;
     private String name;
     private String code;
     private Boolean free;
+    private BigDecimal cost;
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
+    }
 
     public Long getId() {
         return id;

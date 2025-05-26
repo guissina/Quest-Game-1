@@ -13,22 +13,22 @@ import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
 import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
 import com.quest.models.Player;
-import com.quest.models.Theme;
+import com.quest.models.PlayerTheme;
 
-@Mapper(componentModel = "spring", uses = BoardMapper.class)
+@Mapper(componentModel = "spring")
 public interface PlayerMapper {
 
-    @Mapping(target = "themeIds", source = "themes")
+    @Mapping(target = "themeIds", expression = "java(mapPlayerThemesToThemeIds(player.getPlayerThemes()))")
     PlayerResponseDTO toPlayerResponseDTO(Player player);
 
     @Mapping(target = "id", ignore = true)
 
     @Mapping(target = "balance", ignore = true)
-    @Mapping(target = "themes", ignore = true)
+    @Mapping(target = "playerThemes", ignore = true)
     Player toEntity(PlayerCreateDTO playerCreateDTO);
 
     @Mapping(target = "balance", ignore = true)
-    @Mapping(target = "themes", ignore = true)
+    @Mapping(target = "playerThemes", ignore = true)
     Player toEntity(PlayerUpdateDTO playerUpdateDTO);
 
     @Mapping(target = "id", source = "id")
@@ -43,12 +43,11 @@ public interface PlayerMapper {
 
     List<PlayerResponseDTO> toPlayerResponseDTOs(List<Player> players);
 
-    default List<Long> themesToIds(List<Theme> themes) {
-        if (themes == null) {
+    default List<Long> mapPlayerThemesToThemeIds(List<PlayerTheme> playerThemes) {
+        if (playerThemes == null)
             return null;
-        }
-        return themes.stream()
-                .map(Theme::getId)
+        return playerThemes.stream()
+                .map(playerTheme -> playerTheme.getTheme().getId())
                 .collect(Collectors.toList());
     }
 

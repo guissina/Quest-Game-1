@@ -1,5 +1,6 @@
 package com.quest.services.rest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,9 @@ public class ThemeServices implements IThemeServices {
     @Override
     public ThemeResponseDTO create(ThemeCreateDTO themeCreateDTO) {
         Theme theme = themeMapper.toEntity(themeCreateDTO);
+        if (themeCreateDTO.isFree())
+            theme.setCost(BigDecimal.ZERO);
+
         Theme savedTheme = themeRepository.save(theme);
         return themeMapper.toThemeResponseDTO(savedTheme);
     }
@@ -104,6 +108,11 @@ public class ThemeServices implements IThemeServices {
 
         if (!currentTheme.getCode().equals(themeUpdateDTO.getCode()))
             currentTheme.setCode(themeUpdateDTO.getCode());
+
+        currentTheme.setCost(themeUpdateDTO.getCost());
+
+        if (themeUpdateDTO.isFree())
+            currentTheme.setCost(BigDecimal.ZERO);
 
         currentTheme.setFree(themeUpdateDTO.isFree());
 
