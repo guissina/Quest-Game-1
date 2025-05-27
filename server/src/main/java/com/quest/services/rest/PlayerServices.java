@@ -127,6 +127,8 @@ public class PlayerServices implements IPlayerServices {
     @Override
     public void addBalance(long id, BigDecimal balance) {
         Player player = findPlayerById(id);
+        if (balance.compareTo(BigDecimal.ZERO) < 0)
+            throw new IllegalArgumentException("Balance cannot be negative");
         player.setBalance(player.getBalance().add(balance));
         playerRepository.save(player);
     }
@@ -134,6 +136,9 @@ public class PlayerServices implements IPlayerServices {
     @Override
     public void decreaseBalance(long id, BigDecimal balance) {
         Player player = findPlayerById(id);
+        if (balance.compareTo(BigDecimal.ZERO) < 0)
+            throw new IllegalArgumentException("Balance cannot be negative");
+
         player.setBalance(player.getBalance().subtract(balance));
         if (player.getBalance().compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Insufficient balance");

@@ -13,6 +13,7 @@ import com.quest.dto.rest.Theme.ThemeUpdateDTO;
 import com.quest.interfaces.rest.IThemeServices;
 import com.quest.mappers.ThemeMapper;
 import com.quest.models.Theme;
+import com.quest.repositories.PlayerThemeRepository;
 import com.quest.repositories.ThemeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -24,9 +25,12 @@ public class ThemeServices implements IThemeServices {
 
     private final ThemeMapper themeMapper;
     private final ThemeRepository themeRepository;
+    private final PlayerThemeRepository playerThemeRepository;
 
     @Autowired
-    public ThemeServices(ThemeMapper themeMapper, ThemeRepository themeRepository) {
+    public ThemeServices(ThemeMapper themeMapper, ThemeRepository themeRepository,
+            PlayerThemeRepository playerThemeRepository) {
+        this.playerThemeRepository = playerThemeRepository;
         this.themeMapper = themeMapper;
         this.themeRepository = themeRepository;
     }
@@ -129,8 +133,14 @@ public class ThemeServices implements IThemeServices {
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         Theme theme = findThemeById(id);
+
+        // Remove relacionamentos primeiro
+        playerThemeRepository.deleteByTheme(theme);
+
+        // Depois remove o tema
         themeRepository.delete(theme);
     }
 

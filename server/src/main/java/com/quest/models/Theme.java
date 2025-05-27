@@ -3,6 +3,7 @@ package com.quest.models;
 import java.math.BigDecimal;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,8 +39,8 @@ public class Theme {
     @NotNull(message = "Theme cost is required")
     @Column(name = "cost", nullable = false)
     private BigDecimal cost;
-
-    @OneToMany(mappedBy = "theme")
+    // TODO: Quando remover o tema, remover também os PlayerTheme associados a ele
+    @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlayerTheme> playerThemes;
 
     public List<PlayerTheme> getPlayerThemes() {
