@@ -21,7 +21,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -103,6 +102,7 @@ public class GameRoomService implements IGameRoomService {
         removeAndBroadcast(req.sessionId(), req.playerId());
     }
 
+    @Override
     public void removeAndBroadcast(String sessionId, Long playerId) {
         GameSession session = sessionManager.getSession(sessionId);
         session.leavePlayer(playerId);

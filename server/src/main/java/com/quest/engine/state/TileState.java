@@ -15,8 +15,8 @@ public class TileState {
     private final int row;
     private final int col;
 
-    @JsonProperty("theme")
-    private final Theme assignedTheme;
+    @JsonProperty("themes")
+    private final List<Theme> assignedThemes;
 
     @JsonProperty("specialCard")
     private final SpecialCard specialCard;
@@ -25,13 +25,13 @@ public class TileState {
                      int sequence,
                      int row,
                      int col,
-                     Theme assignedTheme,
+                     List<Theme> assignedThemes,
                      SpecialCard specialCard) {
         this.id = id;
         this.sequence = sequence;
         this.row = row;
         this.col = col;
-        this.assignedTheme = assignedTheme;
+        this.assignedThemes = assignedThemes;
         this.specialCard = specialCard;
     }
 
@@ -51,8 +51,8 @@ public class TileState {
         return col;
     }
 
-    public Theme getAssignedTheme() {
-        return assignedTheme;
+    public List<Theme> getAssignedThemes() {
+        return assignedThemes;
     }
 
     public SpecialCard getSpecialCard() {
@@ -61,12 +61,14 @@ public class TileState {
 
     public static TileState create(Tile tile, List<Theme> selectedThemes, Random random) {
         Theme theme = selectedThemes.get(random.nextInt(selectedThemes.size()));
+        List<Theme> themes = List.of(theme);
+
         return new TileState(
                 tile.getId(),
                 tile.getSequence(),
                 tile.getRow(),
                 tile.getCol(),
-                theme,
+                themes,
                 null
         );
     }

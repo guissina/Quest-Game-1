@@ -1,7 +1,6 @@
 package com.quest.controllers.ws;
 
 import com.quest.dto.ws.Game.EngineStateDTO;
-import com.quest.dto.ws.Game.MoveRequestDTO;
 import com.quest.dto.ws.Game.AnswerRequestDTO;
 import com.quest.dto.ws.Game.QuestionRequestDTO;
 import com.quest.services.ws.GameService;

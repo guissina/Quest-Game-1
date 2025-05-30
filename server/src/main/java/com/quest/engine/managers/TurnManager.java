@@ -5,7 +5,6 @@ import com.quest.engine.state.PlayerState;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
-import java.util.List;
 
 public class TurnManager {
     private final Deque<PlayerState> turnQueue = new ArrayDeque<>();

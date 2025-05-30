@@ -105,13 +105,12 @@ public class GameEngine {
                 .orElseThrow(() -> new IllegalArgumentException("Player not found"));
 
         boolean wasAtLast = boardManager.isLastTile(ps.getCurrentTileId());
-        boolean correct   = questionManager.processAnswer(ps, selectedOptionId, steps);
+        boolean correct = questionManager.processAnswer(ps, selectedOptionId, steps);
 
         applyMovementOrReset(ps, correct, steps);
-
         if (correct && wasAtLast) {
-            finished  = true;
-            winnerId  = playerId;
+            finished = true;
+            winnerId = playerId;
         }
         ps.clearPendingQuestion();
         turnManager.nextTurn();
@@ -122,7 +121,7 @@ public class GameEngine {
             move(ps, steps);
         else if (ps.getTokens().isEmpty()) {
             Long startId = boardManager.getBoardState().getStartTile().getId();
-            ps.moveTo(startId);
+            ps.moveTo(startId); // Move para a casa inicial
             ps.resetTokens(initialTokensList);
         }
     }

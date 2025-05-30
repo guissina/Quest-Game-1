@@ -19,12 +19,12 @@ public class GameRoom {
                 .findFirst();
     }
 
-    public boolean join(Player p) {
-        if (findPlayerById(p.getId()).isPresent())
+    public boolean join(Player player) {
+        if (findPlayerById(player.getId()).isPresent())
             throw new IllegalArgumentException("Player already in room.");
         if (started || players.size() >= 6)
             throw new IllegalArgumentException("Room is full.");
-        return players.add(p);
+        return players.add(player);
     }
 
     public void leave(Long playerId) {

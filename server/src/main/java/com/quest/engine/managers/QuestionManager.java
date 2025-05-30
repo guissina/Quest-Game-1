@@ -29,7 +29,7 @@ public class QuestionManager {
         QuestionOption option = question.getOptionById(selectedOptionId)
                 .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId) );
 
-        markUsed(question.getId());
+        markUsed(question.getId()); // TODO AVALIAR REDUNDANCY
         boolean correct = option.getCorrect();
         if (!correct)
             ps.consumeTokens(steps);
