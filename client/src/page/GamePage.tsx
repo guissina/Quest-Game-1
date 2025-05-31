@@ -22,7 +22,7 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     const myState = gameState?.playerStates.find((ps) => ps.playerId === myPlayerId);
     const currentState = gameState?.playerStates.find((ps) => ps.isCurrentTurn);
 
-        useEffect(() => {
+    useEffect(() => {
         if (gameState?.finished) {
             const winner = players.find((p) => p.id === gameState.winnerId);
             if (winner) 

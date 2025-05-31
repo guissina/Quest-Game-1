@@ -125,4 +125,20 @@ public class GameEngine {
             ps.resetTokens(initialTokensList);
         }
     }
+
+    public void forceFailQuestion(Long playerId) {
+        PlayerState ps = Optional.ofNullable(stateByPlayer.get(playerId))
+                .orElseThrow(() -> new IllegalArgumentException("Player not found"));
+        questionManager.processFail(ps, 1); // TODO Deve consumir o token respectivo
+        ps.clearPendingQuestion();
+        turnManager.nextTurn();
+    }
+
+    public void forceSkipTurn(Long playerId) {
+        turnManager.verifyTurn(playerId);
+        PlayerState ps = stateByPlayer.get(playerId);
+        if (ps != null)
+            ps.clearPendingQuestion();
+        turnManager.nextTurn();
+    }
 }

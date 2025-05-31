@@ -31,7 +31,7 @@ export function BoardView({ board, playerStates }: BoardViewProps) {
                         }}
                     >
                         <strong className='bv-tile-id'>{tile.id}</strong> 
-                        <strong className='bv-tile-id'>{tile.theme?.name}</strong>
+                        <strong className='bv-tile-id'>{tile.themes[0].name}</strong>
 
                         <div className='bv-players'>
                             {occupants.length === 0 ? (

@@ -21,18 +21,25 @@ public class QuestionManager {
         return usedQuestionIds.contains(questionId);
     }
 
+    private void handleIncorrect(PlayerState ps, int steps) {
+        ps.consumeTokens(steps);
+    }
+
     public boolean processAnswer(PlayerState ps, Long selectedOptionId, int steps) {
         Question question = ps.getPendingQuestion();
         if (question == null)
             throw new IllegalStateException("Nenhuma pergunta pendente");
 
         QuestionOption option = question.getOptionById(selectedOptionId)
-                .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId) );
+                .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId));
 
-        markUsed(question.getId()); // TODO AVALIAR REDUNDANCY
         boolean correct = option.getCorrect();
         if (!correct)
-            ps.consumeTokens(steps);
+            handleIncorrect(ps, steps);
         return correct;
+    }
+
+    public void processFail(PlayerState ps, int steps) {
+        handleIncorrect(ps, steps);
     }
 }

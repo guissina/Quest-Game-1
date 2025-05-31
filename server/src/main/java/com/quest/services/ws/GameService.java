@@ -20,17 +20,20 @@ public class GameService {
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
     private final IQuestionServices questionService;
+    private final QuestionTimerService questionTimerService;
 
     @Autowired
     public GameService(GameSessionManager sessionManager,
                        SimpMessagingTemplate messagingTemplate,
-                       IQuestionServices questionService) {
+                       IQuestionServices questionService,
+                       QuestionTimerService questionTimerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.questionService = questionService;
+        this.questionTimerService = questionTimerService;
     }
 
-    private void broadcastGameState(String sessionId, GameEngine engine) {
+    public void broadcastGameState(String sessionId, GameEngine engine) {
         EngineStateDTO stateDto = EngineStateDTO.from(sessionId, engine);
         String destination = String.format(WsDestinations.GAME_STATE, sessionId);
         messagingTemplate.convertAndSend(destination, stateDto);
@@ -53,6 +56,9 @@ public class GameService {
 
         engine.registerQuestionFor(req.playerId(), question);
         broadcastGameState(sessionId, engine);
+
+        int QUESTION_TIMEOUT_SEC = 5; // TODO Mover essa logica para outro lugar
+        questionTimerService.startQuestionTimer(sessionId, req.playerId(), QUESTION_TIMEOUT_SEC);
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {

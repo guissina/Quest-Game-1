@@ -5,7 +5,7 @@ export interface TileProps {
     row: number;
     col: number;
     sequence: number;
-    theme?: ThemeProps;
+    themes?: ThemeProps[];
 }
 
 export class Tile {
@@ -13,13 +13,13 @@ export class Tile {
     public readonly row: number;
     public readonly col: number;
     public readonly sequence: number;
-    public readonly theme: Theme | null;
+    public readonly themes: Theme[];
 
     constructor(props: TileProps) {
         this.id = props.id;
         this.row = props.row;
         this.col = props.col;
         this.sequence = props.sequence;
-        this.theme = props.theme ? new Theme(props.theme) : null;
+        this.themes = props.themes?.map(theme => new Theme(theme)) || [];
     }
 }
