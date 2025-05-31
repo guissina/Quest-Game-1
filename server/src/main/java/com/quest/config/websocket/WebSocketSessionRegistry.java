@@ -1,7 +1,8 @@
 package com.quest.config.websocket;
 
-import com.quest.dto.ws.Room.SessionInfo;
 import org.springframework.stereotype.Component;
+
+import com.quest.engine.core.SessionInfo;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

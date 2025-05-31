@@ -1,4 +1,4 @@
-package com.quest.dto.ws.Room;
+package com.quest.engine.core;
 
 public record SessionInfo(
         String gameSessionId,

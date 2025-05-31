@@ -1,6 +1,6 @@
 package com.quest.config.websocket;
 
-import com.quest.dto.ws.Room.SessionInfo;
+import com.quest.engine.core.SessionInfo;
 import com.quest.interfaces.ws.IGameRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
