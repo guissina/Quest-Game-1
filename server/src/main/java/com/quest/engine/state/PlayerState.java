@@ -1,10 +1,10 @@
 package com.quest.engine.state;
 
-import com.quest.models.Question;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.quest.models.Question;
 
 public class PlayerState {
 
@@ -12,6 +12,15 @@ public class PlayerState {
     private final List<Integer> tokens;
     private Long currentTileId;
     private Question pendingQuestion;
+    private int pendingSteps;
+
+    public int getPendingSteps() {
+        return pendingSteps;
+    }
+
+    public void setPendingSteps(int pendingSteps) {
+        this.pendingSteps = pendingSteps;
+    }
 
     public PlayerState(Long playerId, List<Integer> initialTokens, Long startTileId) {
         this.playerId = playerId;

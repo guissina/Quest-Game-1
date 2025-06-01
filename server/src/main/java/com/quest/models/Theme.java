@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,7 +41,7 @@ public class Theme {
     @NotNull(message = "Theme cost is required")
     @Column(name = "cost", nullable = false)
     private BigDecimal cost;
-    // TODO: Quando remover o tema, remover também os PlayerTheme associados a ele
+
     @JsonIgnore
     @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlayerTheme> playerThemes;
