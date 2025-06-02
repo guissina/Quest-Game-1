@@ -1,12 +1,12 @@
 package com.quest.engine.managers;
 
-import com.quest.engine.state.BoardState;
-import com.quest.engine.state.PlayerState;
-import com.quest.engine.state.TileState;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.quest.engine.state.BoardState;
+import com.quest.engine.state.PlayerState;
+import com.quest.engine.state.TileState;
 
 public class BoardManager {
 

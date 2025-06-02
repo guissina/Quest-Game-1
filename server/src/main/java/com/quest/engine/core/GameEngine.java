@@ -1,5 +1,13 @@
 package com.quest.engine.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.IntStream;
+
 import com.quest.engine.managers.BoardManager;
 import com.quest.engine.managers.QuestionManager;
 import com.quest.engine.managers.TurnManager;
@@ -8,11 +16,6 @@ import com.quest.engine.state.PlayerState;
 import com.quest.engine.state.TileState;
 import com.quest.models.Player;
 import com.quest.models.Question;
-
-import java.util.*;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.IntStream;
 
 public class GameEngine {
 
@@ -79,46 +82,48 @@ public class GameEngine {
         boardManager.seed(stateByPlayer);
     }
 
-    public void move(PlayerState playerState, int steps) {
+    public void move(PlayerState playerState) {
         if (playerState == null)
             throw new RuntimeException("Player not found.");
-        TileState tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), steps);
+        TileState tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), playerState.getPendingSteps());
         boardManager.movePlayer(playerState, tile);
     }
 
-    public void registerQuestionFor(Long playerId, Question question) {
+    public void prepareQuestion(Long playerId, Question question, int steps) {
         turnManager.verifyTurn(playerId);
-        questionManager.markUsed(question.getId());
 
-        PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null) throw new IllegalArgumentException("Player not found");
+        PlayerState ps = Optional.ofNullable(stateByPlayer.get(playerId))
+                .orElseThrow(() -> new IllegalArgumentException("Player not found"));
+
+        ps.setPendingSteps(steps);
         ps.setPendingQuestion(question);
+        questionManager.markUsed(question.getId());
     }
 
     public boolean hasUsedQuestion(Long questionId) {
         return questionManager.hasUsed(questionId);
     }
 
-    public void answerQuestion(Long playerId, Long selectedOptionId, int steps) {
+    public void answerQuestion(Long playerId, Long selectedOptionId) {
         turnManager.verifyTurn(playerId);
         PlayerState ps = Optional.ofNullable(stateByPlayer.get(playerId))
                 .orElseThrow(() -> new IllegalArgumentException("Player not found"));
 
         boolean wasAtLast = boardManager.isLastTile(ps.getCurrentTileId());
-        boolean correct = questionManager.processAnswer(ps, selectedOptionId, steps);
+        boolean correct = questionManager.processAnswer(ps, selectedOptionId);
 
-        applyMovementOrReset(ps, correct, steps);
+        applyMovementOrReset(ps, correct);
         if (correct && wasAtLast) {
             finished = true;
             winnerId = playerId;
         }
-        ps.clearPendingQuestion();
+        ps.clearPendingQuestionAndSteps();
         turnManager.nextTurn();
     }
 
-    private void applyMovementOrReset(PlayerState ps, boolean correct, int steps) {
+    private void applyMovementOrReset(PlayerState ps, boolean correct) {
         if (correct)
-            move(ps, steps);
+            move(ps);
         else if (ps.getTokens().isEmpty()) {
             Long startId = boardManager.getBoardState().getStartTile().getId();
             ps.moveTo(startId); // Move para a casa inicial
@@ -129,8 +134,8 @@ public class GameEngine {
     public void forceFailQuestion(Long playerId) {
         PlayerState ps = Optional.ofNullable(stateByPlayer.get(playerId))
                 .orElseThrow(() -> new IllegalArgumentException("Player not found"));
-        questionManager.processFail(ps, 1); // TODO Deve consumir o token respectivo
-        ps.clearPendingQuestion();
+        questionManager.processFail(ps);
+        ps.clearPendingQuestionAndSteps();
         turnManager.nextTurn();
     }
 
@@ -138,7 +143,7 @@ public class GameEngine {
         turnManager.verifyTurn(playerId);
         PlayerState ps = stateByPlayer.get(playerId);
         if (ps != null)
-            ps.clearPendingQuestion();
+            ps.clearPendingQuestionAndSteps();
         turnManager.nextTurn();
     }
 }

@@ -2,5 +2,6 @@ package com.quest.dto.ws.Game;
 
 public record QuestionRequestDTO(
         Long playerId,
-        Long themeId
+        Long themeId,
+        int steps
 ) { }

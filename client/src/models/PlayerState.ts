@@ -6,6 +6,7 @@ export interface PlayerStateProps {
     tokens: number[];
     isCurrentTurn: boolean;
     pendingQuestion?: QuestionProps;
+    pendingSteps?: number;
 }
 
 export class PlayerState {
@@ -14,6 +15,7 @@ export class PlayerState {
     public readonly tokens: number[];
     public readonly isCurrentTurn: boolean;
     public readonly pendingQuestion: Question | null;
+    public readonly pendingSteps: number | null;
 
     constructor(props: PlayerStateProps) {
         this.playerId = props.playerId;
@@ -21,5 +23,6 @@ export class PlayerState {
         this.tokens = props.tokens;
         this.isCurrentTurn = props.isCurrentTurn;
         this.pendingQuestion = props.pendingQuestion ? new Question(props.pendingQuestion) : null;
+        this.pendingSteps = props.pendingSteps ?? null;
     }
 }

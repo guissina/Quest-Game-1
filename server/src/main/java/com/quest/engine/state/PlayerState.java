@@ -12,9 +12,9 @@ public class PlayerState {
     private final List<Integer> tokens;
     private Long currentTileId;
     private Question pendingQuestion;
-    private int pendingSteps;
+    private Integer pendingSteps;
 
-    public int getPendingSteps() {
+    public Integer getPendingSteps() {
         return pendingSteps;
     }
 
@@ -63,7 +63,8 @@ public class PlayerState {
         this.pendingQuestion = q;
     }
 
-    public void clearPendingQuestion() {
+    public void clearPendingQuestionAndSteps() {
         this.pendingQuestion = null;
+        this.pendingSteps = null;
     }
 }

@@ -1,17 +1,18 @@
 package com.quest.engine.managers;
 
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
-
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class QuestionManager {
 
     private final Set<Long> usedQuestionIds = ConcurrentHashMap.newKeySet();
 
-    public QuestionManager() {}
+    public QuestionManager() {
+    }
 
     public void markUsed(Long questionId) {
         usedQuestionIds.add(questionId);
@@ -21,11 +22,14 @@ public class QuestionManager {
         return usedQuestionIds.contains(questionId);
     }
 
-    private void handleIncorrect(PlayerState ps, int steps) {
-        ps.consumeTokens(steps);
+    private void handleIncorrect(PlayerState ps) {
+        if (ps.getPendingSteps() == null)
+            throw new IllegalStateException("PlayerState does not have pending steps");
+
+        ps.consumeTokens(ps.getPendingSteps());
     }
 
-    public boolean processAnswer(PlayerState ps, Long selectedOptionId, int steps) {
+    public boolean processAnswer(PlayerState ps, Long selectedOptionId) {
         Question question = ps.getPendingQuestion();
         if (question == null)
             throw new IllegalStateException("Nenhuma pergunta pendente");
@@ -35,11 +39,11 @@ public class QuestionManager {
 
         boolean correct = option.getCorrect();
         if (!correct)
-            handleIncorrect(ps, steps);
+            handleIncorrect(ps);
         return correct;
     }
 
-    public void processFail(PlayerState ps, int steps) {
-        handleIncorrect(ps, steps);
+    public void processFail(PlayerState ps) {
+        handleIncorrect(ps);
     }
 }

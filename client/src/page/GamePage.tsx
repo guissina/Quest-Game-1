@@ -17,7 +17,6 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     const { gameState, drawQuestion, answerQuestion } = useGameWebSocket(sessionId);
 
     const [questionOpen, setQuestionOpen] = useState(false);
-    const [selectedSteps, setSelectedSteps] = useState<number | null>(null);
 
     const myState = gameState?.playerStates.find((ps) => ps.playerId === myPlayerId);
     const currentState = gameState?.playerStates.find((ps) => ps.isCurrentTurn);
@@ -25,7 +24,7 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     useEffect(() => {
         if (gameState?.finished) {
             const winner = players.find((p) => p.id === gameState.winnerId);
-            if (winner) 
+            if (winner)
                 alert(`Game finished! Winner: ${winner.name}`);
         }
     }, [gameState]);
@@ -44,15 +43,13 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     const currentPlayer = players.find((p) => p.id === currentState?.playerId);
 
     const handleConfirmMove = (steps: number) => {
-        setSelectedSteps(steps);
-        drawQuestion(myPlayerId, /* tema */ 1);
+        drawQuestion(myPlayerId, /* tema */ 1, steps);
     };
 
     const handleAnswer = (optionId: number) => {
-        if (!myState.pendingQuestion || selectedSteps == null) return;
-        answerQuestion(myPlayerId, myState.pendingQuestion.id, optionId, selectedSteps);
+        if (!myState.pendingQuestion) return;
+        answerQuestion(myPlayerId, myState.pendingQuestion.id, optionId);
         setQuestionOpen(false);
-        setSelectedSteps(null);
     };
 
     const pendingQuestion = gameState.playerStates.find((ps) => ps.pendingQuestion)?.pendingQuestion;

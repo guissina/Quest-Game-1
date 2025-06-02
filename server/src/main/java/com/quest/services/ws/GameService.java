@@ -1,5 +1,10 @@
 package com.quest.services.ws;
 
+import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
 import com.quest.config.websocket.WsDestinations;
 import com.quest.dto.ws.Game.AnswerRequestDTO;
 import com.quest.dto.ws.Game.EngineStateDTO;
@@ -8,11 +13,8 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.managers.GameSessionManager;
 import com.quest.interfaces.rest.IQuestionServices;
 import com.quest.models.Question;
+
 import jakarta.transaction.Transactional;
-import org.hibernate.Hibernate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Service;
 
 @Service
 public class GameService {
@@ -24,9 +26,9 @@ public class GameService {
 
     @Autowired
     public GameService(GameSessionManager sessionManager,
-                       SimpMessagingTemplate messagingTemplate,
-                       IQuestionServices questionService,
-                       QuestionTimerService questionTimerService) {
+            SimpMessagingTemplate messagingTemplate,
+            IQuestionServices questionService,
+            QuestionTimerService questionTimerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.questionService = questionService;
@@ -50,20 +52,21 @@ public class GameService {
         Question question;
         do {
             question = questionService.findRandomByTheme(req.themeId());
-            System.out.println("Peguei: " + question.getId()); // TODO Apenas para teste
+            System.out.println("Peguei: " + question.getId()); //
+
         } while (false && engine.hasUsedQuestion(question.getId()));
         Hibernate.initialize(question.getOptions());
 
-        engine.registerQuestionFor(req.playerId(), question);
+        engine.prepareQuestion(req.playerId(), question, req.steps());
         broadcastGameState(sessionId, engine);
 
-        int QUESTION_TIMEOUT_SEC = 5; // TODO Mover essa logica para outro lugar
+        int QUESTION_TIMEOUT_SEC = question.getDifficulty().getTimeLimitInSeconds();
         questionTimerService.startQuestionTimer(sessionId, req.playerId(), QUESTION_TIMEOUT_SEC);
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
-        engine.answerQuestion(req.playerId(), req.selectedOptionId(), req.steps());
+        engine.answerQuestion(req.playerId(), req.selectedOptionId());
         broadcastGameState(sessionId, engine);
     }
 }
