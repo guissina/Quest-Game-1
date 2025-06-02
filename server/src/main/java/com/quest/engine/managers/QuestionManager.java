@@ -38,8 +38,14 @@ public class QuestionManager {
                 .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId));
 
         boolean correct = option.getCorrect();
-        if (!correct)
+        if (!correct) {
+            ps.setCorrectCount(0);
             handleIncorrect(ps);
+        }
+
+        else
+            ps.setCorrectCount(ps.getCorrectCount() + 1);
+
         return correct;
     }
 

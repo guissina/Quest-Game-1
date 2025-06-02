@@ -11,7 +11,8 @@ public record PlayerStateDTO(
         List<Integer> tokens,
         boolean isCurrentTurn,
         QuestionResponseDTO pendingQuestion,
-        Integer pendingSteps) {
+        Integer pendingSteps,
+        Integer correctCount) {
 
     public static PlayerStateDTO from(PlayerState state, boolean isCurrentTurn) {
         return new PlayerStateDTO(
@@ -20,7 +21,8 @@ public record PlayerStateDTO(
                 state.getTokens(),
                 isCurrentTurn,
                 state.getPendingQuestion() != null ? QuestionResponseDTO.from(state.getPendingQuestion()) : null,
-                state.getPendingSteps() != null ? state.getPendingSteps() : null
-            );
+                state.getPendingSteps() != null ? state.getPendingSteps() : null,
+                state.getCorrectCount() != null ? state.getCorrectCount() : null
+                );
     }
 }

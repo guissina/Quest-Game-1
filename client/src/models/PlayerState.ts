@@ -16,6 +16,7 @@ export class PlayerState {
     public readonly isCurrentTurn: boolean;
     public readonly pendingQuestion: Question | null;
     public readonly pendingSteps: number | null;
+    public readonly correctCount: number;
 
     constructor(props: PlayerStateProps) {
         this.playerId = props.playerId;
@@ -24,5 +25,6 @@ export class PlayerState {
         this.isCurrentTurn = props.isCurrentTurn;
         this.pendingQuestion = props.pendingQuestion ? new Question(props.pendingQuestion) : null;
         this.pendingSteps = props.pendingSteps ?? null;
+        this.correctCount = 0;
     }
 }

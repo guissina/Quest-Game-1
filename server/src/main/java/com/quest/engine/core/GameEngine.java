@@ -35,7 +35,7 @@ public class GameEngine {
 
         List<PlayerState> playerStates = new ArrayList<>();
         for (Player p : players) {
-            PlayerState ps = new PlayerState(p.getId(), this.initialTokensList, null);
+            PlayerState ps = new PlayerState(p.getId(), this.initialTokensList, null, 0);
             stateByPlayer.put(p.getId(), ps);
             playerStates.add(ps);
         }
@@ -56,7 +56,7 @@ public class GameEngine {
 
     public void joinGame(Player player) {
         PlayerState ps = new PlayerState(player.getId(), this.initialTokensList,
-                boardManager.getBoardState().getStartTile().getId());
+                boardManager.getBoardState().getStartTile().getId(), 0);
         stateByPlayer.put(player.getId(), ps);
         turnManager.enqueuePlayer(ps);
     }

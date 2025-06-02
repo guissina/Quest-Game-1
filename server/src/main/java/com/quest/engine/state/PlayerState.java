@@ -13,6 +13,15 @@ public class PlayerState {
     private Long currentTileId;
     private Question pendingQuestion;
     private Integer pendingSteps;
+    private Integer correctCount;
+
+    public Integer getCorrectCount() {
+        return correctCount;
+    }
+
+    public void setCorrectCount(Integer correctCount) {
+        this.correctCount = correctCount;
+    }
 
     public Integer getPendingSteps() {
         return pendingSteps;
@@ -22,10 +31,11 @@ public class PlayerState {
         this.pendingSteps = pendingSteps;
     }
 
-    public PlayerState(Long playerId, List<Integer> initialTokens, Long startTileId) {
+    public PlayerState(Long playerId, List<Integer> initialTokens, Long startTileId, Integer correctCount) {
         this.playerId = playerId;
         this.tokens = new ArrayList<>(initialTokens);
         this.currentTileId = startTileId;
+        this.correctCount = correctCount;
     }
 
     public Long getPlayerId() {
