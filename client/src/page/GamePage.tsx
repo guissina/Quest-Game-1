@@ -6,6 +6,8 @@ import "./GamePage.scss";
 import { Player } from "../models/Player";
 import { useEffect, useState } from "react";
 import { QuestionModal } from "../components/Question/QuestionModal";
+import { AbilityType } from "../models/PlayerState";
+import AbilityPanel from "../components/Player/AbilityPanel";
 
 interface GamePageProps {
     sessionId: string;
@@ -14,10 +16,11 @@ interface GamePageProps {
 }
 
 export default function GamePage({ sessionId, myPlayerId, players }: GamePageProps) {
-    const { gameState, drawQuestion, answerQuestion } = useGameWebSocket(sessionId);
+    const { gameState, drawQuestion, answerQuestion, useAbility } = useGameWebSocket(sessionId);
 
     const [questionOpen, setQuestionOpen] = useState(false);
 
+    console.log('myPlayerId:', myPlayerId, 'type:', typeof myPlayerId);
     const myState = gameState?.playerStates.find((ps) => ps.playerId === myPlayerId);
     const currentState = gameState?.playerStates.find((ps) => ps.isCurrentTurn);
 
@@ -41,6 +44,12 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
         return <div className="gp-container"><p>Waiting for game to start…</p></div>
 
     const currentPlayer = players.find((p) => p.id === currentState?.playerId);
+
+    const handleUseAbility = (ability: AbilityType) => {
+        if (!myState) return;
+
+        useAbility(myPlayerId, ability);
+    }
 
     const handleConfirmMove = (steps: number) => {
         drawQuestion(myPlayerId, /* tema */ 1, steps);
@@ -80,6 +89,13 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
                             onConfirm={handleConfirmMove}
                         />
                     )}
+                {myState && currentState?.playerId === myPlayerId && !myState.pendingQuestion && (
+                    <AbilityPanel
+                        playerState={myState}
+                        onUseAbility={handleUseAbility}
+                        disabled={false}
+                    />
+                )}
 
                 <BoardView
                     board={gameState.board}

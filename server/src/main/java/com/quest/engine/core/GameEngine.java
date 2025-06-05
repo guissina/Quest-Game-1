@@ -14,6 +14,7 @@ import com.quest.engine.managers.TurnManager;
 import com.quest.engine.state.BoardState;
 import com.quest.engine.state.PlayerState;
 import com.quest.engine.state.TileState;
+import com.quest.enums.AbilityType;
 import com.quest.models.Player;
 import com.quest.models.Question;
 
@@ -40,6 +41,10 @@ public class GameEngine {
             playerStates.add(ps);
         }
         this.turnManager = new TurnManager(playerStates);
+    }
+
+    public PlayerState getPlayerState(Long playerId) {
+        return stateByPlayer.get(playerId);
     }
 
     public BoardManager getBoardManager() {
@@ -85,6 +90,13 @@ public class GameEngine {
     public void move(PlayerState playerState) {
         if (playerState == null)
             throw new RuntimeException("Player not found.");
+
+        if (playerState.isAbilityActive(AbilityType.ROLL_DICE)) {
+            playerState.removeAbility(AbilityType.ROLL_DICE);
+            boardManager.rollDiceAndMove(playerState);
+            return;
+        }
+
         TileState tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), playerState.getPendingSteps());
         boardManager.movePlayer(playerState, tile);
     }
@@ -117,6 +129,17 @@ public class GameEngine {
             finished = true;
             winnerId = playerId;
         }
+        if (correct)
+            applyStreakReward(ps);
+
+        if (ps.isAbilityActive(AbilityType.SKIP_OPPONENT_TURN)) {
+            ps.removeAbility(AbilityType.SKIP_OPPONENT_TURN);
+            turnManager.skipNextTurn();
+            ps.clearPendingQuestionAndSteps();
+            System.out.println("Turn skipped due to SKIP_OPPONENT_TURN ability.");
+            return;
+        }
+
         ps.clearPendingQuestionAndSteps();
         turnManager.nextTurn();
     }
@@ -128,6 +151,16 @@ public class GameEngine {
             Long startId = boardManager.getBoardState().getStartTile().getId();
             ps.moveTo(startId); // Move para a casa inicial
             ps.resetTokens(initialTokensList);
+        }
+    }
+
+    // TODO melhorar a lógica de recompensas
+    public void applyStreakReward(PlayerState ps) {
+        int streak = ps.getCorrectCount();
+        switch (streak) {
+            case 3 -> ps.addToken(2);
+            case 5 -> ps.addToken(3);
+            case 7 -> ps.addToken(4);
         }
     }
 

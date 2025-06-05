@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
 import { Game, GameProps } from "../models/Game";
+import { AbilityType } from "../models/PlayerState";
 
 export function useGameWebSocket(sessionId: string | null) {
     const client = useWebSocketClient();
@@ -70,6 +71,15 @@ export function useGameWebSocket(sessionId: string | null) {
         });
     }, [client, isConnected, sessionId]);
 
+    const useAbility = useCallback((playerId: number, abilityType: AbilityType) => {
+        if (!client || !isConnected || !sessionId) return;
+
+        client.publish({
+            destination: `/app/game/${sessionId}/use-ability`,
+            body: JSON.stringify({ playerId, abilityType }),
+        });
+    }, [client, isConnected, sessionId]);
+
     useEffect(() => {
         if (sessionId) fetchGameState();
     }, [sessionId, fetchGameState]);
@@ -79,6 +89,7 @@ export function useGameWebSocket(sessionId: string | null) {
         movePlayer,
         drawQuestion,
         answerQuestion,
-        fetchGameState
+        fetchGameState,
+        useAbility
     };
 }

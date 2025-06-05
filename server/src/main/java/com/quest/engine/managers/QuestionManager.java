@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.quest.engine.state.PlayerState;
+import com.quest.enums.AbilityType;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
 
@@ -46,6 +47,10 @@ public class QuestionManager {
         else
             ps.setCorrectCount(ps.getCorrectCount() + 1);
 
+        if (ps.isAbilityActive(AbilityType.SKIP_OPPONENT_TURN)) {
+            ps.removeAbility(AbilityType.SKIP_OPPONENT_TURN);
+
+        }
         return correct;
     }
 

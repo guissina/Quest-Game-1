@@ -3,6 +3,7 @@ package com.quest.engine.managers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.quest.engine.state.BoardState;
 import com.quest.engine.state.PlayerState;
@@ -11,7 +12,8 @@ import com.quest.engine.state.TileState;
 public class BoardManager {
 
     private final BoardState boardState;
-    private final Map<Long,Integer> indexById;
+    private final Map<Long, Integer> indexById;
+    private static final Random random = new Random();
 
     public BoardManager(BoardState state) {
         this.boardState = state;
@@ -26,7 +28,7 @@ public class BoardManager {
         return boardState;
     }
 
-    public void seed(Map<Long,PlayerState> states) {
+    public void seed(Map<Long, PlayerState> states) {
         Long startId = boardState.getStartTile().getId();
         states.values().forEach(ps -> ps.moveTo(startId));
     }
@@ -46,9 +48,21 @@ public class BoardManager {
         return boardState.getTiles().get(destinationIndex);
     }
 
+    public void rollDiceAndMove(PlayerState ps) {
+        int steps = random.nextInt(6) + 1;
+
+        System.out.println("Jogador " + ps.getPlayerId() + " rolou o dado e obteve: " + steps);
+
+        Long currentTileId = ps.getCurrentTileId();
+        TileState destination = getTileAtOffset(currentTileId, steps);
+
+        movePlayer(ps, destination);
+    }
+
     public boolean isLastTile(Long tileId) {
         List<TileState> tiles = boardState.getTiles();
-        if (tiles.isEmpty()) return false;
+        if (tiles.isEmpty())
+            return false;
         return tiles.get(tiles.size() - 1).getId().equals(tileId);
     }
 }

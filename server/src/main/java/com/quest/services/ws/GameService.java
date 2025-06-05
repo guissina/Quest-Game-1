@@ -9,8 +9,10 @@ import com.quest.config.websocket.WsDestinations;
 import com.quest.dto.ws.Game.AnswerRequestDTO;
 import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.dto.ws.Game.QuestionRequestDTO;
+import com.quest.dto.ws.Game.UseAbilityRequestDTO;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.managers.GameSessionManager;
+import com.quest.engine.state.PlayerState;
 import com.quest.interfaces.rest.IQuestionServices;
 import com.quest.models.Question;
 
@@ -67,6 +69,25 @@ public class GameService {
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
         engine.answerQuestion(req.playerId(), req.selectedOptionId());
+        broadcastGameState(sessionId, engine);
+    }
+
+    public void useAbility(String sessionId, UseAbilityRequestDTO req) {
+        GameEngine engine = sessionManager.getEngine(sessionId);
+        PlayerState playerState = engine.getPlayerState(req.playerId());
+
+        if (playerState == null) {
+            throw new IllegalArgumentException("Player not found");
+        }
+
+        if (playerState.hasAbility(req.abilityType())) {
+            if (playerState.isAbilityActive(req.abilityType())) {
+                playerState.deactivateAbility(req.abilityType());
+            } else {
+                playerState.activateAbility(req.abilityType());
+            }
+        }
+
         broadcastGameState(sessionId, engine);
     }
 }

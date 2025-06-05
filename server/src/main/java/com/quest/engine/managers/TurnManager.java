@@ -1,10 +1,10 @@
 package com.quest.engine.managers;
 
-import com.quest.engine.state.PlayerState;
-
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
+
+import com.quest.engine.state.PlayerState;
 
 public class TurnManager {
     private final Deque<PlayerState> turnQueue = new ArrayDeque<>();
@@ -29,9 +29,24 @@ public class TurnManager {
     }
 
     public void nextTurn() {
-        if (turnQueue.isEmpty()) return;
+        if (turnQueue.isEmpty())
+            return;
         PlayerState head = turnQueue.pollFirst();
         turnQueue.offerLast(head);
+    }
+
+    public void skipNextTurn() {
+        Long currentPlayer = getCurrentPlayerId();
+        System.out.println("SKIP: Current player before: " + currentPlayer);
+
+        nextTurn(); // Vai para o oponente
+        Long nextPlayer = getCurrentPlayerId();
+        System.out.println("SKIP: Next player (being skipped): " + nextPlayer);
+
+        nextTurn(); // Pula o oponente e volta
+        Long finalPlayer = getCurrentPlayerId();
+        System.out.println("SKIP: Final player after skip: " + finalPlayer);
+
     }
 
     public Long getCurrentPlayerId() {
@@ -40,4 +55,3 @@ public class TurnManager {
         return turnQueue.peekFirst().getPlayerId();
     }
 }
-
