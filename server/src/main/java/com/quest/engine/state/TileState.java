@@ -6,7 +6,6 @@ import com.quest.models.Theme;
 import com.quest.models.Tile;
 
 import java.util.List;
-import java.util.Random;
 
 public class TileState {
 
@@ -21,18 +20,22 @@ public class TileState {
     @JsonProperty("specialCard")
     private final SpecialCard specialCard;
 
+    @JsonProperty("blocked")
+    private Boolean blocked;
+
     public TileState(Long id,
-                     int sequence,
-                     int row,
-                     int col,
-                     List<Theme> assignedThemes,
-                     SpecialCard specialCard) {
+            int sequence,
+            int row,
+            int col,
+            List<Theme> assignedThemes,
+            SpecialCard specialCard) {
         this.id = id;
         this.sequence = sequence;
         this.row = row;
         this.col = col;
         this.assignedThemes = assignedThemes;
         this.specialCard = specialCard;
+        this.blocked = false;
     }
 
     public Long getId() {
@@ -59,18 +62,22 @@ public class TileState {
         return specialCard;
     }
 
-    public static TileState create(Tile tile, List<Theme> selectedThemes, Random random) {
-        Theme theme = selectedThemes.get(random.nextInt(selectedThemes.size()));
-        List<Theme> themes = List.of(theme);
+    public Boolean getBlocked() {
+        return blocked;
+    }
 
+    public void setBlocked(Boolean blocked) {
+        this.blocked = blocked;
+    }
+
+    public static TileState create(Tile tile, Theme theme) {
+        List<Theme> themes = List.of(theme);
         return new TileState(
                 tile.getId(),
                 tile.getSequence(),
                 tile.getRow(),
                 tile.getCol(),
                 themes,
-                null
-        );
+                null);
     }
 }
-

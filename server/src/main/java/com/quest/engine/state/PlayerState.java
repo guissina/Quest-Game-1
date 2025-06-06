@@ -14,6 +14,7 @@ public class PlayerState {
     private final Long playerId;
     private final List<Integer> tokens;
     private final Map<AbilityType, AbilityState> abilities = new EnumMap<>(AbilityType.class);
+    private AbilityType pendingAbilityEffect;
 
     private Long currentTileId;
     private Question pendingQuestion;
@@ -129,5 +130,14 @@ public class PlayerState {
     public void clearPendingQuestionAndSteps() {
         this.pendingQuestion = null;
         this.pendingSteps = null;
+        this.pendingAbilityEffect = null;
+    }
+
+    public AbilityType getPendingAbilityEffect() {
+        return pendingAbilityEffect;
+    }
+
+    public void setPendingAbilityEffect(AbilityType pendingAbilityEffect) {
+        this.pendingAbilityEffect = pendingAbilityEffect;
     }
 }

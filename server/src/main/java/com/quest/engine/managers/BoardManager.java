@@ -41,10 +41,16 @@ public class BoardManager {
         Integer currentIndex = indexById.get(currentTileId);
         if (currentIndex == null)
             throw new IllegalArgumentException("Tile atual não encontrado: " + currentTileId);
-        if (steps < 0)
-            throw new IllegalArgumentException("Steps não pode ser negativo: " + steps);
+        // if (steps < 0)
+        // throw new IllegalArgumentException("Steps não pode ser negativo: " + steps);
 
-        int destinationIndex = Math.min(currentIndex + steps, boardState.getTiles().size() - 1);
+        int destinationIndex;
+        if (steps >= 0)
+            destinationIndex = Math.min(currentIndex + steps, boardState.getTiles().size() - 1);
+
+        else
+            destinationIndex = Math.max(currentIndex + steps, 0);
+
         return boardState.getTiles().get(destinationIndex);
     }
 
@@ -56,6 +62,13 @@ public class BoardManager {
         Long currentTileId = ps.getCurrentTileId();
         TileState destination = getTileAtOffset(currentTileId, steps);
 
+        movePlayer(ps, destination);
+    }
+
+    public void reverseMovement(PlayerState ps) {
+        Long currentTileId = ps.getCurrentTileId();
+        Integer steps = ps.getPendingSteps() * -1;
+        TileState destination = getTileAtOffset(currentTileId, steps);
         movePlayer(ps, destination);
     }
 

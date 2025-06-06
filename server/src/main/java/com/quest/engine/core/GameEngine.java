@@ -11,6 +11,7 @@ import java.util.stream.IntStream;
 import com.quest.engine.managers.BoardManager;
 import com.quest.engine.managers.QuestionManager;
 import com.quest.engine.managers.TurnManager;
+import com.quest.engine.state.AbilityState;
 import com.quest.engine.state.BoardState;
 import com.quest.engine.state.PlayerState;
 import com.quest.engine.state.TileState;
@@ -97,6 +98,23 @@ public class GameEngine {
             return;
         }
 
+        // boolean anyPlayerHasReverseMovement = stateByPlayer.values().stream()
+        // .anyMatch(ps -> ps.isAbilityActive(AbilityType.REVERSE_MOVEMENT));
+
+        // if (anyPlayerHasReverseMovement) {
+        // PlayerState playerWithReverseMovement = stateByPlayer.values().stream()
+        // .filter(ps -> ps.isAbilityActive(AbilityType.REVERSE_MOVEMENT))
+        // .findFirst()
+        // .orElse(null);
+
+        // if (playerWithReverseMovement != null) {
+        // applyReverseMovementEffect();
+        // boardManager.reverseMovement(playerState);
+        // return;
+        // }
+
+        // }
+
         TileState tile = boardManager.getTileAtOffset(playerState.getCurrentTileId(), playerState.getPendingSteps());
         boardManager.movePlayer(playerState, tile);
     }
@@ -122,6 +140,8 @@ public class GameEngine {
                 .orElseThrow(() -> new IllegalArgumentException("Player not found"));
 
         boolean wasAtLast = boardManager.isLastTile(ps.getCurrentTileId());
+        boolean hadSkipAbility = ps.isAbilityActive(AbilityType.SKIP_OPPONENT_TURN);
+
         boolean correct = questionManager.processAnswer(ps, selectedOptionId);
 
         applyMovementOrReset(ps, correct);
@@ -129,18 +149,64 @@ public class GameEngine {
             finished = true;
             winnerId = playerId;
         }
+
         if (correct)
             applyStreakReward(ps);
 
-        if (ps.isAbilityActive(AbilityType.SKIP_OPPONENT_TURN)) {
+        if (ps.isAbilityActive(AbilityType.RETURN_TILE) && correct) {
+            ps.removeAbility(AbilityType.RETURN_TILE);
+            applyReturnTileEffect();
+        }
+
+        if (hadSkipAbility && correct) {
+            System.out.println("Player " + playerId + " used SKIP_OPPONENT_TURN ability.");
+
             ps.removeAbility(AbilityType.SKIP_OPPONENT_TURN);
             turnManager.skipNextTurn();
             ps.clearPendingQuestionAndSteps();
-            System.out.println("Turn skipped due to SKIP_OPPONENT_TURN ability.");
             return;
         }
 
+        if (ps.isAbilityActive(AbilityType.RETURN_TILE) && correct) {
+            ps.removeAbility(AbilityType.RETURN_TILE);
+            applyReturnTileEffect();
+        }
+
+        // if (ps.isAbilityActive(AbilityType.REVERSE_MOVEMENT) && correct) {
+        // ps.removeAbility(AbilityType.REVERSE_MOVEMENT);
+        // applyReverseMovementEffect();
+        // }
+
         ps.clearPendingQuestionAndSteps();
+        turnManager.nextTurn();
+    }
+
+    private void applyReturnTileEffect() {
+        turnManager.nextTurn();
+        Long nextPlayerId = turnManager.getCurrentPlayerId();
+        PlayerState nextPlayer = stateByPlayer.get(nextPlayerId);
+
+        if (nextPlayer != null) {
+            Long currentTileId = nextPlayer.getCurrentTileId();
+            TileState previousTile = boardManager.getTileAtOffset(currentTileId, -1);
+            boardManager.movePlayer(nextPlayer, previousTile);
+        }
+
+        turnManager.nextTurn();
+    }
+
+    // TODO melhorar a lógica de movimento reverso
+    private void applyReverseMovementEffect() {
+        turnManager.nextTurn();
+        Long nextPlayerId = turnManager.getCurrentPlayerId();
+        PlayerState nextPlayer = stateByPlayer.get(nextPlayerId);
+
+        if (nextPlayer != null) {
+            // Marca o próximo jogador para ter movimento reverso
+            nextPlayer.activateAbility(AbilityType.REVERSE_MOVEMENT);
+            System.out.println("Player " + nextPlayerId + " terá movimento reverso no próximo turno");
+        }
+
         turnManager.nextTurn();
     }
 

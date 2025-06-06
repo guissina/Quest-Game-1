@@ -24,6 +24,7 @@ export interface PlayerStateProps {
     pendingQuestion?: QuestionProps;
     pendingSteps?: number;
     abilities: Record<string, boolean>;
+    pendingAbilityEffect: String | null;
 }
 
 export class PlayerState {
@@ -35,6 +36,7 @@ export class PlayerState {
     public readonly pendingSteps: number | null;
     public readonly correctCount: number;
     public readonly abilities: Map<AbilityType, boolean>;
+    public readonly pendingAbilityEffect: String | null;
 
     constructor(props: PlayerStateProps) {
         this.playerId = props.playerId;
@@ -51,6 +53,8 @@ export class PlayerState {
                 this.abilities.set(key as AbilityType, value);
             });
         }
+
+        this.pendingAbilityEffect = props.pendingAbilityEffect ?? null;
 
 
     }
