@@ -19,8 +19,12 @@ import com.quest.dto.rest.Board.BoardResponseDTO;
 import com.quest.dto.rest.Board.BoardUpdateDTO;
 import com.quest.services.rest.BoardServices;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/boards")
+@Tag(name = "Board", description = "Board management")
 public class BoardController {
     private final BoardServices boardServices;
 
@@ -30,12 +34,14 @@ public class BoardController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new board")
     public ResponseEntity<BoardResponseDTO> createBoard(@RequestBody BoardCreateDTO boardCreateDTO) {
         BoardResponseDTO createdBoard = boardServices.createBoard(boardCreateDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBoard);
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update an existing board")
     public ResponseEntity<BoardResponseDTO> updateBoard(@PathVariable Long id,
             @RequestBody BoardUpdateDTO boardUpdateDTO) {
         boardUpdateDTO.setId(id);
@@ -44,18 +50,21 @@ public class BoardController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get a board by ID")
     public ResponseEntity<BoardResponseDTO> getBoardById(@PathVariable Long id) {
         BoardResponseDTO board = boardServices.findById(id);
         return ResponseEntity.ok(board);
     }
 
     @GetMapping
+    @Operation(summary = "Get all boards")
     public ResponseEntity<List<BoardResponseDTO>> getAllBoards() {
         List<BoardResponseDTO> boards = boardServices.findAll();
         return ResponseEntity.ok(boards);
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a board by ID")
     public ResponseEntity<Void> deleteBoard(@PathVariable Long id) {
         boardServices.deleteBoard(id);
         return ResponseEntity.noContent().build();

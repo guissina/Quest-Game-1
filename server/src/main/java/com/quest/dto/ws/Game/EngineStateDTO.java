@@ -1,31 +1,31 @@
 package com.quest.dto.ws.Game;
 
 import com.quest.engine.core.GameEngine;
-import com.quest.engine.state.PlayerState;
-import com.quest.models.Board;
+import com.quest.engine.state.BoardState;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public record EngineStateDTO(
         String sessionId,
-        Board board,
-        List<PlayerStateDTO> playerStates
+        BoardState board,
+        List<PlayerStateDTO> playerStates,
+        Long winnerId,
+        boolean finished
 ) {
     public static EngineStateDTO from(String sessionId, GameEngine engine) {
-        Board board = engine.getBoardManager().getBoard();
-        Map<Long, PlayerState> stateMap = engine.getStateByPlayer();
+        BoardState boardState = engine.getBoardManager().getBoardState();
+
         Long currentPlayerId = engine.getTurnManager().getCurrentPlayerId();
-
-        List<PlayerStateDTO> states = engine.getRoom().getPlayers().stream()
-                .map(player -> {
-                    PlayerState ps = stateMap.get(player.getId());
-                    boolean isCurrent = player.getId().equals(currentPlayerId);
-                    return PlayerStateDTO.from(player, ps, isCurrent);
+        List<PlayerStateDTO> playerStates = engine.getAllPlayerStates().values().stream()
+                .map(ps -> {
+                    boolean isCurrent = ps.getPlayerId().equals(currentPlayerId);
+                    return PlayerStateDTO.from(ps, isCurrent);
                 })
-                .collect(Collectors.toList());
+                .toList();
 
-        return new EngineStateDTO(sessionId, board, states);
+        Long winnerId = engine.getWinnerId().orElse(null);
+        boolean finished = engine.isFinished();
+
+        return new EngineStateDTO(sessionId, boardState, playerStates, winnerId, finished);
     }
 }

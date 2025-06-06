@@ -19,10 +19,13 @@ import com.quest.dto.rest.Question.QuestionResponseDTO;
 import com.quest.dto.rest.Question.QuestionUpdateDTO;
 import com.quest.services.rest.QuestionServices;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/questions")
+@Tag(name = "Question", description = "Question management")
 public class QuestionController {
     private final QuestionServices questionServices;
 
@@ -32,12 +35,14 @@ public class QuestionController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new question")
     public ResponseEntity<QuestionResponseDTO> createQuestion(@RequestBody QuestionCreateDTO questionCreateDTO) {
         QuestionResponseDTO createdQuestion = questionServices.create(questionCreateDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdQuestion);
     }
 
     @PostMapping("/many")
+    @Operation(summary = "Create multiple questions")
     public ResponseEntity<List<QuestionResponseDTO>> createManyQuestions(
             @RequestBody List<QuestionCreateDTO> questionCreateDTOs) {
         List<QuestionResponseDTO> createdQuestions = questionServices.createMany(questionCreateDTOs);
@@ -45,12 +50,14 @@ public class QuestionController {
     }
 
     @GetMapping
+    @Operation(summary = "Get all questions")
     public ResponseEntity<List<QuestionResponseDTO>> findAllQuestions() {
         List<QuestionResponseDTO> questions = questionServices.findAll();
         return ResponseEntity.ok(questions);
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update an existing question")
     public ResponseEntity<QuestionResponseDTO> updateQuestion(@PathVariable long id,
             @Valid @RequestBody QuestionUpdateDTO questionUpdateDTO) {
 
@@ -61,21 +68,16 @@ public class QuestionController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get a question by ID")
     public ResponseEntity<QuestionResponseDTO> findQuestionById(@PathVariable long id) {
         QuestionResponseDTO question = questionServices.findById(id);
         return ResponseEntity.ok(question);
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a question by ID")
     public ResponseEntity<Void> deleteQuestion(@PathVariable Long id) {
         questionServices.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-    @GetMapping("/random/theme/{themeId}")
-    public ResponseEntity<QuestionResponseDTO> findRandomQuestionByTheme(@PathVariable Long themeId) {
-        QuestionResponseDTO question = questionServices.findRandomByTheme(themeId);
-        return ResponseEntity.ok(question);
-    }
-
 }

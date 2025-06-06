@@ -1,12 +1,15 @@
 package com.quest.models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -40,19 +43,16 @@ public class Player {
     @Column(name = "balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal balance = BigDecimal.ZERO;
 
-    // @NotNull
-    // @ManyToMany(fetch = FetchType.LAZY)
-    // @JoinTable(name = "player_boards", joinColumns = @JoinColumn(name =
-    // "player_id"), inverseJoinColumns = @JoinColumn(name = "board_id"))
-    // private List<Board> boards;
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlayerTheme> playerThemes;
 
-    // public List<Board> getBoards() {
-    // return boards;
-    // }
+    public List<PlayerTheme> getPlayerThemes() {
+        return playerThemes;
+    }
 
-    // public void setBoards(List<Board> boards) {
-    // this.boards = boards;
-    // }
+    public void setPlayerThemes(List<PlayerTheme> playerThemes) {
+        this.playerThemes = playerThemes;
+    }
 
     public BigDecimal getBalance() {
         return balance;
@@ -93,4 +93,5 @@ public class Player {
     public void setId(Long id) {
         this.id = id;
     }
+
 }

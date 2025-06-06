@@ -46,22 +46,30 @@ public class QuestionServices implements IQuestionServices {
     public QuestionResponseDTO create(@NotNull QuestionCreateDTO questionCreateDTO) {
         Theme theme = themeServices.findThemeById(questionCreateDTO.getThemeId());
 
+        List<QuestionOptionCreateDTO> options = questionCreateDTO.getOptions();
+
+        if (options.size() < 2 || options.size() > 4)
+            throw new IllegalArgumentException("A question must have at least two options and no more than 5.");
+
+        long correctCount = options.stream()
+                .filter(QuestionOptionCreateDTO::isCorrect)
+                .count();
+
+        if (correctCount != 1)
+            throw new IllegalArgumentException("Question must have exactly one correct option.");
+
         Question question = questionMapper.toEntity(questionCreateDTO);
         question.setTheme(theme);
 
-        // garante lista limpa
         question.getOptions().clear();
 
-        // 2) use o mapper injetado, não de forma estática
-        for (QuestionOptionCreateDTO dto : questionCreateDTO.getOptions()) {
+        for (QuestionOptionCreateDTO dto : options) {
             QuestionOption option = questionOptionsMapper.toEntity(dto);
             option.setQuestion(question);
             question.getOptions().add(option);
         }
 
-        // aqui a Question e as QuestionOption são salvas em cascata
         Question saved = questionRepository.save(question);
-
         return questionMapper.toQuestionResponseDTO(saved);
     }
 
@@ -114,11 +122,24 @@ public class QuestionServices implements IQuestionServices {
 
     @Override
     public QuestionResponseDTO update(@NotNull QuestionUpdateDTO dto) {
+        int optionCount = dto.getOptions().size();
+        if (optionCount < 2 || optionCount > 4) {
+            throw new IllegalArgumentException(
+                    String.format("Question must have between 2 and 4 options (found %d).", optionCount));
+        }
+
+        long correctCount = dto.getOptions().stream()
+                .filter(opt -> opt.isCorrect())
+                .count();
+
+        if (correctCount != 1)
+            throw new IllegalArgumentException("Question must have exactly one correct option.");
+
         Question existing = findQuestionById(dto.getId());
-        // campos simples
+
         existing.setQuestionText(dto.getQuestionText());
         existing.setDifficulty(dto.getDifficulty());
-        // remover e recriar opções
+
         existing.getOptions().clear();
         dto.getOptions().forEach(optDto -> {
             QuestionOption opt = new QuestionOption();
@@ -132,19 +153,17 @@ public class QuestionServices implements IQuestionServices {
     }
 
     @Override
-    public void delete(long id) {
-        Question question = findQuestionById(id);
-        questionRepository.delete(question);
+    public Question findRandomByTheme(Long themeId) {
+        themeServices.findThemeById(themeId);
+
+        return questionRepository
+                .findRandomByThemeId(themeId)
+                .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
     }
 
     @Override
-    public QuestionResponseDTO findRandomByTheme(Long themeId) {
-        themeServices.findThemeById(themeId);
-
-        Question question = questionRepository
-                .findRandomByThemeId(themeId)
-                .orElseThrow(() -> new EntityNotFoundException("Nenhuma questão encontrada para o tema id=" + themeId));
-
-        return questionMapper.toQuestionResponseDTO(question);
+    public void delete(long id) {
+        Question question = findQuestionById(id);
+        questionRepository.delete(question);
     }
 }

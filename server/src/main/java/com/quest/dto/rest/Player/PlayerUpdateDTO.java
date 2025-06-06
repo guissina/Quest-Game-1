@@ -1,9 +1,7 @@
 package com.quest.dto.rest.Player;
 
-import java.util.List;
-
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -15,7 +13,7 @@ public class PlayerUpdateDTO {
     private String name;
 
     @NotBlank(message = "Email is required")
-    @Size(min = 5, max = 50, message = "Email must be between 5 and 50 characters")
+    @Email(message = "Email should be valid")
     private String email;
 
     @NotNull(message = "Password is required")
@@ -28,9 +26,6 @@ public class PlayerUpdateDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @NotEmpty(message = "É necessário informar ao menos um boardId")
-    private List<@NotNull(message = "boardId não pode ser nulo") Long> boardIds;
 
     public long getId() {
         return id;
@@ -54,14 +49,6 @@ public class PlayerUpdateDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Long> getBoardIds() {
-        return boardIds;
-    }
-
-    public void setBoardIds(List<Long> boardIds) {
-        this.boardIds = boardIds;
     }
 
 }

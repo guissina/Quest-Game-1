@@ -19,10 +19,13 @@ import com.quest.dto.rest.SpecialCard.SpecialCardResponseDTO;
 import com.quest.dto.rest.SpecialCard.SpecialCardUpdateDTO;
 import com.quest.services.rest.SpecialCardService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/specialCards")
+@Tag(name = "SpecialCard", description = "Special Card management")
 public class SpecialCardController {
     private final SpecialCardService specialCardService;
 
@@ -32,6 +35,7 @@ public class SpecialCardController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new special card")
     public ResponseEntity<SpecialCardResponseDTO> createSpecialCard(
             @RequestBody SpecialCardCreateDTO specialCardCreateDTO) {
         SpecialCardResponseDTO createdSpecialCard = specialCardService.create(specialCardCreateDTO);
@@ -39,18 +43,21 @@ public class SpecialCardController {
     }
 
     @GetMapping
+    @Operation(summary = "Get all special cards")
     public ResponseEntity<List<SpecialCardResponseDTO>> findAllSpecialCards() {
         List<SpecialCardResponseDTO> specialCards = specialCardService.findAll();
         return ResponseEntity.ok(specialCards);
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get a special card by ID")
     public ResponseEntity<SpecialCardResponseDTO> findSpecialCardById(@PathVariable long id) {
         SpecialCardResponseDTO specialCard = specialCardService.findById(id);
         return ResponseEntity.ok(specialCard);
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update an existing special card")
     public ResponseEntity<SpecialCardResponseDTO> updateSpecialCard(@PathVariable long id,
             @Valid @RequestBody SpecialCardUpdateDTO specialCardUpdateDTO) {
         specialCardUpdateDTO.setId(id);
@@ -59,6 +66,7 @@ public class SpecialCardController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a special card by ID")
     public ResponseEntity<Void> deleteSpecialCard(@PathVariable long id) {
         specialCardService.delete(id);
         return ResponseEntity.noContent().build();

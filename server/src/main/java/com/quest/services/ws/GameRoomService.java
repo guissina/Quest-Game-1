@@ -6,13 +6,16 @@ import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
 import com.quest.engine.managers.GameSessionManager;
+import com.quest.engine.state.BoardState;
 import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
+import com.quest.interfaces.rest.IThemeServices;
 import com.quest.interfaces.ws.IGameRoomService;
 import com.quest.models.Board;
 import com.quest.models.Player;
 import com.quest.mappers.PlayerMapper;
 
+import com.quest.models.Theme;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -26,6 +29,7 @@ public class GameRoomService implements IGameRoomService {
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
     private final IBoardServices boardService;
+    private final IThemeServices themeServices;
     private final IPlayerServices playerServices;
     private final PlayerMapper playerMapper;
 
@@ -34,12 +38,14 @@ public class GameRoomService implements IGameRoomService {
             GameSessionManager sessionManager,
             SimpMessagingTemplate messagingTemplate,
             IBoardServices boardService,
+            IThemeServices themeServices,
             IPlayerServices playerServices,
             PlayerMapper playerMapper
     ) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.boardService = boardService;
+        this.themeServices = themeServices;
         this.playerServices = playerServices;
         this.playerMapper = playerMapper;
     }
@@ -64,14 +70,11 @@ public class GameRoomService implements IGameRoomService {
 
     @Override
     public void joinRoom(JoinRoomRequestDTO req) {
-        GameRoom room = sessionManager.getRoom(req.sessionId());
-
+        GameSession session = sessionManager.getSession(req.sessionId());
         // TODO Verificar se o player ja esta na sala (Service ou Manager?)
-        Player player = playerServices.findPlayerById(req.playerId());
-        boolean ok = room.addPlayer(player);
-        if (!ok)
-            throw new IllegalStateException("Room full or already started");
 
+        Player player = playerServices.findPlayerById(req.playerId());
+        session.joinPlayer(player);
         broadcastRoomState(req.sessionId(), false);
     }
 
@@ -83,9 +86,11 @@ public class GameRoomService implements IGameRoomService {
 
         // TODO só o creator (ou host) deve conseguir iniciar a sala
 
-        Board board = boardService.findBoardById(req.boardId()); // TODO Quebrando conexao caso nao exista
-        GameEngine engine = new GameEngine(room, board);
-        engine.initializeGameState(req.initialTokens());
+        List<Theme> themes = themeServices.findThemesByIds(req.themeIds());
+        Board board = boardService.findBoardById(req.boardId());
+        BoardState boardState = BoardState.create(board, themes);
+
+        GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
 
@@ -99,10 +104,11 @@ public class GameRoomService implements IGameRoomService {
 
     @Override
     public void removeAndBroadcast(String sessionId, Long playerId) {
-        GameRoom room = sessionManager.getRoom(sessionId);
+        GameSession session = sessionManager.getSession(sessionId);
+        session.leavePlayer(playerId);
 
-        room.removePlayer(playerId);
-        if (room.getPlayers().isEmpty()) {
+        boolean closed = session.getRoom().getPlayers().isEmpty();
+        if (closed) {
             broadcastRoomState(sessionId, true);
             sessionManager.removeSession(sessionId);
         }

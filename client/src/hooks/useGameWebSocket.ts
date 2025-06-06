@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
 import { Game, GameProps } from "../models/Game";
+import { AbilityType } from "../models/PlayerState";
 
 export function useGameWebSocket(sessionId: string | null) {
     const client = useWebSocketClient();
@@ -52,14 +53,30 @@ export function useGameWebSocket(sessionId: string | null) {
         });
     }, [client, isConnected, sessionId]);
 
-    const answerQuestion = useCallback(
-        (playerId: number, questionId: number, selectedOptionId: number, steps: number) => {
-
+    const drawQuestion = useCallback((playerId: number, themeId: number, steps: number) => {
         if (!client || !isConnected || !sessionId) return;
-            
+
+        client.publish({
+            destination: `/app/game/${sessionId}/draw`,
+            body: JSON.stringify({ playerId, themeId, steps }),
+        });
+    }, [client, isConnected, sessionId]);
+
+    const answerQuestion = useCallback((playerId: number, questionId: number, selectedOptionId: number) => {
+        if (!client || !isConnected || !sessionId) return;
+
         client.publish({
             destination: `/app/game/${sessionId}/answer`,
-            body: JSON.stringify({ playerId, questionId, selectedOptionId, steps }),
+            body: JSON.stringify({ playerId, questionId, selectedOptionId }),
+        });
+    }, [client, isConnected, sessionId]);
+
+    const useAbility = useCallback((playerId: number, abilityType: AbilityType) => {
+        if (!client || !isConnected || !sessionId) return;
+
+        client.publish({
+            destination: `/app/game/${sessionId}/use-ability`,
+            body: JSON.stringify({ playerId, abilityType }),
         });
     }, [client, isConnected, sessionId]);
 
@@ -70,7 +87,9 @@ export function useGameWebSocket(sessionId: string | null) {
     return {
         gameState,
         movePlayer,
+        drawQuestion,
         answerQuestion,
-        fetchGameState
+        fetchGameState,
+        useAbility
     };
 }

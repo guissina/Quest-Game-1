@@ -1,5 +1,6 @@
 package com.quest.services.rest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ import com.quest.dto.rest.Theme.ThemeUpdateDTO;
 import com.quest.interfaces.rest.IThemeServices;
 import com.quest.mappers.ThemeMapper;
 import com.quest.models.Theme;
+import com.quest.repositories.PlayerThemeRepository;
 import com.quest.repositories.ThemeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -23,9 +25,12 @@ public class ThemeServices implements IThemeServices {
 
     private final ThemeMapper themeMapper;
     private final ThemeRepository themeRepository;
+    private final PlayerThemeRepository playerThemeRepository;
 
     @Autowired
-    public ThemeServices(ThemeMapper themeMapper, ThemeRepository themeRepository) {
+    public ThemeServices(ThemeMapper themeMapper, ThemeRepository themeRepository,
+            PlayerThemeRepository playerThemeRepository) {
+        this.playerThemeRepository = playerThemeRepository;
         this.themeMapper = themeMapper;
         this.themeRepository = themeRepository;
     }
@@ -33,6 +38,9 @@ public class ThemeServices implements IThemeServices {
     @Override
     public ThemeResponseDTO create(ThemeCreateDTO themeCreateDTO) {
         Theme theme = themeMapper.toEntity(themeCreateDTO);
+        if (themeCreateDTO.isFree())
+            theme.setCost(BigDecimal.ZERO);
+
         Theme savedTheme = themeRepository.save(theme);
         return themeMapper.toThemeResponseDTO(savedTheme);
     }
@@ -67,6 +75,11 @@ public class ThemeServices implements IThemeServices {
     }
 
     @Override
+    public List<Theme> findThemesByIds(List<Long> ids) {
+        return themeRepository.findAllById(ids);
+    }
+
+    @Override
     public ThemeResponseDTO findById(long id) {
         Theme theme = findThemeById(id);
         return themeMapper.toThemeResponseDTO(theme);
@@ -97,16 +110,37 @@ public class ThemeServices implements IThemeServices {
         if (!currentTheme.getName().equals(themeUpdateDTO.getName()))
             currentTheme.setName(themeUpdateDTO.getName());
 
-        if (!currentTheme.getName().equals(themeUpdateDTO.getName()))
-            currentTheme.setName(themeUpdateDTO.getName());
+        if (!currentTheme.getCode().equals(themeUpdateDTO.getCode()))
+            currentTheme.setCode(themeUpdateDTO.getCode());
+
+        currentTheme.setCost(themeUpdateDTO.getCost());
+
+        if (themeUpdateDTO.isFree())
+            currentTheme.setCost(BigDecimal.ZERO);
+
+        currentTheme.setFree(themeUpdateDTO.isFree());
 
         Theme updatedTheme = themeRepository.save(currentTheme);
         return themeMapper.toThemeResponseDTO(updatedTheme);
     }
 
     @Override
+    public ThemeResponseDTO updateThemeAvailability(long id, Boolean isFree) {
+        Theme currentTheme = findThemeById(id);
+        currentTheme.setFree(isFree);
+        Theme updatedTheme = themeRepository.save(currentTheme);
+        return themeMapper.toThemeResponseDTO(updatedTheme);
+    }
+
+    @Override
+    @Transactional
     public void delete(long id) {
         Theme theme = findThemeById(id);
+
+        // Remove relacionamentos primeiro
+        playerThemeRepository.deleteByTheme(theme);
+
+        // Depois remove o tema
         themeRepository.delete(theme);
     }
 

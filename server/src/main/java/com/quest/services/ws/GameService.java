@@ -1,17 +1,22 @@
 package com.quest.services.ws;
 
-import com.quest.config.websocket.WsDestinations;
-import com.quest.dto.rest.Question.QuestionResponseDTO;
-import com.quest.dto.ws.Game.AnswerRequestDTO;
-import com.quest.dto.ws.Game.MoveRequestDTO;
-import com.quest.dto.ws.Game.EngineStateDTO;
-import com.quest.engine.core.GameEngine;
-import com.quest.engine.managers.GameSessionManager;
-import com.quest.interfaces.rest.IQuestionServices;
-import com.quest.models.Question;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
+
+import com.quest.config.websocket.WsDestinations;
+import com.quest.dto.ws.Game.AnswerRequestDTO;
+import com.quest.dto.ws.Game.EngineStateDTO;
+import com.quest.dto.ws.Game.QuestionRequestDTO;
+import com.quest.dto.ws.Game.UseAbilityRequestDTO;
+import com.quest.engine.core.GameEngine;
+import com.quest.engine.managers.GameSessionManager;
+import com.quest.engine.state.PlayerState;
+import com.quest.interfaces.rest.IQuestionServices;
+import com.quest.models.Question;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class GameService {
@@ -19,17 +24,20 @@ public class GameService {
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
     private final IQuestionServices questionService;
+    private final QuestionTimerService questionTimerService;
 
     @Autowired
     public GameService(GameSessionManager sessionManager,
-                       SimpMessagingTemplate messagingTemplate,
-                       IQuestionServices questionService) {
+            SimpMessagingTemplate messagingTemplate,
+            IQuestionServices questionService,
+            QuestionTimerService questionTimerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.questionService = questionService;
+        this.questionTimerService = questionTimerService;
     }
 
-    private void broadcastGameState(String sessionId, GameEngine engine) {
+    public void broadcastGameState(String sessionId, GameEngine engine) {
         EngineStateDTO stateDto = EngineStateDTO.from(sessionId, engine);
         String destination = String.format(WsDestinations.GAME_STATE, sessionId);
         messagingTemplate.convertAndSend(destination, stateDto);
@@ -40,23 +48,46 @@ public class GameService {
         return EngineStateDTO.from(sessionId, engine);
     }
 
-    public void movePlayer(String sessionId, MoveRequestDTO req) {
+    @Transactional
+    public void drawQuestion(String sessionId, QuestionRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
-        engine.move(req.playerId(), req.steps());
-        broadcastGameState(sessionId, engine);
-    }
+        Question question;
+        do {
+            question = questionService.findRandomByTheme(req.themeId());
+            System.out.println("Peguei: " + question.getId()); //
 
-    public void drawQuestion(Long themeId) {
-        // TODO Buscar na service com o theme id
-        QuestionResponseDTO question = new QuestionResponseDTO();
-        messagingTemplate.convertAndSend(WsDestinations.GAME_STATE, question);
+        } while (false && engine.hasUsedQuestion(question.getId()));
+        Hibernate.initialize(question.getOptions());
+
+        engine.prepareQuestion(req.playerId(), question, req.steps());
+        broadcastGameState(sessionId, engine);
+
+        int QUESTION_TIMEOUT_SEC = question.getDifficulty().getTimeLimitInSeconds();
+        questionTimerService.startQuestionTimer(sessionId, req.playerId(), QUESTION_TIMEOUT_SEC);
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
-        Question question = questionService.findQuestionById(req.questionId());
+        engine.answerQuestion(req.playerId(), req.selectedOptionId());
+        broadcastGameState(sessionId, engine);
+    }
 
-        boolean correct = engine.answerQuestion(req.playerId(), question, req.selectedOptionId(), req.steps());
+    public void useAbility(String sessionId, UseAbilityRequestDTO req) {
+        GameEngine engine = sessionManager.getEngine(sessionId);
+        PlayerState playerState = engine.getPlayerState(req.playerId());
+
+        if (playerState == null) {
+            throw new IllegalArgumentException("Player not found");
+        }
+
+        if (playerState.hasAbility(req.abilityType())) {
+            if (playerState.isAbilityActive(req.abilityType())) {
+                playerState.deactivateAbility(req.abilityType());
+            } else {
+                playerState.activateAbility(req.abilityType());
+            }
+        }
+
         broadcastGameState(sessionId, engine);
     }
 }

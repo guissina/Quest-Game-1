@@ -73,12 +73,12 @@ export function useRoomWebSocket() {
         setSessionId(id);
     }, [client, isConnected]);
 
-    const startRoom = useCallback((boardId: number, initialTokens: number) => {
+    const startRoom = useCallback((boardId: number, initialTokens: number, themeIds: number[]) => {
         if (!client || !isConnected || !sessionId) return;
 
         client.publish({
             destination: "/app/room/start",
-            body: JSON.stringify({ sessionId, boardId, initialTokens }),
+            body: JSON.stringify({ sessionId, boardId, initialTokens, themeIds }),
         });
     }, [client, isConnected, sessionId]);
 

@@ -17,15 +17,13 @@ public class QuestionUpdateDTO {
     @Size(min = 1, max = 500, message = "Question text must be between 1 and 500 characters")
     private String questionText;
 
-    @NotBlank(message = "Difficulty is required")
-    @Size(min = 1, max = 50, message = "Difficulty must be between 1 and 50 characters")
+    @NotNull(message = "Difficulty is required")
     private Difficulty difficulty;
 
     @NotNull(message = "Theme is required")
     private long themeId;
 
     @NotNull(message = "Options are required")
-    @Size(min = 2, message = "At least two options are required")
     private List<QuestionOptionCreateDTO> options = new ArrayList<>();
 
     public long getId() {

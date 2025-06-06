@@ -1,42 +1,55 @@
 package com.quest.engine.managers;
 
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
 import com.quest.engine.state.PlayerState;
 import com.quest.models.Question;
 import com.quest.models.QuestionOption;
 
-import java.util.Map;
-import java.util.Optional;
-
 public class QuestionManager {
-    private final Map<Long, PlayerState> stateByPlayer;
 
-    public QuestionManager(Map<Long, PlayerState> stateByPlayer) {
-        this.stateByPlayer = stateByPlayer;
+    private final Set<Long> usedQuestionIds = ConcurrentHashMap.newKeySet();
+
+    public QuestionManager() {
     }
 
-    public boolean handleAnswer(Long playerId, Question question, Long optionId, int steps) {
-        PlayerState ps = stateByPlayer.get(playerId);
+    public void markUsed(Long questionId) {
+        usedQuestionIds.add(questionId);
+    }
 
-        Optional<QuestionOption> option = question.getOptionById(optionId);
-        if (option.isEmpty())
-            throw new RuntimeException("Opção inválida");
-        boolean correct = option.get().getCorrect();
+    public boolean hasUsed(Long questionId) {
+        return usedQuestionIds.contains(questionId);
+    }
 
-        if (correct)
-            ps.setMustAnswerBeforeMoving(false);
-        else {
-            if (!ps.isMustAnswerBeforeMoving())
-                ps.consumeToken(steps);
-            ps.setMustAnswerBeforeMoving(true);
+    private void handleIncorrect(PlayerState ps) {
+        if (ps.getPendingSteps() == null)
+            throw new IllegalStateException("PlayerState does not have pending steps");
+
+        ps.consumeTokens(ps.getPendingSteps());
+    }
+
+    public boolean processAnswer(PlayerState ps, Long selectedOptionId) {
+        Question question = ps.getPendingQuestion();
+        if (question == null)
+            throw new IllegalStateException("Nenhuma pergunta pendente");
+
+        QuestionOption option = question.getOptionById(selectedOptionId)
+                .orElseThrow(() -> new IllegalStateException("Invalid optionId: " + selectedOptionId));
+
+        boolean correct = option.getCorrect();
+        if (!correct) {
+            ps.setCorrectCount(0);
+            handleIncorrect(ps);
         }
+
+        else
+            ps.setCorrectCount(ps.getCorrectCount() + 1);
+
         return correct;
     }
 
-    public void verifyCanMove(Long playerId) {
-        PlayerState ps = stateByPlayer.get(playerId);
-        if (ps == null)
-            throw new RuntimeException("Player not found.");
-        if (ps.isMustAnswerBeforeMoving())
-            throw new RuntimeException("You must answer before moving.");
+    public void processFail(PlayerState ps) {
+        handleIncorrect(ps);
     }
 }

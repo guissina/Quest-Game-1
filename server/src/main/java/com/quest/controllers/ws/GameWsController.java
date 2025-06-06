@@ -1,14 +1,16 @@
 package com.quest.controllers.ws;
 
-import com.quest.dto.ws.Game.EngineStateDTO;
-import com.quest.dto.ws.Game.MoveRequestDTO;
-import com.quest.dto.ws.Game.AnswerRequestDTO;
-import com.quest.services.ws.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
+
+import com.quest.dto.ws.Game.AnswerRequestDTO;
+import com.quest.dto.ws.Game.EngineStateDTO;
+import com.quest.dto.ws.Game.QuestionRequestDTO;
+import com.quest.dto.ws.Game.UseAbilityRequestDTO;
+import com.quest.services.ws.GameService;
 
 @Controller
 public class GameWsController {
@@ -26,13 +28,18 @@ public class GameWsController {
         return gameService.getGameState(sessionId);
     }
 
-    @MessageMapping("/game/{sessionId}/move")
-    public void move(@DestinationVariable String sessionId, MoveRequestDTO payload) {
-        gameService.movePlayer(sessionId, payload);
+    @MessageMapping("/game/{sessionId}/draw")
+    public void drawQuestion(@DestinationVariable String sessionId, QuestionRequestDTO req) {
+        gameService.drawQuestion(sessionId, req);
     }
 
     @MessageMapping("/game/{sessionId}/answer")
     public void answer(@DestinationVariable String sessionId, AnswerRequestDTO payload) {
         gameService.answerQuestion(sessionId, payload);
+    }
+
+    @MessageMapping("/game/{sessionId}/use-ability")
+    public void useAbility(@DestinationVariable String sessionId, UseAbilityRequestDTO req) {
+        gameService.useAbility(sessionId, req);
     }
 }

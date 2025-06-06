@@ -7,11 +7,11 @@ interface LobbyPageProps {
     started: boolean;
     createRoom: (playerId: number) => void;
     joinRoom: (sessionId: string, playerId: number) => void;
-    startRoom: (boardId: number, initialTokens: number) => void;
+    startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
 }
 
 export default function LobbyPage({ sessionId, players, started, createRoom, joinRoom, startRoom }: LobbyPageProps) {
-    
+
     const [inputSessionId, setInputSessionId] = useState("");
     const [inputPlayerId, setInputPlayerId] = useState<number | "">("");
     const [inputBoardId, setInputBoardId] = useState<number | "">("");
@@ -20,6 +20,10 @@ export default function LobbyPage({ sessionId, players, started, createRoom, joi
     useEffect(() => {
         if (sessionId) setInputSessionId(sessionId);
     }, [sessionId]);
+
+    useEffect(() => {
+        if (inputPlayerId !== "") localStorage.setItem("userId", inputPlayerId.toString());
+    }, [inputPlayerId]);
 
     const handleCreate = () => {
         if (!inputPlayerId) return;
@@ -33,7 +37,7 @@ export default function LobbyPage({ sessionId, players, started, createRoom, joi
 
     const handleStart = () => {
         if (!sessionId || !inputBoardId || !inputInitialTokens) return;
-        startRoom(Number(inputBoardId), Number(inputInitialTokens));
+        startRoom(Number(inputBoardId), Number(inputInitialTokens), [1, 2, 12, 17, 19, 20] /*TODO Selecionar temas*/);
     };
 
     return (
