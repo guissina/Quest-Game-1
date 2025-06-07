@@ -31,6 +31,7 @@ public class GameRoomService implements IGameRoomService {
     private final IBoardServices boardService;
     private final IThemeServices themeServices;
     private final IPlayerServices playerServices;
+    private final TimerService timerService;
     private final PlayerMapper playerMapper;
 
     @Autowired
@@ -40,6 +41,7 @@ public class GameRoomService implements IGameRoomService {
             IBoardServices boardService,
             IThemeServices themeServices,
             IPlayerServices playerServices,
+            TimerService timerService,
             PlayerMapper playerMapper
     ) {
         this.sessionManager = sessionManager;
@@ -47,6 +49,7 @@ public class GameRoomService implements IGameRoomService {
         this.boardService = boardService;
         this.themeServices = themeServices;
         this.playerServices = playerServices;
+        this.timerService = timerService;
         this.playerMapper = playerMapper;
     }
 
@@ -93,6 +96,7 @@ public class GameRoomService implements IGameRoomService {
         GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
+        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 60);
 
         broadcastRoomState(req.sessionId(), false);
     }

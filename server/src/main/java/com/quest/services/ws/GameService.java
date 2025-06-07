@@ -24,17 +24,17 @@ public class GameService {
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
     private final IQuestionServices questionService;
-    private final QuestionTimerService questionTimerService;
+    private final TimerService timerService;
 
     @Autowired
     public GameService(GameSessionManager sessionManager,
-            SimpMessagingTemplate messagingTemplate,
-            IQuestionServices questionService,
-            QuestionTimerService questionTimerService) {
+                       SimpMessagingTemplate messagingTemplate,
+                       IQuestionServices questionService,
+                       TimerService timerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.questionService = questionService;
-        this.questionTimerService = questionTimerService;
+        this.timerService = timerService;
     }
 
     public void broadcastGameState(String sessionId, GameEngine engine) {
@@ -62,14 +62,18 @@ public class GameService {
         engine.prepareQuestion(req.playerId(), question, req.steps());
         broadcastGameState(sessionId, engine);
 
-        int QUESTION_TIMEOUT_SEC = question.getDifficulty().getTimeLimitInSeconds();
-        questionTimerService.startQuestionTimer(sessionId, req.playerId(), QUESTION_TIMEOUT_SEC);
+        timerService.cancelTurnTimer(sessionId, req.playerId());
+        timerService.startQuestionTimer(sessionId, req.playerId(), 10);
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
         GameEngine engine = sessionManager.getEngine(sessionId);
         engine.answerQuestion(req.playerId(), req.selectedOptionId());
         broadcastGameState(sessionId, engine);
+
+        timerService.cancelQuestionTimer(sessionId, req.playerId());
+        Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
+        timerService.startTurnTimer(sessionId, nextPlayer, 60);
     }
 
     public void useAbility(String sessionId, UseAbilityRequestDTO req) {
