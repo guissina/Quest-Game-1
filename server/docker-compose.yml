@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  quest-backend:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DATABASE_URL=${DB_URL}
+      - DATABASE_USERNAME=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+    networks:
+      - quest-network
+
+networks:
+  quest-network:
+    driver: bridge
