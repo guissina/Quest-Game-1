@@ -11,13 +11,13 @@ import java.util.stream.IntStream;
 import com.quest.engine.managers.BoardManager;
 import com.quest.engine.managers.QuestionManager;
 import com.quest.engine.managers.TurnManager;
-import com.quest.engine.state.AbilityState;
 import com.quest.engine.state.BoardState;
 import com.quest.engine.state.PlayerState;
 import com.quest.engine.state.TileState;
 import com.quest.enums.AbilityType;
 import com.quest.models.Player;
 import com.quest.models.Question;
+import com.quest.models.Theme;
 
 public class GameEngine {
 
@@ -145,6 +145,7 @@ public class GameEngine {
         boolean correct = questionManager.processAnswer(ps, selectedOptionId);
 
         applyMovementOrReset(ps, correct);
+
         if (correct && wasAtLast) {
             finished = true;
             winnerId = playerId;
@@ -219,6 +220,8 @@ public class GameEngine {
             ps.resetTokens(initialTokensList);
         }
     }
+
+    // TODO Implementar lógicas
 
     // TODO melhorar a lógica de recompensas
     public void applyStreakReward(PlayerState ps) {

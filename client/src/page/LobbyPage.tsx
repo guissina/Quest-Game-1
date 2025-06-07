@@ -37,7 +37,7 @@ export default function LobbyPage({ sessionId, players, started, createRoom, joi
 
     const handleStart = () => {
         if (!sessionId || !inputBoardId || !inputInitialTokens) return;
-        startRoom(Number(inputBoardId), Number(inputInitialTokens), [1, 2, 12, 17, 19, 20] /*TODO Selecionar temas*/);
+        startRoom(Number(inputBoardId), Number(inputInitialTokens), [2, 1, 12, 17, 19, 20, 21, 22] /*TODO Selecionar temas*/);
     };
 
     return (

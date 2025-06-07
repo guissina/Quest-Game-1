@@ -52,7 +52,7 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     }
 
     const handleConfirmMove = (steps: number) => {
-        drawQuestion(myPlayerId, /* tema */ 1, steps);
+        drawQuestion(myPlayerId, /* tema */ 2, steps);
     };
 
     const handleAnswer = (optionId: number) => {

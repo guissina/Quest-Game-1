@@ -1,11 +1,11 @@
 package com.quest.engine.state;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.quest.models.SpecialCard;
 import com.quest.models.Theme;
 import com.quest.models.Tile;
-
-import java.util.List;
 
 public class TileState {
 
@@ -13,15 +13,13 @@ public class TileState {
     private final int sequence;
     private final int row;
     private final int col;
+    private Boolean blocked;
 
     @JsonProperty("themes")
     private final List<Theme> assignedThemes;
 
     @JsonProperty("specialCard")
     private final SpecialCard specialCard;
-
-    @JsonProperty("blocked")
-    private Boolean blocked;
 
     public TileState(Long id,
             int sequence,
