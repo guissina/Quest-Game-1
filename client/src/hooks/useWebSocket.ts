@@ -2,11 +2,13 @@ import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { useEffect, useRef } from "react";
 
-export function useWebSocket(onGreeting: (msg: string) => void) { 
+export function useWebSocket(onGreeting: (msg: string) => void) {
     const clientRef = useRef<Client | null>(null);
 
     useEffect(() => {
-        const socket = new SockJS("http://localhost:8080/ws");
+        const wsUrl = import.meta.env.VITE_WEBSOCKET_URL || "http://localhost:8080/ws";
+        const socket = new SockJS(wsUrl);
+
         const stomp = new Client({
             webSocketFactory: () => socket,
             reconnectDelay: 5000,
@@ -15,13 +17,13 @@ export function useWebSocket(onGreeting: (msg: string) => void) {
                     const body = JSON.parse(frame.body);
                     onGreeting(body.content);
                 });
-                
+
             },
             onStompError: (frame) => {
                 console.error("Broker error:", frame.headers["message"]);
             },
         });
-        
+
         clientRef.current = stomp;
 
         return () => {

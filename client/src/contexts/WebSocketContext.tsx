@@ -17,7 +17,9 @@ export const WebSocketProvider: React.FC<{ children: ReactNode }> = ({ children 
     const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
-        const socket = new SockJS("http://localhost:8080/ws");
+        const wsUrl = import.meta.env.VITE_WEBSOCKET_URL || "http://localhost:8080/ws";
+        const socket = new SockJS(wsUrl);
+
         const stomp = new Client({
             webSocketFactory: () => socket,
             reconnectDelay: 5000,
