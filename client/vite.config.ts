@@ -10,4 +10,10 @@ export default defineConfig({
     optimizeDeps: {
         include: ["sockjs-client"],
     },
+    build: {
+        outDir: 'dist',
+        sourcemap: false, // Reduz tamanho do build
+    },
+    // Para garantir que assets funcionem em qualquer caminho
+    base: './',
 });

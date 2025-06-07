@@ -16,7 +16,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry
                 .addEndpoint("/ws")
                 // .setAllowedOriginPatterns("*"); // USE THIS TO USE WITH POSTMAN
-                .setAllowedOrigins("http://localhost:5173")
+                .setAllowedOriginPatterns("*")
                 .withSockJS();
     }
 
