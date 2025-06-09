@@ -242,7 +242,6 @@ public class GameEngine {
     }
 
     public void forceSkipTurn(Long playerId) {
-        turnManager.verifyTurn(playerId);
         PlayerState ps = stateByPlayer.get(playerId);
         if (ps != null)
             ps.clearPendingQuestionAndSteps();

@@ -96,7 +96,7 @@ public class GameRoomService implements IGameRoomService {
         GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
-        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 60);
+        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 15);
 
         broadcastRoomState(req.sessionId(), false);
     }
@@ -113,6 +113,7 @@ public class GameRoomService implements IGameRoomService {
 
         boolean closed = session.getRoom().getPlayers().isEmpty();
         if (closed) {
+            timerService.cancelAllTimersForSession(sessionId);
             broadcastRoomState(sessionId, true);
             sessionManager.removeSession(sessionId);
         }

@@ -73,7 +73,7 @@ public class GameService {
 
         timerService.cancelQuestionTimer(sessionId, req.playerId());
         Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
-        timerService.startTurnTimer(sessionId, nextPlayer, 60);
+        timerService.startTurnTimer(sessionId, nextPlayer, 15);
     }
 
     public void useAbility(String sessionId, UseAbilityRequestDTO req) {

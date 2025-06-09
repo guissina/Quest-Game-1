@@ -101,8 +101,7 @@ public class TimerService {
 
             if (!engine.isFinished()) {
                 Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
-                int nextTimeout = 60;
-                startTimer(sessionId, nextPlayer, nextTimeout, TimerType.TURN);
+                startTimer(sessionId, nextPlayer, 15, TimerType.TURN);
             }
             System.out.println("Timer: " + key + " - Timeout");
         }, timeoutSeconds, TimeUnit.SECONDS);
@@ -123,6 +122,12 @@ public class TimerService {
         TimerHandles handles = timerTasks.get(key);
         if (handles != null && handles.tickFuture != null && !handles.tickFuture.isDone())
             handles.tickFuture.cancel(false);
+    }
+
+    public void cancelAllTimersForSession(String sessionId) {
+        timerTasks.keySet().stream()
+                .filter(key -> key.sessionId().equals(sessionId))
+                .forEach(this::cancelTimerInternal);
     }
 
     public void startTurnTimer(String sessionId, Long playerId, int timeoutSeconds) {
