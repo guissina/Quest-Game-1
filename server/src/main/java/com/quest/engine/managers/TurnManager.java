@@ -36,17 +36,8 @@ public class TurnManager {
     }
 
     public void skipNextTurn() {
-        Long currentPlayer = getCurrentPlayerId();
-        System.out.println("SKIP: Current player before: " + currentPlayer);
-
         nextTurn(); // Vai para o oponente
-        Long nextPlayer = getCurrentPlayerId();
-        System.out.println("SKIP: Next player (being skipped): " + nextPlayer);
-
         nextTurn(); // Pula o oponente e volta
-        Long finalPlayer = getCurrentPlayerId();
-        System.out.println("SKIP: Final player after skip: " + finalPlayer);
-
     }
 
     public Long getCurrentPlayerId() {

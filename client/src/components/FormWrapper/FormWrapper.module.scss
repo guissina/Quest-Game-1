@@ -1,0 +1,23 @@
+.wrapper {
+  container-type: size;
+  background: url('./../../assets/background/bg-form.png');
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4rem;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: clamp(15rem, 25vw, 30rem);
+
+    @container (max-width: 733px) {
+      margin-bottom: -15vh;
+    }
+  }
+}

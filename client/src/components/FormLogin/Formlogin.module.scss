@@ -1,0 +1,13 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: flex-end;
+  padding: 1rem 2.5rem 0 0;
+  font-size: 1.25rem;
+
+  a {
+    font-weight: 600;
+    color: black;
+  }
+}
