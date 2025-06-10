@@ -13,10 +13,11 @@
     "@stomp/stompjs": "^7.1.1",
     "axios": "^1.9.0",
     "client": "file:",
+    "lucide-react": "^0.513.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-modal": "^3.16.3",
-    "sass": "^1.87.0",
+    "react-router-dom": "^7.6.2",
     "sockjs-client": "^1.6.1"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "sass": "^1.89.1",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.4"
