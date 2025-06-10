@@ -13,11 +13,15 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOriginPattern("*");
+        configuration.setAllowedOrigins(List.of(
+            "http://localhost:3000",
+            "http://localhost:5173", 
+            "http://192.168.15.22:5173/",
+            "https://moria-desbravadores-bice.vercel.app"
+        ));
         configuration.setAllowedMethods(List.of("*"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(false);
-        configuration.setExposedHeaders(List.of("Content-Type", "Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
