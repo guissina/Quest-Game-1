@@ -1,11 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import SessionPage from "./page/SessionPage";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
     return (
-        <div className='App'>
-            <SessionPage />
-        </div>
+        <BrowserRouter>
+            <div className='App'>
+                <AppRoutes />
+            </div>
+        </BrowserRouter>
     );
 }
 

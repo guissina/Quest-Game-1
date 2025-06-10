@@ -1,5 +1,5 @@
-import FormRegister from '../../componentes/FormRegister/FormRegister';
-import FormWrapper from '../../componentes/FormWrapper/FormWrapper';
+import FormRegister from '../../components/FormRegister/FormRegister';
+import FormWrapper from '../../components/FormWrapper/FormWrapper';
 
 export default function Register() {
   return (

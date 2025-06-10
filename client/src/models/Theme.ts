@@ -3,6 +3,7 @@ export interface ThemeProps {
     code: string;
     name: string;
     free: boolean;
+    cost: number;
 }
 
 export class Theme {
@@ -10,11 +11,13 @@ export class Theme {
     public readonly code: string;
     public readonly name: string;
     public readonly free: boolean;
+    public readonly cost: number;
 
     constructor(props: ThemeProps) {
         this.id = props.id;
         this.code = props.code;
         this.name = props.name;
         this.free = props.free;
+        this.cost = props.cost;
     }
 }

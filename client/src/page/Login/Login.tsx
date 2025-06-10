@@ -1,10 +1,10 @@
-import FormLogin from '../../componentes/FormLogin/FormLogin'
-import FormWrapper from '../../componentes/FormWrapper/FormWrapper'
+import FormLogin from '../../components/FormLogin/FormLogin'
+import FormWrapper from '../../components/FormWrapper/FormWrapper'
 
 export default function Login() {
   return (
-      <FormWrapper>
-        <FormLogin />
-      </FormWrapper>
+    <FormWrapper>
+      <FormLogin />
+    </FormWrapper>
   )
 }

@@ -1,0 +1,194 @@
+.store {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('./../../assets/background/bg-store.png');
+  width: 100%;
+  height: 100vh;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    padding: 1rem 2rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 4rem;
+      gap: 0.25rem;
+      text-decoration: none;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 800;
+
+      &>img {
+        width: 100%;
+      }
+    }
+
+    img {
+      width: 150px;
+    }
+  }
+
+  &>section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: #ffd22b;
+      font-weight: 900;
+      font-size: 7rem;
+      line-height: 7rem;
+      text-transform: uppercase;
+      text-shadow: 0px 1px 10px #ffd22b;
+    }
+
+    .playerData {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          width: 15ch;
+          margin-bottom: 0.75rem;
+          line-height: 1.4rem;
+          font-size: 1.3rem;
+          line-height: 1.3rem;
+          text-align: center;
+          color: white;
+        }
+      }
+
+      .playerCoins {
+        background-color: #256100;
+        padding: 1rem 0.75rem;
+        border-radius: 1rem;
+        gap: 0.25rem;
+
+        p {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          margin-bottom: 0.75rem;
+          line-height: 1.4rem;
+          font-size: 1.5rem;
+          text-align: center;
+          font-weight: 800;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .carouselContainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+
+    .shelf {
+      container-type: size;
+      display: grid;
+      height: 50vh;
+      width: 95vw;
+      grid-template-columns: 1.5fr 2fr 1.5fr;
+      gap: 0.5rem;
+      justify-items: center;
+      align-items: start;
+      overflow: hidden;
+
+      .product {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        img {
+          width: 175px;
+          margin-bottom: 1.75rem;
+
+          @container (max-width: 670px) {
+            width: 125px;
+          }
+
+          @container (max-width: 500px) {
+            width: 90px;
+          }
+        }
+
+        p {
+          margin-bottom: 0.75rem;
+          line-height: 1.4rem;
+          font-size: 1.3rem;
+          max-width: 10ch;
+          text-align: center;
+          color: white;
+        }
+
+        .purchaseBtn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 1.3rem;
+          font-weight: 900;
+          background-color: #256100;
+        }
+      }
+    }
+
+    .left,
+    .right {
+      width: 4rem;
+      position: absolute;
+      background-color: transparent;
+      border: none;
+      margin-bottom: 10rem;
+
+      img {
+        width: 100%;
+
+        cursor: pointer;
+      }
+    }
+
+    .left {
+      left: 0.25rem;
+    }
+
+    .right {
+      right: 0.25rem;
+    }
+  }
+}
