@@ -1,11 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
 import { Player } from "../../models/Player";
-import { getPlayerById, getPlayers, addBalance, decreaseBalance } from "../../services/playerServices";
+import {
+    getPlayerById,
+    getPlayers,
+    addBalance,
+    decreaseBalance,
+    addTheme,
+    loginPlayer,
+    registerPlayer
+} from "../../services/playerServices";
 import { extractErrorMessage } from "../../services/api";
 
-export const usePlayer = (playerId: string) => {
+export const usePlayers = () => {
     const [players, setPlayers] = useState<Player[]>([]);
-    const [player, setPlayer] = useState<Player | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -22,6 +29,23 @@ export const usePlayer = (playerId: string) => {
         }
     }, []);
 
+    useEffect(() => {
+        fetchPlayers();
+    }, []);
+
+    return {
+        players,
+        loading,
+        error,
+        fetchPlayers,
+    };
+};
+
+export const usePlayer = (playerId: string) => {
+    const [player, setPlayer] = useState<Player | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
     const fetchPlayer = useCallback(async () => {
         setLoading(true);
         setError(null);
@@ -37,10 +61,6 @@ export const usePlayer = (playerId: string) => {
 
     useEffect(() => {
         fetchPlayer();
-    }, []);
-
-    useEffect(() => {
-        fetchPlayers();
     }, []);
 
     const addPlayerBalance = useCallback(
@@ -77,14 +97,73 @@ export const usePlayer = (playerId: string) => {
         [playerId, fetchPlayer]
     );
 
+    const addPlayerTheme = useCallback(
+        async (themeId: string) => {
+            setLoading(true);
+            setError(null);
+            try {
+                await addTheme(playerId, themeId);
+                await fetchPlayer();
+            } catch (err: any) {
+                setError(extractErrorMessage(err));
+                throw err;
+            } finally {
+                setLoading(false);
+            }
+        },
+        [playerId, fetchPlayer]
+    );
+
     return {
         player,
-        players,
         loading,
         error,
         fetchPlayer,
-        fetchPlayers,
         addPlayerBalance,
         decreasePlayerBalance,
+        addPlayerTheme,
+    };
+};
+
+// Hook para autenticação (login/register)
+export const usePlayerAuth = () => {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const login = useCallback(async (email: string, password: string): Promise<Player> => {
+        setLoading(true);
+        setError(null);
+        try {
+            const player = await loginPlayer(email, password);
+            return player;
+        } catch (err: any) {
+            const errorMessage = extractErrorMessage(err);
+            setError(errorMessage);
+            throw err;
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    const register = useCallback(async (name: string, email: string, password: string): Promise<Player> => {
+        setLoading(true);
+        setError(null);
+        try {
+            const player = await registerPlayer(name, email, password);
+            return player;
+        } catch (err: any) {
+            const errorMessage = extractErrorMessage(err);
+            setError(errorMessage);
+            throw err;
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    return {
+        loading,
+        error,
+        login,
+        register,
     };
 };

@@ -58,6 +58,7 @@ export default function FormRegister() {
     }
 
     try {
+      console.log('Enviando dados do jogador:', formData);
       const response = await api.post('/players', formData);
 
       console.log('Jogador criado com sucesso:', response.data);
