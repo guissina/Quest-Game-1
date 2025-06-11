@@ -1,12 +1,12 @@
 export interface PlayerProps {
-    id: number;
+    id: string;
     name: string;
     email: string;
     balance: number;
 }
 
 export class Player {
-    public readonly id: number;
+    public readonly id: string;
     public readonly name: string;
     public readonly email: string;
     public readonly balance: number = 0;

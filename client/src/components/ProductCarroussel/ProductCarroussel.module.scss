@@ -1,0 +1,42 @@
+.carouselContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  .shelf {
+    container-type: size;
+    display: grid;
+    height: 50vh;
+    width: 95vw;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    gap: 0.5rem;
+    justify-items: center;
+    align-items: start;
+    overflow: hidden;
+  }
+
+  .left,
+  .right {
+    width: 4rem;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10rem;
+
+    img {
+      width: 100%;
+
+      cursor: pointer;
+    }
+  }
+
+  .left {
+    left: 0.25rem;
+  }
+
+  .right {
+    right: 0.25rem;
+  }
+}
