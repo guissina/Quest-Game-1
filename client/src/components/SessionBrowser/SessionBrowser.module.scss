@@ -1,0 +1,80 @@
+.sessionBrowser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75rem;
+    background-color: #1cbbff;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5.5rem;
+        margin: 0 0.75rem;
+        color: white;
+        gap: 1rem;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+
+    .sessionList {
+        display: flex;
+        flex-direction: column;
+        padding: 0.1rem;
+        list-style: none;
+        width: 100%;
+        gap: 0.2rem 0;
+
+        &::-webkit-scrollbar {
+            margin-left: 1rem;
+        }
+        &::-webkit-scrollbar-track {
+            background: white;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #1cbbff;
+        }
+
+        @container (max-width: 793px) {
+            overflow-y: scroll;
+            height: 15rem;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+            padding: 0 1rem;
+            background-color: white;
+
+            p {
+                font-size: 1.1rem;
+                font-weight: 800;
+            }
+
+            button {
+                background-color: #116300;
+            }
+
+            .disabled {
+                background-color: grey;
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5.5rem;
+        margin: 0 0.75rem;
+
+        button {
+            width: fit-content;
+            padding: 0.5rem 5rem;
+        }
+    }
+}

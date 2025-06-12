@@ -1,0 +1,35 @@
+.profile {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: fit-content;
+
+    .avatar {
+        width: 250px;
+        height: 250px;
+    }
+
+    .profileLink {
+        margin-top: -3.3rem;
+        margin-right: 1rem;
+    }
+
+    @container (max-width: 793px) {
+        position: relative;
+        bottom: 0;
+        left: 0;
+
+        .avatar {
+            width: 12.5rem;
+            height: 12.5rem;
+        }
+
+        .profileLink {
+            margin-top: -3rem;
+            margin-right: -0.5rem;
+        }
+    }
+}

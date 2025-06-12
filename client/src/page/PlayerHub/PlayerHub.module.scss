@@ -1,0 +1,24 @@
+.playerHub {
+    position: relative;
+    container-type: size;
+    background: url('../../assets/background/bg-playerHub.png') center/cover fixed no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem 0;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 125px);
+
+    @container (max-width: 840px) {
+        min-height: calc(100vh - 139px);
+    }
+}
