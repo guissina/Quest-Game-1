@@ -5,9 +5,7 @@ import {
     getPlayers,
     addBalance,
     decreaseBalance,
-    addTheme,
-    loginPlayer,
-    registerPlayer
+    addTheme
 } from "../../services/playerServices";
 import { extractErrorMessage } from "../../services/api";
 
@@ -122,48 +120,5 @@ export const usePlayer = (playerId: string) => {
         addPlayerBalance,
         decreasePlayerBalance,
         addPlayerTheme,
-    };
-};
-
-// Hook para autenticação (login/register)
-export const usePlayerAuth = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-
-    const login = useCallback(async (email: string, password: string): Promise<Player> => {
-        setLoading(true);
-        setError(null);
-        try {
-            const player = await loginPlayer(email, password);
-            return player;
-        } catch (err: any) {
-            const errorMessage = extractErrorMessage(err);
-            setError(errorMessage);
-            throw err;
-        } finally {
-            setLoading(false);
-        }
-    }, []);
-
-    const register = useCallback(async (name: string, email: string, password: string): Promise<Player> => {
-        setLoading(true);
-        setError(null);
-        try {
-            const player = await registerPlayer(name, email, password);
-            return player;
-        } catch (err: any) {
-            const errorMessage = extractErrorMessage(err);
-            setError(errorMessage);
-            throw err;
-        } finally {
-            setLoading(false);
-        }
-    }, []);
-
-    return {
-        loading,
-        error,
-        login,
-        register,
     };
 };

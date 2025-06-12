@@ -1,75 +1,88 @@
-import styles from './Formlogin.module.scss';
-import { AtSign, LockKeyhole } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { api } from '../../services/api';
-import { extractErrorMessage } from '../../services/api';
+import styles from "./Formlogin.module.scss";
+import { AtSign, LockKeyhole } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 
-interface LoginData {
-  email: string;
-  password: string;
+interface LoginProps {
+    email: string;
+    password: string;
 }
 
 export default function FormLogin() {
-  const [formData, setFormData] = useState<LoginData>({
-    email: '',
-    password: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    const [formData, setFormData] = useState<LoginProps>({ email: "", password: "" });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError(null);
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
 
-    try {
-      await api.post('/login', formData);
-    }
-    catch (error) {
-      const errorMessage = extractErrorMessage(error);
-      setError(errorMessage);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setError(null);
 
-  return (
-    <>
-      <div className={'innerWrapper'}>
-        <h1>Bem-vindo</h1>
-        {error && <div className="error">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">
-            <AtSign size={24} />
-            <input id="email" name="email" type="email" placeholder="email" value={formData.email} onChange={handleInputChange} required />
-          </label>
+        try {
+            await login(formData.email, formData.password);
+            navigate("/game");
+        } catch (err: any) {
+            setError(err.message || "Falha ao efetuar login");
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-          <label htmlFor="password">
-            <LockKeyhole size={24} />
-            <input id="password" name="password" type="password" placeholder="password" value={formData.password} onChange={handleInputChange} required />
-          </label>
+    return (
+        <div className={"innerWrapper"}>
+            <h1>Bem-vindo</h1>
 
-          <button className="btn" type="submit" disabled={isLoading}>
-            {isLoading ? 'Carregando...' : 'Entrar'}
-          </button>
-        </form>
-      </div>
-      <div className={styles.links}>
-        <p>
-          Não tem conta? <Link to="/register">Criar conta</Link>
-        </p>
+            {error && <div className={"error"}>{error}</div>}
 
-        <Link to="/recover">Redefinir minha senha.</Link>
-      </div>
-    </>
-  );
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email" className={"field"}>
+                    <AtSign size={24} />
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="seu@exemplo.com"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isLoading}
+                    />
+                </label>
+
+                <label htmlFor="password" className={"field"}>
+                    <LockKeyhole size={24} />
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isLoading}
+                    />
+                </label>
+
+                <button className={"btn"} type="submit" disabled={isLoading}>
+                    {isLoading ? "Carregando…" : "Entrar"}
+                </button>
+            </form>
+
+            <div className={styles.links}>
+                <p>
+                    Não tem conta? <Link to="/register">Criar conta</Link>
+                </p>
+                <Link to="/recover">Redefinir minha senha</Link>
+            </div>
+        </div>
+    );
 }

@@ -22,15 +22,3 @@ export const decreaseBalance = async (id: string, balance: number): Promise<void
 export const addTheme = async (id: string, themeId: string): Promise<void> => {
     await api.patch(`players/${id}/addTheme`, { themeId });
 }
-
-//TODO: Finish and Implement Login
-export const loginPlayer = async (email: string, password: string): Promise<Player> => {
-    const raw: PlayerProps = await api.post("players/login", { email, password }).then((res) => res.data);
-    return new Player(raw);
-}
-
-//TODO: Finish and Implement Register
-export const registerPlayer = async (name: string, email: string, password: string): Promise<Player> => {
-    const raw: PlayerProps = await api.post("players", { name, email, password }).then((res) => res.data);
-    return new Player(raw);
-}

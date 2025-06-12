@@ -1,24 +1,23 @@
-import React, { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, ReactNode } from "react";
 import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
+import { useAuth } from "./AuthContext";
 
 interface WSContextType {
     client: Client | null;
     isConnected: boolean;
 }
 
-const WebSocketContext = createContext<WSContextType>({
-    client: null,
-    isConnected: false,
-});
+const WebSocketContext = createContext<WSContextType>({ client: null, isConnected: false });
 
-export const WebSocketProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const WebSocketProvider = ({ children }: { children: ReactNode }) => {
+    const { user } = useAuth();
     const clientRef = useRef<Client | null>(null);
     const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
-        // const wsUrl = import.meta.env.VITE_WEBSOCKET_URL || "http://localhost:8080/ws";
-        const wsUrl = "http://localhost:8080/ws"; // URL do WebSocket
+        if (!user) return;
+        const wsUrl = import.meta.env.VITE_WEBSOCKET_URL ?? "http://localhost:8080/ws";
         const socket = new SockJS(wsUrl);
 
         const stomp = new Client({
@@ -26,7 +25,7 @@ export const WebSocketProvider: React.FC<{ children: ReactNode }> = ({ children 
             reconnectDelay: 5000,
             debug: (m) => console.debug("STOMP ▶️", m),
             onConnect: () => {
-                console.log("🟢 STOMP conectado");
+                console.log("🟢 STOMP conected");
                 setIsConnected(true);
             },
             onStompError: (frame) => {
