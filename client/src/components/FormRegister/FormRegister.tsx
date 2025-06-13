@@ -17,7 +17,7 @@ interface PlayerData {
     name: string;
     email: string;
     password: string;
-    avatar?: number;
+    avatarIndex?: number;
 }
 
 export default function FormRegister() {
@@ -30,13 +30,14 @@ export default function FormRegister() {
         name: '',
         email: '',
         password: '',
+        avatarIndex: undefined,
     });
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const handleSelect = (index: number) => {
         setSelected(index);
-        setFormData(prev => ({ ...prev, avatar: index }));
+        setFormData(prev => ({ ...prev, avatarIndex: index }));
         setIsModalOpen(false);
     };
 
@@ -60,9 +61,10 @@ export default function FormRegister() {
             await register(
                 formData.name,
                 formData.email,
-                formData.password
+                formData.password,
+                formData.avatarIndex || selected
             );
-            navigate('/login');
+            navigate('/hub');
         } catch (err: any) {
             setError(err.message || 'Falha ao cadastrar');
         } finally {

@@ -5,7 +5,7 @@ import { Player } from "../models/Player";
 interface AuthContextProps {
     user: Player | null;
     login: (email: string, password: string) => Promise<void>;
-    register: (name: string, email: string, password: string) => Promise<void>;
+    register: (name: string, email: string, password: string, avatarIndex: number) => Promise<void>;
     logout: () => void;
 }
 
@@ -24,8 +24,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(player);
     };
 
-    const register = async (name: string, email: string, password: string) => {
-        const player = await authService.register(name, email, password);
+    const register = async (name: string, email: string, password: string, avatarIndex: number) => {
+        const player = await authService.register(name, email, password, avatarIndex);
         setUser(player);
     };
 

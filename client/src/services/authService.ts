@@ -14,9 +14,9 @@ export const authService = {
         return player;
     },
 
-    async register(name: string, email: string, password: string): Promise<Player> {
+    async register(name: string, email: string, password: string, avatarIndex: number): Promise<Player> {
         const raw: PlayerProps = await api
-            .post("players", { name, email, password })
+            .post("players", { name, email, password, avatarIndex })
             .then(res => res.data);
         const player = new Player(raw);
         this.setCurrentUser(player);
