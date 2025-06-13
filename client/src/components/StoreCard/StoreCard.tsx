@@ -18,7 +18,7 @@ interface IStoreCardProps {
 }
 
 export default function StoreCard({ props }: IStoreCardProps) {
-  const { name, balance } = props;
+  const { name, balance, avatarIndex } = props;
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [selectedAmount, setSelectedAmount] = React.useState<number | null>(
     null,
@@ -32,7 +32,7 @@ export default function StoreCard({ props }: IStoreCardProps) {
       <div className={styles.playerData}>
         <div className={styles.player}>
           <img
-            src={images[0]}
+            src={images[avatarIndex]}
             alt="Avatar do usuário"
             width={140}
             height={140}

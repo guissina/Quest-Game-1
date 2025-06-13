@@ -6,7 +6,7 @@ export function useWebSocket(onGreeting: (msg: string) => void) {
     const clientRef = useRef<Client | null>(null);
 
     useEffect(() => {
-        const wsUrl = import.meta.env.VITE_WEBSOCKET_URL || "http://localhost:8080/ws";
+        const wsUrl = "http://localhost:8080/ws";
         const socket = new SockJS(wsUrl);
 
         const stomp = new Client({

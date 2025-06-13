@@ -6,9 +6,11 @@ import { useTheme } from '../../hooks/data/useTheme';
 import { usePlayer } from '../../hooks/data/usePlayer';
 import StoreCard from '../../components/StoreCard/StoreCard';
 import ProductCarroussel from '../../components/ProductCarroussel/ProductCarroussel';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function Store() {
-  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(6);
+  const { user } = useAuth();
+  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(user?.id || 0);
 
   const { themes, loading, error } = useTheme();
   if (loading) return <p>Carregando lojas…</p>;
@@ -18,7 +20,7 @@ export default function Store() {
   return (
     <div className={styles.store}>
       <header className={styles.header}>
-        <Link to="/home">
+        <Link to="/hub">
           <img src={back} alt="Página Anterior" />
           Voltar
         </Link>
