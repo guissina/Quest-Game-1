@@ -12,9 +12,10 @@
 .section {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    padding-right: 4rem;
     flex-wrap: wrap;
-    gap: 2rem 0;
+    gap: 10rem;
     padding-bottom: 2rem;
     min-height: calc(100vh - 125px);
 

@@ -39,7 +39,7 @@ export const usePlayers = () => {
     };
 };
 
-export const usePlayer = (playerId: string) => {
+export const usePlayer = (playerId: number) => {
     const [player, setPlayer] = useState<Player | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);

@@ -1,22 +1,38 @@
+import { useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import { useRoomWebSocket } from "../hooks/useRoomWebSocket";
 import LobbyPage from "./LobbyPage";
 import GamePage from "./GamePage";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function SessionPage() {
-    const { sessionId, players, started, createRoom, joinRoom, startRoom } = useRoomWebSocket();
+    const { user } = useAuth();
+    const { id: routeId } = useParams<{ id: string }>();
+    const { ready, sessionId, players, started, joinRoom, leaveRoom, startRoom } = useRoomWebSocket();
 
-    if (!started) {
-        return (
-            <LobbyPage
-                sessionId={sessionId}
-                players={players}
-                started={started}
-                createRoom={createRoom}
-                joinRoom={joinRoom}
-                startRoom={startRoom}
-            />
-        );
-    }
+    useEffect(() => {
+        if (ready && routeId && sessionId !== routeId)
+            joinRoom(routeId);
 
-    return <GamePage sessionId={sessionId!} myPlayerId={Number(localStorage.getItem('userId'))} players={players} />;
+        return () => {
+            if (sessionId) leaveRoom();
+        };
+    }, [ready, routeId, sessionId, joinRoom, leaveRoom]);
+
+    if (!user) return <Navigate to="/" replace />;
+    if (!ready) return <p>Connecting to session…</p>;
+    if (routeId && !sessionId) return <p>Joining session “{routeId}”…</p>;
+    if (!sessionId) return <Navigate to="/" replace />;
+
+    return !started ? (
+        <LobbyPage
+            sessionId={sessionId}
+            myPlayerId={user.id}
+            started={started}
+            players={players}
+            startRoom={startRoom}
+        />
+    ) : (
+        <GamePage sessionId={sessionId} myPlayerId={user.id} players={players} />
+    );
 }

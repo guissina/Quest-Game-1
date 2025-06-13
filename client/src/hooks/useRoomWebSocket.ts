@@ -1,93 +1,100 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
 import { PlayerProps } from "../models/Player";
 
 export function useRoomWebSocket() {
+    const { user } = useAuth();
+    const myPlayerId = user?.id ?? null;
+
     const client = useWebSocketClient();
     const isConnected = useWebSocketStatus();
 
-    const playerRef = useRef<number | null>(null);
     const [sessionId, setSessionId] = useState<string | null>(null);
     const [players, setPlayers] = useState<PlayerProps[]>([]);
     const [started, setStarted] = useState(false);
 
-    useEffect(() => {
-        if (!client || !isConnected) return;
+    const ready = !!client && isConnected && !!myPlayerId;
 
-        const sub = client.subscribe("/user/queue/room-created", (msg) => {
-            const { sessionId: newSessionId } = JSON.parse(msg.body) as {
-                sessionId: string;
-            };
-            setSessionId(newSessionId);
+    useEffect(() => {
+        if (!ready) return;
+
+        const sub = client!.subscribe("/user/queue/room-created", (msg) => {
+            const { sessionId: newId } = JSON.parse(msg.body);
+            setSessionId(newId);
         });
 
         return () => sub.unsubscribe();
-    }, [client, isConnected]);
+    }, [client, ready]);
 
     useEffect(() => {
-        if (!client || !isConnected || !sessionId) return;
+        if (!ready || !sessionId) return;
 
-        const topic = `/topic/room/${sessionId}/state`;
-        const sub = client.subscribe(topic, (msg) => {
-            const { players: list, started: isStarted } = JSON.parse(msg.body) as {
-                players: PlayerProps[];
-                started: boolean;
-            };
-
+        const sub = client!.subscribe(`/topic/room/${sessionId}/state`, (msg) => {
+        const { players: list, started: isStarted } = JSON.parse(msg.body);
             setPlayers(list);
             setStarted(isStarted);
             console.log("[ROOM STATE]", { sessionId, list, isStarted });
         });
 
         return () => sub.unsubscribe();
-    }, [client, isConnected, sessionId]);
+    }, [client, ready, sessionId]);
 
     useEffect(() => {
-        if (!client || !isConnected || !sessionId) return;
-        const playerId = playerRef.current;
-        if (playerId == null) return;
+        if (!ready || !sessionId) return;
 
-        client.publish({
+        client!.publish({
             destination: "/app/room/join",
-            body: JSON.stringify({ sessionId, playerId }),
+            body: JSON.stringify({ sessionId, playerId: myPlayerId })
         });
-        playerRef.current = null;
-    }, [client, isConnected, sessionId]);
+    }, [client, ready, sessionId, myPlayerId]);
 
-    const createRoom = useCallback((playerId: number) => {
-        if (!client || !isConnected) {
-            console.warn("WS not ready");
+    const createRoom = useCallback(() => {
+        if (!ready) {
+            console.warn("createRoom: not ready (no player or websocket)");
             return;
         }
-        playerRef.current = playerId;
-
-        client.publish({
+        client!.publish({
             destination: "/app/room/create",
-            body: JSON.stringify({ creatorPlayerId: playerId }),
-        }); 
-    }, [client, isConnected]);
+            body: JSON.stringify({ creatorPlayerId: myPlayerId })
+        });
+    }, [client, ready, myPlayerId]);
 
-    const joinRoom = useCallback((id: string, playerId: number) => {
-        if (!client || !isConnected) return;
-        playerRef.current = playerId;
-        setSessionId(id);
-    }, [client, isConnected]);
+    const joinRoom = useCallback((sessionId: string) => {
+        if (!ready) {
+            console.warn("joinRoom: not ready (no player or websocket)");
+            return;
+        }
+        setSessionId(sessionId);
+    }, [ready]);
+
+    const leaveRoom = useCallback(() => {
+        if (!client || !isConnected || !sessionId) return;
+        client.publish({
+            destination: "/app/room/leave",
+            body: JSON.stringify({ sessionId, playerId: myPlayerId }),
+        });
+    }, [client, isConnected, sessionId, myPlayerId]);
 
     const startRoom = useCallback((boardId: number, initialTokens: number, themeIds: number[]) => {
-        if (!client || !isConnected || !sessionId) return;
-
-        client.publish({
+        if (!ready || !sessionId) {
+            console.warn("startRoom: not ready or missing session");
+            return;
+        }
+        client!.publish({
             destination: "/app/room/start",
-            body: JSON.stringify({ sessionId, boardId, initialTokens, themeIds }),
+            body: JSON.stringify({ sessionId, boardId, initialTokens, themeIds })
         });
-    }, [client, isConnected, sessionId]);
+    }, [client, ready, sessionId]);
 
     return {
+        ready,
         sessionId,
         players,
         started,
         createRoom,
         joinRoom,
+        leaveRoom,
         startRoom,
     };
 }

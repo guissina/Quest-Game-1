@@ -8,7 +8,7 @@ import StoreCard from '../../components/StoreCard/StoreCard';
 import ProductCarroussel from '../../components/ProductCarroussel/ProductCarroussel';
 
 export default function Store() {
-  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer("6");
+  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(6);
 
   const { themes, loading, error } = useTheme();
   if (loading) return <p>Carregando lojas…</p>;

@@ -1,151 +1,127 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PlayerProps } from "../models/Player";
 
 interface LobbyPageProps {
-    sessionId: string | null;
+    sessionId: string;
+    myPlayerId: number;
     players: PlayerProps[];
     started: boolean;
-    createRoom: (playerId: number) => void;
-    joinRoom: (sessionId: string, playerId: number) => void;
     startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
 }
 
-export default function LobbyPage({ sessionId, players, started, createRoom, joinRoom, startRoom }: LobbyPageProps) {
+export default function LobbyPage({ sessionId, myPlayerId, players, started, startRoom }: LobbyPageProps) {
+    const [boardId, setBoardId] = useState<number | "">("");
+    const [initialTokens, setInitialTokens] = useState<number | "">("");
 
-    const [inputSessionId, setInputSessionId] = useState("");
-    const [inputPlayerId, setInputPlayerId] = useState<number | "">("");
-    const [inputBoardId, setInputBoardId] = useState<number | "">("");
-    const [inputInitialTokens, setInputInitialTokens] = useState<number | "">("");
-
-    useEffect(() => {
-        if (sessionId) setInputSessionId(sessionId);
-    }, [sessionId]);
-
-    useEffect(() => {
-        if (inputPlayerId !== "") localStorage.setItem("userId", inputPlayerId.toString());
-    }, [inputPlayerId]);
-
-    const handleCreate = () => {
-        if (!inputPlayerId) return;
-        createRoom(Number(inputPlayerId));
-    };
-
-    const handleJoin = () => {
-        if (!inputSessionId || !inputPlayerId) return;
-        joinRoom(inputSessionId, Number(inputPlayerId));
-    };
+    // TODO Review... assume the first player in `players` array is the creator
+    const isCreator = players[0]?.id === myPlayerId;
 
     const handleStart = () => {
-        if (!sessionId || !inputBoardId || !inputInitialTokens) return;
-        startRoom(Number(inputBoardId), Number(inputInitialTokens), [2, 1, 12, 17, 19, 20, 21, 22] /*TODO Selecionar temas*/);
+        if (!boardId || !initialTokens) return;
+        // TODO: replace the hard-coded theme list with your actual UI for theme selection
+        const themeIds = [1, 2, 3, 4, 5, 6];
+        startRoom(Number(boardId), Number(initialTokens), themeIds);
     };
-
+ 
     return (
-        <div style={{ padding: 20, maxWidth: 400, margin: "auto" }}>
-            <h2>Game Lobby</h2>
+      <div
+        style={{
+          padding: "24px",
+          maxWidth: "480px",
+          margin: "40px auto",
+          backgroundColor: "#f9f9f9",
+          borderRadius: "8px",
+          boxShadow: "0 0 12px rgba(0, 0, 0, 0.1)",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <h2 style={{ marginBottom: "12px" }}>Lobby</h2>
+        <p style={{ fontSize: "14px", marginBottom: "24px", color: "#444" }}>
+          <strong>Session ID:</strong> <code>{sessionId}</code>
+        </p>
 
-            {/* Botão de criação só aparece antes de termos sessionId */}
-            {!sessionId && (
-                <button
-                    onClick={handleCreate}
-                    style={{ marginBottom: 16, width: "100%" }}
-                >
-                    Create Session
-                </button>
-            )}
+        <h3 style={{ marginBottom: "8px" }}>Players ({players.length})</h3>
+        {players.length === 0 ? (
+          <p style={{ fontStyle: "italic", color: "#777" }}>No players yet…</p>
+        ) : (
+          <ul
+            style={{ listStyle: "none", paddingLeft: 0, marginBottom: "24px" }}
+          >
+            {players.map((p) => (
+              <li
+                key={p.id}
+                style={{
+                  padding: "6px 0",
+                  borderBottom: "1px solid #e0e0e0",
+                  color: p.id === myPlayerId ? "#2b7a78" : "#333",
+                }}
+              >
+                {p.name} {p.id === myPlayerId && "(You)"}{" "}
+                {p.id === players[0]?.id && "🛡️"}
+              </li>
+            ))}
+          </ul>
+        )}
 
-            {/* Parte de join sempre visível */}
-            <div style={{ marginBottom: 16 }}>
-                <input
-                    type='text'
-                    placeholder='Session ID'
-                    value={inputSessionId}
-                    onChange={(e) => setInputSessionId(e.target.value)}
-                    style={{ width: "100%", marginBottom: 8 }}
-                />
-                <input
-                    type='number'
-                    placeholder='Your Player ID'
-                    value={inputPlayerId}
-                    onChange={(e) =>
-                        setInputPlayerId(
-                            e.target.value === "" ? "" : Number(e.target.value)
-                        )
-                    }
-                    style={{ width: "100%", marginBottom: 8 }}
-                />
-                <button
-                    onClick={handleJoin}
-                    disabled={!inputSessionId || !inputPlayerId}
-                    style={{ width: "100%" }}
-                >
-                    Join Session
-                </button>
-            </div>
+        {isCreator && (
+          <div>
+            <h4 style={{ marginBottom: "12px" }}>Game Settings</h4>
+            <input
+              type="number"
+              placeholder="Board ID"
+              value={boardId}
+              onChange={(e) =>
+                setBoardId(e.target.value === "" ? "" : Number(e.target.value))
+              }
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "12px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+              }}
+            />
+            <input
+              type="number"
+              placeholder="Initial Tokens"
+              value={initialTokens}
+              onChange={(e) =>
+                setInitialTokens(
+                  e.target.value === "" ? "" : Number(e.target.value)
+                )
+              }
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "12px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+              }}
+            />
+            <button
+              onClick={handleStart}
+              disabled={started || !boardId || !initialTokens}
+              style={{
+                width: "100%",
+                padding: "12px",
+                backgroundColor: started ? "#ccc" : "#3f51b5",
+                color: "#fff",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "4px",
+                cursor: started ? "default" : "pointer",
+              }}
+            >
+              {started ? "Game Started" : "Start Game"}
+            </button>
+          </div>
+        )}
 
-            {/* Configuração do jogo só depois que a sala existe */}
-            {sessionId && (
-                <div style={{ marginBottom: 16 }}>
-                    <input
-                        type='number'
-                        placeholder='Board ID'
-                        value={inputBoardId}
-                        onChange={(e) =>
-                            setInputBoardId(
-                                e.target.value === ""
-                                    ? ""
-                                    : Number(e.target.value)
-                            )
-                        }
-                        style={{ width: "100%", marginBottom: 8 }}
-                    />
-                    <input
-                        type='number'
-                        placeholder='Initial Tokens'
-                        value={inputInitialTokens}
-                        onChange={(e) =>
-                            setInputInitialTokens(
-                                e.target.value === ""
-                                    ? ""
-                                    : Number(e.target.value)
-                            )
-                        }
-                        style={{ width: "100%", marginBottom: 8 }}
-                    />
-                    <button
-                        onClick={handleStart}
-                        disabled={
-                            started || !inputBoardId || !inputInitialTokens
-                        }
-                        style={{ width: "100%" }}
-                    >
-                        {started ? "Game Started" : "Start Game"}
-                    </button>
-                </div>
-            )}
-
-            {/* Informações da sala: sessionId e lista de players */}
-            {sessionId && (
-                <>
-                    <p>
-                        <b>Session ID:</b> <code>{sessionId}</code>
-                    </p>
-                    <h3>Players ({players.length})</h3>
-                    {players.length === 0 ? (
-                        <p>
-                            <i>No players yet</i>
-                        </p>
-                    ) : (
-                        <ul>
-                            {players.map((p) => (
-                                <li key={p.id}>
-                                    {p.id}: {p.name}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </>
-            )}
-        </div>
+        {!isCreator && !started && (
+          <p style={{ marginTop: "24px", fontStyle: "italic", color: "#666" }}>
+            Waiting for the creator to start the game…
+          </p>
+        )}
+      </div>
     );
 }

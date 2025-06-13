@@ -1,5 +1,5 @@
 import styles from './SessionBrowser.module.scss';
-import { UsersRound } from 'lucide-react';
+import { Gamepad2 } from 'lucide-react';
 import avatar1 from '../../assets/avatar/avatar1.png';
 import avatar2 from '../../assets/avatar/avatar2.png';
 // import avatar3 from '../../assets/avatar/avatar3.png';
@@ -22,8 +22,8 @@ export default function SessionBrowser({ onJoinRoom, onCreateRoom }: SessionBrow
     return (
         <div className={styles.sessionBrowser}>
             <header className={styles.header}>
-                <UsersRound size={48} />
-                <h2>Salas Disponíveis</h2>
+                <Gamepad2 size={48} />
+                <h2>Sessões Ativas</h2>
             </header>
 
             <ul className={styles.sessionList}>

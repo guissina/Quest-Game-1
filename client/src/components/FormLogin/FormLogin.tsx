@@ -29,7 +29,7 @@ export default function FormLogin() {
 
         try {
             await login(formData.email, formData.password);
-            navigate("/game");
+            navigate("/hub");
         } catch (err: any) {
             setError(err.message || "Falha ao efetuar login");
         } finally {

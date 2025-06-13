@@ -23,7 +23,7 @@ export default function AppRoutes() {
 
             <Route element={<ProtectedSocketLayout />}>
                 <Route path="/hub" element={<PlayerHub />} />
-                <Route path="/game" element={<SessionPage />} />
+                <Route path="/session/:id" element={<SessionPage />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />
