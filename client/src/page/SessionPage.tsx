@@ -4,6 +4,7 @@ import { useRoomWebSocket } from "../hooks/useRoomWebSocket";
 import LobbyPage from "./LobbyPage";
 import GamePage from "./GamePage";
 import { useAuth } from "../contexts/AuthContext";
+import { Player } from "../models/Player";
 
 export default function SessionPage() {
     const { user } = useAuth();
@@ -21,8 +22,11 @@ export default function SessionPage() {
 
     if (!user) return <Navigate to="/" replace />;
     if (!ready) return <p>Connecting to session…</p>;
-    if (routeId && !sessionId) return <p>Joining session “{routeId}”…</p>;
+    if (routeId && !sessionId) return <p>Joining session "{routeId}"…</p>;
     if (!sessionId) return <Navigate to="/" replace />;
+
+    // Converter PlayerProps[] para Player[]
+    const playerInstances = players.map(playerProps => new Player(playerProps));
 
     return !started ? (
         <LobbyPage
@@ -33,6 +37,6 @@ export default function SessionPage() {
             startRoom={startRoom}
         />
     ) : (
-        <GamePage sessionId={sessionId} myPlayerId={user.id} players={players} />
+        <GamePage sessionId={sessionId} myPlayerId={user.id} players={playerInstances} />
     );
 }

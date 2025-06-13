@@ -3,7 +3,7 @@ import { TurnIndicator } from "../components/Player/TurnIndicator";
 import { TokenSelector } from "../components/Player/TokenSelector";
 import { BoardView } from "../components/Board/BoardView";
 import "./GamePage.scss";
-import { Player } from "../models/Player";
+import { PlayerProps } from "../models/Player";
 import { useEffect, useState } from "react";
 import { QuestionModal } from "../components/Question/QuestionModal";
 import { AbilityType } from "../models/PlayerState";
@@ -12,7 +12,7 @@ import AbilityPanel from "../components/Player/AbilityPanel";
 interface GamePageProps {
     sessionId: string;
     myPlayerId: number;
-    players: Player[];
+    players: PlayerProps[];
 }
 
 export default function GamePage({ sessionId, myPlayerId, players }: GamePageProps) {
