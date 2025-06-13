@@ -22,7 +22,7 @@ export default function PlayerHub() {
     const navigate = useNavigate();
     const { ready, sessionId, createRoom, joinRoom } = useRoomWebSocket();
 
-    const avatarIndex = (user as any)?.avatar ?? 0;
+    const avatarIndex = (user as any)?.avatarIndex ?? 0;
     const avatarUrl = images[avatarIndex];
 
     useEffect(() => {

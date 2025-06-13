@@ -19,6 +19,17 @@ public class PlayerUpdateDTO {
     @NotNull(message = "Password is required")
     private String password;
 
+    @NotNull(message = "Avatar index is required")
+    private Integer avatarIndex;
+
+    public Integer getAvatarIndex() {
+        return avatarIndex;
+    }
+
+    public void setAvatarIndex(Integer avatarIndex) {
+        this.avatarIndex = avatarIndex;
+    }
+
     public String getPassword() {
         return password;
     }
