@@ -42,8 +42,7 @@ public class GameRoomService implements IGameRoomService {
             IThemeServices themeServices,
             IPlayerServices playerServices,
             TimerService timerService,
-            PlayerMapper playerMapper
-    ) {
+            PlayerMapper playerMapper) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.boardService = boardService;
@@ -57,8 +56,7 @@ public class GameRoomService implements IGameRoomService {
         GameSession session = sessionManager.getSession(sessionId);
         GameRoom room = session.getRoom();
 
-        List<PlayerRoomResponseDTO> playersDTO =
-                playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
+        List<PlayerRoomResponseDTO> playersDTO = playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
 
         RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed);
         String destination = String.format(WsDestinations.ROOM_STATE, sessionId);
@@ -67,7 +65,7 @@ public class GameRoomService implements IGameRoomService {
 
     @Override
     public RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req) {
-        String sessionId = sessionManager.createSession();
+        String sessionId = sessionManager.createSession(req.publicSession());
         return new RoomCreateResponseDTO(sessionId);
     }
 
@@ -116,8 +114,7 @@ public class GameRoomService implements IGameRoomService {
             timerService.cancelAllTimersForSession(sessionId);
             broadcastRoomState(sessionId, true);
             sessionManager.removeSession(sessionId);
-        }
-        else
+        } else
             broadcastRoomState(sessionId, false);
     }
 }

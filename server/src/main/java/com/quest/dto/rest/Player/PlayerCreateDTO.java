@@ -25,6 +25,17 @@ public class PlayerCreateDTO {
     @NotNull(message = "Balance is required")
     private BigDecimal balance = BigDecimal.ZERO;
 
+    @NotNull(message = "Avatar index is required")
+    private Integer avatarIndex;
+
+    public Integer getAvatarIndex() {
+        return avatarIndex;
+    }
+
+    public void setAvatarIndex(Integer avatarIndex) {
+        this.avatarIndex = avatarIndex;
+    }
+
     public String getName() {
         return name;
     }

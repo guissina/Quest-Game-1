@@ -10,6 +10,15 @@ public class PlayerResponseDTO {
     private String password;
     private List<Long> themeIds;
     private BigDecimal balance;
+    private Integer avatarIndex;
+
+    public Integer getAvatarIndex() {
+        return avatarIndex;
+    }
+
+    public void setAvatarIndex(Integer avatarIndex) {
+        this.avatarIndex = avatarIndex;
+    }
 
     public Long getId() {
         return id;

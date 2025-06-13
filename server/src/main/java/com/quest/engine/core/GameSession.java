@@ -7,17 +7,19 @@ public class GameSession {
     private final String sessionId;
     private final GameRoom room;
     private GameEngine engine;
+    private Boolean publicSession;
 
-    public GameSession(String sessionId) {
+    public GameSession(String sessionId, Boolean publicSession) {
         this.sessionId = sessionId;
         this.room = new GameRoom();
+        this.publicSession = publicSession;
     }
 
     public String getSessionId() {
         return sessionId;
     }
 
-    public GameRoom getRoom()     {
+    public GameRoom getRoom() {
         return room;
     }
 
@@ -27,19 +29,29 @@ public class GameSession {
         return engine;
     }
 
-    public boolean isStarted()    {
+    public boolean isStarted() {
         return engine != null;
     }
 
+    public Boolean getPublicSession() {
+        return publicSession;
+    }
+
+    public void setPublicSession(Boolean publicSession) {
+        this.publicSession = publicSession;
+    }
+
     public void startGame(GameEngine engine) {
-        if (isStarted()) return;
+        if (isStarted())
+            return;
         this.engine = engine;
         room.markStarted();
     }
 
     public void joinPlayer(Player player) {
         boolean ok = room.join(player);
-        if (!ok) throw new IllegalStateException("Sala cheia ou já iniciada");
+        if (!ok)
+            throw new IllegalStateException("Sala cheia ou já iniciada");
         if (isStarted())
             engine.joinGame(player);
     }

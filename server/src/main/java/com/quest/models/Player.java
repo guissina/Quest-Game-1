@@ -43,6 +43,18 @@ public class Player {
     @Column(name = "balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal balance = BigDecimal.ZERO;
 
+    @NotNull
+    @Column(name= "avatar_index", nullable = false)
+    private Integer avatarIndex;
+
+    public Integer getAvatarIndex() {
+        return avatarIndex;
+    }
+
+    public void setAvatarIndex(Integer avatarIndex) {
+        this.avatarIndex = avatarIndex;
+    }
+
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlayerTheme> playerThemes;
 

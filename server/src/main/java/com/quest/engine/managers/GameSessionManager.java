@@ -14,15 +14,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class GameSessionManager {
     private final Map<String, GameSession> sessions = new ConcurrentHashMap<>();
 
-    public String createSession() {
+    public String createSession(Boolean publicSession) {
         String id = UUID.randomUUID().toString();
-        sessions.put(id, new GameSession(id));
+        sessions.put(id, new GameSession(id, publicSession));
         return id;
     }
 
     public GameSession getSession(String sessionId) {
         GameSession session = sessions.get(sessionId);
-        if (session == null) throw new IllegalArgumentException("Session not found");
+        if (session == null)
+            throw new IllegalArgumentException("Session not found");
         return session;
     }
 
@@ -40,8 +41,6 @@ public class GameSessionManager {
 
     @Scheduled(fixedDelay = 600_000) // 10 min
     public void cleanupEmptySessions() {
-        sessions.entrySet().removeIf(entry ->
-                entry.getValue().getRoom().getPlayers().isEmpty()
-        );
+        sessions.entrySet().removeIf(entry -> entry.getValue().getRoom().getPlayers().isEmpty());
     }
 }
