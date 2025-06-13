@@ -1,7 +1,19 @@
 package com.quest.services.ws;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
 import com.quest.config.websocket.WsDestinations;
-import com.quest.dto.ws.Room.*;
+import com.quest.dto.ws.Room.JoinRoomRequestDTO;
+import com.quest.dto.ws.Room.LeaveRoomRequestDTO;
+import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
+import com.quest.dto.ws.Room.RoomCreateRequestDTO;
+import com.quest.dto.ws.Room.RoomCreateResponseDTO;
+import com.quest.dto.ws.Room.RoomStateDTO;
+import com.quest.dto.ws.Room.StartRoomRequestDTO;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
@@ -11,17 +23,12 @@ import com.quest.interfaces.rest.IBoardServices;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.interfaces.rest.IThemeServices;
 import com.quest.interfaces.ws.IGameRoomService;
+import com.quest.mappers.PlayerMapper;
 import com.quest.models.Board;
 import com.quest.models.Player;
-import com.quest.mappers.PlayerMapper;
-
 import com.quest.models.Theme;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import jakarta.transaction.Transactional;
 
 @Service
 public class GameRoomService implements IGameRoomService {
@@ -58,14 +65,14 @@ public class GameRoomService implements IGameRoomService {
 
         List<PlayerRoomResponseDTO> playersDTO = playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
 
-        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed);
+        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed, session.getHostId());
         String destination = String.format(WsDestinations.ROOM_STATE, sessionId);
         messagingTemplate.convertAndSend(destination, dto);
     }
 
     @Override
     public RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req) {
-        String sessionId = sessionManager.createSession(req.publicSession());
+        String sessionId = sessionManager.createSession(req.publicSession(), req.hostId());
         return new RoomCreateResponseDTO(sessionId);
     }
 

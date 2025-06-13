@@ -6,5 +6,6 @@ public record RoomStateDTO (
         String sessionId,
         List<PlayerRoomResponseDTO> players,
         boolean started,
-        boolean closed
+        boolean closed,
+        Long hostId
 ) { }

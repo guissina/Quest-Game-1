@@ -8,11 +8,21 @@ public class GameSession {
     private final GameRoom room;
     private GameEngine engine;
     private Boolean publicSession;
+    private Long hostId;
 
-    public GameSession(String sessionId, Boolean publicSession) {
+    public GameSession(String sessionId, Boolean publicSession, Long hostId) {
         this.sessionId = sessionId;
         this.room = new GameRoom();
         this.publicSession = publicSession;
+        this.hostId = hostId;
+    }
+
+    public Long getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(Long hostId) {
+        this.hostId = hostId;
     }
 
     public String getSessionId() {

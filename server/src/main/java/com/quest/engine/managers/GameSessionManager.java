@@ -1,22 +1,23 @@
 package com.quest.engine.managers;
 
-import com.quest.engine.core.GameEngine;
-import com.quest.engine.core.GameRoom;
-import com.quest.engine.core.GameSession;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.quest.engine.core.GameEngine;
+import com.quest.engine.core.GameRoom;
+import com.quest.engine.core.GameSession;
 
 @Component
 public class GameSessionManager {
     private final Map<String, GameSession> sessions = new ConcurrentHashMap<>();
 
-    public String createSession(Boolean publicSession) {
+    public String createSession(Boolean publicSession, Long hostId) {
         String id = UUID.randomUUID().toString();
-        sessions.put(id, new GameSession(id, publicSession));
+        sessions.put(id, new GameSession(id, publicSession, hostId));
         return id;
     }
 
