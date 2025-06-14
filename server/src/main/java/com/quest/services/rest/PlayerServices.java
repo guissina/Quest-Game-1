@@ -138,16 +138,17 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
-    public void addBalance(long id, BigDecimal balance) {
+    public PlayerResponseDTO addBalance(long id, BigDecimal balance) {
         Player player = findPlayerById(id);
         if (balance.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Balance cannot be negative");
         player.setBalance(player.getBalance().add(balance));
         playerRepository.save(player);
+        return playerMapper.toPlayerResponseDTO(player);
     }
 
     @Override
-    public void decreaseBalance(long id, BigDecimal balance) {
+    public PlayerResponseDTO decreaseBalance(long id, BigDecimal balance) {
         Player player = findPlayerById(id);
         if (balance.compareTo(BigDecimal.ZERO) < 0)
             throw new IllegalArgumentException("Balance cannot be negative");
@@ -157,6 +158,7 @@ public class PlayerServices implements IPlayerServices {
             throw new IllegalArgumentException("Insufficient balance");
 
         playerRepository.save(player);
+        return playerMapper.toPlayerResponseDTO(player);
     }
 
     @Transactional

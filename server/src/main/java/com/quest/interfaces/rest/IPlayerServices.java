@@ -11,9 +11,9 @@ import com.quest.models.Player;
 
 public interface IPlayerServices {
 
-    void addBalance(long id, BigDecimal amount);
+    PlayerResponseDTO addBalance(long id, BigDecimal amount);
 
-    void decreaseBalance(long id, BigDecimal amount);
+    PlayerResponseDTO decreaseBalance(long id, BigDecimal amount);
 
     Player findPlayerById(long id);
 
