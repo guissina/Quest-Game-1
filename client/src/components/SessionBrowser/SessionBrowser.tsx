@@ -1,24 +1,15 @@
 import styles from './SessionBrowser.module.scss';
 import { Gamepad2 } from 'lucide-react';
+import { Room } from '../../models/Room';
 import avatar1 from '../../assets/avatar/avatar1.png';
-import avatar2 from '../../assets/avatar/avatar2.png';
-// import avatar3 from '../../assets/avatar/avatar3.png';
-import avatar4 from '../../assets/avatar/avatar4.png';
-import avatar5 from '../../assets/avatar/avatar5.png';
 
 interface SessionBrowserProps {
+    publicRooms: Room[];
     onJoinRoom: (sessionId: string) => void;
     onCreateRoom: () => void;
 }
 
-const players = [
-    { id: 'sess-1', name: 'Niwan', avatar: avatar2, disabled: true },
-    { id: 'sess-2', name: 'Joãozinho da 12', avatar: avatar5 },
-    { id: 'sess-3', name: 'Pedrinho Matador', avatar: avatar1 },
-    { id: 'sess-4', name: 'meMataDeUmaVez',  avatar: avatar4 }
-];
-
-export default function SessionBrowser({ onJoinRoom, onCreateRoom }: SessionBrowserProps) {
+export default function SessionBrowser({ publicRooms, onJoinRoom, onCreateRoom }: SessionBrowserProps) {
     return (
         <div className={styles.sessionBrowser}>
             <header className={styles.header}>
@@ -27,21 +18,25 @@ export default function SessionBrowser({ onJoinRoom, onCreateRoom }: SessionBrow
             </header>
 
             <ul className={styles.sessionList}>
-                {players.map((player) => (
-                    <li key={player.id} className={styles.sessionItem}>
+                {publicRooms.length === 0 && (
+                    <li className={styles.empty}>Nenhuma sala pública encontrada.</li>
+                )}
+
+                {publicRooms.map(room => (
+                    <li key={room.sessionId} className={styles.sessionItem}>
                         <img
-                            src={player.avatar}
-                            alt={`Avatar de ${player.name}`}
+                            src={avatar1}
+                            alt={`Avatar de ....`}
                             width={80}
                             height={80}
                         />
-                        <p className={styles.playerName}>{player.name}</p>
+                        <p><strong>HOST:</strong> {room.hostId ?? '—'}</p>
+                        <p><strong>JOGADORES:</strong> {room.playerCount}</p>
                         <button
-                            disabled={player.disabled}
-                            className={`secondary-btn ${player.disabled ? styles.disabled : ''}`}
-                            onClick={() => onJoinRoom(player.id)}
+                            className="secondary-btn"
+                            onClick={() => onJoinRoom(room.sessionId)}
                         >
-                            {player.disabled ? 'Em Jogo' : 'Jogar junto'}
+                        Entrar
                         </button>
                     </li>
                 ))}

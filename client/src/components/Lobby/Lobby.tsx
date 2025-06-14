@@ -17,6 +17,7 @@ interface LobbyProps {
     players: Player[];
     started: boolean;
     startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
+    changeVisibility: (publicSession: boolean) => void;
 }
 
 const INITIAL_THEMES: ThemeProps[] = [
@@ -28,7 +29,7 @@ const INITIAL_THEMES: ThemeProps[] = [
     { id: '6', code: 'opt6', name: 'Opção 6', free: false, cost: 50 }
 ];
 
-export default function Lobby({ sessionId, myPlayerId, players, started, startRoom }: LobbyProps) {
+export default function Lobby({ sessionId, myPlayerId, players, started, startRoom, changeVisibility }: LobbyProps) {
 
     const [sessionType, setSessionType] = useState<'publica'|'particular'>('publica');
     const [boardId, setBoardId] = useState<number>(0);
@@ -42,6 +43,10 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
         setBoardId(1); 
         setInitialTokens(5);
     }, []);
+
+    useEffect(() => {
+        changeVisibility(sessionType === 'publica');
+    }, [sessionType, changeVisibility]);
 
     // TODO Review... assume the first player in `players` array is the creator
     const isCreator = players[0]?.id === myPlayerId;

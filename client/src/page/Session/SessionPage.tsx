@@ -4,14 +4,22 @@ import { useRoomWebSocket } from "../../hooks/useRoomWebSocket";
 import GamePage from "../GamePage";
 import Lobby from "../../components/Lobby/Lobby";
 import { useAuth } from "../../contexts/AuthContext";
-import { Player } from "../../models/Player";
 import styles from './SessionPage.module.scss';
 import Header from "../../components/Header/Header";
 
 export default function SessionPage() {
     const { user, logout } = useAuth();
     const { id: routeId } = useParams<{ id: string }>();
-    const { ready, sessionId, players, started, joinRoom, leaveRoom, startRoom } = useRoomWebSocket();
+    const {
+        ready,
+        sessionId,
+        players,
+        started,
+        joinRoom,
+        leaveRoom,
+        startRoom,
+        changeVisibility,
+    } = useRoomWebSocket();
 
     useEffect(() => {
         if (ready && routeId && sessionId !== routeId)
@@ -27,9 +35,6 @@ export default function SessionPage() {
     if (routeId && !sessionId) return <p>Joining session "{routeId}"…</p>;
     if (!sessionId) return <Navigate to="/" replace />;
 
-    // Converter PlayerProps[] para Player[]
-    const playerInstances = players.map(playerProps => new Player(playerProps));
-
     if (!started) {
         return (
             <div className={styles.sessionPage}>
@@ -42,11 +47,12 @@ export default function SessionPage() {
                         players={players}
                         started={started}
                         startRoom={startRoom}
+                        changeVisibility={changeVisibility}
                     />
                 </section>
             </div>
         );
     }
 
-    return <GamePage sessionId={sessionId} myPlayerId={user.id} players={playerInstances} />
+    return <GamePage sessionId={sessionId} myPlayerId={user.id} players={players} />
 }

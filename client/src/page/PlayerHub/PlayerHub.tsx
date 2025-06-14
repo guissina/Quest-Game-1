@@ -20,7 +20,14 @@ const images = [image1, image2, image3, image4, image5, image6];
 export default function PlayerHub() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
-    const { ready, sessionId, createRoom, joinRoom } = useRoomWebSocket();
+    const {
+        ready,
+        sessionId,
+        publicRooms,
+        createRoom,
+        joinRoom,
+        listPublicRooms
+    } = useRoomWebSocket();
 
     const avatarIndex = (user as any)?.avatarIndex ?? 0;
     const avatarUrl = images[avatarIndex];
@@ -29,6 +36,11 @@ export default function PlayerHub() {
         if (sessionId)
             navigate(`/session/${sessionId}`);
     }, [sessionId, navigate]);
+
+    useEffect(() => {
+        if (ready)
+            listPublicRooms();
+    }, [ready, listPublicRooms]);
 
     if (!ready) {
         return (
@@ -39,16 +51,6 @@ export default function PlayerHub() {
         );
     }
 
-    const handleJoinRoomById = (sessionId: string) => {
-        if (!user) return;
-        joinRoom(sessionId);
-    };
-
-    const handleCreateRoom = () => {
-        if (!user) return;
-        createRoom();
-    };
-
     return (
         <div className={styles.playerHub}>
             <Header playerName={user?.name ?? "Jogador"} onLogout={logout} />
@@ -56,11 +58,12 @@ export default function PlayerHub() {
             <section className={styles.section}>
                 <ProfileCard avatarUrl={avatarUrl} />
 
-                <SessionForm onJoin={handleJoinRoomById} />
+                <SessionForm onJoin={joinRoom} />
 
                 <SessionBrowser
-                    onJoinRoom={handleJoinRoomById}
-                    onCreateRoom={handleCreateRoom}
+                    publicRooms={publicRooms}
+                    onJoinRoom={joinRoom}
+                    onCreateRoom={createRoom}
                 />
             </section>
         </div>
