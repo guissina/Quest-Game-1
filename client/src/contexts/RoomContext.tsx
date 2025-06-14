@@ -1,15 +1,44 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+    useCallback
+} from "react";
+import { useAuth } from "./AuthContext";
+import { useWebSocketClient, useWebSocketStatus } from "./WebSocketContext";
 import { Player, PlayerProps } from "../models/Player";
 import { Room, RoomProps } from "../models/Room";
+import { useNavigate } from "react-router-dom";
 
-export function useRoomWebSocket() {
+interface RoomContextType {
+    ready: boolean;
+    sessionId: string | null;
+    players: Player[];
+    started: boolean;
+    hostId: number;
+    publicRooms: Room[];
+    createRoom: () => void;
+    joinRoom: (id: string) => void;
+    listPublicRooms: () => void;
+    leaveRoom: () => void;
+    startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
+    changeVisibility: (publicSession: boolean) => void;
+}
+
+const RoomContext = createContext<RoomContextType | undefined>(undefined);
+
+export function RoomProvider({ children }: { children: ReactNode }) {
     const { user } = useAuth();
     const myPlayerId = user?.id ?? null;
 
+    const navigate = useNavigate();
+
     const client = useWebSocketClient();
     const isConnected = useWebSocketStatus();
+    const ready = !!client && isConnected && !!myPlayerId;
     const hasJoinedRef = useRef(false);
 
     const [sessionId, setSessionId] = useState<string | null>(null);
@@ -18,68 +47,52 @@ export function useRoomWebSocket() {
     const [hostId, setHostId] = useState<number>(0);
     const [publicRooms, setPublicRooms] = useState<Room[]>([]);
 
-    const ready = !!client && isConnected && !!myPlayerId;
-
+    //
+    // Room Create
+    //
     useEffect(() => {
         if (!ready) return;
 
         const sub = client!.subscribe("/user/queue/room-created", (msg) => {
             const { sessionId: newId } = JSON.parse(msg.body);
-            setSessionId(newId);
             hasJoinedRef.current = false;
+            joinRoom(newId);
+            navigate(`/session/${newId}`)
         });
-
         return () => sub.unsubscribe();
     }, [client, ready]);
 
-    useEffect(() => {
-        if (!ready) return;
-
-        const sub = client!.subscribe("/user/queue/rooms/public", (msg) => {
-            console.log("[PUBLIC ROOMS]", JSON.parse(msg.body));
-            const roomsProps: RoomProps[] = JSON.parse(msg.body);
-            const rooms = roomsProps.map((rp: RoomProps) => new Room(rp)); console.log(rooms)
-            setPublicRooms(rooms);
-        });
-
-        return () => sub.unsubscribe();
-    }, [client, ready]);
-
-    useEffect(() => {
-        if (!ready || !sessionId) return;
-
-        const sub = client!.subscribe(`/topic/room/${sessionId}/state`, (msg) => {
-            const { players: list, started: isStarted, hostId: hostId } = JSON.parse(msg.body);
-            setPlayers(list.map((player: PlayerProps) => new Player(player)));
-            setStarted(isStarted);
-            setHostId(hostId);
-            console.log("[GAME ROOM]", JSON.parse(msg.body));
-        });
-        
-        hasJoinedRef.current = true;
-        return () => sub.unsubscribe();
-    }, [client, ready, sessionId]);
-
+    //
+    // Public Rooms
+    //
     useEffect(() => {
         if (!ready) return;
 
         const sub = client!.subscribe("/topic/rooms/public", (msg) => {
             const roomsProps: RoomProps[] = JSON.parse(msg.body);
-            const rooms = roomsProps.map(rp => new Room(rp));
-            setPublicRooms(rooms);
+            setPublicRooms(roomsProps.map(rp => new Room(rp)));
         });
-
         return () => sub.unsubscribe();
     }, [client, ready]);
 
+    //
+    // Room State
+    //
     useEffect(() => {
         if (!ready || !sessionId) return;
 
-        client!.publish({
-            destination: "/app/room/join",
-            body: JSON.stringify({ sessionId, playerId: myPlayerId })
+        const sub = client!.subscribe(`/topic/room/${sessionId}/state`, (msg) => {
+            const { players: list, started: isStarted, hostId } = JSON.parse(msg.body);
+            setPlayers(list.map((p: PlayerProps) => new Player(p)));
+            setStarted(isStarted);
+            setHostId(hostId);
         });
-    }, [client, ready, sessionId, myPlayerId]);
+        return () => sub.unsubscribe();
+    }, [client, ready, sessionId]);
+
+    //
+    // Actions
+    //
 
     const createRoom = useCallback(() => {
         if (!ready) return;
@@ -90,15 +103,20 @@ export function useRoomWebSocket() {
         });
     }, [client, ready, myPlayerId]);
 
-    const joinRoom = useCallback((sessionId: string) => {
-        if (!ready) return;
+    const joinRoom = useCallback((newSessionId: string) => {
+        if (!ready || hasJoinedRef.current) return;
 
-        setSessionId(sessionId);
-    }, [ready]);
+        hasJoinedRef.current = true;
+        setSessionId(newSessionId);
+        client!.publish({
+            destination: "/app/room/join",
+             body: JSON.stringify({ sessionId: newSessionId, playerId: myPlayerId })
+        });
+    }, [client, ready, myPlayerId]);
 
     const listPublicRooms = useCallback(() => {
         if (!ready) return;
-
+        
         client!.publish({
             destination: "/app/rooms/public",
             body: "{}"
@@ -107,11 +125,13 @@ export function useRoomWebSocket() {
 
     const leaveRoom = useCallback(() => {
         if (!client || !isConnected || !sessionId) return;
-
+        
         client.publish({
             destination: "/app/room/leave",
-            body: JSON.stringify({ sessionId, playerId: myPlayerId }),
+            body: JSON.stringify({ sessionId, playerId: myPlayerId })
         });
+        hasJoinedRef.current = false;
+        setSessionId(null);
     }, [client, isConnected, sessionId, myPlayerId]);
 
     const startRoom = useCallback((boardId: number, initialTokens: number, themeIds: number[]) => {
@@ -125,25 +145,35 @@ export function useRoomWebSocket() {
 
     const changeVisibility = useCallback((publicSession: boolean) => {
         if (!ready || !sessionId) return;
-
+        
         client!.publish({
             destination: "/app/room/state",
             body: JSON.stringify({ sessionId, publicSession })
         });
     }, [client, ready, sessionId]);
 
-    return {
-        ready,
-        sessionId,
-        players,
-        started,
-        hostId,
-        publicRooms,
-        createRoom,
-        joinRoom,
-        listPublicRooms,
-        leaveRoom,
-        startRoom,
-        changeVisibility
-    };
+    return (
+        <RoomContext.Provider value={{
+            ready,
+            sessionId,
+            players,
+            started,
+            hostId,
+            publicRooms,
+            createRoom,
+            joinRoom,
+            listPublicRooms,
+            leaveRoom,
+            startRoom,
+            changeVisibility
+        }}>
+            {children}
+        </RoomContext.Provider>
+    );
+}
+
+export function useRoom() {
+    const context = useContext(RoomContext);
+    if (!context) throw new Error("useRoom must be used within a RoomProvider");
+    return context;
 }

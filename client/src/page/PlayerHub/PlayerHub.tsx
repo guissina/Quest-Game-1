@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import { useRoomWebSocket } from "../../hooks/useRoomWebSocket";
+import { useRoom } from "../../contexts/RoomContext";
 import Header from "../../components/Header/Header";
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import SessionForm from "../../components/SessionForm/SessionForm";
@@ -19,23 +18,16 @@ const images = [image1, image2, image3, image4, image5, image6];
 
 export default function PlayerHub() {
     const { user, logout } = useAuth();
-    const navigate = useNavigate();
     const {
         ready,
-        sessionId,
         publicRooms,
         createRoom,
         joinRoom,
         listPublicRooms
-    } = useRoomWebSocket();
+    } = useRoom();
 
     const avatarIndex = (user as any)?.avatarIndex ?? 0;
     const avatarUrl = images[avatarIndex];
-
-    useEffect(() => {
-        if (sessionId)
-            navigate(`/session/${sessionId}`);
-    }, [sessionId, navigate]);
 
     useEffect(() => {
         if (ready)

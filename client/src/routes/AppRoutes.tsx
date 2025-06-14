@@ -16,7 +16,6 @@ export default function AppRoutes() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/recover" element={<Recover />} />
-            <Route path="/aa" element={<PlayerHub />} />
 
             {/* rotas protegidas */}
             <Route path="/store" element={<Store />} />

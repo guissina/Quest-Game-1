@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { useRoomWebSocket } from "../../hooks/useRoomWebSocket";
 import GamePage from "../GamePage";
 import Lobby from "../../components/Lobby/Lobby";
 import { useAuth } from "../../contexts/AuthContext";
 import styles from './SessionPage.module.scss';
 import Header from "../../components/Header/Header";
+import { useRoom } from "../../contexts/RoomContext";
 
 export default function SessionPage() {
     const { user, logout } = useAuth();
@@ -20,11 +20,14 @@ export default function SessionPage() {
         leaveRoom,
         startRoom,
         changeVisibility,
-    } = useRoomWebSocket();
+    } = useRoom();
 
     useEffect(() => {
-        if (ready && routeId && sessionId !== routeId)
+        if (ready && routeId && sessionId !== routeId) {
+            console.log("join", routeId);
             joinRoom(routeId);
+        }
+            
         
         return () => {
             if (sessionId) leaveRoom();
