@@ -1,0 +1,16 @@
+.coin {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .badge {
+        position: absolute;
+    }
+
+    & > span {
+        font-size: .8rem;
+        line-height: .8rem;
+        font-weight: 800;
+    }
+}

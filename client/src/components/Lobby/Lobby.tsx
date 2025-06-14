@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Player } from '../../models/Player';
-import { Theme, ThemeProps } from '../../models/Theme';
+import { Theme } from '../../models/Theme';
 import styles from './Lobby.module.scss';
 
 import image1 from '../../assets/avatar/avatar1.png';
@@ -9,6 +9,10 @@ import image3 from '../../assets/avatar/avatar3.png';
 import image4 from '../../assets/avatar/avatar4.png';
 import image5 from '../../assets/avatar/avatar5.png';
 import image6 from '../../assets/avatar/avatar6.png';
+import { Copy, CopyCheck } from 'lucide-react';
+import React from 'react';
+import { usePlayer } from '../../hooks/data/usePlayer';
+import { useTheme } from '../../hooks/data/useTheme';
 const images = [image1, image2, image3, image4, image5, image6];
 
 interface LobbyProps {
@@ -16,22 +20,18 @@ interface LobbyProps {
     myPlayerId: number;
     players: Player[];
     started: boolean;
+    hostId: number;
     startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
     changeVisibility: (publicSession: boolean) => void;
 }
 
-const INITIAL_THEMES: ThemeProps[] = [
-    { id: 1, code: 'opt1', name: 'Opção 1', free: true, cost: 0 },
-    { id: 2, code: 'opt2', name: 'Opção 2', free: false, cost: 10 },
-    { id: 3, code: 'opt3', name: 'Opção 3', free: false, cost: 20 },
-    { id: 4, code: 'opt4', name: 'Opção 4', free: false, cost: 30 },
-    { id: 5, code: 'opt5', name: 'Opção 5', free: false, cost: 40 },
-    { id: 6, code: 'opt6', name: 'Opção 6', free: false, cost: 50 }
-];
 
-export default function Lobby({ sessionId, myPlayerId, players, started, startRoom, changeVisibility }: LobbyProps) {
-
-    const [sessionType, setSessionType] = useState<'publica' | 'particular'>('publica');
+export default function Lobby({ sessionId, myPlayerId, players, started, hostId, startRoom, changeVisibility }: LobbyProps) {
+    const { player, fetchPlayer, loading: playerLoading, error: playerError } = usePlayer(myPlayerId);
+    const { themes, fetchThemes, loading: themesLoading, error: themesError } = useTheme();
+    
+    const [copied, setCopied] = React.useState(false);
+    const [sessionType, setSessionType] = useState<'publica' | 'particular'>('particular');
     const [boardId, setBoardId] = useState<number>(0);
     const [initialTokens, setInitialTokens] = useState<number>(0);
 
@@ -39,17 +39,33 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
     const [selectedThemes, setSelectedThemes] = useState<Theme[]>([]);
 
     useEffect(() => {
-        setAvailableThemes(INITIAL_THEMES.map(props => new Theme(props)));
-        setBoardId(1);
-        setInitialTokens(5);
-    }, []);
+        fetchPlayer();
+    }, [fetchPlayer]);
+
+    useEffect(() => {
+        fetchThemes();
+    }, [fetchThemes]);
+
+    useEffect(() => {
+        if (!themesLoading && themes && player) {
+            const meus = themes
+                .filter(t => player.themeIds.includes(t.id))
+                .map(t => new Theme(t));
+            setAvailableThemes(meus);
+        }
+    }, [player, themes, themesLoading]);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sessionId);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     useEffect(() => {
         changeVisibility(sessionType === 'publica');
     }, [sessionType, changeVisibility]);
 
-    // TODO Review... assume the first player in `players` array is the creator
-    const isCreator = players[0]?.id === myPlayerId;
+    const isCreator = myPlayerId === hostId;
 
     const handleStart = () => {
         if (boardId && initialTokens && selectedThemes.length === 0) return;
@@ -67,6 +83,10 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
         setAvailableThemes(prev => [...prev, theme]);
     };
 
+    if (playerLoading || themesLoading) return <p>Carregando...</p>;
+    if (playerError) return <p>Erro no jogador: {playerError}</p>;
+    if (themesError) return <p>Erro nos temas: {themesError}</p>;
+
     return (
         <section className={styles.dashboard}>
             <header>
@@ -75,13 +95,18 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
 
             <section className={styles.lobby}>
                 <form onSubmit={e => e.preventDefault()}>
-                    <input
-                        type="text"
-                        placeholder="Session ID"
-                        value={sessionId}
-                        readOnly
-                    />
-
+                    
+                    <button className={styles.copy} onClick={handleCopy}>
+                        {sessionId}
+                        <span className={styles.iconWrapper}>
+                            <span className={`${styles.icon} ${copied ? styles.hidden : styles.visible}`}>
+                            <Copy size={16} />
+                            </span>
+                            <span className={`${styles.icon} ${copied ? styles.visible : styles.hidden}`}>
+                            <CopyCheck size={16} />
+                            </span>
+                        </span>
+                    </button>
                     <select
                         value={sessionType}
                         onChange={e => setSessionType(e.target.value as 'publica' | 'particular')}
@@ -142,9 +167,10 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
                             />
                             <p>
                                 {p.name} {p.id === myPlayerId && '(Você)'}{' '}
-                                {p.id === players[0]?.id && '🛡️'}
                             </p>
-                            <button className="secondary-btn">Na Sala</button>
+                            {p.id === hostId ? 
+                                <p>Host</p> : <p>Na Sala</p>
+                            }
                         </li>
                     ))}
                 </ul>

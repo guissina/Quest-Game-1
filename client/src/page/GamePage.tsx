@@ -5,6 +5,7 @@ import "./GamePage.scss";
 import { PlayerProps } from "../models/Player";
 import { AbilityType } from "../models/PlayerState";
 import image1 from '../assets/avatar/avatar1.png';
+import Coins from "../components/Coins/Coins";
 
 interface GamePageProps {
   sessionId: string;
@@ -71,7 +72,7 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
                 <span className="gp-player-name">{p.name}</span>
                 <div className="gp-player-tokens">
                   {ps.tokens.map((t, i) => (
-                    <span key={i} className="gp-token-dot" title={`Token ${t}`}></span>
+                    <Coins key={i} value={t} />
                   ))}
                 </div>
               </div>

@@ -112,6 +112,8 @@ export function RoomProvider({ children }: { children: ReactNode }) {
             destination: "/app/room/join",
              body: JSON.stringify({ sessionId: newSessionId, playerId: myPlayerId })
         });
+        
+        navigate(`/session/${newSessionId}`);
     }, [client, ready, myPlayerId]);
 
     const listPublicRooms = useCallback(() => {

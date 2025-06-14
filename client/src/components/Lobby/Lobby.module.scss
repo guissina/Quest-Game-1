@@ -43,6 +43,48 @@
       align-items: center;
       padding: 1rem;
 
+      & > .copy {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        width: 320px;
+        height: 38px;
+        border: 2px solid black;
+        border-radius: 0.75rem;
+        background-color: white;
+        font-size: .75rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .iconWrapper {
+        position: relative;
+        width: 16px;
+        height: 16px;
+      }
+
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .visible {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+      }
+
+      .hidden {
+        opacity: 0;
+        transform: scale(0.5);
+        pointer-events: none;
+      }
+
       .themeList {
         display: flex;
         width: 100%;
@@ -63,12 +105,11 @@
           }
 
           &::-webkit-scrollbar-track {
-            background: white;
+            background: #8eddff;
           }
 
           &::-webkit-scrollbar-thumb {
             background: #1cbbff;
-            border: 1px solid #1cbbff;
           }
         }
       }
@@ -112,18 +153,20 @@
       flex-direction: column;
       list-style: none;
       gap: 0.2rem 0;
-      height: 15rem;
+      height: 20.7rem;
+      overflow-y: scroll;
 
       &::-webkit-scrollbar {
         margin-left: 1rem;
       }
 
       &::-webkit-scrollbar-track {
-        background: white;
+        background: #1cbbff;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: #1cbbff;
+        background: rgba(255, 255, 255, .5);
+        border-left: 1px solid #1cbbff;
       }
 
       li {
@@ -132,11 +175,12 @@
         justify-content: space-between;
         gap: 1rem;
         width: 100%;
-        padding-right: 0.25rem;
+        padding-right: 1rem;
         background-color: white;
         border-bottom: #1cbbff;
+        border-radius: 5.75rem 0 0 5rem;
 
-        p {
+        p:nth-child(2) {
           font-size: 1.1rem;
           font-weight: 800;
           text-align: center;
@@ -147,9 +191,11 @@
           }
         }
 
-        button {
-          max-width: 10rem;
-          background-color: #116300;
+        p:nth-child(3) {
+          font-weight: 800;
+          text-align: end;
+          font-size: .8rem;
+          color: #116300;
         }
       }
     }
@@ -168,16 +214,17 @@
       &:nth-child(1) {
         position: absolute;
         left: 1rem;
-        width: 7em;
         background-color: #e82c14;
         border: 2px solid #e82c14;
         line-height: 1rem;
+        padding: 0.25rem;
+        border-radius: .5rem;
       }
 
       &:nth-child(2) {
         width: fit-content;
         line-height: 1.5rem;
-        padding: 0.5rem 5rem;
+        padding: 0.25rem 5rem;
       }
     }
   }
