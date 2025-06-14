@@ -1,0 +1,127 @@
+.sessionPage {
+  position: relative;
+  container-type: size;
+  background: url('./../../assets/background/bg-playerHub.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 125px;
+    background-color: #006a54;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+
+    @container (max-width: 840px) {
+      flex-direction: column;
+      align-items: flex-start;
+      height: fit-content;
+      gap: 1rem;
+    }
+
+    & > p {
+      min-width: calc(50% - 5rem);
+      width: 20rem;
+      height: 1.6rem;
+      overflow: hidden;
+      color: white;
+
+      @container (max-width: 840px) {
+        height: fit-content;
+        width: 15rem;
+      }
+
+      b {
+        font-weight: 800;
+      }
+    }
+
+    span {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+      min-width: calc(50% - 5rem);
+
+      a:first-child {
+        background-color: transparent;
+        border: 2px solid white;
+      }
+
+      a:nth-child(2) {
+        width: 7em;
+        background-color: #e82c14;
+        border: 2px solid #e82c14;
+      }
+
+      @container (max-width: 840px) {
+        justify-content: flex-start;
+      }
+    }
+
+    img {
+      height: 100px;
+      @container (max-width: 840px) {
+        position: absolute;
+        right: 2rem;
+      }
+    }
+  }
+
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem 0;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 125px);
+
+    @container (max-width: 840px) {
+      min-height: calc(100vh - 139px);
+    }
+
+    .profile {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      width: fit-content;
+
+      &Link {
+        margin-top: -3.3rem;
+        margin-right: 1rem;
+      }
+
+      @container (max-width: 793px) {
+        position: relative;
+        bottom: 0rem;
+        left: 0rem;
+
+        img {
+          width: 12.5rem;
+          height: 12.5rem;
+        }
+
+        .profileLink {
+          margin-top: -3rem;
+          margin-right: -0.5rem;
+        }
+      }
+    }
+  }
+}

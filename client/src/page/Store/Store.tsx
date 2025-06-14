@@ -10,7 +10,9 @@ import { useAuth } from '../../contexts/AuthContext';
 
 export default function Store() {
   const { user } = useAuth();
-  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(user?.id || 0);
+  if (!user) return <p>Usuário não encontrado.</p>;
+  
+  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(user.id || 0);
 
   const { themes, loading, error } = useTheme();
   if (loading) return <p>Carregando lojas…</p>;

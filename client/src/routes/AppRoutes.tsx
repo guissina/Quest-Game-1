@@ -5,7 +5,7 @@ import PlayerHub from "../page/PlayerHub/PlayerHub";
 import Register from "../page/Register/Register";
 import Recover from "../page/Recover/Recover";
 import Store from "../page/Store/Store";
-import SessionPage from "../page/SessionPage";
+import SessionPage from "../page/Session/SessionPage";
 import ProtectedSocketLayout from "./ProtectedSocketLayout";
 
 export default function AppRoutes() {

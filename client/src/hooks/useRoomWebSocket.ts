@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
-import { PlayerProps } from "../models/Player";
+import { Player, PlayerProps } from "../models/Player";
 
 export function useRoomWebSocket() {
     const { user } = useAuth();
@@ -9,9 +9,10 @@ export function useRoomWebSocket() {
 
     const client = useWebSocketClient();
     const isConnected = useWebSocketStatus();
+    const hasJoinedRef = useRef(false);
 
     const [sessionId, setSessionId] = useState<string | null>(null);
-    const [players, setPlayers] = useState<PlayerProps[]>([]);
+    const [players, setPlayers] = useState<Player[]>([]);
     const [started, setStarted] = useState(false);
 
     const ready = !!client && isConnected && !!myPlayerId;
@@ -22,6 +23,7 @@ export function useRoomWebSocket() {
         const sub = client!.subscribe("/user/queue/room-created", (msg) => {
             const { sessionId: newId } = JSON.parse(msg.body);
             setSessionId(newId);
+            hasJoinedRef.current = false;
         });
 
         return () => sub.unsubscribe();
@@ -32,17 +34,17 @@ export function useRoomWebSocket() {
 
         const sub = client!.subscribe(`/topic/room/${sessionId}/state`, (msg) => {
         const { players: list, started: isStarted } = JSON.parse(msg.body);
-            setPlayers(list);
+            setPlayers(list.map((player: PlayerProps) => new Player(player)));
             setStarted(isStarted);
-            console.log("[ROOM STATE]", { sessionId, list, isStarted });
         });
-
+        
+        hasJoinedRef.current = true;
         return () => sub.unsubscribe();
     }, [client, ready, sessionId]);
 
     useEffect(() => {
         if (!ready || !sessionId) return;
-
+        
         client!.publish({
             destination: "/app/room/join",
             body: JSON.stringify({ sessionId, playerId: myPlayerId })
