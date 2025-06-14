@@ -9,9 +9,10 @@ import { Theme } from '../../models/Theme';
 interface IProductCarrousselProps {
   props: Theme[];
   decreaseBalace?: (amount: number) => void;
+  addTheme?: (themeId: string) => void;
 }
 
-export default function ProductCarroussel({ props, decreaseBalace }: IProductCarrousselProps) {
+export default function ProductCarroussel({ props, decreaseBalace, addTheme }: IProductCarrousselProps) {
   const produtos = props;
   const visibleCount = 3;
   const [startIndex, setStartIndex] = React.useState(0);
@@ -37,7 +38,7 @@ export default function ProductCarroussel({ props, decreaseBalace }: IProductCar
 
       <div className={styles.shelf}>
         {produtosVisiveis.map((item, index) => (
-          <Product key={index} props={item} decreaseBalace={decreaseBalace} />
+          <Product key={index} props={item} decreaseBalace={decreaseBalace} addTheme={addTheme} />
         ))}
       </div>
 

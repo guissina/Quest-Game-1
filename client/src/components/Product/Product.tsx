@@ -12,7 +12,7 @@ interface IProductProps {
   addTheme?: (themeId: string) => void;
 }
 
-export default function Product({ props, decreaseBalace }: IProductProps) {
+export default function Product({ props, decreaseBalace, addTheme }: IProductProps) {
   const { name, cost } = props;
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -49,7 +49,7 @@ export default function Product({ props, decreaseBalace }: IProductProps) {
               </ul>
             </div>
 
-            <button className={`${styles.comprar} btn`} onClick={() => { decreaseBalace?.(cost) }} >
+            <button className={`${styles.comprar} btn`} onClick={() => { decreaseBalace?.(cost), addTheme?.(props.id) }} >
               <p className={'secondary-btn'}>
                 <BadgeDollarSign color="#febb0b" />
                 {cost}

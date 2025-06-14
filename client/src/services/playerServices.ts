@@ -11,12 +11,14 @@ export const getPlayerById = async (id: number): Promise<Player> => {
     return new Player(raw);
 };
 
-export const addBalance = async (id: number, balance: number): Promise<void> => {
-    await api.patch(`players/${id}/addBalance`, { balance });
+export const addBalance = async (id: number, balance: number): Promise<Player> => {
+    const raw = await api.patch(`players/${id}/addBalance`, { balance });
+    return new Player(raw.data);
 }
 
-export const decreaseBalance = async (id: number, balance: number): Promise<void> => {
-    await api.patch(`players/${id}/decreaseBalance`, { balance });
+export const decreaseBalance = async (id: number, balance: number): Promise<Player> => {
+    const raw = await api.patch(`players/${id}/decreaseBalance`, { balance });
+    return new Player(raw.data);
 }
 
 export const addTheme = async (id: number, themeId: string): Promise<void> => {

@@ -11,8 +11,8 @@ import { useAuth } from '../../contexts/AuthContext';
 export default function Store() {
   const { user } = useAuth();
   if (!user) return <p>Usuário não encontrado.</p>;
-  
-  const { player, decreasePlayerBalance, addPlayerBalance } = usePlayer(user.id || 0);
+
+  const { player, decreasePlayerBalance, addPlayerBalance, addPlayerTheme } = usePlayer(user.id || 0);
 
   const { themes, loading, error } = useTheme();
   if (loading) return <p>Carregando lojas…</p>;
@@ -34,7 +34,7 @@ export default function Store() {
         {player && (<StoreCard props={player} addBalance={addPlayerBalance} />)}
       </section>
 
-      <ProductCarroussel props={themes} decreaseBalace={decreasePlayerBalance} />
+      <ProductCarroussel props={themes} decreaseBalace={decreasePlayerBalance} addTheme={addPlayerTheme} />
     </div>
   );
 }
