@@ -1,7 +1,7 @@
 import styles from "./Formlogin.module.scss";
 import { AtSign, LockKeyhole } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 
 interface LoginProps {
@@ -10,8 +10,12 @@ interface LoginProps {
 }
 
 export default function FormLogin() {
-    const { login } = useAuth();
+    const { login, user } = useAuth();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) navigate("/hub");
+    }, [user])
 
     const [formData, setFormData] = useState<LoginProps>({ email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
