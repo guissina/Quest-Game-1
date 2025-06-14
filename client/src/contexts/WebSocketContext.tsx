@@ -41,7 +41,7 @@ export const WebSocketProvider = ({ children }: { children: ReactNode }) => {
             clientRef.current = null;
             setIsConnected(false);
         };
-    }, []);
+    }, [user]);
 
     return (
         <WebSocketContext.Provider value={{ client: clientRef.current, isConnected }}>
