@@ -1,107 +1,164 @@
+import { useEffect, useState } from "react";
 import { useGameWebSocket } from "../hooks/useGameWebSocket";
-import { TurnIndicator } from "../components/Player/TurnIndicator";
-import { TokenSelector } from "../components/Player/TokenSelector";
-import { BoardView } from "../components/Board/BoardView";
+import { QuestionModal } from "../components/Question/QuestionModal";
 import "./GamePage.scss";
 import { PlayerProps } from "../models/Player";
-import { useEffect, useState } from "react";
-import { QuestionModal } from "../components/Question/QuestionModal";
 import { AbilityType } from "../models/PlayerState";
-import AbilityPanel from "../components/Player/AbilityPanel";
+import image1 from '../assets/avatar/avatar1.png';
 
 interface GamePageProps {
-    sessionId: string;
-    myPlayerId: number;
-    players: PlayerProps[];
+  sessionId: string;
+  myPlayerId: number;
+  players: PlayerProps[];
 }
 
 export default function GamePage({ sessionId, myPlayerId, players }: GamePageProps) {
-    const { gameState, drawQuestion, answerQuestion, useAbility } = useGameWebSocket(sessionId);
+  const { gameState, drawQuestion, answerQuestion, useAbility } = useGameWebSocket(sessionId);
+  const [questionOpen, setQuestionOpen] = useState(false);
 
-    const [questionOpen, setQuestionOpen] = useState(false);
+  const myState = gameState?.playerStates.find(ps => ps.playerId === myPlayerId);
+  const currentState = gameState?.playerStates.find(ps => ps.isCurrentTurn);
+  const currentPlayer = players.find(p => p.id === currentState?.playerId);
+  const pendingQuestion = gameState?.playerStates.find(ps => ps.pendingQuestion)?.pendingQuestion;
+  const canAnswer = currentState?.playerId === myPlayerId;
 
-    console.log('myPlayerId:', myPlayerId, 'type:', typeof myPlayerId);
-    const myState = gameState?.playerStates.find((ps) => ps.playerId === myPlayerId);
-    const currentState = gameState?.playerStates.find((ps) => ps.isCurrentTurn);
-
-    useEffect(() => {
-        if (gameState?.finished) {
-            const winner = players.find((p) => p.id === gameState.winnerId);
-            if (winner)
-                alert(`Game finished! Winner: ${winner.name}`);
-        }
-    }, [gameState]);
-
-    useEffect(() => {
-        if (gameState && currentState && gameState.playerStates.some((ps) => ps.pendingQuestion))
-            setQuestionOpen(true);
-    }, [gameState]);
-
-    if (!gameState)
-        return <div className="gp-container"><p>Loading game state…</p></div>
-
-    if (!myState)
-        return <div className="gp-container"><p>Waiting for game to start…</p></div>
-
-    const currentPlayer = players.find((p) => p.id === currentState?.playerId);
-
-    const handleUseAbility = (ability: AbilityType) => {
-        if (!myState) return;
-
-        useAbility(myPlayerId, ability);
+  useEffect(() => {
+    if (gameState?.finished) {
+      const winner = players.find(p => p.id === gameState.winnerId);
+      if (winner) alert(`🏆 Game finished! Winner: ${winner.name}`);
     }
+  }, [gameState]);
 
-    const handleConfirmMove = (steps: number) => {
-        drawQuestion(myPlayerId, /* tema */ 2, steps);
-    };
+  useEffect(() => {
+    if (pendingQuestion) setQuestionOpen(true);
+  }, [pendingQuestion]);
 
-    const handleAnswer = (optionId: number) => {
-        if (!myState.pendingQuestion) return;
-        answerQuestion(myPlayerId, myState.pendingQuestion.id, optionId);
-        setQuestionOpen(false);
-    };
+  if (!gameState) return <div className="gp-loading">Loading game…</div>;
+  if (!myState)   return <div className="gp-loading">Waiting for game to start…</div>;
 
-    const pendingQuestion = gameState.playerStates.find((ps) => ps.pendingQuestion)?.pendingQuestion;
-    const canAnswer = currentState?.playerId === myPlayerId;
+  const handleConfirmMove = (steps: number) => {
+    drawQuestion(myPlayerId, /* tema */ 2, steps);
+  };
 
-    return (
-        <div className='gp-container'>
-            <h1 className='gp-title'>Board Game</h1>
+  const handleAnswer = (optId: number) => {
+    if (!myState.pendingQuestion) return;
+    answerQuestion(myPlayerId, myState.pendingQuestion.id, optId);
+    setQuestionOpen(false);
+  };
 
-            {currentPlayer && <TurnIndicator playerName={currentPlayer.name} />}
+  const handleUseAbility = (ability: AbilityType) => {
+    useAbility(myPlayerId, ability);
+  };
 
-            <div className='gp-content'>
-                {pendingQuestion && (
-                    <QuestionModal
-                        isOpen={questionOpen}
-                        question={pendingQuestion}
-                        canAnswer={canAnswer}
-                        onRequestClose={() => setQuestionOpen(false)}
-                        onAnswer={handleAnswer}
-                    />
-                )}
-
-                {currentState?.playerId === myPlayerId &&
-                    !myState.pendingQuestion && (
-                        <TokenSelector
-                            tokens={myState.tokens}
-                            disabled={false}
-                            onConfirm={handleConfirmMove}
-                        />
-                    )}
-                {myState && currentState?.playerId === myPlayerId && !myState.pendingQuestion && (
-                    <AbilityPanel
-                        playerState={myState}
-                        onUseAbility={handleUseAbility}
-                        disabled={false}
-                    />
-                )}
-
-                <BoardView
-                    board={gameState.board}
-                    playerStates={gameState.playerStates}
-                />
-            </div>
+  return (
+    <div className="gp-container">
+      {/* Turn Indicator */}
+      <header className="gp-header">
+        <div className="gp-turn-indicator">
+          <strong>Turn:</strong> <span>{currentPlayer?.name}</span>
         </div>
-    );
+      </header>
+
+      <div className="gp-main">
+        {/* Left Sidebar: Players */}
+        <aside className="gp-sidebar gp-sidebar--players">
+          {players.map(p => {
+            const ps = gameState.playerStates.find(s => s.playerId === p.id)!;
+            const isCurrent = ps.isCurrentTurn;
+            return (
+              <div key={p.id} className={`gp-player-card ${isCurrent ? 'current' : ''}`}>
+                <img src={image1} alt={p.name} className="gp-player-avatar"/>
+                <span className="gp-player-name">{p.name}</span>
+                <div className="gp-player-tokens">
+                  {ps.tokens.map((t, i) => (
+                    <span key={i} className="gp-token-dot" title={`Token ${t}`}></span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </aside>
+
+        {/* Center: Board */}
+        <section className="gp-board">
+          {gameState.board.tiles.map(tile => {
+            const occupants = gameState.playerStates.filter(ps => ps.tileId === tile.id);
+            return (
+              <div
+                key={tile.id}
+                className="gp-tile"
+                style={{
+                  gridColumn: tile.col + 1,
+                  gridRow: tile.row + 1,
+                }}
+              >
+                <div className="gp-tile-id">{tile.id}</div>
+                <div className="gp-tile-theme">{tile.themes[0]?.name}</div>
+                <div className="gp-tile-players">
+                  {occupants.map(o => (
+                    <span key={o.playerId} className="gp-tile-player">
+                      {o.playerId}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </section>
+
+        {/* Right Sidebar: Abilities & TokenSelector */}
+        <aside className="gp-sidebar gp-sidebar--actions">
+          {pendingQuestion && (
+            <QuestionModal
+              isOpen={questionOpen}
+              question={pendingQuestion}
+              canAnswer={canAnswer}
+              onRequestClose={() => setQuestionOpen(false)}
+              onAnswer={handleAnswer}
+            />
+          )}
+
+          {/* Only if it's my turn and no question pending */}
+          {currentState?.playerId === myPlayerId && !myState.pendingQuestion && (
+            <>
+              <div className="gp-section">
+                <h3>Selecione movimento</h3>
+                <div className="gp-move-tokens">
+                  {myState.tokens.map((t) => (
+                    <button
+                      key={t}
+                      className="secondary-btn gp-move-token"
+                      onClick={() => handleConfirmMove(t)}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="gp-section">
+                <h3>Habilidades</h3>
+                <div className="gp-abilities">
+                  {myState.getAllAbilities().map(ability => {
+                    const active = myState.isAbilityActive(ability);
+                    return (
+                      <button
+                        key={ability}
+                        className={`gp-ability-btn ${active ? 'active' : 'inactive'}`}
+                        onClick={() => handleUseAbility(ability)}
+                        title={active ? 'Ativa' : 'Inativa'}
+                      >
+                        {ability}
+                        <span className="status">{active ? '✓' : '○'}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
+          )}
+        </aside>
+      </div>
+    </div>
+  );
 }

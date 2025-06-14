@@ -72,4 +72,8 @@ export class PlayerState {
             this.isAbilityActive(type)
         );
     }
+
+    public getAllAbilities(): AbilityType[] {
+        return Array.from(this.abilities.keys());
+    }
 }

@@ -15,6 +15,7 @@ export function useRoomWebSocket() {
     const [sessionId, setSessionId] = useState<string | null>(null);
     const [players, setPlayers] = useState<Player[]>([]);
     const [started, setStarted] = useState(false);
+    const [hostId, setHostId] = useState<number>(0);
     const [publicRooms, setPublicRooms] = useState<Room[]>([]);
 
     const ready = !!client && isConnected && !!myPlayerId;
@@ -48,9 +49,10 @@ export function useRoomWebSocket() {
         if (!ready || !sessionId) return;
 
         const sub = client!.subscribe(`/topic/room/${sessionId}/state`, (msg) => {
-            const { players: list, started: isStarted } = JSON.parse(msg.body);
+            const { players: list, started: isStarted, hostId: hostId } = JSON.parse(msg.body);
             setPlayers(list.map((player: PlayerProps) => new Player(player)));
             setStarted(isStarted);
+            setHostId(hostId);
             console.log("[GAME ROOM]", JSON.parse(msg.body));
         });
         
@@ -135,6 +137,7 @@ export function useRoomWebSocket() {
         sessionId,
         players,
         started,
+        hostId,
         publicRooms,
         createRoom,
         joinRoom,

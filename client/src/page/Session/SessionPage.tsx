@@ -15,6 +15,7 @@ export default function SessionPage() {
         sessionId,
         players,
         started,
+        hostId,
         joinRoom,
         leaveRoom,
         startRoom,
@@ -44,6 +45,7 @@ export default function SessionPage() {
                     <Lobby
                         sessionId={sessionId}
                         myPlayerId={user.id}
+                        hostId={hostId}
                         players={players}
                         started={started}
                         startRoom={startRoom}
