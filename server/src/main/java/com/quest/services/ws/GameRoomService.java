@@ -1,19 +1,14 @@
 package com.quest.services.ws;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.quest.dto.ws.Room.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import com.quest.config.websocket.WsDestinations;
-import com.quest.dto.ws.Room.JoinRoomRequestDTO;
-import com.quest.dto.ws.Room.LeaveRoomRequestDTO;
-import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
-import com.quest.dto.ws.Room.RoomCreateRequestDTO;
-import com.quest.dto.ws.Room.RoomCreateResponseDTO;
-import com.quest.dto.ws.Room.RoomStateDTO;
-import com.quest.dto.ws.Room.StartRoomRequestDTO;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
@@ -65,9 +60,15 @@ public class GameRoomService implements IGameRoomService {
 
         List<PlayerRoomResponseDTO> playersDTO = playerMapper.toPlayerRoomResponseDTOs(room.getPlayers());
 
-        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(), closed, session.getHostId());
+        RoomStateDTO dto = new RoomStateDTO(sessionId, playersDTO, room.isStarted(),
+                closed, session.getPublicSession(), session.getHostId());
         String destination = String.format(WsDestinations.ROOM_STATE, sessionId);
         messagingTemplate.convertAndSend(destination, dto);
+    }
+
+    private void broadcastPublicRooms() {
+        List<RoomSummaryDTO> rooms = listPublicRooms();
+        messagingTemplate.convertAndSend(WsDestinations.PUBLIC_ROOMS, rooms);
     }
 
     @Override
@@ -81,9 +82,22 @@ public class GameRoomService implements IGameRoomService {
         GameSession session = sessionManager.getSession(req.sessionId());
         // TODO Verificar se o player ja esta na sala (Service ou Manager?)
 
+        System.out.println("Join: " + req.playerId());
         Player player = playerServices.findPlayerById(req.playerId());
         session.joinPlayer(player);
         broadcastRoomState(req.sessionId(), false);
+        broadcastPublicRooms();
+    }
+
+    @Override
+    public List<RoomSummaryDTO> listPublicRooms() {
+        return sessionManager.getPublicSessions().stream()
+                .map(session -> new RoomSummaryDTO(
+                        session.getSessionId(),
+                        session.getHostId(),
+                        session.getRoom().getPlayers().size(),
+                        session.getRoom().isStarted()))
+                .collect(Collectors.toList());
     }
 
     @Transactional
@@ -112,6 +126,14 @@ public class GameRoomService implements IGameRoomService {
     }
 
     @Override
+    public void changeVisibility(ChangeVisibilityRoomRequestDTO req) {
+        GameSession session = sessionManager.getSession(req.sessionId());
+        session.setPublicSession(req.publicSession());
+        broadcastRoomState(req.sessionId(), session.isPublicSession());
+        broadcastPublicRooms();
+    }
+
+    @Override
     public void removeAndBroadcast(String sessionId, Long playerId) {
         GameSession session = sessionManager.getSession(sessionId);
         session.leavePlayer(playerId);
@@ -123,5 +145,6 @@ public class GameRoomService implements IGameRoomService {
             sessionManager.removeSession(sessionId);
         } else
             broadcastRoomState(sessionId, false);
+        broadcastPublicRooms();
     }
 }

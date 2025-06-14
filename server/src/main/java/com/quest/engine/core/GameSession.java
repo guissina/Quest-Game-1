@@ -39,6 +39,10 @@ public class GameSession {
         return engine;
     }
 
+    public boolean isPublicSession() {
+        return publicSession;
+    }
+
     public boolean isStarted() {
         return engine != null;
     }

@@ -7,6 +7,8 @@ import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class GameRoomWsController {
 
@@ -32,6 +34,12 @@ public class GameRoomWsController {
         registry.register(wsSessionId, req.sessionId(), req.playerId());
     }
 
+    @MessageMapping("/rooms/public")
+    @SendToUser("/queue/rooms/public")
+    public List<RoomSummaryDTO> listPublicRooms() {
+        return service.listPublicRooms();
+    }
+
     @MessageMapping("/room/start")
     public void start(StartRoomRequestDTO req) {
         service.startRoom(req);
@@ -40,5 +48,10 @@ public class GameRoomWsController {
     @MessageMapping("/room/leave")
     public void leave(LeaveRoomRequestDTO req) {
         service.leaveRoom(req);
+    }
+
+    @MessageMapping("/room/state")
+    public void changeVisibility(ChangeVisibilityRoomRequestDTO req) {
+        service.changeVisibility(req);
     }
 }

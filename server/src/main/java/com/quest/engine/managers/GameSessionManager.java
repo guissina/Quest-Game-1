@@ -1,5 +1,6 @@
 package com.quest.engine.managers;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,6 +27,13 @@ public class GameSessionManager {
         if (session == null)
             throw new IllegalArgumentException("Session not found");
         return session;
+    }
+
+    public List<GameSession> getPublicSessions() {
+        return sessions.values()
+                .stream()
+                .filter(GameSession::isPublicSession)
+                .toList();
     }
 
     public GameEngine getEngine(String sessionId) {

@@ -7,5 +7,6 @@ public record RoomStateDTO (
         List<PlayerRoomResponseDTO> players,
         boolean started,
         boolean closed,
+        Boolean publicSession,
         Long hostId
 ) { }
