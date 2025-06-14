@@ -8,17 +8,20 @@ import image4 from '../../assets/avatar/avatar4.png';
 import image5 from '../../assets/avatar/avatar5.png';
 import image6 from '../../assets/avatar/avatar6.png';
 import { Player } from '../../models/Player';
-import { addBalance } from '../../services/playerServices';
+
 
 const images = [image1, image2, image3, image4, image5, image6];
 
 interface IStoreCardProps {
-  props: Player;
-  addBalance?: (playerId: number, balance: number) => void;
+  player: Player;
+  addBalance: (amount: number) => void;
 }
 
-export default function StoreCard({ props }: IStoreCardProps) {
-  const { name, balance, avatarIndex } = props;
+export default function StoreCard({
+  player,
+  addBalance,
+}: IStoreCardProps) {
+  const { name, balance, avatarIndex } = player;
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [selectedAmount, setSelectedAmount] = React.useState<number | null>(
     null,
@@ -92,7 +95,7 @@ export default function StoreCard({ props }: IStoreCardProps) {
               className={'btn'}
               onClick={() => {
                 if (selectedAmount !== null) {
-                  addBalance?.(props.id, selectedAmount);
+                  addBalance?.(selectedAmount);
                   closeModal();
                 }
               }}

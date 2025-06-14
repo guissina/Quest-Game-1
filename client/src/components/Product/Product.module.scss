@@ -36,6 +36,10 @@
     font-weight: 900;
     background-color: #256100;
   }
+
+  .disabled {
+    background-color: grey;
+  }
 }
 
 .modalOverlay {
@@ -64,7 +68,7 @@
   text-align: center;
   align-items: center;
 
-  & > h2 {
+  &>h2 {
     font-size: 1.3rem;
     font-weight: 900;
     top: 0.5rem;
@@ -97,7 +101,7 @@
     gap: 0.5rem;
     padding: 1rem 8rem;
 
-    & > p {
+    &>p {
       display: flex;
       gap: 0.3rem;
       font-weight: 800;
@@ -121,6 +125,7 @@
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

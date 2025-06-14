@@ -21,17 +21,17 @@ interface LobbyProps {
 }
 
 const INITIAL_THEMES: ThemeProps[] = [
-    { id: '1', code: 'opt1', name: 'Opção 1', free: true, cost: 0 },
-    { id: '2', code: 'opt2', name: 'Opção 2', free: false, cost: 10 },
-    { id: '3', code: 'opt3', name: 'Opção 3', free: false, cost: 20 },
-    { id: '4', code: 'opt4', name: 'Opção 4', free: false, cost: 30 },
-    { id: '5', code: 'opt5', name: 'Opção 5', free: false, cost: 40 },
-    { id: '6', code: 'opt6', name: 'Opção 6', free: false, cost: 50 }
+    { id: 1, code: 'opt1', name: 'Opção 1', free: true, cost: 0 },
+    { id: 2, code: 'opt2', name: 'Opção 2', free: false, cost: 10 },
+    { id: 3, code: 'opt3', name: 'Opção 3', free: false, cost: 20 },
+    { id: 4, code: 'opt4', name: 'Opção 4', free: false, cost: 30 },
+    { id: 5, code: 'opt5', name: 'Opção 5', free: false, cost: 40 },
+    { id: 6, code: 'opt6', name: 'Opção 6', free: false, cost: 50 }
 ];
 
 export default function Lobby({ sessionId, myPlayerId, players, started, startRoom, changeVisibility }: LobbyProps) {
 
-    const [sessionType, setSessionType] = useState<'publica'|'particular'>('publica');
+    const [sessionType, setSessionType] = useState<'publica' | 'particular'>('publica');
     const [boardId, setBoardId] = useState<number>(0);
     const [initialTokens, setInitialTokens] = useState<number>(0);
 
@@ -40,7 +40,7 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
 
     useEffect(() => {
         setAvailableThemes(INITIAL_THEMES.map(props => new Theme(props)));
-        setBoardId(1); 
+        setBoardId(1);
         setInitialTokens(5);
     }, []);
 
@@ -52,7 +52,7 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
     const isCreator = players[0]?.id === myPlayerId;
 
     const handleStart = () => {
-        if(boardId && initialTokens && selectedThemes.length === 0) return;
+        if (boardId && initialTokens && selectedThemes.length === 0) return;
         const themeIds = selectedThemes.map(t => Number(t.id));
         startRoom(boardId, initialTokens, themeIds);
     }
@@ -66,7 +66,7 @@ export default function Lobby({ sessionId, myPlayerId, players, started, startRo
         setSelectedThemes(prev => prev.filter(t => t.id !== theme.id));
         setAvailableThemes(prev => [...prev, theme]);
     };
- 
+
     return (
         <section className={styles.dashboard}>
             <header>

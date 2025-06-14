@@ -5,14 +5,14 @@ import styles from './ProductCarroussel.module.scss';
 import Product from '../Product/Product';
 import { Theme } from '../../models/Theme';
 
-
+type ITheme = InstanceType<typeof Theme> & { id: number, purchased: boolean };
 interface IProductCarrousselProps {
-  props: Theme[];
-  decreaseBalace?: (amount: number) => void;
-  addTheme?: (themeId: string) => void;
+  props: ITheme[];
+  decreaseBalance?: (amount: number) => void;
+  addTheme?: (themeId: number) => void;
 }
 
-export default function ProductCarroussel({ props, decreaseBalace, addTheme }: IProductCarrousselProps) {
+export default function ProductCarroussel({ props, decreaseBalance, addTheme }: IProductCarrousselProps) {
   const produtos = props;
   const visibleCount = 3;
   const [startIndex, setStartIndex] = React.useState(0);
@@ -38,7 +38,7 @@ export default function ProductCarroussel({ props, decreaseBalace, addTheme }: I
 
       <div className={styles.shelf}>
         {produtosVisiveis.map((item, index) => (
-          <Product key={index} props={item} decreaseBalace={decreaseBalace} addTheme={addTheme} />
+          <Product key={index} props={item} decreaseBalance={decreaseBalance} addTheme={addTheme} />
         ))}
       </div>
 

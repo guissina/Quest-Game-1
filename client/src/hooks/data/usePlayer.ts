@@ -96,7 +96,7 @@ export const usePlayer = (playerId: number) => {
     );
 
     const addPlayerTheme = useCallback(
-        async (themeId: string) => {
+        async (themeId: number) => {
             setLoading(true);
             setError(null);
             try {

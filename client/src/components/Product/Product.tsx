@@ -6,14 +6,15 @@ import thumbnail from '../../assets/store/produto.png';
 import { Theme } from '../../models/Theme';
 
 
+type ITheme = InstanceType<typeof Theme> & { purchased: boolean };
 interface IProductProps {
-  props: Theme
-  decreaseBalace?: (amount: number) => void;
-  addTheme?: (themeId: string) => void;
+  props: ITheme;
+  decreaseBalance?: (amount: number) => void;
+  addTheme?: (themeId: number) => void;
 }
 
-export default function Product({ props, decreaseBalace, addTheme }: IProductProps) {
-  const { name, cost } = props;
+export default function Product({ props, decreaseBalance, addTheme }: IProductProps) {
+  const { name, cost, purchased } = props;
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -25,11 +26,16 @@ export default function Product({ props, decreaseBalace, addTheme }: IProductPro
         <img src={produto} alt={name} />
         <p>{name}</p>
         <button
-          className={`${styles.purchaseBtn} secondary-btn`}
+          className={`${styles.purchaseBtn} ${purchased ? styles.disabled : ""} secondary-btn`} disabled={purchased}
           onClick={openModal}
         >
-          <BadgeDollarSign color="#febb0b" />
-          {cost}
+          {purchased ?
+            'Comprado' :
+            <>
+              <BadgeDollarSign color="#febb0b" />
+              {cost}
+            </>
+          }
         </button>
       </div>
       {isModalOpen && (
@@ -49,7 +55,12 @@ export default function Product({ props, decreaseBalace, addTheme }: IProductPro
               </ul>
             </div>
 
-            <button className={`${styles.comprar} btn`} onClick={() => { decreaseBalace?.(cost), addTheme?.(props.id) }} >
+            <button className={`${styles.comprar}  btn`} onClick={() => {
+              if (purchased) return
+              addTheme?.(props.id);
+              decreaseBalance?.(cost);
+              closeModal();
+            }} >
               <p className={'secondary-btn'}>
                 <BadgeDollarSign color="#febb0b" />
                 {cost}

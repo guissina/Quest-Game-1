@@ -21,6 +21,6 @@ export const decreaseBalance = async (id: number, balance: number): Promise<Play
     return new Player(raw.data);
 }
 
-export const addTheme = async (id: number, themeId: string): Promise<void> => {
+export const addTheme = async (id: number, themeId: number): Promise<void> => {
     await api.patch(`players/${id}/addTheme`, { themeId });
 }

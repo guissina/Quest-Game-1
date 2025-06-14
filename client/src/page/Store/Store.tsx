@@ -19,6 +19,14 @@ export default function Store() {
   if (error) return <p>Erro ao carregar: {error}</p>;
   if (themes.length === 0) return <p>Sem temas disponíveis.</p>;
 
+  const productList = themes.map((prod) => {
+    if (player?.themeIds.indexOf(prod.id) == -1) {
+      return { ...prod, purchased: false };
+    } else {
+      return { ...prod, purchased: true };
+    }
+  });
+
   return (
     <div className={styles.store}>
       <header className={styles.header}>
@@ -31,10 +39,10 @@ export default function Store() {
 
       <section>
         <h1>Loja</h1>
-        {player && (<StoreCard props={player} addBalance={addPlayerBalance} />)}
+        {player && (<StoreCard player={player} addBalance={addPlayerBalance} />)}
       </section>
 
-      <ProductCarroussel props={themes} decreaseBalace={decreasePlayerBalance} addTheme={addPlayerTheme} />
+      <ProductCarroussel props={productList} decreaseBalance={decreasePlayerBalance} addTheme={addPlayerTheme} />
     </div>
   );
 }

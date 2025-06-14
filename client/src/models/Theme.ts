@@ -1,5 +1,5 @@
 export interface ThemeProps {
-    id: string;
+    id: number;
     code: string;
     name: string;
     free: boolean;
@@ -7,7 +7,7 @@ export interface ThemeProps {
 }
 
 export class Theme {
-    public readonly id: string;
+    public readonly id: number;
     public readonly code: string;
     public readonly name: string;
     public readonly free: boolean;
