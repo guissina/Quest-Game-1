@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import com.quest.interfaces.rest.IPlayerServices;
 import com.quest.mappers.PlayerMapper;
+import com.quest.mappers.ThemeMapper;
 import com.quest.models.Player;
 import com.quest.models.PlayerTheme;
 import com.quest.models.Theme;
@@ -28,14 +30,16 @@ public class PlayerServices implements IPlayerServices {
     private final PlayerRepository playerRepository;
     private final ThemeRepository themeRepository;
     private final PlayerThemeRepository playerThemeRepository;
+    private final ThemeMapper themeMapper;
 
     @Autowired
     public PlayerServices(PlayerMapper playerMapper, PlayerRepository playerRepository,
-            ThemeRepository themeRepository, PlayerThemeRepository playerThemeRepository) {
+            ThemeRepository themeRepository, PlayerThemeRepository playerThemeRepository, ThemeMapper themeMapper) {
         this.playerThemeRepository = playerThemeRepository;
         this.playerMapper = playerMapper;
         this.playerRepository = playerRepository;
         this.themeRepository = themeRepository;
+        this.themeMapper = themeMapper;
     }
 
     @Override
@@ -122,6 +126,15 @@ public class PlayerServices implements IPlayerServices {
     public void deletePlayerById(long id) {
         Player player = findPlayerById(id);
         playerRepository.delete(player);
+    }
+
+    @Override
+    public List<ThemeResponseDTO> findPlayerThemes(Long id) {
+        Player player = findPlayerById(id);
+        return player.getPlayerThemes().stream()
+                .map(PlayerTheme::getTheme)
+                .map(themeMapper::toThemeResponseDTO)
+                .toList();
     }
 
     @Override

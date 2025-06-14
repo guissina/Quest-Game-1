@@ -6,6 +6,7 @@ import java.util.List;
 import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import com.quest.models.Player;
 
 public interface IPlayerServices {
@@ -15,6 +16,8 @@ public interface IPlayerServices {
     void decreaseBalance(long id, BigDecimal amount);
 
     Player findPlayerById(long id);
+
+    List<ThemeResponseDTO> findPlayerThemes(Long id);
 
     PlayerResponseDTO create(PlayerCreateDTO playerCreateDTO);
 

@@ -20,6 +20,7 @@ import com.quest.dto.rest.Player.PlayerCreateDTO;
 import com.quest.dto.rest.Player.PlayerResponseDTO;
 import com.quest.dto.rest.Player.PlayerThemesDTO;
 import com.quest.dto.rest.Player.PlayerUpdateDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import com.quest.services.rest.PlayerServices;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -73,6 +74,13 @@ public class PlayerController {
     public ResponseEntity<PlayerResponseDTO> getPlayersByName(@PathVariable("name") String name) {
         PlayerResponseDTO player = playerServices.findByName(name);
         return ResponseEntity.ok(player);
+    }
+
+    @GetMapping("/{id}/themes")
+    @Operation(summary = "Get all themes of a player")
+    public ResponseEntity<List<ThemeResponseDTO>> getPlayerThemes(@PathVariable Long id) {
+        List<ThemeResponseDTO> themes = playerServices.findPlayerThemes(id);
+        return ResponseEntity.ok(themes);
     }
 
     @PatchMapping("/{id}/addTheme")
