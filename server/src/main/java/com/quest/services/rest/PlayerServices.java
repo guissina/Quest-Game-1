@@ -104,6 +104,10 @@ public class PlayerServices implements IPlayerServices {
             currentPlayer.setName(playerUpdateDTO.getName());
         }
 
+        if (!currentPlayer.getAvatarIndex().equals(playerUpdateDTO.getAvatarIndex())) {
+            currentPlayer.setAvatarIndex(playerUpdateDTO.getAvatarIndex());
+        }
+
         Player updatedPlayer = playerRepository.save(currentPlayer);
         return playerMapper.toPlayerResponseDTO(updatedPlayer);
     }
@@ -161,6 +165,7 @@ public class PlayerServices implements IPlayerServices {
         return playerMapper.toPlayerResponseDTO(player);
     }
 
+    // Todo: Implement verification of theme ownership
     @Transactional
     @Override
     public void addTheme(Long playerId, Long themeId) {

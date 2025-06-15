@@ -3,17 +3,11 @@ import { Player } from '../../models/Player';
 import { Theme } from '../../models/Theme';
 import styles from './Lobby.module.scss';
 
-import image1 from '../../assets/avatar/avatar1.png';
-import image2 from '../../assets/avatar/avatar2.png';
-import image3 from '../../assets/avatar/avatar3.png';
-import image4 from '../../assets/avatar/avatar4.png';
-import image5 from '../../assets/avatar/avatar5.png';
-import image6 from '../../assets/avatar/avatar6.png';
 import { Copy, CopyCheck } from 'lucide-react';
 import React from 'react';
 import { usePlayer } from '../../hooks/data/usePlayer';
 import { useTheme } from '../../hooks/data/useTheme';
-const images = [image1, image2, image3, image4, image5, image6];
+import { getAvatarUrl } from '../../utils/avatar';
 
 interface LobbyProps {
     sessionId: string;
@@ -28,7 +22,7 @@ interface LobbyProps {
 export default function Lobby({ sessionId, myPlayerId, players, started, hostId, startRoom, changeVisibility }: LobbyProps) {
     const { player, fetchPlayer, loading: playerLoading, error: playerError } = usePlayer(myPlayerId);
     const { themes, fetchThemes, loading: themesLoading, error: themesError } = useTheme();
-    
+
     const [copied, setCopied] = React.useState(false);
     const [sessionType, setSessionType] = useState<'publica' | 'particular'>('particular');
     const [boardId, setBoardId] = useState<number>(0);
@@ -94,15 +88,15 @@ export default function Lobby({ sessionId, myPlayerId, players, started, hostId,
 
             <section className={styles.lobby}>
                 <form onSubmit={e => e.preventDefault()}>
-                    
+
                     <button className={styles.copy} onClick={handleCopy}>
                         {sessionId}
                         <span className={styles.iconWrapper}>
                             <span className={`${styles.icon} ${copied ? styles.hidden : styles.visible}`}>
-                            <Copy size={16} />
+                                <Copy size={16} />
                             </span>
                             <span className={`${styles.icon} ${copied ? styles.visible : styles.hidden}`}>
-                            <CopyCheck size={16} />
+                                <CopyCheck size={16} />
                             </span>
                         </span>
                     </button>
@@ -156,20 +150,18 @@ export default function Lobby({ sessionId, myPlayerId, players, started, hostId,
                 </form>
 
                 <ul>
-                    {players.map((p, idx) => (
+                    {players.map(p => (
                         <li key={p.id}>
                             <img
-                                src={images[idx % images.length]}
+                                src={getAvatarUrl(p.avatarIndex)}
                                 alt={`Avatar de ${p.name}`}
                                 width={80}
                                 height={80}
                             />
                             <p>
-                                {p.name} {p.id === myPlayerId && '(Você)'}{' '}
+                                {p.name} {p.id === myPlayerId && '(Você)'}
                             </p>
-                            {p.id === hostId ? 
-                                <p>Host</p> : <p>Na Sala</p>
-                            }
+                            {p.id === hostId ? <p>Host</p> : <p>Na Sala</p>}
                         </li>
                     ))}
                 </ul>
