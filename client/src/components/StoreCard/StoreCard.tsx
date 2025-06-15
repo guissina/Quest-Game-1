@@ -1,16 +1,9 @@
 import React from 'react';
+import { getAvatarUrl } from '../../utils/avatar';
+import { Player } from '../../models/Player';
 import { BadgeDollarSign, X } from 'lucide-react';
 import styles from './StoreCard.module.scss';
-import image1 from '../../assets/avatar/avatar1.png';
-import image2 from '../../assets/avatar/avatar2.png';
-import image3 from '../../assets/avatar/avatar3.png';
-import image4 from '../../assets/avatar/avatar4.png';
-import image5 from '../../assets/avatar/avatar5.png';
-import image6 from '../../assets/avatar/avatar6.png';
-import { Player } from '../../models/Player';
 
-
-const images = [image1, image2, image3, image4, image5, image6];
 
 interface IStoreCardProps {
   player: Player;
@@ -27,6 +20,8 @@ export default function StoreCard({
     null,
   );
 
+  const avatarUrl = getAvatarUrl(avatarIndex);
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -35,7 +30,7 @@ export default function StoreCard({
       <div className={styles.playerData}>
         <div className={styles.player}>
           <img
-            src={images[avatarIndex]}
+            src={avatarUrl}
             alt="Avatar do usuário"
             width={140}
             height={140}
@@ -77,20 +72,6 @@ export default function StoreCard({
                 </button>
               ))}
             </div>
-            {/* <p>Selecione a forma de pagamento:</p>
-            <div className={styles.paymentOptions}>
-              {['Cartão de Crédito', 'Cartão de Débito', 'PIX', 'Boleto'].map(
-                (method) => (
-                  <button
-                    key={method}
-                    className={`${selectedPaymentMethod === method ? styles.selected : ''}`}
-                    onClick={() => setSelectedPaymentMethod(method)}
-                  >
-                    {method}
-                  </button>
-                ),
-              )}
-            </div> */}
             <button
               className={'btn'}
               onClick={() => {
