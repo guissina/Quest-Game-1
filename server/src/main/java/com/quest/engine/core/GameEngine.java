@@ -238,6 +238,7 @@ public class GameEngine {
                 .orElseThrow(() -> new IllegalArgumentException("Player not found"));
         questionManager.processFail(ps);
         ps.clearPendingQuestionAndSteps();
+        applyMovementOrReset(ps, false);
         turnManager.nextTurn();
     }
 
