@@ -196,19 +196,20 @@ public class GameEngine {
     }
 
     // TODO melhorar a lógica de movimento reverso
-    private void applyReverseMovementEffect() {
-        turnManager.nextTurn();
-        Long nextPlayerId = turnManager.getCurrentPlayerId();
-        PlayerState nextPlayer = stateByPlayer.get(nextPlayerId);
+    // private void applyReverseMovementEffect() {
+    // turnManager.nextTurn();
+    // Long nextPlayerId = turnManager.getCurrentPlayerId();
+    // PlayerState nextPlayer = stateByPlayer.get(nextPlayerId);
 
-        if (nextPlayer != null) {
-            // Marca o próximo jogador para ter movimento reverso
-            nextPlayer.activateAbility(AbilityType.REVERSE_MOVEMENT);
-            System.out.println("Player " + nextPlayerId + " terá movimento reverso no próximo turno");
-        }
+    // if (nextPlayer != null) {
+    // // Marca o próximo jogador para ter movimento reverso
+    // nextPlayer.activateAbility(AbilityType.REVERSE_MOVEMENT);
+    // System.out.println("Player " + nextPlayerId + " terá movimento reverso no
+    // próximo turno");
+    // }
 
-        turnManager.nextTurn();
-    }
+    // turnManager.nextTurn();
+    // }
 
     private void applyMovementOrReset(PlayerState ps, boolean correct) {
         if (correct)

@@ -6,15 +6,7 @@ import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import SessionForm from "../../components/SessionForm/SessionForm";
 import SessionBrowser from "../../components/SessionBrowser/SessionBrowser";
 import styles from "./PlayerHub.module.scss";
-
-import image1 from "../../assets/avatar/avatar1.png";
-import image2 from "../../assets/avatar/avatar2.png";
-import image3 from "../../assets/avatar/avatar3.png";
-import image4 from "../../assets/avatar/avatar4.png";
-import image5 from "../../assets/avatar/avatar5.png";
-import image6 from "../../assets/avatar/avatar6.png";
-
-const images = [image1, image2, image3, image4, image5, image6];
+import { getAvatarUrl } from "../../utils/avatar";
 
 export default function PlayerHub() {
     const { user, logout } = useAuth();
@@ -27,7 +19,7 @@ export default function PlayerHub() {
     } = useRoom();
 
     const avatarIndex = (user as any)?.avatarIndex ?? 0;
-    const avatarUrl = images[avatarIndex];
+    const avatarUrl = getAvatarUrl(avatarIndex);
 
     useEffect(() => {
         if (ready)
