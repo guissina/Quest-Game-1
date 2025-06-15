@@ -1,0 +1,51 @@
+.board {
+    flex: 1;
+    display: grid;
+
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows:    repeat(var(--rows), 1fr);
+    gap:                   0.25rem;
+    padding:               1rem;
+    background:            #e0f7fa;
+    width:                 90vw;
+    max-width:             1200px;
+    aspect-ratio:          var(--cols) / var(--rows);
+
+    .tile {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .tileId {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .tileTheme {
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 0.25rem;
+        }
+
+        .tilePlayers {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .tileAvatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 2px solid white;
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+                object-fit: cover;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.gameHeader {
+    padding: 1rem 2rem;
+    background-color: #006a54;
+    color: white;
+
+    .turnIndicator {
+        font-size: 1.5rem;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+}

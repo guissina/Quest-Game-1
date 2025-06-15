@@ -1,0 +1,48 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 0.75rem;
+    transition: border 0.2s;
+
+    &.current {
+        border-color: #febb0b;
+    }
+
+    .avatar {
+        width: 60px;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+    }
+
+    .name {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .tokens {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        .coin {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .badge {
+                position: absolute;
+            }
+
+            .coinValue {
+                font-size: 0.8rem;
+                line-height: 0.8rem;
+                font-weight: 800;
+            }
+        }
+    }
+}
