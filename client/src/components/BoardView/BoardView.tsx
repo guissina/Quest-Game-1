@@ -3,7 +3,7 @@ import { Board } from '../../models/Board';
 import { PlayerProps } from '../../models/Player';
 import { PlayerState } from '../../models/PlayerState';
 import styles from './BoardView.module.scss';
-import image1 from '../../assets/avatar/avatar1.png';
+import { getAvatarUrl } from '../../utils/avatar';
 
 interface BoardViewProps {
     board: Board;
@@ -33,8 +33,8 @@ export default function BoardView({ board, playerStates, players }: BoardViewPro
                         key={id}
                         className={styles.tile}
                         style={{
-                        gridColumn: col + 1,
-                        gridRow:    row + 1,
+                            gridColumn: col + 1,
+                            gridRow:    row + 1,
                         }}
                     >
                         <div className={styles.tileId}>{sequence}</div>
@@ -44,11 +44,11 @@ export default function BoardView({ board, playerStates, players }: BoardViewPro
                         <div className={styles.tilePlayers}>
                             {occupants.map(player => (
                                 <img
-                                key={player.id}
-                                src={image1}
-                                alt={player.name}
-                                title={player.name}
-                                className={styles.tileAvatar}
+                                    key={player.id}
+                                    src={getAvatarUrl(player.avatarIndex)}
+                                    alt={player.name}
+                                    title={player.name}
+                                    className={styles.tileAvatar}
                                 />
                             ))}
                         </div>
