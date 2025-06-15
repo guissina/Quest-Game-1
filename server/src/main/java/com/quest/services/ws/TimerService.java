@@ -34,14 +34,12 @@ public class TimerService {
     }
 
     private enum TimerType {
-        TURN (WsDestinations.TURN_TIMER_TICK, GameEngine::forceSkipTurn),
-        QUESTION (WsDestinations.QUESTION_TIMER_TICK, GameEngine::forceFailQuestion);
+        TURN (GameEngine::forceSkipTurn),
+        QUESTION (GameEngine::forceFailQuestion);
 
-        private final String tickDestinationPattern;
         private final BiConsumer<GameEngine, Long> onTimeoutAction;
 
-        TimerType(String tickDestinationPattern, BiConsumer<GameEngine, Long> onTimeoutAction) {
-            this.tickDestinationPattern = tickDestinationPattern;
+        TimerType(BiConsumer<GameEngine, Long> onTimeoutAction) {
             this.onTimeoutAction = onTimeoutAction;
         }
     }
@@ -84,8 +82,8 @@ public class TimerService {
         handles.tickFuture = scheduler.scheduleAtFixedRate(() -> {
             int seconds = secondsLeft.getAndDecrement();
             if (seconds >= 0) {
-                String destination = String.format(type.tickDestinationPattern, sessionId);
-                messagingTemplate.convertAndSend(destination, new TimerDTO(playerId, seconds));
+                String destination = String.format(WsDestinations.TIMER_TICK, sessionId);
+                messagingTemplate.convertAndSend(destination, new TimerDTO(playerId, seconds, type.name()));
             }
             System.out.println("Timer: " + key + " - " + seconds + "s");
         }, 0, TICK_INTERVAL_MS, TimeUnit.MILLISECONDS);

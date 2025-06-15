@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useWebSocketClient, useWebSocketStatus } from "../contexts/WebSocketContext";
-import { Game, GameProps } from "../models/Game";
+import { Game, GameProps, Timer } from "../models/Game";
 import { AbilityType } from "../models/PlayerState";
 
 export function useGameWebSocket(sessionId: string | null) {
@@ -8,32 +8,41 @@ export function useGameWebSocket(sessionId: string | null) {
     const isConnected = useWebSocketStatus();
 
     const [gameState, setGameState] = useState<Game | null>(null);
+    const [tick, setTick] = useState<Timer | null>(null);
 
     useEffect(() => {
         if (!client || !isConnected || !sessionId) return;
 
-        const dest = `/topic/game/${sessionId}/state`;
-        const sub = client.subscribe(dest, ({ body }) => {
-            const state = JSON.parse(body) as GameProps;
+        const sub = client.subscribe(`/topic/game/${sessionId}/state`, msg => {
+            const state = JSON.parse(msg.body) as GameProps;
             setGameState(new Game(state));
             console.log("[GAME STATE]", state);
         });
-
         return () => sub.unsubscribe();
     }, [client, isConnected, sessionId]);
 
     useEffect(() => {
         if (!client || !isConnected) return;
 
-        const privateDest = "/user/queue/game-state";
-        const sub = client.subscribe(privateDest, ({ body }) => {
-            const state = JSON.parse(body) as GameProps;
+        const sub = client.subscribe("/user/queue/game-state",  msg => {
+            const state = JSON.parse(msg.body) as GameProps;
             setGameState(new Game(state));
             console.log("[GAME STATE SNAPSHOT]", state);
         });
 
         return () => sub.unsubscribe();
     }, [client, isConnected]);
+
+    useEffect(() => {
+    if (!client || !isConnected) return;
+
+        const sub = client.subscribe(`/topic/room/${sessionId}/timer`, msg => {
+            const timer = JSON.parse(msg.body) as Timer;
+            setTick(timer);
+            console.log("[TIMER]: " + timer.timerType + ": " + timer.secondsLeft);
+        });
+        return () => sub.unsubscribe();
+    }, [client, isConnected, sessionId]);
 
     const fetchGameState = useCallback(() => {
         if (!client || !isConnected || !sessionId) return;
@@ -86,6 +95,7 @@ export function useGameWebSocket(sessionId: string | null) {
 
     return {
         gameState,
+        tick,
         movePlayer,
         drawQuestion,
         answerQuestion,

@@ -25,7 +25,6 @@ interface LobbyProps {
     changeVisibility: (publicSession: boolean) => void;
 }
 
-
 export default function Lobby({ sessionId, myPlayerId, players, started, hostId, startRoom, changeVisibility }: LobbyProps) {
     const { player, fetchPlayer, loading: playerLoading, error: playerError } = usePlayer(myPlayerId);
     const { themes, fetchThemes, loading: themesLoading, error: themesError } = useTheme();

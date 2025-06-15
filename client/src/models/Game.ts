@@ -1,6 +1,14 @@
 import { Board } from "./Board";
 import { PlayerState, PlayerStateProps } from "./PlayerState";
 
+export type TimerType = "TURN" | "QUESTION";
+
+export interface Timer {
+    playerId: number;
+    secondsLeft: number;
+    timerType: TimerType;
+}
+
 export interface GameProps {
     sessionId: string
     board: Board;
