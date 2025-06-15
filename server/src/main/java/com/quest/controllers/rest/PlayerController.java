@@ -86,7 +86,7 @@ public class PlayerController {
     @PatchMapping("/{id}/addTheme")
     @Operation(summary = "Add a theme to a player")
     public ResponseEntity<Void> addTheme(@PathVariable Long id, @Valid @RequestBody PlayerThemesDTO playerThemesDTO) {
-        playerServices.addTheme(id, playerThemesDTO.getThemeId());
+        playerServices.addTheme(id, playerThemesDTO.getThemeId(), playerThemesDTO.getBalance());
         return ResponseEntity.noContent().build();
     }
 
