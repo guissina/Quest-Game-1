@@ -96,11 +96,11 @@ export const usePlayer = (playerId: number) => {
     );
 
     const addPlayerTheme = useCallback(
-        async (themeId: number) => {
+        async (themeId: number, balance: number) => {
             setLoading(true);
             setError(null);
             try {
-                await addTheme(playerId, themeId);
+                await addTheme(playerId, themeId, balance);
                 await fetchPlayer();
             } catch (err: any) {
                 setError(extractErrorMessage(err));

@@ -9,11 +9,10 @@ import { Theme } from '../../models/Theme';
 type ITheme = InstanceType<typeof Theme> & { purchased: boolean };
 interface IProductProps {
   props: ITheme;
-  decreaseBalance?: (amount: number) => void;
-  addTheme?: (themeId: number) => void;
+  addTheme?: (themeId: number, balance: number) => void;
 }
 
-export default function Product({ props, decreaseBalance, addTheme }: IProductProps) {
+export default function Product({ props, addTheme }: IProductProps) {
   const { name, cost, purchased } = props;
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -57,8 +56,7 @@ export default function Product({ props, decreaseBalance, addTheme }: IProductPr
 
             <button className={`${styles.comprar}  btn`} onClick={() => {
               if (purchased) return
-              addTheme?.(props.id);
-              decreaseBalance?.(cost);
+              addTheme?.(props.id, cost);
               closeModal();
             }} >
               <p className={'secondary-btn'}>

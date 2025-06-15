@@ -12,7 +12,7 @@ export default function Store() {
   const { user } = useAuth();
   if (!user) return <p>Usuário não encontrado.</p>;
 
-  const { player, decreasePlayerBalance, addPlayerBalance, addPlayerTheme } = usePlayer(user.id || 0);
+  const { player, addPlayerBalance, addPlayerTheme } = usePlayer(user.id || 0);
 
   const { themes, loading, error } = useTheme();
   if (loading) return <p>Carregando lojas…</p>;
@@ -42,7 +42,7 @@ export default function Store() {
         {player && (<StoreCard player={player} addBalance={addPlayerBalance} />)}
       </section>
 
-      <ProductCarroussel props={productList} decreaseBalance={decreasePlayerBalance} addTheme={addPlayerTheme} />
+      <ProductCarroussel props={productList} addTheme={addPlayerTheme} />
     </div>
   );
 }

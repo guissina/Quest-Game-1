@@ -43,7 +43,7 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
-    public long count(){
+    public long count() {
         return playerRepository.count();
     }
 
@@ -173,19 +173,17 @@ public class PlayerServices implements IPlayerServices {
     // Todo: Implement verification of theme ownership
     @Transactional
     @Override
-    public void addTheme(Long playerId, Long themeId) {
-        // busca Player e Theme
+    public void addTheme(Long playerId, Long themeId, BigDecimal balance) {
+        decreaseBalance(playerId, balance);
+
         Player player = playerRepository.findById(playerId)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found with id: " + playerId));
         Theme theme = themeRepository.findById(themeId)
                 .orElseThrow(() -> new EntityNotFoundException("Theme not found with id: " + themeId));
 
-        // verifica existência
-        if (playerThemeRepository.existsByPlayerIdAndThemeId(playerId, themeId)) {
-            throw new IllegalArgumentException("Theme already exists for this player");
-        }
+        if (playerThemeRepository.existsByPlayerIdAndThemeId(playerId, themeId))
+            throw new IllegalArgumentException("Player already owns this theme");
 
-        // cria e salva relação
         PlayerTheme pt = new PlayerTheme();
         pt.setPlayer(player);
         pt.setTheme(theme);

@@ -8,11 +8,10 @@ import { Theme } from '../../models/Theme';
 type ITheme = InstanceType<typeof Theme> & { id: number, purchased: boolean };
 interface IProductCarrousselProps {
   props: ITheme[];
-  decreaseBalance?: (amount: number) => void;
-  addTheme?: (themeId: number) => void;
+  addTheme?: (themeId: number, balance: number) => void;
 }
 
-export default function ProductCarroussel({ props, decreaseBalance, addTheme }: IProductCarrousselProps) {
+export default function ProductCarroussel({ props, addTheme }: IProductCarrousselProps) {
   const produtos = props;
   const visibleCount = 3;
   const [startIndex, setStartIndex] = React.useState(0);
@@ -38,7 +37,7 @@ export default function ProductCarroussel({ props, decreaseBalance, addTheme }: 
 
       <div className={styles.shelf}>
         {produtosVisiveis.map((item, index) => (
-          <Product key={index} props={item} decreaseBalance={decreaseBalance} addTheme={addTheme} />
+          <Product key={index} props={item} addTheme={addTheme} />
         ))}
       </div>
 
