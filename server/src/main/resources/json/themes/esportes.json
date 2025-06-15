@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Esportes",
+        "code": "ESPORTE",
+        "description": "Desafie seu conhecimento sobre o mundo dos esportes, desde modalidades tradicionais até esportes menos conhecidos. Inclui atletas, eventos, regras e curiosidades do universo esportivo global.",
+        "free": true,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual país sediou os Jogos Olímpicos de 2016?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Brasil",
+                    "correct": true
+                },
+                {
+                    "optionText": "Japão",
+                    "correct": false
+                },
+                {
+                    "optionText": "China",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rússia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogador é conhecido como 'Rei do Futebol'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Pelé",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maradona",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cristiano Ronaldo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Zidane",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que esporte se usa um bastão para rebater uma bola lançada?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Beisebol",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tênis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Polo aquático",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rugby",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país tem mais títulos da Copa do Mundo de Futebol?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Brasil",
+                    "correct": true
+                },
+                {
+                    "optionText": "Alemanha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Itália",
+                    "correct": false
+                },
+                {
+                    "optionText": "Argentina",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses esportes é praticado exclusivamente na água?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Nado sincronizado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Judô",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tênis de mesa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Escalada",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos jogadores compõem um time de vôlei em quadra?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "6",
+                    "correct": true
+                },
+                {
+                    "optionText": "5",
+                    "correct": false
+                },
+                {
+                    "optionText": "7",
+                    "correct": false
+                },
+                {
+                    "optionText": "8",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem foi o primeiro brasileiro campeão mundial de Fórmula 1?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Emerson Fittipaldi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ayrton Senna",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nelson Piquet",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rubens Barrichello",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual esporte combina esqui cross-country e tiro ao alvo?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Biatlo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Decatlo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Triatlo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Skeleton",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos sets são necessários para vencer uma partida de tênis em Grand Slams masculinos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "3 de 5",
+                    "correct": true
+                },
+                {
+                    "optionText": "2 de 3",
+                    "correct": false
+                },
+                {
+                    "optionText": "4 de 7",
+                    "correct": false
+                },
+                {
+                    "optionText": "5 de 9",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual esporte utiliza uma bola chamada 'shuttlecock'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Badminton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Squash",
+                    "correct": false
+                },
+                {
+                    "optionText": "Críquete",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hóquei em campo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o esporte mais popular do mundo em termos de fãs?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Futebol",
+                    "correct": true
+                },
+                {
+                    "optionText": "Basquete",
+                    "correct": false
+                },
+                {
+                    "optionText": "Críquete",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tênis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos minutos tem um tempo regulamentar de uma partida de futebol?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "45 minutos",
+                    "correct": true
+                },
+                {
+                    "optionText": "30 minutos",
+                    "correct": false
+                },
+                {
+                    "optionText": "60 minutos",
+                    "correct": false
+                },
+                {
+                    "optionText": "50 minutos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o principal campeonato de futebol da Europa entre clubes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Liga dos Campeões",
+                    "correct": true
+                },
+                {
+                    "optionText": "Premier League",
+                    "correct": false
+                },
+                {
+                    "optionText": "La Liga",
+                    "correct": false
+                },
+                {
+                    "optionText": "Serie A",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o nome do esporte que mistura corrida e ciclismo, entre outras modalidades?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Triatlo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pentatlo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maratona",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ironman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos pontos vale uma cesta de três no basquete?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "3 pontos",
+                    "correct": true
+                },
+                {
+                    "optionText": "2 pontos",
+                    "correct": false
+                },
+                {
+                    "optionText": "4 pontos",
+                    "correct": false
+                },
+                {
+                    "optionText": "5 pontos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país é o maior vencedor do torneio de Rugby Union chamado 'Six Nations'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Inglaterra",
+                    "correct": true
+                },
+                {
+                    "optionText": "França",
+                    "correct": false
+                },
+                {
+                    "optionText": "Irlanda",
+                    "correct": false
+                },
+                {
+                    "optionText": "Escócia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos atletas compõem uma equipe de revezamento 4x100m?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "4",
+                    "correct": true
+                },
+                {
+                    "optionText": "3",
+                    "correct": false
+                },
+                {
+                    "optionText": "5",
+                    "correct": false
+                },
+                {
+                    "optionText": "6",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual atleta tem mais medalhas olímpicas da história?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Michael Phelps",
+                    "correct": true
+                },
+                {
+                    "optionText": "Usain Bolt",
+                    "correct": false
+                },
+                {
+                    "optionText": "Larisa Latynina",
+                    "correct": false
+                },
+                {
+                    "optionText": "Simone Biles",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da técnica de pontuação usada no boxe olímpico?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Sistema de 10 pontos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Knockout count",
+                    "correct": false
+                },
+                {
+                    "optionText": "Golpes por minuto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Critério de desempate",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que país nasceu o tênis moderno?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Inglaterra",
+                    "correct": true
+                },
+                {
+                    "optionText": "França",
+                    "correct": false
+                },
+                {
+                    "optionText": "Estados Unidos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Suíça",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da jogada que termina um set de tênis?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Game",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ace",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tie-break",
+                    "correct": false
+                },
+                {
+                    "optionText": "Match",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior evento de MMA do mundo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "UFC",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bellator",
+                    "correct": false
+                },
+                {
+                    "optionText": "PFL",
+                    "correct": false
+                },
+                {
+                    "optionText": "ONE Championship",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas modalidades não faz parte do atletismo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Ciclismo de pista",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lançamento de dardo",
+                    "correct": false
+                },
+                {
+                    "optionText": "100 metros rasos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Salto triplo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número máximo de faltas permitidas para um jogador de basquete antes de ser eliminado?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "5",
+                    "correct": true
+                },
+                {
+                    "optionText": "4",
+                    "correct": false
+                },
+                {
+                    "optionText": "6",
+                    "correct": false
+                },
+                {
+                    "optionText": "3",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes esportes utiliza um disco em vez de bola?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Hóquei no gelo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Futebol",
+                    "correct": false
+                },
+                {
+                    "optionText": "Handebol",
+                    "correct": false
+                },
+                {
+                    "optionText": "Basquete",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país é conhecido como a casa do sumô?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Japão",
+                    "correct": true
+                },
+                {
+                    "optionText": "China",
+                    "correct": false
+                },
+                {
+                    "optionText": "Coreia do Sul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tailândia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantas voltas são dadas na piscina olímpica em uma prova de 200 metros nado livre?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "4",
+                    "correct": true
+                },
+                {
+                    "optionText": "2",
+                    "correct": false
+                },
+                {
+                    "optionText": "6",
+                    "correct": false
+                },
+                {
+                    "optionText": "8",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o único país a ter participado de todas as Copas do Mundo de Futebol?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Brasil",
+                    "correct": true
+                },
+                {
+                    "optionText": "Alemanha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Argentina",
+                    "correct": false
+                },
+                {
+                    "optionText": "Itália",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa um 'triple-double' no basquete?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Dois dígitos em três estatísticas diferentes",
+                    "correct": true
+                },
+                {
+                    "optionText": "Três cestas de três pontos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Três faltas e três assistências",
+                    "correct": false
+                },
+                {
+                    "optionText": "Três jogadores com 10 pontos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do maior torneio de futebol feminino do mundo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Copa do Mundo Feminina",
+                    "correct": true
+                },
+                {
+                    "optionText": "Liga das Nações",
+                    "correct": false
+                },
+                {
+                    "optionText": "Copa América",
+                    "correct": false
+                },
+                {
+                    "optionText": "Champions League Feminina",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do maior torneio de seleções da América do Sul?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Copa América",
+                    "correct": true
+                },
+                {
+                    "optionText": "Libertadores",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sul-Americana",
+                    "correct": false
+                },
+                {
+                    "optionText": "Recopa",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do esporte olímpico em que se atira com arco e flecha?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Tiro com arco",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pentatlo moderno",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tiro esportivo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lançamento de dardo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos jogadores há em um time de futebol americano (em campo por vez)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "11",
+                    "correct": true
+                },
+                {
+                    "optionText": "10",
+                    "correct": false
+                },
+                {
+                    "optionText": "12",
+                    "correct": false
+                },
+                {
+                    "optionText": "9",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o nome da técnica de finalização no jiu-jitsu que pressiona o pescoço do adversário?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Estrangulamento",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arm lock",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chave de calcanhar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Passagem de guarda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas modalidades é uma arte marcial japonesa?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Judô",
+                    "correct": true
+                },
+                {
+                    "optionText": "Taekwondo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Muay Thai",
+                    "correct": false
+                },
+                {
+                    "optionText": "Krav Maga",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a distância de uma maratona tradicional?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "42,195 km",
+                    "correct": true
+                },
+                {
+                    "optionText": "40 km",
+                    "correct": false
+                },
+                {
+                    "optionText": "50 km",
+                    "correct": false
+                },
+                {
+                    "optionText": "38,6 km",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da principal competição de clubes da América do Sul?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Copa Libertadores",
+                    "correct": true
+                },
+                {
+                    "optionText": "Copa América",
+                    "correct": false
+                },
+                {
+                    "optionText": "Supercopa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Copa Sul-Americana",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual país surgiu o rugby?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Inglaterra",
+                    "correct": true
+                },
+                {
+                    "optionText": "França",
+                    "correct": false
+                },
+                {
+                    "optionText": "Austrália",
+                    "correct": false
+                },
+                {
+                    "optionText": "África do Sul",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um birdie no golfe?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Completar o buraco com uma tacada a menos do que o par",
+                    "correct": true
+                },
+                {
+                    "optionText": "Completar o buraco com uma tacada a mais do que o par",
+                    "correct": false
+                },
+                {
+                    "optionText": "Acertar o buraco com uma só tacada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Errar o buraco três vezes seguidas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses esportes exige o uso de um capacete com rede metálica?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Esgrima",
+                    "correct": true
+                },
+                {
+                    "optionText": "Beisebol",
+                    "correct": false
+                },
+                {
+                    "optionText": "Polo aquático",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ginástica artística",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país venceu a primeira Copa do Mundo de futebol em 1930?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Uruguai",
+                    "correct": true
+                },
+                {
+                    "optionText": "Brasil",
+                    "correct": false
+                },
+                {
+                    "optionText": "Itália",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alemanha",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da superfície de quadra mais comum no US Open de tênis?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Quadra dura (hard court)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Saibro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Grama",
+                    "correct": false
+                },
+                {
+                    "optionText": "Madeira",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas manobras é típica do skate?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Ollie",
+                    "correct": true
+                },
+                {
+                    "optionText": "Corte seco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chute de gancho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arremesso de três",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No handebol, quantos jogadores há por time em quadra (incluindo o goleiro)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "7",
+                    "correct": true
+                },
+                {
+                    "optionText": "6",
+                    "correct": false
+                },
+                {
+                    "optionText": "8",
+                    "correct": false
+                },
+                {
+                    "optionText": "9",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual a principal diferença entre o vôlei de quadra e o vôlei de praia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Número de jogadores por time",
+                    "correct": true
+                },
+                {
+                    "optionText": "Peso da bola",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pontos necessários para vencer",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tamanho da rede",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses esportes foi incluído pela primeira vez nas Olimpíadas de Tóquio 2020?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Surfe",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ciclismo BMX",
+                    "correct": false
+                },
+                {
+                    "optionText": "Canoagem",
+                    "correct": false
+                },
+                {
+                    "optionText": "Levantamento de peso",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do maior estádio do Brasil?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Maracanã",
+                    "correct": true
+                },
+                {
+                    "optionText": "Morumbi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mineirão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arena Corinthians",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o nome do ponto que define o fim de uma luta de MMA por desistência?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Finalização",
+                    "correct": true
+                },
+                {
+                    "optionText": "Knockdown",
+                    "correct": false
+                },
+                {
+                    "optionText": "Takedown",
+                    "correct": false
+                },
+                {
+                    "optionText": "Golpe baixo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o esporte no qual se compete com cavalo e obstáculos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Hipismo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Enduro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Corrida de cavalo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Polo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual esporte o brasileiro Ítalo Ferreira foi campeão olímpico?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Surfe",
+                    "correct": true
+                },
+                {
+                    "optionText": "Skate",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vela",
+                    "correct": false
+                },
+                {
+                    "optionText": "Atletismo",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

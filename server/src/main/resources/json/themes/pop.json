@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Cultura Pop",
+        "code": "POP",
+        "description": "Mergulhe no universo da cultura pop, incluindo filmes, séries, música, celebridades e tendências que marcaram gerações. Teste seus conhecimentos sobre os ícones e fenômenos do entretenimento contemporâneo.",
+        "free": true,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual personagem da série *Friends* é conhecido por dizer 'How you doin'?'",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Joey Tribbiani",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ross Geller",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chandler Bing",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gunther",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual artista lançou o álbum *1989*?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Taylor Swift",
+                    "correct": true
+                },
+                {
+                    "optionText": "Adele",
+                    "correct": false
+                },
+                {
+                    "optionText": "Katy Perry",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lady Gaga",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em *Stranger Things*, qual é o nome da dimensão paralela?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Mundo Invertido",
+                    "correct": true
+                },
+                {
+                    "optionText": "Terra das Sombras",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vale Escuro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dimensão Perdida",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual filme ganhou o Oscar de Melhor Filme em 2020?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Parasita",
+                    "correct": true
+                },
+                {
+                    "optionText": "1917",
+                    "correct": false
+                },
+                {
+                    "optionText": "Coringa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Era Uma Vez em... Hollywood",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que cidade se passa a maior parte da série *Breaking Bad*?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Albuquerque",
+                    "correct": true
+                },
+                {
+                    "optionText": "Las Vegas",
+                    "correct": false
+                },
+                {
+                    "optionText": "El Paso",
+                    "correct": false
+                },
+                {
+                    "optionText": "Phoenix",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do dragão de Daenerys Targaryen que sobrevive até o fim de *Game of Thrones*?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Drogon",
+                    "correct": true
+                },
+                {
+                    "optionText": "Viserion",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rhaegal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Smaug",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual herói da Marvel é conhecido como o 'Homem Sem Medo'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Demolidor",
+                    "correct": true
+                },
+                {
+                    "optionText": "Homem de Ferro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pantera Negra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Motoqueiro Fantasma",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cantora é também conhecida pelo alter ego 'Sasha Fierce'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Beyoncé",
+                    "correct": true
+                },
+                {
+                    "optionText": "Rihanna",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nicki Minaj",
+                    "correct": false
+                },
+                {
+                    "optionText": "Miley Cyrus",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o verdadeiro nome do Batman nos quadrinhos?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bruce Wayne",
+                    "correct": true
+                },
+                {
+                    "optionText": "Clark Kent",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tony Stark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Peter Parker",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual banda lançou o álbum *The Dark Side of the Moon*?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Pink Floyd",
+                    "correct": true
+                },
+                {
+                    "optionText": "The Beatles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Led Zeppelin",
+                    "correct": false
+                },
+                {
+                    "optionText": "Queen",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o primeiro filme do Universo Cinematográfico Marvel (MCU)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Homem de Ferro",
+                    "correct": true
+                },
+                {
+                    "optionText": "Capitão América: O Primeiro Vingador",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Incrível Hulk",
+                    "correct": false
+                },
+                {
+                    "optionText": "Thor",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual boy band lançou o hit 'What Makes You Beautiful'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "One Direction",
+                    "correct": true
+                },
+                {
+                    "optionText": "Backstreet Boys",
+                    "correct": false
+                },
+                {
+                    "optionText": "NSYNC",
+                    "correct": false
+                },
+                {
+                    "optionText": "BTS",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual série animada tem um personagem chamado Morty?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Rick and Morty",
+                    "correct": true
+                },
+                {
+                    "optionText": "Futurama",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os Simpsons",
+                    "correct": false
+                },
+                {
+                    "optionText": "South Park",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses artistas NÃO fez parte da banda Destiny’s Child?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Janet Jackson",
+                    "correct": true
+                },
+                {
+                    "optionText": "Beyoncé",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kelly Rowland",
+                    "correct": false
+                },
+                {
+                    "optionText": "Michelle Williams",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que ano foi lançado o primeiro filme de *Harry Potter*?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "2001",
+                    "correct": true
+                },
+                {
+                    "optionText": "1999",
+                    "correct": false
+                },
+                {
+                    "optionText": "2003",
+                    "correct": false
+                },
+                {
+                    "optionText": "2005",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual personagem do MCU levanta o Mjölnir além de Thor?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Capitão América",
+                    "correct": true
+                },
+                {
+                    "optionText": "Homem de Ferro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hulk",
+                    "correct": false
+                },
+                {
+                    "optionText": "Feiticeira Escarlate",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em *The Office* (EUA), quem é o chefe da filial de Scranton no início da série?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Michael Scott",
+                    "correct": true
+                },
+                {
+                    "optionText": "Jim Halpert",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dwight Schrute",
+                    "correct": false
+                },
+                {
+                    "optionText": "Stanley Hudson",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome verdadeiro da cantora Lady Gaga?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Stefani Germanotta",
+                    "correct": true
+                },
+                {
+                    "optionText": "Alecia Moore",
+                    "correct": false
+                },
+                {
+                    "optionText": "Robyn Fenty",
+                    "correct": false
+                },
+                {
+                    "optionText": "Katheryn Hudson",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem dirigiu o filme *Pulp Fiction*?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Quentin Tarantino",
+                    "correct": true
+                },
+                {
+                    "optionText": "Martin Scorsese",
+                    "correct": false
+                },
+                {
+                    "optionText": "Francis Ford Coppola",
+                    "correct": false
+                },
+                {
+                    "optionText": "Christopher Nolan",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do canal brasileiro famoso por paródias musicais e cultura geek?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Castro Brothers",
+                    "correct": true
+                },
+                {
+                    "optionText": "Desimpedidos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Você Sabia?",
+                    "correct": false
+                },
+                {
+                    "optionText": "Manual do Mundo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o verdadeiro nome de drag da apresentadora RuPaul?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "RuPaul Andre Charles",
+                    "correct": true
+                },
+                {
+                    "optionText": "Paul Anthony Ru",
+                    "correct": false
+                },
+                {
+                    "optionText": "Andre Paul Johnson",
+                    "correct": false
+                },
+                {
+                    "optionText": "RuPaul David Smith",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o primeiro videoclipe transmitido na MTV em 1981?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Video Killed the Radio Star",
+                    "correct": true
+                },
+                {
+                    "optionText": "Thriller",
+                    "correct": false
+                },
+                {
+                    "optionText": "Take On Me",
+                    "correct": false
+                },
+                {
+                    "optionText": "Like a Virgin",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas celebridades é conhecida por dizer 'That's hot'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Paris Hilton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kim Kardashian",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lindsay Lohan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Britney Spears",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual personagem da Disney tem como vilão o Dr. Facilier?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Tiana",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ariel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mulan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Elsa",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em *How I Met Your Mother*, qual o apelido dado ao livro de conquistas do Barney?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "O Código Bro",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Manual da Paquera",
+                    "correct": false
+                },
+                {
+                    "optionText": "A Bíblia do Barney",
+                    "correct": false
+                },
+                {
+                    "optionText": "Manual de Conquistas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da música viral de 2012 que originou uma dança icônica?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Gangnam Style",
+                    "correct": true
+                },
+                {
+                    "optionText": "Harlem Shake",
+                    "correct": false
+                },
+                {
+                    "optionText": "Macarena",
+                    "correct": false
+                },
+                {
+                    "optionText": "Despacito",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses filmes NÃO é dirigido por Christopher Nolan?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Cisne Negro",
+                    "correct": true
+                },
+                {
+                    "optionText": "A Origem",
+                    "correct": false
+                },
+                {
+                    "optionText": "Interestelar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tenet",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual banda brasileira é conhecida pelas músicas 'Anna Julia' e 'Vou Deixar'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Los Hermanos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Skank",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jota Quest",
+                    "correct": false
+                },
+                {
+                    "optionText": "CPM 22",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem interpretou o personagem 'Edward Mãos de Tesoura'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Johnny Depp",
+                    "correct": true
+                },
+                {
+                    "optionText": "Leonardo DiCaprio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brad Pitt",
+                    "correct": false
+                },
+                {
+                    "optionText": "Keanu Reeves",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual série de comédia acompanha a vida de um grupo de cientistas e nerds em Pasadena?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "The Big Bang Theory",
+                    "correct": true
+                },
+                {
+                    "optionText": "Silicon Valley",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brooklyn Nine-Nine",
+                    "correct": false
+                },
+                {
+                    "optionText": "Modern Family",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas séries foi baseada em uma história em quadrinhos da DC Comics?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Arrow",
+                    "correct": true
+                },
+                {
+                    "optionText": "Breaking Bad",
+                    "correct": false
+                },
+                {
+                    "optionText": "Stranger Things",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Walking Dead",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses filmes é estrelado por Keanu Reeves como um assassino profissional?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "John Wick",
+                    "correct": true
+                },
+                {
+                    "optionText": "Matrix",
+                    "correct": false
+                },
+                {
+                    "optionText": "Velocidade Máxima",
+                    "correct": false
+                },
+                {
+                    "optionText": "Constantine",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual rapper ficou famoso pelo hit 'God's Plan'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Drake",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kanye West",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kendrick Lamar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Travis Scott",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual filme tem como personagem principal um palhaço chamado Pennywise?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "It: A Coisa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Corra!",
+                    "correct": false
+                },
+                {
+                    "optionText": "Invocação do Mal",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Iluminado",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas cantoras é famosa por usar perucas coloridas e visuais excêntricos?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Katy Perry",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dua Lipa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Olivia Rodrigo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Shakira",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da irmã da Kim Kardashian que é modelo e empresária?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Kendall Jenner",
+                    "correct": true
+                },
+                {
+                    "optionText": "Khloé Kardashian",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kylie Jenner",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kourtney Kardashian",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o primeiro reality show brasileiro a fazer enorme sucesso nacional?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Casa dos Artistas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Big Brother Brasil",
+                    "correct": false
+                },
+                {
+                    "optionText": "No Limite",
+                    "correct": false
+                },
+                {
+                    "optionText": "De Férias com o Ex",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em *Vingadores: Guerra Infinita*, onde Thanos encontra a Joia da Alma?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Vormir",
+                    "correct": true
+                },
+                {
+                    "optionText": "Xandar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Asgard",
+                    "correct": false
+                },
+                {
+                    "optionText": "Titan",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem interpretou a Mulher-Gato no filme *Batman: O Retorno* de 1992?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Michelle Pfeiffer",
+                    "correct": true
+                },
+                {
+                    "optionText": "Halle Berry",
+                    "correct": false
+                },
+                {
+                    "optionText": "Anne Hathaway",
+                    "correct": false
+                },
+                {
+                    "optionText": "Zoe Kravitz",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual das redes sociais ficou famosa por vídeos curtos de dublagens musicais antes de virar o TikTok?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Musical.ly",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vine",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dubsmash",
+                    "correct": false
+                },
+                {
+                    "optionText": "Snapchat",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o criador da série *Family Guy* (Uma Família da Pesada)?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Seth MacFarlane",
+                    "correct": true
+                },
+                {
+                    "optionText": "Matt Groening",
+                    "correct": false
+                },
+                {
+                    "optionText": "Trey Parker",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mike Judge",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas séries é estrelada por Pedro Pascal e se passa em um mundo pós-apocalíptico com criaturas infectadas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "The Last of Us",
+                    "correct": true
+                },
+                {
+                    "optionText": "The Mandalorian",
+                    "correct": false
+                },
+                {
+                    "optionText": "Narcos",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Walking Dead",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do parque temático fictício onde se passa *Westworld*?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Westworld",
+                    "correct": true
+                },
+                {
+                    "optionText": "Futureland",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cyberpark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dream Valley",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cantor brasileiro ficou famoso com o hit 'Adocica'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Beto Barbosa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sidney Magal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fagner",
+                    "correct": false
+                },
+                {
+                    "optionText": "Reginaldo Rossi",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual série o personagem principal escreve um livro chamado *Misery*?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Não é série, é um filme baseado em Stephen King",
+                    "correct": true
+                },
+                {
+                    "optionText": "Castle",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dexter",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Fall",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual reality show popular tem um confessionário chamado 'Cabine de Descompressão'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Big Brother Brasil",
+                    "correct": true
+                },
+                {
+                    "optionText": "MasterChef",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Voice Brasil",
+                    "correct": false
+                },
+                {
+                    "optionText": "A Fazenda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do personagem interpretado por Millie Bobby Brown em *Stranger Things*?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Onze (Eleven)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Max",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nancy",
+                    "correct": false
+                },
+                {
+                    "optionText": "Joyce",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da escola de magia em *Harry Potter*?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Hogwarts",
+                    "correct": true
+                },
+                {
+                    "optionText": "Durmstrang",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ilvermorny",
+                    "correct": false
+                },
+                {
+                    "optionText": "Beauxbatons",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses filmes é um musical estrelado por Ryan Gosling e Emma Stone?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "La La Land",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Primeiro Homem",
+                    "correct": false
+                },
+                {
+                    "optionText": "Drive",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crazy, Stupid, Love",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é a cantora brasileira conhecida como 'Rainha da Sofrência'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Marília Mendonça",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maiara",
+                    "correct": false
+                },
+                {
+                    "optionText": "Simone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Anitta",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

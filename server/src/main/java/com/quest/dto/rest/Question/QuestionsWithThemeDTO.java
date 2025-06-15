@@ -17,6 +17,9 @@ public class QuestionsWithThemeDTO {
     @NotEmpty
     private List<QuestionCreateDTO> questions;
 
+    public QuestionsWithThemeDTO() {
+    }
+
     public QuestionsWithThemeDTO(ThemeCreateDTO theme, List<QuestionCreateDTO> questions) {
         this.theme = theme;
         this.questions = questions;

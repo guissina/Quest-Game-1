@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Livros e Filmes",
+        "code": "LITERATURA",
+        "description": "Explore histórias que marcaram o cinema e a literatura mundial. De clássicos a best-sellers e blockbusters, teste seus conhecimentos sobre enredos, autores, personagens e diretores inesquecíveis.",
+        "free": true,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Quem escreveu o livro 'Dom Quixote'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Miguel de Cervantes",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gabriel García Márquez",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jorge Luis Borges",
+                    "correct": false
+                },
+                {
+                    "optionText": "William Shakespeare",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual filme da saga 'Harry Potter' ocorre o Torneio Tribruxo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Harry Potter e o Cálice de Fogo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Harry Potter e a Câmara Secreta",
+                    "correct": false
+                },
+                {
+                    "optionText": "Harry Potter e a Ordem da Fênix",
+                    "correct": false
+                },
+                {
+                    "optionText": "Harry Potter e o Prisioneiro de Azkaban",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual autor criou o personagem Sherlock Holmes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Arthur Conan Doyle",
+                    "correct": true
+                },
+                {
+                    "optionText": "Agatha Christie",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edgar Allan Poe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Stephen King",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o título original do filme brasileiro conhecido como 'Cidade de Deus'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "City of God",
+                    "correct": true
+                },
+                {
+                    "optionText": "God's City",
+                    "correct": false
+                },
+                {
+                    "optionText": "The City of Men",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Godfather of Rio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual livro inicia com a frase: 'Era uma vez um homem que tinha uma ovelha chamada Mimi'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "O Pequeno Príncipe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dom Quixote",
+                    "correct": false
+                },
+                {
+                    "optionText": "Capitães da Areia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Grande Sertão: Veredas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem dirigiu o filme 'A Origem' (Inception)?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Christopher Nolan",
+                    "correct": true
+                },
+                {
+                    "optionText": "Steven Spielberg",
+                    "correct": false
+                },
+                {
+                    "optionText": "Quentin Tarantino",
+                    "correct": false
+                },
+                {
+                    "optionText": "Martin Scorsese",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No universo de 'Senhor dos Anéis', qual é o nome do hobbit que carrega o Anel para destruir?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Frodo Bolseiro",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bilbo Bolseiro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Samwise Gamgi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Meriadoc Brandebuque",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual romance de Jane Austen foi adaptado para o famoso filme de 2005 estrelado por Keira Knightley?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Orgulho e Preconceito",
+                    "correct": true
+                },
+                {
+                    "optionText": "Razão e Sensibilidade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Emma",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mansfield Park",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o verdadeiro nome do personagem conhecido como 'O Coringa' nos quadrinhos da DC?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Jack Napier",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arthur Fleck",
+                    "correct": false
+                },
+                {
+                    "optionText": "Harley Quinn",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bruce Wayne",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem escreveu a trilogia 'Millennium', que começa com 'Os Homens que Não Amavam as Mulheres'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Stieg Larsson",
+                    "correct": true
+                },
+                {
+                    "optionText": "Jo Nesbø",
+                    "correct": false
+                },
+                {
+                    "optionText": "Henning Mankell",
+                    "correct": false
+                },
+                {
+                    "optionText": "Camilla Läckberg",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o autor do romance '1984'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "George Orwell",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aldous Huxley",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ray Bradbury",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jules Verne",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual personagem de 'O Grande Gatsby' é conhecido por suas festas extravagantes?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Jay Gatsby",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tom Buchanan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nick Carraway",
+                    "correct": false
+                },
+                {
+                    "optionText": "George Wilson",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual livro de Stephen King um palhaço chamado Pennywise aterroriza uma cidade?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "It: A Coisa",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Iluminado",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carrie, a Estranha",
+                    "correct": false
+                },
+                {
+                    "optionText": "A Torre Negra",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do livro que inspirou o filme 'Blade Runner'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Androides Sonham com Ovelhas Elétricas?",
+                    "correct": true
+                },
+                {
+                    "optionText": "Neuromancer",
+                    "correct": false
+                },
+                {
+                    "optionText": "Eu, Robô",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Homem do Castelo Alto",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem escreveu a obra 'O Nome da Rosa'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Umberto Eco",
+                    "correct": true
+                },
+                {
+                    "optionText": "Italo Calvino",
+                    "correct": false
+                },
+                {
+                    "optionText": "José Saramago",
+                    "correct": false
+                },
+                {
+                    "optionText": "Franz Kafka",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da distopia escrita por Aldous Huxley?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Admirável Mundo Novo",
+                    "correct": true
+                },
+                {
+                    "optionText": "1984",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fahrenheit 451",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Conto da Aia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No livro 'O Hobbit', qual é o nome do dragão?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Smaug",
+                    "correct": true
+                },
+                {
+                    "optionText": "Drogon",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fírnen",
+                    "correct": false
+                },
+                {
+                    "optionText": "Viserion",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em 'Laranja Mecânica', qual técnica é usada para 'reabilitar' o protagonista?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Técnica Ludovico",
+                    "correct": true
+                },
+                {
+                    "optionText": "Condicionamento Pavloviano",
+                    "correct": false
+                },
+                {
+                    "optionText": "Protocolo Skinner",
+                    "correct": false
+                },
+                {
+                    "optionText": "Método Pavlov-Luria",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual filme da Pixar se passa quase totalmente no espaço?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Wall-E",
+                    "correct": true
+                },
+                {
+                    "optionText": "Up: Altas Aventuras",
+                    "correct": false
+                },
+                {
+                    "optionText": "Toy Story 2",
+                    "correct": false
+                },
+                {
+                    "optionText": "Procurando Nemo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual escritor brasileiro escreveu 'Grande Sertão: Veredas'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "João Guimarães Rosa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Graciliano Ramos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jorge Amado",
+                    "correct": false
+                },
+                {
+                    "optionText": "Machado de Assis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual filme venceu o Oscar de Melhor Filme em 2020?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Parasita",
+                    "correct": true
+                },
+                {
+                    "optionText": "1917",
+                    "correct": false
+                },
+                {
+                    "optionText": "Coringa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Era Uma Vez em... Hollywood",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual livro é narrado por uma criança chamada Scout Finch?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "O Sol é para Todos",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Apanhador no Campo de Centeio",
+                    "correct": false
+                },
+                {
+                    "optionText": "As Aventuras de Tom Sawyer",
+                    "correct": false
+                },
+                {
+                    "optionText": "As Vantagens de Ser Invisível",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes filmes é baseado em um romance de Gillian Flynn?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Garota Exemplar",
+                    "correct": true
+                },
+                {
+                    "optionText": "Garota Interrompida",
+                    "correct": false
+                },
+                {
+                    "optionText": "Garota Infernal",
+                    "correct": false
+                },
+                {
+                    "optionText": "A Garota no Trem",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual clássico da literatura foi adaptado para o filme 'Apocalypse Now'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Coração das Trevas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Moby Dick",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Vermelho e o Negro",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Velho e o Mar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em 'O Código Da Vinci', qual organização secreta é central para a trama?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Priorado de Sião",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maçonaria",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavaleiros Templários",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ordem Rosacruz",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual livro de Franz Kafka o protagonista se transforma em um inseto?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "A Metamorfose",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Processo",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Castelo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Na Colônia Penal",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do romance de Mary Shelley que deu origem ao monstro famoso?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Frankenstein",
+                    "correct": true
+                },
+                {
+                    "optionText": "Drácula",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Médico e o Monstro",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Corcunda de Notre-Dame",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o protagonista da trilogia literária 'Jogos Vorazes'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Katniss Everdeen",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tris Prior",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bella Swan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hermione Granger",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O filme 'O Senhor das Moscas' é baseado em um livro de qual autor?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "William Golding",
+                    "correct": true
+                },
+                {
+                    "optionText": "George Orwell",
+                    "correct": false
+                },
+                {
+                    "optionText": "J.D. Salinger",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aldous Huxley",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual personagem de 'Harry Potter' é o diretor de Hogwarts durante a maior parte da série?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Alvo Dumbledore",
+                    "correct": true
+                },
+                {
+                    "optionText": "Severo Snape",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minerva McGonagall",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rúbeo Hagrid",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual autor é conhecido pela criação de Sherlock Holmes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Arthur Conan Doyle",
+                    "correct": true
+                },
+                {
+                    "optionText": "Agatha Christie",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ian Fleming",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edgar Allan Poe",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o verdadeiro nome do super-herói Batman?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bruce Wayne",
+                    "correct": true
+                },
+                {
+                    "optionText": "Clark Kent",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tony Stark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Peter Parker",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em 'Orgulho e Preconceito', qual é o sobrenome de Elizabeth?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Bennet",
+                    "correct": true
+                },
+                {
+                    "optionText": "Darcy",
+                    "correct": false
+                },
+                {
+                    "optionText": "Woodhouse",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brontë",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem dirigiu o filme 'A Origem' (Inception)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Christopher Nolan",
+                    "correct": true
+                },
+                {
+                    "optionText": "Steven Spielberg",
+                    "correct": false
+                },
+                {
+                    "optionText": "James Cameron",
+                    "correct": false
+                },
+                {
+                    "optionText": "David Fincher",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destas obras foi escrita por Gabriel García Márquez?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Cem Anos de Solidão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dom Casmurro",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Estrangeiro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ulisses",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes filmes é baseado em um romance de Jane Austen?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Razão e Sensibilidade",
+                    "correct": true
+                },
+                {
+                    "optionText": "Anna Karenina",
+                    "correct": false
+                },
+                {
+                    "optionText": "Madame Bovary",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Morro dos Ventos Uivantes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem escreveu o livro 'O Pequeno Príncipe'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Antoine de Saint-Exupéry",
+                    "correct": true
+                },
+                {
+                    "optionText": "Hans Christian Andersen",
+                    "correct": false
+                },
+                {
+                    "optionText": "Charles Perrault",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lewis Carroll",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em 'Matrix', qual é o nome do personagem interpretado por Keanu Reeves?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Neo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Morpheus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Trinity",
+                    "correct": false
+                },
+                {
+                    "optionText": "Smith",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual livro foi adaptado para o filme 'Clube da Luta'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Fight Club, de Chuck Palahniuk",
+                    "correct": true
+                },
+                {
+                    "optionText": "American Psycho, de Bret Easton Ellis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Trainspotting, de Irvine Welsh",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bird Box, de Josh Malerman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual autora escreveu 'O Conto da Aia' (The Handmaid’s Tale)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Margaret Atwood",
+                    "correct": true
+                },
+                {
+                    "optionText": "Virginia Woolf",
+                    "correct": false
+                },
+                {
+                    "optionText": "Toni Morrison",
+                    "correct": false
+                },
+                {
+                    "optionText": "Clarice Lispector",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da nave espacial em 'Alien, o Oitavo Passageiro'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Nostromo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Galactica",
+                    "correct": false
+                },
+                {
+                    "optionText": "Enterprise",
+                    "correct": false
+                },
+                {
+                    "optionText": "Discovery",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em 'O Senhor dos Anéis', qual é o nome do pai de Aragorn?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Arathorn",
+                    "correct": true
+                },
+                {
+                    "optionText": "Théoden",
+                    "correct": false
+                },
+                {
+                    "optionText": "Denethor",
+                    "correct": false
+                },
+                {
+                    "optionText": "Isildur",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual romance de Dostoiévski explora profundamente a culpa após um assassinato?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Crime e Castigo",
+                    "correct": true
+                },
+                {
+                    "optionText": "O Idiota",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os Irmãos Karamázov",
+                    "correct": false
+                },
+                {
+                    "optionText": "Notas do Subterrâneo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas séries da Netflix é baseada em um livro polonês?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "The Witcher",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Shadow and Bone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sweet Tooth",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do autor de 'A Revolução dos Bichos'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "George Orwell",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aldous Huxley",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mark Twain",
+                    "correct": false
+                },
+                {
+                    "optionText": "Leo Tolstói",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o livro mais vendido da história, excluindo a Bíblia?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Dom Quixote",
+                    "correct": true
+                },
+                {
+                    "optionText": "Harry Potter e a Pedra Filosofal",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Senhor dos Anéis",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Pequeno Príncipe",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes filmes é uma adaptação direta de um livro de Shakespeare?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Romeu + Julieta (1996)",
+                    "correct": true
+                },
+                {
+                    "optionText": "10 Coisas que Eu Odeio em Você",
+                    "correct": false
+                },
+                {
+                    "optionText": "O Rei Leão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ela é o Cara",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual escritor criou o personagem Hannibal Lecter?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Thomas Harris",
+                    "correct": true
+                },
+                {
+                    "optionText": "Stephen King",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bret Easton Ellis",
+                    "correct": false
+                },
+                {
+                    "optionText": "John Grisham",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem escreveu o romance 'O Apanhador no Campo de Centeio'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "J.D. Salinger",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ernest Hemingway",
+                    "correct": false
+                },
+                {
+                    "optionText": "F. Scott Fitzgerald",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jack Kerouac",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do autor de 'O Morro dos Ventos Uivantes'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Emily Brontë",
+                    "correct": true
+                },
+                {
+                    "optionText": "Charlotte Brontë",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jane Austen",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mary Shelley",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

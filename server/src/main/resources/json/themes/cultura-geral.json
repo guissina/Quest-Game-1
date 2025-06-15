@@ -1,0 +1,1155 @@
+{
+    "theme": {
+        "name": "Cultura Geral",
+        "code": "GERAL",
+        "description": "Teste seus conhecimentos sobre uma ampla variedade de tópicos, desde história e geografia até ciência. Abrange fatos diversos e curiosidades que todos deveriam saber.",
+        "free": true,
+        "cost": 0
+    },
+    "questions": [
+        {
+            "questionText": "Qual é o maior animal terrestre?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Elefante africano",
+                    "correct": true
+                },
+                {
+                    "optionText": "Girafa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rinoceronte",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hipopótamo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o continente mais seco do mundo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Antártida",
+                    "correct": true
+                },
+                {
+                    "optionText": "África",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ásia",
+                    "correct": false
+                },
+                {
+                    "optionText": "América do Sul",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas frutas não cresce em árvores?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Banana",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maçã",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pêssego",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pera",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses planetas é conhecido por ter anéis?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Saturno",
+                    "correct": true
+                },
+                {
+                    "optionText": "Júpiter",
+                    "correct": false
+                },
+                {
+                    "optionText": "Marte",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vênus",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que Albert Einstein não sabia fazer até os 9 anos?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Falar",
+                    "correct": true
+                },
+                {
+                    "optionText": "Escrever",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ler",
+                    "correct": false
+                },
+                {
+                    "optionText": "Andar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses objetos já foi usado como moeda?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cacau",
+                    "correct": true
+                },
+                {
+                    "optionText": "Espelho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pedra-pomes",
+                    "correct": false
+                },
+                {
+                    "optionText": "Areia colorida",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas invenções surgiu por acidente?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Post-it",
+                    "correct": true
+                },
+                {
+                    "optionText": "Zíper",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cola branca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Régua",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que os antigos romanos usavam como pasta de dente?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Urina humana",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pó de mármore",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vinagre",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cinzas de madeira",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas criaturas é real?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Peixe-gota",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dragão-de-mar-azul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pato-aranha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sapo-borboleta",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses itens é proibido importar para a Coreia do Norte?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bíblia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Chocolate",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tênis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fones de ouvido",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual fruta é, na verdade, uma grande erva?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Banana",
+                    "correct": true
+                },
+                {
+                    "optionText": "Melancia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maçã",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uva",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual animal pode dormir por até três anos seguidos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Caracol",
+                    "correct": true
+                },
+                {
+                    "optionText": "Preguiça",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tatu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Coala",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses esportes já foi olímpico?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cabo de guerra",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pique-esconde",
+                    "correct": false
+                },
+                {
+                    "optionText": "Corrida de sacos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Corrida de ovos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses países não tem exército?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Islândia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Suíça",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nova Zelândia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Noruega",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país tem um lago rosa naturalmente?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Austrália",
+                    "correct": true
+                },
+                {
+                    "optionText": "Japão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chile",
+                    "correct": false
+                },
+                {
+                    "optionText": "Peru",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses bichos tem coração no cérebro?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Camarão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Polvo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minhoca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carangueijo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual planta já foi usada como anestésico?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Alface selvagem",
+                    "correct": true
+                },
+                {
+                    "optionText": "Camomila",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hortelã",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alecrim",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o primeiro produto com código de barras?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Chiclete",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um refrigerante",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma barra de chocolate",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sabonete",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país tem mais pirâmides que o Egito?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Sudão",
+                    "correct": true
+                },
+                {
+                    "optionText": "México",
+                    "correct": false
+                },
+                {
+                    "optionText": "Peru",
+                    "correct": false
+                },
+                {
+                    "optionText": "Irã",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses países fica em dois continentes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Egito",
+                    "correct": true
+                },
+                {
+                    "optionText": "Rússia",
+                    "correct": false
+                },
+                {
+                    "optionText": "China",
+                    "correct": false
+                },
+                {
+                    "optionText": "México",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que os vikings usavam para se proteger do sol?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Cristais",
+                    "correct": true
+                },
+                {
+                    "optionText": "Óleo de peixe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lama",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cinzas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual animal pode viver sem cabeça por dias?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Galinha",
+                    "correct": true
+                },
+                {
+                    "optionText": "Polvo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Camarão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arraia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que animal consegue ver luz ultravioleta?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Abelha",
+                    "correct": true
+                },
+                {
+                    "optionText": "Coruja",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gato",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rato",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual alimento pode durar milhares de anos sem estragar?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Mel",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arroz",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lentilha",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses elementos pode 'explodir' ao tocar a água?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Lítio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ouro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ferro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Zinco",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual animal possui 3 corações?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Lula gigante",
+                    "correct": true
+                },
+                {
+                    "optionText": "Baiacu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hipopótamo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Enguia elétrica",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses itens já foi usado como moeda no Pacífico?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Dente de baleia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pena de avestruz",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pé de mandioca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pele de jacaré",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses objetos já foi usado como prova de amor em uma cultura antiga?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Fígado seco",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dente de tubarão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Unha cortada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pedra vulcânica",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses alimentos já foi usado como imposto?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Pimenta-do-reino",
+                    "correct": true
+                },
+                {
+                    "optionText": "Abóbora",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gergelim",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alho",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses animais já foi julgado em um tribunal humano?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Porco",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cavalo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pato",
+                    "correct": false
+                },
+                {
+                    "optionText": "Corvo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses países tem mais ovelhas do que pessoas?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Nova Zelândia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Canadá",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brasil",
+                    "correct": false
+                },
+                {
+                    "optionText": "Índia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses animais tem sangue azul?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Polvo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lula",
+                    "correct": false
+                },
+                {
+                    "optionText": "Estrela-do-mar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavalo-marinho",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que o Google usou para testar o Street View pela primeira vez?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Uma van com câmera de supermercado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Drones manuais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Satélites adaptados",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ônibus escolares antigos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses animais pode trocar de sexo naturalmente?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Peixe-palhaço",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cavalo-marinho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Camaleão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jacaré",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas frutas pode explodir espontaneamente se muito madura?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Durian",
+                    "correct": true
+                },
+                {
+                    "optionText": "Jaca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pitaya",
+                    "correct": false
+                },
+                {
+                    "optionText": "Guabiroba",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país tem uma ponte exclusiva para esquilos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Holanda",
+                    "correct": true
+                },
+                {
+                    "optionText": "Brasil",
+                    "correct": false
+                },
+                {
+                    "optionText": "México",
+                    "correct": false
+                },
+                {
+                    "optionText": "Índia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi a primeira fruta colhida no espaço?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Rabanete",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maçã",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tomate",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pêssego",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual planeta do sistema solar chove diamantes?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Netuno",
+                    "correct": true
+                },
+                {
+                    "optionText": "Marte",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vênus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mercúrio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses animais é conhecido por sua habilidade de 'voar' de costas?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Beija-flor",
+                    "correct": true
+                },
+                {
+                    "optionText": "Morfo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Borboleta-monarca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Libélula",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o metal mais leve que existe na tabela periódica?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Lítio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Alumínio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Magnésio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Potássio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual animal é conhecido por ser o único capaz de viver completamente sem oxigênio?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Tardígrado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Barata",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavalo-marinho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Polvo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que país está localizada a menor floresta do mundo?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Japão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Canadá",
+                    "correct": false
+                },
+                {
+                    "optionText": "Islândia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Noruega",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da única fruta que contém ácido cítrico em sua casca, não apenas na polpa?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Limão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Laranja",
+                    "correct": false
+                },
+                {
+                    "optionText": "Abacaxi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maracujá",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o primeiro animal a ser clonado com sucesso?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Ovelha",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cachorro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rato",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavalo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do mineral que pode ser comido e tem sabor salgado?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Halita",
+                    "correct": true
+                },
+                {
+                    "optionText": "Calcita",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pirita",
+                    "correct": false
+                },
+                {
+                    "optionText": "Quartzo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o único mamífero capaz de voar de verdade?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Morcego",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pombo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Esquilo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tamanduá",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual país tem a maior quantidade de vulcões ativos no mundo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Indonésia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Japão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Estados Unidos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Itália",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do fenômeno óptico que cria um arco-íris noturno?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Arco-íris lunar",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aurora boreal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Halo solar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Glória",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o instrumento musical mais antigo já encontrado pela arqueologia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Flauta de osso",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tambor de pele",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lira",
+                    "correct": false
+                },
+                {
+                    "optionText": "Harpa",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o único planeta do sistema solar que gira no sentido horário?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Vênus",
+                    "correct": true
+                },
+                {
+                    "optionText": "Marte",
+                    "correct": false
+                },
+                {
+                    "optionText": "Júpiter",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mercúrio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual animal tem o maior tempo de gestação registrado?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Elefante africano",
+                    "correct": true
+                },
+                {
+                    "optionText": "Baleia azul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Girafa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavalo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do fenômeno que faz com que a luz pareça piscar em estrelas distantes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cintilação",
+                    "correct": true
+                },
+                {
+                    "optionText": "Refração",
+                    "correct": false
+                },
+                {
+                    "optionText": "Difração",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dispersão",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

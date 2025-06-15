@@ -36,6 +36,11 @@ public class BoardServices implements IBoardServices {
         this.tileMapper = tileMapper;
     }
 
+    @Override
+    public long count(){
+        return boardRepository.count();
+    }
+
     private void validateTiles(BoardCreateDTO dto) {
         List<TileCreateDTO> tiles = dto.getTiles();
         int count = tiles.size();

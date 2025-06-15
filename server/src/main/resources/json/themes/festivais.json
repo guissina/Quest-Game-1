@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Festivais",
+        "code": "FESTIVAIS",
+        "description": "Explore os maiores e mais vibrantes festivais do mundo! De celebrações culturais a eventos de música e arte, veja o quanto você sabe sobre essas festas globais.",
+        "free": true,
+        "cost": 0
+    },
+    "questions": [
+        {
+            "questionText": "Qual festival tradicional da Espanha envolve uma competição em que os participantes tentam derrubar pessoas sentadas em postes altos, geralmente molhados?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "El Colacho",
+                    "correct": false
+                },
+                {
+                    "optionText": "La Tomatina",
+                    "correct": false
+                },
+                {
+                    "optionText": "Greasy Pole Climbing",
+                    "correct": true
+                },
+                {
+                    "optionText": "San Fermín",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No festival indonésio de Toraja, além de rituais, é comum que se realize o quê para homenagear os ancestrais?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Funerais elaborados com procissões",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dança com máscaras tradicionais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Corridas de barco no rio local",
+                    "correct": false
+                },
+                {
+                    "optionText": "Festas de luzes e lanternas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que país acontece o 'Festival de Lanternas Flutuantes', onde milhares de lanternas são soltas em rios para simbolizar esperança e renovação?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Tailândia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Japão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Coreia do Sul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vietnã",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O 'Festival de Pingüins' é realizado em qual país, celebrando a vida selvagem local com atividades culturais e educativas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Argentina",
+                    "correct": true
+                },
+                {
+                    "optionText": "África do Sul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nova Zelândia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Austrália",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No festival de 'Carros Alegóricos de Macabéa', em São Paulo, o que é destaque?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Desfiles temáticos em homenagem à cultura local",
+                    "correct": true
+                },
+                {
+                    "optionText": "Corridas de carros antigos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Competição de carros decorados com luzes",
+                    "correct": false
+                },
+                {
+                    "optionText": "Exposição de carros esportivos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual festival escocês celebra a música, dança e cultura celta, sendo realizado em Edimburgo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Edinburgh Festival Fringe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Beltane Fire Festival",
+                    "correct": true
+                },
+                {
+                    "optionText": "Highland Games",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hogmanay",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No Japão, o festival 'Awa Odori' é famoso por quê?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Dança tradicional com trajes coloridos e música animada",
+                    "correct": true
+                },
+                {
+                    "optionText": "Corridas de bicicletas pelas ruas da cidade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Desfiles com lanternas flutuantes",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cerimônias de chá ao ar livre",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual país acontece o festival 'Inti Raymi', que celebra o solstício de inverno e honra o deus Sol?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Peru",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bolívia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Equador",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chile",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O festival francês 'Fête de la Musique' é celebrado em qual época do ano?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "No verão, em junho",
+                    "correct": true
+                },
+                {
+                    "optionText": "No inverno, em dezembro",
+                    "correct": false
+                },
+                {
+                    "optionText": "No outono, em setembro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Na primavera, em março",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O festival 'Carnaval de Oruro', considerado patrimônio cultural da humanidade, é realizado em qual país?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Bolívia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Peru",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chile",
+                    "correct": false
+                },
+                {
+                    "optionText": "Argentina",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "No festival 'Loi Krathong', realizado na Tailândia, o que os participantes soltam nos rios para simbolizar a renovação e sorte?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Pequenas balsa feitas de folhas com velas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Flores frescas e frutas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lanternas flutuantes de papel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pequenos barcos de madeira decorados",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O festival alemão 'Walpurgisnacht' é associado a que tipo de celebração?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Celebração da chegada da primavera com fogueiras e festas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Festival de música eletrônica ao ar livre",
+                    "correct": false
+                },
+                {
+                    "optionText": "Festa tradicional de colheita",
+                    "correct": false
+                },
+                {
+                    "optionText": "Festival medieval de cavaleiros",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O festival 'Mawazine', um dos maiores festivais de música do mundo, acontece em qual país africano?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Marrocos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Egito",
+                    "correct": false
+                },
+                {
+                    "optionText": "África do Sul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nigéria",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual festival tradicional da Índia é conhecido como o 'Festival das Cores', onde as pessoas jogam pós coloridos umas nas outras?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Holi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Diwali",
+                    "correct": false
+                },
+                {
+                    "optionText": "Navratri",
+                    "correct": false
+                },
+                {
+                    "optionText": "Onam",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no festival La Tomatina, realizado anualmente na Espanha?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "As pessoas jogam tomates umas nas outras em uma enorme guerra de comida",
+                    "correct": true
+                },
+                {
+                    "optionText": "Os moradores constroem esculturas de tomate em tamanho real",
+                    "correct": false
+                },
+                {
+                    "optionText": "Todos cozinham pratos gigantescos de molho de tomate para competir",
+                    "correct": false
+                },
+                {
+                    "optionText": "Há um desfile de fantasias feitas apenas com tomates",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido por lei em prédios residenciais na Suíça após as 22h?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Dar descarga no vaso sanitário",
+                    "correct": true
+                },
+                {
+                    "optionText": "Falar ao telefone com volume alto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ouvir música em fones de ouvido",
+                    "correct": false
+                },
+                {
+                    "optionText": "Acender luzes externas da varanda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que algumas comunidades na Indonésia fazem com os mortos como parte de uma tradição?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Desenterram os corpos para trocar suas roupas e fazer homenagens",
+                    "correct": true
+                },
+                {
+                    "optionText": "Queimam retratos dos mortos como oferenda",
+                    "correct": false
+                },
+                {
+                    "optionText": "Penduram os caixões em árvores sagradas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sepultam os corpos em canoas para navegar até o mar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que consiste a competição bizarra de carregar a esposa na Finlândia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Os participantes correm com suas esposas nas costas por um circuito cheio de obstáculos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Os maridos arrastam as esposas em trenós de neve até a linha de chegada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os casais devem dançar carregando um ao outro em posições aleatórias",
+                    "correct": false
+                },
+                {
+                    "optionText": "As esposas devem se equilibrar nos ombros dos maridos enquanto caminham por cordas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido em Singapura, com risco de multa e confisco?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Mascar chiclete",
+                    "correct": true
+                },
+                {
+                    "optionText": "Comer em pé em locais públicos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Usar chinelos em áreas centrais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fumar em parques abertos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o propósito do ritual onde se batem nos pés de um recém-formado na Coreia do Sul?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Dar boa sorte para a carreira futura",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pedir perdão pelos pecados estudantis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Afugentar maus espíritos das salas de aula",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mostrar coragem para os próximos desafios",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é a famosa corrida de queijo na Inglaterra?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Competidores descem uma ladeira correndo atrás de um queijo gigante rolando",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas tentam equilibrar um queijo na cabeça enquanto caminham",
+                    "correct": false
+                },
+                {
+                    "optionText": "Equipes arremessam queijos em alvos a distância",
+                    "correct": false
+                },
+                {
+                    "optionText": "Participantes devem comer um queijo inteiro sem as mãos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido nas Ilhas Maldivas em relação à religião?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Importar bíblias ou outros livros religiosos não-islâmicos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cantar músicas religiosas em público",
+                    "correct": false
+                },
+                {
+                    "optionText": "Construir templos subterrâneos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Celebrar feriados cristãos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no Festival dos Macacos na Tailândia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Centenas de macacos são alimentados com frutas oferecidas por moradores",
+                    "correct": true
+                },
+                {
+                    "optionText": "Macacos são vestidos com roupas e participam de desfiles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Macacos competem entre si em provas de agilidade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os moradores soltam balões com desejos escritos por macacos treinados",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é feito durante o Festival de Hadaka Matsuri no Japão?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Homens quase nus competem para tocar um objeto sagrado que traria sorte",
+                    "correct": true
+                },
+                {
+                    "optionText": "As pessoas tomam banho nuas em águas termais públicas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Todos vestem apenas uma folha de figueira e caminham pelas ruas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mulheres desfilam com roupas transparentes para espantar maus espíritos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que ocorre no Festival de Loi Krathong na Tailândia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pessoas soltam pequenas jangadas iluminadas nos rios como forma de agradecimento",
+                    "correct": true
+                },
+                {
+                    "optionText": "Barcos gigantes são queimados como símbolo de renovação",
+                    "correct": false
+                },
+                {
+                    "optionText": "Homens e mulheres dançam sobre lagos artificiais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Répteis são soltos em rios como oferenda espiritual",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que caracteriza o Festival do Queijo Cheddar na Inglaterra?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Um queijo é rolado colina abaixo e os participantes devem persegui-lo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas se fantasiam de ratos e encenam peças sobre queijos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Moradores fazem esculturas com queijos e as expõem nas praças",
+                    "correct": false
+                },
+                {
+                    "optionText": "O maior queijo do mundo é cortado e distribuído entre os presentes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que os participantes fazem durante o Festival de El Colacho na Espanha?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Um homem vestido de diabo salta sobre bebês deitados em colchões",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas chutam bonecos de pano com chifres",
+                    "correct": false
+                },
+                {
+                    "optionText": "Moradores correm pelas ruas com tochas gritando palavras religiosas",
+                    "correct": false
+                },
+                {
+                    "optionText": "As crianças são pintadas de vermelho e andam descalças",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido em Copenhagen, na Dinamarca, por lei em relação aos faróis dos carros?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Dirigir com os faróis apagados, mesmo de dia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ter faróis com cor amarela",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ajustar a altura do farol manualmente",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ligar o farol dianteiro antes do motor",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual a característica peculiar do Festival de Ivrea, na Itália?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "As pessoas se enfrentam em uma grande batalha de laranjas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Todos desfilam usando roupas feitas com casca de laranja",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carruagens desfilam distribuindo suco de laranja",
+                    "correct": false
+                },
+                {
+                    "optionText": "É feita uma laranja gigante de papel para ser queimada",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é comemorado no Dia do Silêncio em Bali, na Indonésia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Ninguém pode sair de casa, fazer barulho ou usar eletrônicos por 34h",
+                    "correct": true
+                },
+                {
+                    "optionText": "Todas as casas devem apagar as luzes e orar em silêncio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os moradores apenas sussurram e evitam contato físico",
+                    "correct": false
+                },
+                {
+                    "optionText": "É feito um jejum total de palavras durante a noite",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Por que é proibido morrer na cidade de Longyearbyen, na Noruega?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Porque os corpos não se decompõem devido ao permafrost",
+                    "correct": true
+                },
+                {
+                    "optionText": "Porque não há cemitérios e o solo é considerado sagrado",
+                    "correct": false
+                },
+                {
+                    "optionText": "Porque há risco de contaminação de urso polar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Porque os funerais só são permitidos no continente",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas ações é ilegal em Turkmenistão?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Ter carros pretos, considerados azarados pelo governo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Usar roupas verdes em dias pares",
+                    "correct": false
+                },
+                {
+                    "optionText": "Possuir livros que mencionem gatos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tocar música estrangeira em público",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no festival Bun Festival, em Hong Kong?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pessoas escalam uma torre coberta de pãezinhos para pegar os mais altos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Milhares de pães são lançados de balões para o público",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cada um deve comer o maior pão possível em 1 minuto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Moradores empilham pães na praia como oferenda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no ritual de formigas-bala entre os Sateré-Mawé no Brasil?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Jovens colocam luvas cheias de formigas altamente venenosas para provar coragem",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas engolem formigas vivas como parte do batismo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Formigas são amarradas nas pernas dos meninos durante um dia inteiro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dançam em círculos sobre formigueiros com os pés descalços",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual a peculiaridade da corrida anual em Stilton, Inglaterra?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "As pessoas correm empurrando uma roda gigante de queijo Stilton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Homens e mulheres correm equilibrando queijos na cabeça",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pessoas fantasiadas de queijo participam de um desfile",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crianças constroem carrinhos em formato de queijo e apostam corridas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual lei curiosa existe em Milão, na Itália, sobre o rosto das pessoas?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "É obrigatório sorrir em locais públicos, salvo em funerais ou hospitais",
+                    "correct": true
+                },
+                {
+                    "optionText": "É proibido usar barba em áreas centrais da cidade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mulheres devem cobrir o rosto em igrejas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crianças devem pintar o rosto aos domingos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que ocorre no festival Thaipusam, celebrado por hindus na Malásia?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Devotos perfuram o corpo com agulhas e espadas como forma de penitência",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas jejuam e se banham em lama sagrada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Todos devem andar de costas por 13 horas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cantam sem parar por três dias",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido fazer em parques públicos no Canadá?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Grudar cartazes com fita adesiva em postes de luz",
+                    "correct": true
+                },
+                {
+                    "optionText": "Levar guarda-chuvas nos bancos de praça",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tirar fotos de flores silvestres",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dar comida a esquilos com as mãos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece durante o Festival de Naki Sumo no Japão?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bebês são segurados por lutadores de sumô e vence quem chorar primeiro",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lutadores de sumô fingem ser bebês e participam de uma dança tradicional",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crianças assistem a lutas de sumô e jogam doces no ringue",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pais fantasiam seus filhos de sumô e desfilam pelas ruas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é feito na Festa de Las Bolas de Fogo em El Salvador?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pessoas arremessam bolas de fogo umas nas outras em homenagem a um santo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Fogos de artifício são lançados de telhados ao pôr do sol",
+                    "correct": false
+                },
+                {
+                    "optionText": "As ruas são iluminadas apenas com tochas por 3 noites",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cada morador acende uma bola de fogo e a coloca no rio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece durante o Festival do Pulo do Bebê, na Espanha?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Homens fantasiados de demônios saltam sobre bebês deitados em colchões",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pais lançam seus bebês simbolicamente sobre travesseiros para espantar o mal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bebês são colocados em baldes de água benta e levantados ao céu",
+                    "correct": false
+                },
+                {
+                    "optionText": "As mães desfilam com os bebês em mantos vermelhos como bênção",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é proibido por lei na cidade de Quitman, nos EUA, se você tiver um pato?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "É ilegal deixar o pato cruzar a rua sem supervisão",
+                    "correct": true
+                },
+                {
+                    "optionText": "O pato não pode nadar com outros animais domésticos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Patos não podem ser alimentados após o pôr do sol",
+                    "correct": false
+                },
+                {
+                    "optionText": "É proibido dar nomes humanos aos patos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que ocorre na Festa do Tambor em Oga, no Japão?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Homens vestidos como demônios visitam casas e gritam com as crianças",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas tocam tambores gigantes enquanto dançam em transe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crianças batem tambores em frente aos templos pedindo sorte",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um único tambor é tocado por 34 horas sem parar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que as pessoas fazem no Festival do Cavalo de Hobby, na Inglaterra?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Desfilam com cabeças de cavalo falsas em trajes excêntricos pelas ruas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Montam cavalos de pau e disputam corridas em ladeiras",
+                    "correct": false
+                },
+                {
+                    "optionText": "Homens imitam o relinchar de cavalos para competir entre si",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fazem esculturas de cavalo em tamanho real com folhas secas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece na Noite dos Rabanetes, em Oaxaca, no México?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "São feitas esculturas complexas com rabanetes, formando cenas religiosas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoas cozinham grandes rabanetes e competem em receitas criativas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rabanetes são usados como adereços em danças típicas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Moradores jogam rabanetes em estátuas como oferenda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é feito durante o Festival de Cooper’s Hill, na Inglaterra?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "As pessoas descem correndo uma colina íngreme atrás de um queijo rolando",
+                    "correct": true
+                },
+                {
+                    "optionText": "Famílias rolam barris decorados pela cidade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Artistas encenam lendas antigas com trajes de camponeses",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crianças são puxadas por cordas em trenós com queijo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no Festival de Surströmming na Suécia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "As pessoas comem arenque fermentado de odor extremamente forte",
+                    "correct": true
+                },
+                {
+                    "optionText": "Peixes são enterrados e depois servidos com frutas locais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Todos pescam com redes feitas à mão para celebrar a tradição",
+                    "correct": false
+                },
+                {
+                    "optionText": "Os moradores competem em quem resiste mais tempo sem tampar o nariz",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que acontece no Festival de Holi, na Índia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "As pessoas jogam tintas coloridas umas nas outras em celebração à primavera",
+                    "correct": true
+                },
+                {
+                    "optionText": "Todos pintam as casas e ruas com areia colorida",
+                    "correct": false
+                },
+                {
+                    "optionText": "A cidade é coberta por flores que simbolizam a renovação",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pessoas fazem pintura corporal com carvão e pétalas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é incomum na lei municipal de Victoria, na Austrália, sobre trocar lâmpadas?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Somente eletricistas licenciados podem trocar lâmpadas",
+                    "correct": true
+                },
+                {
+                    "optionText": "É obrigatório usar luvas especiais para trocar qualquer lâmpada",
+                    "correct": false
+                },
+                {
+                    "optionText": "As lâmpadas devem ser comunicadas à prefeitura antes da troca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Trocar lâmpadas sozinho é considerado risco público grave",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é o Festival de Boryeong, na Coreia do Sul?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "É um festival onde as pessoas se cobrem de lama e participam de brincadeiras",
+                    "correct": true
+                },
+                {
+                    "optionText": "Todos devem plantar arroz e se cobrir de barro como parte do ritual",
+                    "correct": false
+                },
+                {
+                    "optionText": "As ruas são pintadas com lama colorida em homenagem aos ancestrais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pessoas esculpem obras de arte em lama e expõem na praia",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Monumentos",
+        "code": "MONUMENTOS",
+        "description": "Viaje pelo mundo sem sair do lugar, identificando marcos e construções icônicas. De maravilhas antigas a estruturas modernas, veja o quanto você conhece os grandes monumentos.",
+        "free": false,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual monumento foi um presente da França para os Estados Unidos e se tornou símbolo da liberdade?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Estátua da Liberdade",
+                    "correct": true
+                },
+                {
+                    "optionText": "Torre Eiffel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arco do Triunfo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lincoln Memorial",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual construção histórica é famosa por estar visivelmente inclinada por um erro de cálculo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Torre de Pisa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Coliseu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Big Ben",
+                    "correct": false
+                },
+                {
+                    "optionText": "Castelo de Windsor",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual país fica o templo conhecido como Taj Mahal, construído como prova de amor?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Índia",
+                    "correct": true
+                },
+                {
+                    "optionText": "Nepal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tailândia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Paquistão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da cidade esculpida nas pedras rosadas da Jordânia, também chamada de 'cidade perdida'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Petra",
+                    "correct": true
+                },
+                {
+                    "optionText": "Luxor",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cartago",
+                    "correct": false
+                },
+                {
+                    "optionText": "Persépolis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que famosa ponte vermelha liga San Francisco a outras regiões da Califórnia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Golden Gate",
+                    "correct": true
+                },
+                {
+                    "optionText": "Brooklyn Bridge",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tower Bridge",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ponte de Westminster",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual templo do Camboja é o maior do mundo e aparece até na bandeira do país?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Angkor Wat",
+                    "correct": true
+                },
+                {
+                    "optionText": "Borobudur",
+                    "correct": false
+                },
+                {
+                    "optionText": "Wat Arun",
+                    "correct": false
+                },
+                {
+                    "optionText": "Shwedagon Pagoda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual monumento gigante mostra quatro presidentes dos EUA esculpidos em pedra?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Monte Rushmore",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lincoln Memorial",
+                    "correct": false
+                },
+                {
+                    "optionText": "Capitólio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Independence Hall",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade inca foi construída nas montanhas do Peru e redescoberta no século XX?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Machu Picchu",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cuzco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tiahuanaco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chavín",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que monumento brasileiro mostra uma estátua gigante de braços abertos no alto do morro?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cristo Redentor",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pão de Açúcar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pelourinho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Museu do Amanhã",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual castelo alemão inspirou o visual dos castelos da Disney?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Neuschwanstein",
+                    "correct": true
+                },
+                {
+                    "optionText": "Hohenzollern",
+                    "correct": false
+                },
+                {
+                    "optionText": "Heidelberg",
+                    "correct": false
+                },
+                {
+                    "optionText": "Eltz",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade é famosa por ter uma igreja em construção há mais de 100 anos, projetada por Gaudí?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Barcelona",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lisboa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Roma",
+                    "correct": false
+                },
+                {
+                    "optionText": "Madri",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da muralha histórica construída para proteger o império chinês de invasores?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Muralha da China",
+                    "correct": true
+                },
+                {
+                    "optionText": "Muro de Berlim",
+                    "correct": false
+                },
+                {
+                    "optionText": "Muralha de Adriano",
+                    "correct": false
+                },
+                {
+                    "optionText": "Muralla de Ávila",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual museu parisiense abriga a Mona Lisa e é um dos mais visitados do mundo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Museu do Louvre",
+                    "correct": true
+                },
+                {
+                    "optionText": "Museu de Orsay",
+                    "correct": false
+                },
+                {
+                    "optionText": "Palácio de Versalhes",
+                    "correct": false
+                },
+                {
+                    "optionText": "Museu Rodin",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual palácio francês é símbolo do luxo da monarquia e tem jardins imensos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Palácio de Versalhes",
+                    "correct": true
+                },
+                {
+                    "optionText": "Castelo de Chambord",
+                    "correct": false
+                },
+                {
+                    "optionText": "Palácio de Fontainebleau",
+                    "correct": false
+                },
+                {
+                    "optionText": "Palácio de Luxemburgo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual famoso vulcão japonês aparece frequentemente em postais e é considerado sagrado?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Monte Fuji",
+                    "correct": true
+                },
+                {
+                    "optionText": "Monte Etna",
+                    "correct": false
+                },
+                {
+                    "optionText": "Monte Kilimanjaro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Monte Everest",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual construção islâmica de Istambul é conhecida por seus minaretes e azulejos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Mesquita Azul",
+                    "correct": true
+                },
+                {
+                    "optionText": "Mesquita de Córdoba",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hagia Sophia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mesquita de Al-Aqsa",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que famosa construção tem formato de conchas e é um ícone de Sydney?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Ópera de Sydney",
+                    "correct": true
+                },
+                {
+                    "optionText": "Harbour Bridge",
+                    "correct": false
+                },
+                {
+                    "optionText": "Torre de Tóquio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Museu Guggenheim",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome da ilha grega conhecida por suas casas brancas com cúpulas azuis?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Santorini",
+                    "correct": true
+                },
+                {
+                    "optionText": "Mykonos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rodes",
+                    "correct": false
+                },
+                {
+                    "optionText": "Creta",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que cidade se encontra a famosa Acrópole com o templo do Parthenon?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Atenas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Roma",
+                    "correct": false
+                },
+                {
+                    "optionText": "Istambul",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jerusalém",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Onde ficam as gigantescas quedas d’água que se dividem entre Brasil e Argentina?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cataratas do Iguaçu",
+                    "correct": true
+                },
+                {
+                    "optionText": "Salto Ángel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cataratas Vitória",
+                    "correct": false
+                },
+                {
+                    "optionText": "Niagara Falls",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que monumento egípcio tem estátuas colossais de Ramsés II esculpidas na rocha?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Abu Simbel",
+                    "correct": true
+                },
+                {
+                    "optionText": "Templo de Karnak",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vale dos Reis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Templo de Edfu",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que estrutura gigante nos Emirados Árabes é atualmente o prédio mais alto do mundo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Burj Khalifa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Petronas Towers",
+                    "correct": false
+                },
+                {
+                    "optionText": "Taipei 101",
+                    "correct": false
+                },
+                {
+                    "optionText": "Empire State",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual ponto turístico é um castelo medieval que fica em uma ilha e vira península na maré baixa?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Monte Saint-Michel",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ilha de Skye",
+                    "correct": false
+                },
+                {
+                    "optionText": "Montjuïc",
+                    "correct": false
+                },
+                {
+                    "optionText": "Castelo de Edimburgo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual famoso parque africano é conhecido por sua grande migração de gnus e zebras?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Serengeti",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kruger",
+                    "correct": false
+                },
+                {
+                    "optionText": "Masai Mara",
+                    "correct": false
+                },
+                {
+                    "optionText": "Okavango",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Onde ficam os campos floridos de tulipas que atraem milhões de turistas na primavera?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Holanda",
+                    "correct": true
+                },
+                {
+                    "optionText": "Suécia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alemanha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Suíça",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que deserto salino na Bolívia cria o efeito visual de espelho com o céu?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Salar de Uyuni",
+                    "correct": true
+                },
+                {
+                    "optionText": "Deserto do Atacama",
+                    "correct": false
+                },
+                {
+                    "optionText": "Altiplano",
+                    "correct": false
+                },
+                {
+                    "optionText": "Puna",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual local é famoso por suas cavernas iluminadas por vaga-lumes azuis?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Caverna de Waitomo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Caverna de Postojna",
+                    "correct": false
+                },
+                {
+                    "optionText": "Caverna de Lascaux",
+                    "correct": false
+                },
+                {
+                    "optionText": "Caverna de Altamira",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Onde fica o local mais baixo da Terra, com água tão salgada que é impossível afundar?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Mar Morto",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lago Baikal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mar Cáspio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lago Tanganica",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual parque nacional no Canadá é famoso por seus lagos de água turquesa e montanhas nevadas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Banff",
+                    "correct": true
+                },
+                {
+                    "optionText": "Jasper",
+                    "correct": false
+                },
+                {
+                    "optionText": "Yoho",
+                    "correct": false
+                },
+                {
+                    "optionText": "Algonquin",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cruzamento movimentado de Nova York é famoso por seus telões luminosos e energia caótica?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Times Square",
+                    "correct": true
+                },
+                {
+                    "optionText": "Wall Street",
+                    "correct": false
+                },
+                {
+                    "optionText": "Broadway",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fifth Avenue",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual castelo britânico serviu de residência oficial da rainha Elizabeth II e fica fora de Londres?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Castelo de Windsor",
+                    "correct": true
+                },
+                {
+                    "optionText": "Palácio de Buckingham",
+                    "correct": false
+                },
+                {
+                    "optionText": "Castelo de Edimburgo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Castelo de Dover",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade americana é famosa por seus cassinos e vida noturna extravagante?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Las Vegas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Miami",
+                    "correct": false
+                },
+                {
+                    "optionText": "Los Angeles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chicago",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade é conhecida por seus canais e bicicletas, além das casas estreitas e inclinadas?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Amsterdã",
+                    "correct": true
+                },
+                {
+                    "optionText": "Veneza",
+                    "correct": false
+                },
+                {
+                    "optionText": "Copenhague",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bruxelas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade italiana é construída sobre canais e tem gôndolas como transporte típico?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Veneza",
+                    "correct": true
+                },
+                {
+                    "optionText": "Nápoles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Florença",
+                    "correct": false
+                },
+                {
+                    "optionText": "Milão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que monumento islâmico em Jerusalém tem uma cúpula dourada e é sagrado para muçulmanos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Cúpula da Rocha",
+                    "correct": true
+                },
+                {
+                    "optionText": "Mesquita Al-Aqsa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Igreja do Santo Sepulcro",
+                    "correct": false
+                },
+                {
+                    "optionText": "Muro das Lamentações",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade no Chile abriga o deserto mais seco do mundo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "San Pedro de Atacama",
+                    "correct": true
+                },
+                {
+                    "optionText": "Valparaíso",
+                    "correct": false
+                },
+                {
+                    "optionText": "Santiago",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pucón",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual templo em Kyoto é famoso por ser completamente coberto de folhas de ouro?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Kinkaku-ji (Pavilhão Dourado)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Todai-ji",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fushimi Inari",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ryoan-ji",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que região montanhosa no Nepal é o destino de trilhas e alpinismo mais extremo do mundo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Everest",
+                    "correct": true
+                },
+                {
+                    "optionText": "Himalaia Ocidental",
+                    "correct": false
+                },
+                {
+                    "optionText": "Annapurna",
+                    "correct": false
+                },
+                {
+                    "optionText": "Monte Fuji",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual ilha da Indonésia é conhecida por seus templos hindus, arrozais e praias paradisíacas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Bali",
+                    "correct": true
+                },
+                {
+                    "optionText": "Java",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sumatra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lombok",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que museu londrino abriga a Pedra de Roseta e as múmias egípcias?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Museu Britânico",
+                    "correct": true
+                },
+                {
+                    "optionText": "Museu de História Natural",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tate Modern",
+                    "correct": false
+                },
+                {
+                    "optionText": "Victoria and Albert Museum",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade africana abriga as Pirâmides de Gizé e a Esfinge?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Cairo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Túnis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cartum",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rabat",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Que cidade da Europa é famosa por sua torre inclinada e arquitetura renascentista?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Pisa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bolonha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gênova",
+                    "correct": false
+                },
+                {
+                    "optionText": "Verona",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade espanhola é famosa por seu festival de 'tomatada' onde pessoas jogam tomates umas nas outras?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Buñol",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pamplona",
+                    "correct": false
+                },
+                {
+                    "optionText": "Valência",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sevilha",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade chinesa tem um exército de milhares de soldados de terracota enterrados?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Xi'an",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pequim",
+                    "correct": false
+                },
+                {
+                    "optionText": "Chengdu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cantão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual famoso mercado flutuante tailandês atrai turistas com seus barcos cheios de frutas e comidas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Damnoen Saduak",
+                    "correct": true
+                },
+                {
+                    "optionText": "Chatuchak",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maeklong",
+                    "correct": false
+                },
+                {
+                    "optionText": "Suan Lum",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual lago no Peru é considerado o mais alto do mundo com navegação comercial?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Lago Titicaca",
+                    "correct": true
+                },
+                {
+                    "optionText": "Lago Poopó",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lago Maracaibo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lago de Atitlán",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual cidade fica a famosa Torre do Relógio conhecida como Big Ben?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Londres",
+                    "correct": true
+                },
+                {
+                    "optionText": "Manchester",
+                    "correct": false
+                },
+                {
+                    "optionText": "Oxford",
+                    "correct": false
+                },
+                {
+                    "optionText": "Liverpool",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual cidade canadense é famosa pelas Cataratas do Niágara?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Niagara Falls",
+                    "correct": true
+                },
+                {
+                    "optionText": "Toronto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ottawa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Montreal",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual templo japonês é famoso por seu túnel de milhares de portões vermelhos (torii)?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Fushimi Inari",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kiyomizu-dera",
+                    "correct": false
+                },
+                {
+                    "optionText": "Todai-ji",
+                    "correct": false
+                },
+                {
+                    "optionText": "Senso-ji",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual ponto turístico fica no centro da Cidade do México e é uma antiga pirâmide asteca?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Templo Mayor",
+                    "correct": true
+                },
+                {
+                    "optionText": "Chichén Itzá",
+                    "correct": false
+                },
+                {
+                    "optionText": "Teotihuacán",
+                    "correct": false
+                },
+                {
+                    "optionText": "Palenque",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

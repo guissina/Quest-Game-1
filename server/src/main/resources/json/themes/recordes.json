@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Recordes",
+        "code": "RECORDES",
+        "description": "Desafie-se com os feitos mais impressionantes e os limites humanos e naturais. De recordes mundiais a curiosidades extremas, esta categoria é para quem ama o extraordinário.",
+        "free": false,
+        "cost": 1000.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual é o maior número de pirulitos colocados na boca ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "60 pirulitos",
+                    "correct": true
+                },
+                {
+                    "optionText": "48 pirulitos",
+                    "correct": false
+                },
+                {
+                    "optionText": "72 pirulitos",
+                    "correct": false
+                },
+                {
+                    "optionText": "54 pirulitos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior tempo registrado equilibrando uma bola de boliche na cabeça?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "1 minuto e 45 segundos",
+                    "correct": true
+                },
+                {
+                    "optionText": "2 minutos e 30 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "55 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "3 minutos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o maior número de chicletes mascados simultaneamente por uma pessoa?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "29 chicletes",
+                    "correct": true
+                },
+                {
+                    "optionText": "21 chicletes",
+                    "correct": false
+                },
+                {
+                    "optionText": "35 chicletes",
+                    "correct": false
+                },
+                {
+                    "optionText": "25 chicletes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais bolas de tênis equilibradas na cabeça?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "8 bolas",
+                    "correct": true
+                },
+                {
+                    "optionText": "5 bolas",
+                    "correct": false
+                },
+                {
+                    "optionText": "10 bolas",
+                    "correct": false
+                },
+                {
+                    "optionText": "12 bolas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos copos de água uma pessoa conseguiu encher com a boca em 30 segundos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "7 copos",
+                    "correct": true
+                },
+                {
+                    "optionText": "5 copos",
+                    "correct": false
+                },
+                {
+                    "optionText": "9 copos",
+                    "correct": false
+                },
+                {
+                    "optionText": "6 copos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o maior número de passos dados para trás em 1 minuto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "138 passos",
+                    "correct": true
+                },
+                {
+                    "optionText": "120 passos",
+                    "correct": false
+                },
+                {
+                    "optionText": "145 passos",
+                    "correct": false
+                },
+                {
+                    "optionText": "110 passos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais palmas feitas com uma mão em 30 segundos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "88 palmas",
+                    "correct": true
+                },
+                {
+                    "optionText": "75 palmas",
+                    "correct": false
+                },
+                {
+                    "optionText": "96 palmas",
+                    "correct": false
+                },
+                {
+                    "optionText": "82 palmas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos marshmallows uma pessoa conseguiu empilhar na boca sem usar as mãos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "30 marshmallows",
+                    "correct": true
+                },
+                {
+                    "optionText": "25 marshmallows",
+                    "correct": false
+                },
+                {
+                    "optionText": "35 marshmallows",
+                    "correct": false
+                },
+                {
+                    "optionText": "40 marshmallows",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o maior número de moedas giradas simultaneamente em uma mesa?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "50 moedas",
+                    "correct": true
+                },
+                {
+                    "optionText": "44 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "60 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "38 moedas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o maior número de toalhas enroladas em um minuto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "28 toalhas",
+                    "correct": true
+                },
+                {
+                    "optionText": "22 toalhas",
+                    "correct": false
+                },
+                {
+                    "optionText": "30 toalhas",
+                    "correct": false
+                },
+                {
+                    "optionText": "25 toalhas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de maior número de canudos colocados na boca (sem usar as mãos)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "459 canudos",
+                    "correct": true
+                },
+                {
+                    "optionText": "280 canudos",
+                    "correct": false
+                },
+                {
+                    "optionText": "600 canudos",
+                    "correct": false
+                },
+                {
+                    "optionText": "145 canudos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais camisetas vestidas de uma só vez?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "260 camisetas",
+                    "correct": true
+                },
+                {
+                    "optionText": "123 camisetas",
+                    "correct": false
+                },
+                {
+                    "optionText": "99 camisetas",
+                    "correct": false
+                },
+                {
+                    "optionText": "310 camisetas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o tempo mais rápido registrado para se comer três pimentas Carolina Reaper (a mais ardida do mundo)?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "9,72 segundos",
+                    "correct": true
+                },
+                {
+                    "optionText": "15,01 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "6,83 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "12,50 segundos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais tempo girando um bambolê no nariz?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "8 minutos e 42 segundos",
+                    "correct": true
+                },
+                {
+                    "optionText": "3 minutos e 15 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "11 minutos cravados",
+                    "correct": false
+                },
+                {
+                    "optionText": "6 minutos e 18 segundos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais post-its colados no rosto em 30 segundos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "38 post-its",
+                    "correct": true
+                },
+                {
+                    "optionText": "22 post-its",
+                    "correct": false
+                },
+                {
+                    "optionText": "57 post-its",
+                    "correct": false
+                },
+                {
+                    "optionText": "41 post-its",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantas meias uma pessoa conseguiu colocar em um único pé, quebrando o recorde?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "184 meias",
+                    "correct": true
+                },
+                {
+                    "optionText": "99 meias",
+                    "correct": false
+                },
+                {
+                    "optionText": "130 meias",
+                    "correct": false
+                },
+                {
+                    "optionText": "202 meias",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais dados equilibrados em uma pata de gato?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "10 dados",
+                    "correct": true
+                },
+                {
+                    "optionText": "6 dados",
+                    "correct": false
+                },
+                {
+                    "optionText": "13 dados",
+                    "correct": false
+                },
+                {
+                    "optionText": "8 dados",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de maior número de bananas descascadas e comidas em 1 minuto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "8 bananas",
+                    "correct": true
+                },
+                {
+                    "optionText": "5 bananas",
+                    "correct": false
+                },
+                {
+                    "optionText": "10 bananas",
+                    "correct": false
+                },
+                {
+                    "optionText": "7 bananas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o número de patinhos de borracha empilhados equilibradamente para quebrar um recorde?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "50 patinhos",
+                    "correct": true
+                },
+                {
+                    "optionText": "38 patinhos",
+                    "correct": false
+                },
+                {
+                    "optionText": "67 patinhos",
+                    "correct": false
+                },
+                {
+                    "optionText": "42 patinhos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de cubos de gelo equilibrados em uma cabeça careca?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "215 cubos",
+                    "correct": true
+                },
+                {
+                    "optionText": "150 cubos",
+                    "correct": false
+                },
+                {
+                    "optionText": "178 cubos",
+                    "correct": false
+                },
+                {
+                    "optionText": "199 cubos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais rosnados feitos por um ser humano em um minuto?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "63 rosnados",
+                    "correct": true
+                },
+                {
+                    "optionText": "40 rosnados",
+                    "correct": false
+                },
+                {
+                    "optionText": "89 rosnados",
+                    "correct": false
+                },
+                {
+                    "optionText": "51 rosnados",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais escovas de dente enfiadas na boca ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "37 escovas",
+                    "correct": true
+                },
+                {
+                    "optionText": "21 escovas",
+                    "correct": false
+                },
+                {
+                    "optionText": "45 escovas",
+                    "correct": false
+                },
+                {
+                    "optionText": "30 escovas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de maior tempo equilibrando uma cadeira no queixo?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "1 hora e 8 minutos",
+                    "correct": true
+                },
+                {
+                    "optionText": "36 minutos",
+                    "correct": false
+                },
+                {
+                    "optionText": "2 horas e 3 minutos",
+                    "correct": false
+                },
+                {
+                    "optionText": "58 minutos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos palitos de fósforo uma pessoa conseguiu colocar na barba ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "350 palitos",
+                    "correct": true
+                },
+                {
+                    "optionText": "205 palitos",
+                    "correct": false
+                },
+                {
+                    "optionText": "412 palitos",
+                    "correct": false
+                },
+                {
+                    "optionText": "298 palitos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de baratas vivas colocadas na boca por uma pessoa?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "16 baratas",
+                    "correct": true
+                },
+                {
+                    "optionText": "8 baratas",
+                    "correct": false
+                },
+                {
+                    "optionText": "21 baratas",
+                    "correct": false
+                },
+                {
+                    "optionText": "12 baratas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos controles remotos uma pessoa conseguiu equilibrar em uma mão só?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "14 controles",
+                    "correct": true
+                },
+                {
+                    "optionText": "10 controles",
+                    "correct": false
+                },
+                {
+                    "optionText": "17 controles",
+                    "correct": false
+                },
+                {
+                    "optionText": "12 controles",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de colheres equilibradas no corpo humano?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "79 colheres",
+                    "correct": true
+                },
+                {
+                    "optionText": "53 colheres",
+                    "correct": false
+                },
+                {
+                    "optionText": "101 colheres",
+                    "correct": false
+                },
+                {
+                    "optionText": "62 colheres",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de limões espremidos com as axilas em 1 minuto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "25 limões",
+                    "correct": true
+                },
+                {
+                    "optionText": "18 limões",
+                    "correct": false
+                },
+                {
+                    "optionText": "30 limões",
+                    "correct": false
+                },
+                {
+                    "optionText": "22 limões",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantos papéis higiênicos empilhados no queixo quebraram um recorde?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "27 rolos",
+                    "correct": true
+                },
+                {
+                    "optionText": "18 rolos",
+                    "correct": false
+                },
+                {
+                    "optionText": "34 rolos",
+                    "correct": false
+                },
+                {
+                    "optionText": "22 rolos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o número de marshmallows enfiados na boca sem mastigar?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "56 marshmallows",
+                    "correct": true
+                },
+                {
+                    "optionText": "41 marshmallows",
+                    "correct": false
+                },
+                {
+                    "optionText": "62 marshmallows",
+                    "correct": false
+                },
+                {
+                    "optionText": "48 marshmallows",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o número de abraços dados por uma única pessoa em 24 horas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "9.870 abraços",
+                    "correct": true
+                },
+                {
+                    "optionText": "5.032 abraços",
+                    "correct": false
+                },
+                {
+                    "optionText": "12.006 abraços",
+                    "correct": false
+                },
+                {
+                    "optionText": "8.555 abraços",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de gritos de 'banana!' feitos em 1 minuto por um humano?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "54 vezes",
+                    "correct": true
+                },
+                {
+                    "optionText": "39 vezes",
+                    "correct": false
+                },
+                {
+                    "optionText": "66 vezes",
+                    "correct": false
+                },
+                {
+                    "optionText": "47 vezes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais tempo passando o ferro em roupas… no topo de uma montanha?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "2 horas e 30 minutos",
+                    "correct": true
+                },
+                {
+                    "optionText": "1 hora",
+                    "correct": false
+                },
+                {
+                    "optionText": "4 horas",
+                    "correct": false
+                },
+                {
+                    "optionText": "3 horas e 15 minutos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantas cuecas um homem conseguiu vestir ao mesmo tempo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "260 cuecas",
+                    "correct": true
+                },
+                {
+                    "optionText": "180 cuecas",
+                    "correct": false
+                },
+                {
+                    "optionText": "301 cuecas",
+                    "correct": false
+                },
+                {
+                    "optionText": "212 cuecas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de moedas equilibradas no nariz ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "31 moedas",
+                    "correct": true
+                },
+                {
+                    "optionText": "21 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "45 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "28 moedas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o número de gritos 'oi mãe!' em 1 minuto que quebrou recorde?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "63 vezes",
+                    "correct": true
+                },
+                {
+                    "optionText": "48 vezes",
+                    "correct": false
+                },
+                {
+                    "optionText": "70 vezes",
+                    "correct": false
+                },
+                {
+                    "optionText": "55 vezes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de peças de Lego pisadas descalço em um minuto (por masoquismo)?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "146 peças",
+                    "correct": true
+                },
+                {
+                    "optionText": "102 peças",
+                    "correct": false
+                },
+                {
+                    "optionText": "178 peças",
+                    "correct": false
+                },
+                {
+                    "optionText": "120 peças",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de adesivos colados em uma pessoa em 5 minutos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "4.444 adesivos",
+                    "correct": true
+                },
+                {
+                    "optionText": "2.555 adesivos",
+                    "correct": false
+                },
+                {
+                    "optionText": "5.000 adesivos",
+                    "correct": false
+                },
+                {
+                    "optionText": "3.800 adesivos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual o número de 'selfies' tiradas por uma pessoa em uma hora?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "1.449 selfies",
+                    "correct": true
+                },
+                {
+                    "optionText": "2.001 selfies",
+                    "correct": false
+                },
+                {
+                    "optionText": "950 selfies",
+                    "correct": false
+                },
+                {
+                    "optionText": "1.200 selfies",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o número de meias diferentes usadas por uma pessoa para quebrar recorde?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "1.312 pares",
+                    "correct": true
+                },
+                {
+                    "optionText": "842 pares",
+                    "correct": false
+                },
+                {
+                    "optionText": "999 pares",
+                    "correct": false
+                },
+                {
+                    "optionText": "1.005 pares",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de ovos equilibrados nas costas da mão sem quebrar?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "18 ovos",
+                    "correct": true
+                },
+                {
+                    "optionText": "10 ovos",
+                    "correct": false
+                },
+                {
+                    "optionText": "23 ovos",
+                    "correct": false
+                },
+                {
+                    "optionText": "15 ovos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o maior número de camisetas dobradas com uma mão só em 1 minuto?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "31 camisetas",
+                    "correct": true
+                },
+                {
+                    "optionText": "25 camisetas",
+                    "correct": false
+                },
+                {
+                    "optionText": "18 camisetas",
+                    "correct": false
+                },
+                {
+                    "optionText": "40 camisetas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de moedas empilhadas com uma só mão em um minuto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "51 moedas",
+                    "correct": true
+                },
+                {
+                    "optionText": "43 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "60 moedas",
+                    "correct": false
+                },
+                {
+                    "optionText": "48 moedas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais cascas de banana pisadas em 30 segundos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "41 cascas",
+                    "correct": true
+                },
+                {
+                    "optionText": "28 cascas",
+                    "correct": false
+                },
+                {
+                    "optionText": "35 cascas",
+                    "correct": false
+                },
+                {
+                    "optionText": "47 cascas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de tampas de caneta colocadas no rosto ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "31 tampas",
+                    "correct": true
+                },
+                {
+                    "optionText": "24 tampas",
+                    "correct": false
+                },
+                {
+                    "optionText": "38 tampas",
+                    "correct": false
+                },
+                {
+                    "optionText": "29 tampas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de colheres colocadas no rosto sem cair?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "31 colheres",
+                    "correct": true
+                },
+                {
+                    "optionText": "20 colheres",
+                    "correct": false
+                },
+                {
+                    "optionText": "44 colheres",
+                    "correct": false
+                },
+                {
+                    "optionText": "15 colheres",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o maior número de lápis colocados na barba ao mesmo tempo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "456 lápis",
+                    "correct": true
+                },
+                {
+                    "optionText": "299 lápis",
+                    "correct": false
+                },
+                {
+                    "optionText": "378 lápis",
+                    "correct": false
+                },
+                {
+                    "optionText": "412 lápis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quantas calças jeans um homem conseguiu vestir ao mesmo tempo, quebrando o recorde?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "15 calças",
+                    "correct": true
+                },
+                {
+                    "optionText": "22 calças",
+                    "correct": false
+                },
+                {
+                    "optionText": "12 calças",
+                    "correct": false
+                },
+                {
+                    "optionText": "18 calças",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o recorde de mais sorvetes tomados com a testa encostando no pote?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "7 sorvetes",
+                    "correct": true
+                },
+                {
+                    "optionText": "4 sorvetes",
+                    "correct": false
+                },
+                {
+                    "optionText": "9 sorvetes",
+                    "correct": false
+                },
+                {
+                    "optionText": "6 sorvetes",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi o tempo mais rápido para digitar o alfabeto com o nariz?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "3,43 segundos",
+                    "correct": true
+                },
+                {
+                    "optionText": "5,01 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "7,21 segundos",
+                    "correct": false
+                },
+                {
+                    "optionText": "2,89 segundos",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,737 @@
+{
+    "theme": {
+        "name": "Frases de professores",
+        "code": "PROFESSORES",
+        "description": "Prepare-se para reviver momentos da sala de aula com frases clássicas e engraçadas ditas por professores da FATEC-SP. Uma homenagem aos mestres e suas pérolas de sabedoria.",
+        "free": false,
+        "cost": 2000.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual professor costuma dizer: 'GMAT NELES'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Kurata",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arima",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sandra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Akamine",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem fala 'Pode me dar um exemplo?' em praticamente toda aula?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Sandra",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vitão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Napoleão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bernice",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual professor é conhecido por dizer: 'Não gostou? ****-**'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Getulio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edgar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristides",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem fala 'Ceis quer tudo na mão' quando o pessoal pede material?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Tsai",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maurício",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tiago",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cecilia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'Qual o seu problema?' é uma frase clássica de qual professor?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Dagoberto",
+                    "correct": true
+                },
+                {
+                    "optionText": "Regis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Akamine",
+                    "correct": false
+                },
+                {
+                    "optionText": "Angela",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem vive dizendo 'Vamos fazer um artigo para o Simpósio'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Milton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gabriel Shammas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tiago",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maria Cecília",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'Aluno da FATEC SP têm que saber' é típico de qual professor?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Shigueo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dionísio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Greco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neide",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma repetir 'Ãhn' dezenas de vezes por aula?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Gabriel Shammas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Airton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edgar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arnaldo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'Nota zero pra vocês todos!' é uma bronca clássica de qual professor?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Getulio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Duduchi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Irineu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Grace",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual professor diz: 'Vou dar um trabalhinho pra vocês entregarem no lugar da prova'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Aristides",
+                    "correct": true
+                },
+                {
+                    "optionText": "Marcia Ito",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sandra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Napoleão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é conhecido por dizer: 'Te vi colando, zero'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Duduchi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Regis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cecilia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Akamine",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'Na Unillever...' é um comentário clássico de qual professor?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Edgar",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kurata",
+                    "correct": false
+                },
+                {
+                    "optionText": "Airton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vitão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma dizer: 'Ô Júlio, meu microfone não tá funcionando'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Milton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Getulio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maurício",
+                    "correct": false
+                },
+                {
+                    "optionText": "Greco",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'DEFINA' é uma palavra constantemente repetida por qual professor?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Shigueo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dagoberto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sandra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dionísio",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem fala: 'Responde alguma coisa, mesmo que esteja errado'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Aristides",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arima",
+                    "correct": false
+                },
+                {
+                    "optionText": "Irineu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Angela",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual professor diz: 'No dúvidas?' com frequência?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Arnaldo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Regis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bernice",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cecilia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'Vou marcar uma palestra e aviso vocês...' é algo que você ouviria de quem?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Neide",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maria Cecília",
+                    "correct": false
+                },
+                {
+                    "optionText": "Airton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tiago",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem provavelmente diria: 'Se tiver alguma duvida pergunta pro colega'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Tsai",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sandra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Regis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bernice",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual professor já falou: 'Vão te cobrar isso na entrevista'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Arnaldo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arima",
+                    "correct": false
+                },
+                {
+                    "optionText": "Maurício",
+                    "correct": false
+                },
+                {
+                    "optionText": "Napoleão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "'QUEM É O USUÁRIO?' é um surto clássico de qual professor?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Getulio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Greco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Shigueo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cecilia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem diz: 'O vestibular vai ser a última prova fácil da sua vida'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Kurata",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sandra",
+                    "correct": false
+                },
+                {
+                    "optionText": "Milton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristides",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma dizer: 'Alguém quer falar alguma coisa?' em aula?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Sandra",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vitão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dagoberto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kurata",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem diz 'Vou passar essa pilha pra vocês verem'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Milton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gabriel Shammas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristides",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kurata",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem diz a frase: 'Vou me aposentar ano que vem'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Aristides",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dionísio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neide",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dagoberto",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma falar: 'FALA COMIGO, *****!'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Milton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Napoleão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Regis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem diz a frase: 'Cê ta triste? Nem ligo.'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arnaldo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tsai",
+                    "correct": false
+                },
+                {
+                    "optionText": "Irineu",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é conhecido por dizer: 'É nóis cara'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dagoberto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristides",
+                    "correct": false
+                },
+                {
+                    "optionText": "Marcia Ito",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem fala: 'Galinha e ovos'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Kurata",
+                    "correct": true
+                },
+                {
+                    "optionText": "Solis",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cecilia",
+                    "correct": false
+                },
+                {
+                    "optionText": "Grace",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o professor que diz: 'Só vamos usar tabuada de 2 e 3'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Kurata",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arnaldo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edmea",
+                    "correct": false
+                },
+                {
+                    "optionText": "Napoleão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma dizer: 'Aiaiaiaiai'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Dagoberto",
+                    "correct": true
+                },
+                {
+                    "optionText": "Maurício",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neide",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bernice",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem costuma falar: 'Você não é um high potential'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Kurata",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aristides",
+                    "correct": false
+                },
+                {
+                    "optionText": "Milton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tsai",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem diz a frase: 'Odeio pobre'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dagoberto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Kurata",
+                    "correct": false
+                },
+                {
+                    "optionText": "Edgar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem fala: 'Pode não parecer mas eu sou gente boa'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Vitão",
+                    "correct": true
+                },
+                {
+                    "optionText": "Arnaldo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gabriel Shammas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neide",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

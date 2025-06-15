@@ -11,6 +11,8 @@ public class ThemeCreateDTO {
     @Size(min = 2, max = 30, message = "Theme name must be between 2 and 30 characters")
     private String name;
 
+    private String description;
+
     @NotBlank(message = "Theme Code is required")
     @Size(min = 2, max = 30, message = "Theme Code must be between 2 and 30 characters")
     private String code;
@@ -44,6 +46,12 @@ public class ThemeCreateDTO {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {}
 
     public String getCode() {
         return code;

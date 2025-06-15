@@ -15,7 +15,7 @@ public class QuestionCreateDTO {
     @Size(min = 1, max = 255, message = "Title must be between 1 and 255 characters")
     private String questionText;
 
-    @NotNull(message = "Theme is required")
+    //TODO Rever isso aqui por causa do QuestionsWithTheme @NotNull(message = "Theme is required")
     private long themeId;
 
     @NotNull(message = "Difficulty is required")

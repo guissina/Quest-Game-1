@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.quest.dto.rest.Question.QuestionsWithThemeDTO;
+import com.quest.dto.rest.Theme.ThemeResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +41,11 @@ public class QuestionServices implements IQuestionServices {
         this.questionMapper = questionMapper;
         this.questionRepository = questionRepository;
         this.themeServices = themeServices;
+    }
+
+    @Override
+    public long count() {
+        return questionRepository.count();
     }
 
     @Override
@@ -165,5 +172,13 @@ public class QuestionServices implements IQuestionServices {
     public void delete(long id) {
         Question question = findQuestionById(id);
         questionRepository.delete(question);
+    }
+
+    @Override
+    @Transactional
+    public void createQuestionsWithTheme(@Valid QuestionsWithThemeDTO dto) {
+        ThemeResponseDTO theme = themeServices.create(dto.getTheme());
+        dto.getQuestions().forEach(q -> q.setThemeId(theme.getId()));
+        createMany(dto.getQuestions());
     }
 }

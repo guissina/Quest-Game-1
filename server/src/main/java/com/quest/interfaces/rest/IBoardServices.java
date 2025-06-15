@@ -8,6 +8,8 @@ import com.quest.dto.rest.Board.BoardUpdateDTO;
 import com.quest.models.Board;
 
 public interface IBoardServices {
+    long count();
+
     List<BoardResponseDTO> findAll();
 
     BoardResponseDTO createBoard(BoardCreateDTO boardCreateDTO);

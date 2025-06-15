@@ -43,6 +43,11 @@ public class PlayerServices implements IPlayerServices {
     }
 
     @Override
+    public long count(){
+        return playerRepository.count();
+    }
+
+    @Override
     public PlayerResponseDTO create(PlayerCreateDTO playerCreateDTO) {
         if (existsByEmail(playerCreateDTO.getEmail()))
             throw new IllegalArgumentException("Email already exists");

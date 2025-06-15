@@ -1,0 +1,24 @@
+{
+    "name": "5x5",
+    "rows": 5,
+    "cols": 5,
+    "tiles": [
+        { "sequence": 0,  "row": 0, "col": 0 },
+        { "sequence": 1,  "row": 0, "col": 1 },
+        { "sequence": 2,  "row": 0, "col": 2 },
+        { "sequence": 3,  "row": 0, "col": 3 },
+        { "sequence": 4,  "row": 0, "col": 4 },
+        { "sequence": 5,  "row": 1, "col": 4 },
+        { "sequence": 6,  "row": 2, "col": 4 },
+        { "sequence": 7,  "row": 2, "col": 3 },
+        { "sequence": 8,  "row": 2, "col": 2 },
+        { "sequence": 9,  "row": 2, "col": 1 },
+        { "sequence": 10, "row": 2, "col": 0 },
+        { "sequence": 11, "row": 3, "col": 0 },
+        { "sequence": 12, "row": 4, "col": 0 },
+        { "sequence": 13, "row": 4, "col": 1 },
+        { "sequence": 14, "row": 4, "col": 2 },
+        { "sequence": 15, "row": 4, "col": 3 },
+        { "sequence": 16, "row": 4, "col": 4 }
+    ]
+}

@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Tecnologia e Informática",
+        "code": "TECH",
+        "description": "Descubra curiosidades e fatos sobre o universo da tecnologia. Inclui inovações, história da computação, internet, softwares, dispositivos e personalidades que transformaram o mundo digital.",
+        "free": true,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual empresa criou o primeiro microprocessador comercial?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Intel",
+                    "correct": true
+                },
+                {
+                    "optionText": "IBM",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apple",
+                    "correct": false
+                },
+                {
+                    "optionText": "Texas Instruments",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a sigla 'URL'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Uniform Resource Locator",
+                    "correct": true
+                },
+                {
+                    "optionText": "Universal Routing Link",
+                    "correct": false
+                },
+                {
+                    "optionText": "Unified Reference Language",
+                    "correct": false
+                },
+                {
+                    "optionText": "User Request List",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual linguagem de programação é amplamente usada para desenvolvimento web e roda no navegador?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "JavaScript",
+                    "correct": true
+                },
+                {
+                    "optionText": "Python",
+                    "correct": false
+                },
+                {
+                    "optionText": "C++",
+                    "correct": false
+                },
+                {
+                    "optionText": "Java",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destas tecnologias está relacionada à inteligência artificial?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Aprendizado de máquina",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bluetooth",
+                    "correct": false
+                },
+                {
+                    "optionText": "USB",
+                    "correct": false
+                },
+                {
+                    "optionText": "HTML",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que ano foi lançado o primeiro iPhone?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "2007",
+                    "correct": true
+                },
+                {
+                    "optionText": "2005",
+                    "correct": false
+                },
+                {
+                    "optionText": "2008",
+                    "correct": false
+                },
+                {
+                    "optionText": "2006",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas empresas desenvolve o sistema operacional Android?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Google",
+                    "correct": true
+                },
+                {
+                    "optionText": "Samsung",
+                    "correct": false
+                },
+                {
+                    "optionText": "Microsoft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apple",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'bit' na computação?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "A menor unidade de dados",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um tipo de vírus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um componente de hardware",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma linguagem de programação",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destas tecnologias é usada para criar criptomoedas como o Bitcoin?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Blockchain",
+                    "correct": true
+                },
+                {
+                    "optionText": "Big Data",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cloud Computing",
+                    "correct": false
+                },
+                {
+                    "optionText": "Machine Learning",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'firewall'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Um sistema de segurança para redes",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um antivírus para celulares",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma rede social corporativa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um sistema operacional",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual empresa é dona do GitHub desde 2018?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Microsoft",
+                    "correct": true
+                },
+                {
+                    "optionText": "Google",
+                    "correct": false
+                },
+                {
+                    "optionText": "Amazon",
+                    "correct": false
+                },
+                {
+                    "optionText": "Meta",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses é um navegador de internet?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Google Chrome",
+                    "correct": true
+                },
+                {
+                    "optionText": "Windows",
+                    "correct": false
+                },
+                {
+                    "optionText": "Excel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Photoshop",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é HTML?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Uma linguagem de marcação",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um antivírus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um banco de dados",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de hardware",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes é um sistema operacional de código aberto?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Linux",
+                    "correct": true
+                },
+                {
+                    "optionText": "Windows",
+                    "correct": false
+                },
+                {
+                    "optionText": "macOS",
+                    "correct": false
+                },
+                {
+                    "optionText": "iOS",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em que ano a World Wide Web foi criada?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "1991",
+                    "correct": true
+                },
+                {
+                    "optionText": "1989",
+                    "correct": false
+                },
+                {
+                    "optionText": "1995",
+                    "correct": false
+                },
+                {
+                    "optionText": "2000",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual empresa desenvolveu o ChatGPT?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "OpenAI",
+                    "correct": true
+                },
+                {
+                    "optionText": "Meta",
+                    "correct": false
+                },
+                {
+                    "optionText": "Google",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apple",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'bug' em programação?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Um erro no código",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um novo recurso",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma atualização de sistema",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de banco de dados",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual empresa criou o sistema Windows?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Microsoft",
+                    "correct": true
+                },
+                {
+                    "optionText": "IBM",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apple",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dell",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'phishing' na segurança digital?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Uma tentativa de enganar o usuário para obter dados",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um erro de software",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma técnica de programação",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de conexão de rede",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é a nuvem (cloud) na tecnologia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Armazenamento e processamento remoto de dados",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um tipo de vírus de computador",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma rede de satélites",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um sistema operacional",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a unidade básica de armazenamento de dados?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Byte",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pixel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Watts",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ampere",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que faz uma placa-mãe em um computador?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Conecta todos os componentes do computador",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gera energia elétrica",
+                    "correct": false
+                },
+                {
+                    "optionText": "É responsável pelo sistema de áudio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Controla a temperatura do monitor",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual empresa criou o navegador Firefox?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Mozilla",
+                    "correct": true
+                },
+                {
+                    "optionText": "Microsoft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Opera",
+                    "correct": false
+                },
+                {
+                    "optionText": "Google",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a sigla 'CPU'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Central Processing Unit",
+                    "correct": true
+                },
+                {
+                    "optionText": "Control Program Unit",
+                    "correct": false
+                },
+                {
+                    "optionText": "Computer Power Unit",
+                    "correct": false
+                },
+                {
+                    "optionText": "Core Program User",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas é uma linguagem de banco de dados?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "SQL",
+                    "correct": true
+                },
+                {
+                    "optionText": "C#",
+                    "correct": false
+                },
+                {
+                    "optionText": "Python",
+                    "correct": false
+                },
+                {
+                    "optionText": "Swift",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual empresa criou o assistente virtual 'Siri'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Apple",
+                    "correct": true
+                },
+                {
+                    "optionText": "Google",
+                    "correct": false
+                },
+                {
+                    "optionText": "Samsung",
+                    "correct": false
+                },
+                {
+                    "optionText": "Amazon",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual tecnologia permite que dispositivos se comuniquem por aproximação?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "NFC",
+                    "correct": true
+                },
+                {
+                    "optionText": "HDMI",
+                    "correct": false
+                },
+                {
+                    "optionText": "Wi-Fi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bluetooth",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas linguagens é conhecida por ser usada em ciência de dados?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Python",
+                    "correct": true
+                },
+                {
+                    "optionText": "PHP",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ruby",
+                    "correct": false
+                },
+                {
+                    "optionText": "Go",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um QR Code?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Um código de barras bidimensional",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um tipo de antivírus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um cabo de transferência",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um programa de edição de texto",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é conhecido por fundar a Microsoft junto com Paul Allen?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bill Gates",
+                    "correct": true
+                },
+                {
+                    "optionText": "Steve Jobs",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jeff Bezos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Elon Musk",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual componente de um computador é responsável por renderizar gráficos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Placa de vídeo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Memória RAM",
+                    "correct": false
+                },
+                {
+                    "optionText": "HD",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fonte de alimentação",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a principal função da memória RAM em um computador?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Armazenar dados temporários usados em tempo real",
+                    "correct": true
+                },
+                {
+                    "optionText": "Armazenar arquivos permanentemente",
+                    "correct": false
+                },
+                {
+                    "optionText": "Controlar os gráficos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fornecer energia ao sistema",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a sigla Wi-Fi?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Wireless Fidelity",
+                    "correct": true
+                },
+                {
+                    "optionText": "Wide Field",
+                    "correct": false
+                },
+                {
+                    "optionText": "Web Frequency",
+                    "correct": false
+                },
+                {
+                    "optionText": "Wired Free Internet",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas linguagens é usada para estilizar páginas da web?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "CSS",
+                    "correct": true
+                },
+                {
+                    "optionText": "HTML",
+                    "correct": false
+                },
+                {
+                    "optionText": "Java",
+                    "correct": false
+                },
+                {
+                    "optionText": "SQL",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas empresas é conhecida pelo sistema operacional Android?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Google",
+                    "correct": true
+                },
+                {
+                    "optionText": "Apple",
+                    "correct": false
+                },
+                {
+                    "optionText": "Microsoft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Huawei",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um SSD em um computador?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Unidade de armazenamento em estado sólido",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sistema de segurança digital",
+                    "correct": false
+                },
+                {
+                    "optionText": "Software de design",
+                    "correct": false
+                },
+                {
+                    "optionText": "Placa de som digital",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual foi a primeira rede social a atingir 1 bilhão de usuários?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Facebook",
+                    "correct": true
+                },
+                {
+                    "optionText": "Orkut",
+                    "correct": false
+                },
+                {
+                    "optionText": "Instagram",
+                    "correct": false
+                },
+                {
+                    "optionText": "Twitter",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses dispositivos é usado para entrada de dados?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Teclado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Monitor",
+                    "correct": false
+                },
+                {
+                    "optionText": "Caixa de som",
+                    "correct": false
+                },
+                {
+                    "optionText": "Projetor",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a sigla VPN?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Virtual Private Network",
+                    "correct": true
+                },
+                {
+                    "optionText": "Verified Public Network",
+                    "correct": false
+                },
+                {
+                    "optionText": "Virtual Public Node",
+                    "correct": false
+                },
+                {
+                    "optionText": "Variable Protocol Number",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual componente armazena o sistema operacional e arquivos permanentes?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "HD ou SSD",
+                    "correct": true
+                },
+                {
+                    "optionText": "Placa de vídeo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Memória RAM",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fonte de alimentação",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses é um protocolo de comunicação usado na web?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "HTTP",
+                    "correct": true
+                },
+                {
+                    "optionText": "PDF",
+                    "correct": false
+                },
+                {
+                    "optionText": "ZIP",
+                    "correct": false
+                },
+                {
+                    "optionText": "MP3",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a função do navegador Tor?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Permitir navegação anônima na internet",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bloquear anúncios em sites",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fazer downloads mais rápidos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Converter arquivos PDF",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um algoritmo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Um conjunto de instruções para resolver problemas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um programa de edição de vídeo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de processador",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma linguagem de programação",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual dessas tecnologias é usada em impressoras 3D?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Fabricação aditiva",
+                    "correct": true
+                },
+                {
+                    "optionText": "Processamento óptico",
+                    "correct": false
+                },
+                {
+                    "optionText": "Injeção de dados",
+                    "correct": false
+                },
+                {
+                    "optionText": "Criptografia de camadas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o criador da linguagem de programação Python?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Guido van Rossum",
+                    "correct": true
+                },
+                {
+                    "optionText": "James Gosling",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dennis Ritchie",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bjarne Stroustrup",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a principal função do Bluetooth?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Transferir dados por curta distância sem fio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aumentar a velocidade da internet",
+                    "correct": false
+                },
+                {
+                    "optionText": "Capturar imagens em alta resolução",
+                    "correct": false
+                },
+                {
+                    "optionText": "Medir frequência cardíaca",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do assistente virtual da Amazon?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Alexa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cortana",
+                    "correct": false
+                },
+                {
+                    "optionText": "Siri",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bixby",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses conceitos está relacionado à computação em nuvem?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Servidores remotos acessíveis via internet",
+                    "correct": true
+                },
+                {
+                    "optionText": "Antivírus corporativo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Placa gráfica integrada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Compactação de arquivos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um domínio na internet?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "O nome de um site, como google.com",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um tipo de vírus",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma pasta dentro do navegador",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um plugin para download",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual tecnologia permite pagamentos por aproximação com o celular?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "NFC",
+                    "correct": true
+                },
+                {
+                    "optionText": "QR Code",
+                    "correct": false
+                },
+                {
+                    "optionText": "Bluetooth",
+                    "correct": false
+                },
+                {
+                    "optionText": "Wi-Fi",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses é um formato de imagem digital?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "JPEG",
+                    "correct": true
+                },
+                {
+                    "optionText": "MP4",
+                    "correct": false
+                },
+                {
+                    "optionText": "DOCX",
+                    "correct": false
+                },
+                {
+                    "optionText": "ZIP",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

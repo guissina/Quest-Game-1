@@ -1,0 +1,891 @@
+{
+    "theme": {
+        "name": "Jogos famosos",
+        "code": "JOGOS",
+        "description": "Relembre os títulos que fizeram história no mundo dos games. De clássicos dos consoles a sucessos atuais, teste sua memória sobre personagens, enredos e desenvolvedores.",
+        "free": false,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "Qual jogo é conhecido por seu mundo aberto pixelado feito de blocos onde você pode construir qualquer coisa?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Minecraft",
+                    "correct": true
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "Roblox",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tetris",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo você pode jogar como criminoso em uma cidade fictícia chamada Los Santos?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Grand Theft Auto V",
+                    "correct": true
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo popular é um battle royale que mistura tiroteio e construção rápida?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Fortnite",
+                    "correct": true
+                },
+                {
+                    "optionText": "League of Legends",
+                    "correct": false
+                },
+                {
+                    "optionText": "Among Us",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes jogos é conhecido por ser um MOBA onde dois times de cinco jogadores competem para destruir a base adversária?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "League of Legends",
+                    "correct": true
+                },
+                {
+                    "optionText": "Counter-Strike: Global Offensive",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Legend of Zelda: Breath of the Wild",
+                    "correct": false
+                },
+                {
+                    "optionText": "FIFA",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo de dedução social se passa numa nave onde jogadores tentam descobrir quem são os impostores?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Among Us",
+                    "correct": true
+                },
+                {
+                    "optionText": "Roblox",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Animal Crossing: New Horizons",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual simulador de vida permite criar pessoas, casas e controlar suas rotinas diárias?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "The Sims",
+                    "correct": true
+                },
+                {
+                    "optionText": "Animal Crossing: New Horizons",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo de futebol você pode controlar times reais e disputar campeonatos virtuais?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "FIFA",
+                    "correct": true
+                },
+                {
+                    "optionText": "League of Legends",
+                    "correct": false
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Roblox",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo é famoso pelo clássico desafio de encaixar blocos que descem em alta velocidade?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Tetris",
+                    "correct": true
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "Among Us",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual aventura épica em mundo aberto tem como protagonista Link e se passa no reino de Hyrule?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "The Legend of Zelda: Breath of the Wild",
+                    "correct": true
+                },
+                {
+                    "optionText": "God of War",
+                    "correct": false
+                },
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": false
+                },
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o jogo que mistura mundo aberto, narrativa no velho oeste e conta a história de Arthur Morgan?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": true
+                },
+                {
+                    "optionText": "Grand Theft Auto V",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                },
+                {
+                    "optionText": "Elden Ring",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo da série Call of Duty é conhecido por seu modo battle royale chamado Warzone?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": true
+                },
+                {
+                    "optionText": "Call of Duty: Modern Warfare",
+                    "correct": false
+                },
+                {
+                    "optionText": "Call of Duty: Black Ops",
+                    "correct": false
+                },
+                {
+                    "optionText": "Counter-Strike: Global Offensive",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo de RPG é baseado nas regras de Dungeons & Dragons e tem foco em escolhas e narrativa?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": true
+                },
+                {
+                    "optionText": "Elden Ring",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Legend of Zelda: Breath of the Wild",
+                    "correct": false
+                },
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo de aventura nórdica o protagonista enfrenta deuses e monstros ao lado do filho?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "God of War (2018)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Elden Ring",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                },
+                {
+                    "optionText": "Animal Crossing: New Horizons",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é a famosa plataforma onde os jogadores podem criar e jogar minigames feitos por outros usuários?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Roblox",
+                    "correct": true
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "Among Us",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual MMORPG clássico se passa no mundo de Azeroth e tem raides e batalhas épicas?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "World of Warcraft",
+                    "correct": true
+                },
+                {
+                    "optionText": "League of Legends",
+                    "correct": false
+                },
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": false
+                },
+                {
+                    "optionText": "Counter-Strike: Global Offensive",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo popular de simulação permite ao jogador morar numa ilha e interagir com vizinhos animais fofos?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Animal Crossing: New Horizons",
+                    "correct": true
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Roblox",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo você controla um encanador bigodudo numa série clássica de plataformas?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Super Mario Bros.",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tetris",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo de tiro tático em primeira pessoa é conhecido pela disputa entre terroristas e contra-terroristas?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Counter-Strike: Global Offensive",
+                    "correct": true
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "League of Legends",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual RPG sombrio e desafiador tem um mundo aberto criado em parceria com George R. R. Martin?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Elden Ring",
+                    "correct": true
+                },
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": false
+                },
+                {
+                    "optionText": "God of War",
+                    "correct": false
+                },
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo foi originalmente lançado para Game Boy e se tornou uma das franquias mais vendidas do mundo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pokémon",
+                    "correct": true
+                },
+                {
+                    "optionText": "Super Mario Bros.",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tetris",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Legend of Zelda",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses jogos permite explorar dungeons, customizar personagens e tomar decisões que alteram a história?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tetris",
+                    "correct": false
+                },
+                {
+                    "optionText": "Animal Crossing",
+                    "correct": false
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo o personagem principal é um anti-herói nórdico que busca redenção e enfrenta deuses?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "God of War (2018)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Elden Ring",
+                    "correct": false
+                },
+                {
+                    "optionText": "Zelda: Tears of the Kingdom",
+                    "correct": false
+                },
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo da Nintendo o protagonista acorda após 100 anos e deve salvar o reino de Hyrule?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "The Legend of Zelda: Breath of the Wild",
+                    "correct": true
+                },
+                {
+                    "optionText": "Super Mario Odyssey",
+                    "correct": false
+                },
+                {
+                    "optionText": "Metroid Dread",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fire Emblem: Three Houses",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo se passa em um universo fictício onde você monta acampamentos e cavalga por vastas paisagens do Velho Oeste?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Red Dead Redemption 2",
+                    "correct": true
+                },
+                {
+                    "optionText": "GTA V",
+                    "correct": false
+                },
+                {
+                    "optionText": "God of War",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual é o nome do encanador italiano protagonista de uma das franquias mais famosas da Nintendo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Mario",
+                    "correct": true
+                },
+                {
+                    "optionText": "Luigi",
+                    "correct": false
+                },
+                {
+                    "optionText": "Link",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sonic",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses jogos é um battle royale que começa com os jogadores saltando de um ônibus voador?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Fortnite",
+                    "correct": true
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                },
+                {
+                    "optionText": "PUBG",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apex Legends",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Em qual jogo da FromSoftware você enfrenta chefes brutais em um mundo sombrio e misterioso?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Elden Ring",
+                    "correct": true
+                },
+                {
+                    "optionText": "God of War",
+                    "correct": false
+                },
+                {
+                    "optionText": "Baldur’s Gate 3",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Witcher 3",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo de mundo aberto da Nintendo revolucionou a exploração com mecânicas de física e escalada livre?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "The Legend of Zelda: Breath of the Wild",
+                    "correct": true
+                },
+                {
+                    "optionText": "Super Mario Odyssey",
+                    "correct": false
+                },
+                {
+                    "optionText": "Metroid Prime",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fire Emblem",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo tem o vilão icônico Bowser como o principal inimigo?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Super Mario Bros.",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pokémon",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Sims",
+                    "correct": false
+                },
+                {
+                    "optionText": "Animal Crossing",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual destes jogos tem como principal objetivo gerenciar recursos e sobreviver em uma ilha deserta com animais?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Animal Crossing: New Horizons",
+                    "correct": true
+                },
+                {
+                    "optionText": "Don’t Starve",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Forest",
+                    "correct": false
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo é conhecido por permitir combates online onde cada segundo faz diferença e a mira é tudo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Counter-Strike: Global Offensive",
+                    "correct": true
+                },
+                {
+                    "optionText": "Overwatch",
+                    "correct": false
+                },
+                {
+                    "optionText": "League of Legends",
+                    "correct": false
+                },
+                {
+                    "optionText": "Genshin Impact",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo ficou conhecido por popularizar o estilo 'battle royale' com 100 jogadores em um mapa?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "PUBG: PlayerUnknown's Battlegrounds",
+                    "correct": true
+                },
+                {
+                    "optionText": "Call of Duty: Warzone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fortnite",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apex Legends",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo é uma versão fictícia de Miami nos anos 80?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "GTA: Vice City",
+                    "correct": true
+                },
+                {
+                    "optionText": "GTA III",
+                    "correct": false
+                },
+                {
+                    "optionText": "GTA V",
+                    "correct": false
+                },
+                {
+                    "optionText": "GTA: San Andreas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual franquia de jogos de luta tem personagens como Sub-Zero, Scorpion e Raiden?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Mortal Kombat",
+                    "correct": true
+                },
+                {
+                    "optionText": "Street Fighter",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tekken",
+                    "correct": false
+                },
+                {
+                    "optionText": "Super Smash Bros.",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo indie premiado te coloca no papel de um cavaleiro em um mundo subterrâneo cheio de insetos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Hollow Knight",
+                    "correct": true
+                },
+                {
+                    "optionText": "Celeste",
+                    "correct": false
+                },
+                {
+                    "optionText": "Undertale",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dead Cells",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo do gênero *point and click* foi criado por Ron Gilbert e se passa em um universo de piratas?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Monkey Island",
+                    "correct": true
+                },
+                {
+                    "optionText": "Day of the Tentacle",
+                    "correct": false
+                },
+                {
+                    "optionText": "Grim Fandango",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Secret of Atlantis",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual desses jogos usa uma mecânica de viagem no tempo para resolver puzzles complexos?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Braid",
+                    "correct": true
+                },
+                {
+                    "optionText": "Portal",
+                    "correct": false
+                },
+                {
+                    "optionText": "Inside",
+                    "correct": false
+                },
+                {
+                    "optionText": "Limbo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual franquia de RPG é conhecida por combates por turno, cristais mágicos e chocobos?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Final Fantasy",
+                    "correct": true
+                },
+                {
+                    "optionText": "Kingdom Hearts",
+                    "correct": false
+                },
+                {
+                    "optionText": "Persona",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dragon Quest",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo indie mistura elementos de agricultura, exploração e socialização em uma vila?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Stardew Valley",
+                    "correct": true
+                },
+                {
+                    "optionText": "Minecraft",
+                    "correct": false
+                },
+                {
+                    "optionText": "Terraria",
+                    "correct": false
+                },
+                {
+                    "optionText": "Don't Starve",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Qual jogo te coloca como um detetive em um mundo noir e surreal, com escolhas que moldam a narrativa?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Disco Elysium",
+                    "correct": true
+                },
+                {
+                    "optionText": "L.A. Noire",
+                    "correct": false
+                },
+                {
+                    "optionText": "The Wolf Among Us",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alan Wake",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

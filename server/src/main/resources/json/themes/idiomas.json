@@ -1,0 +1,891 @@
+{
+    "theme": {
+        "name": "Palavras em outros idiomas",
+        "code": "IDIOMAS",
+        "description": "Amplie seu vocabulário e aprenda palavras essenciais em diferentes línguas. Teste seu conhecimento sobre termos comuns e expressões idiomáticas de diversas culturas.",
+        "free": false,
+        "cost": 200.00
+    },
+    "questions": [
+        {
+            "questionText": "O que significa a palavra alemã 'Backpfeifengesicht'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Um rosto que parece merecer um tapa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Uma receita tradicional de pão com cebola",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de feitiço folclórico",
+                    "correct": false
+                },
+                {
+                    "optionText": "Uma doença de pele causada por frio extremo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer a palavra 'Tsundoku' em japonês?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Acumular livros e não lê-los",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dormir com vários travesseiros",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ficar horas assistindo vídeos de gatinhos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sentir saudade de uma comida específica",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que se está fazendo quando se pratica 'Kalsarikännit' na Finlândia?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Bebendo de cueca em casa sem intenção de sair",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pescando pelado em um lago congelado",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cantando músicas folclóricas finlandesas em karaokê",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fazendo sauna com desconhecidos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "A palavra havaiana 'Pana Po’o' descreve que ação?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Coçar a cabeça tentando lembrar de algo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Mergulhar de costas na água do mar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gritar nomes de peixes durante um ritual",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pisar descalço em folhas de palmeira",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Shemomedjamo' em georgiano?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Comer demais sem querer porque estava gostoso",
+                    "correct": true
+                },
+                {
+                    "optionText": "Fingir que está comendo para não ofender alguém",
+                    "correct": false
+                },
+                {
+                    "optionText": "Esquecer o que estava cozinhando",
+                    "correct": false
+                },
+                {
+                    "optionText": "Comer em silêncio por respeito",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que a palavra 'Jayus' significa na Indonésia?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Uma piada tão ruim que acaba sendo engraçada",
+                    "correct": true
+                },
+                {
+                    "optionText": "Um espírito que vive em árvores sagradas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um tipo de pastel recheado com peixe",
+                    "correct": false
+                },
+                {
+                    "optionText": "Um gesto de saudação entre crianças",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Na língua Yaghan, o que quer dizer 'Mamihlapinatapai'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Quando duas pessoas querem algo mas nenhuma toma a iniciativa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sentar em silêncio esperando um milagre",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ver uma estrela cadente juntos em silêncio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sorrir enquanto engole o choro",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que se entende por 'Schnapsidee' em alemão?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Ideia absurda que só poderia surgir bêbado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Plano infalível para vencer no xadrez",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sonho repetitivo causado por cerveja",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vontade repentina de aprender flauta",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a palavra filipina 'Gigil'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Desejo incontrolável de apertar algo fofo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Raiva intensa por picadas de mosquito",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sensação de frio repentino",
+                    "correct": false
+                },
+                {
+                    "optionText": "Medo de brinquedos de pelúcia",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Zalatwic' em polonês?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Dar um jeitinho usando contatos ou influência",
+                    "correct": true
+                },
+                {
+                    "optionText": "Engasgar rindo com sopa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fingir entender uma conversa difícil",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sair de fininho de uma reunião",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Tingo' na língua rapanui da Ilha de Páscoa?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Pegar emprestado algo e nunca devolver",
+                    "correct": true
+                },
+                {
+                    "optionText": "Fazer um ritual de agradecimento ao mar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dançar ao redor de uma fogueira",
+                    "correct": false
+                },
+                {
+                    "optionText": "Contar histórias antigas para crianças",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a palavra 'Pochemuchka' em russo?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pessoa que faz perguntas demais",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vendedor de coisas aleatórias",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alguém que reclama sem parar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alguém que sempre está atrasado",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Kummerspeck' em alemão?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Peso ganho por comer em momentos de tristeza",
+                    "correct": true
+                },
+                {
+                    "optionText": "Desejo súbito de comer carne crua",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ansiedade por falta de sobremesa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vontade de se isolar no quarto",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Utepils' em norueguês?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Tomar uma cerveja ao ar livre num dia de sol",
+                    "correct": true
+                },
+                {
+                    "optionText": "Correr pelado pela neve",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ver o pôr do sol em silêncio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Beber algo estranho por engano",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Luftkissenfahrzeug' em alemão?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Veículo de almofada de ar (hovercraft)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cama inflável usada em hospitais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Prancha usada para flutuar em lagos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carrinho de compras flutuante",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Yakamoz' em turco?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Reflexo da luz da lua na água",
+                    "correct": true
+                },
+                {
+                    "optionText": "Grito de surpresa no meio da noite",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pequeno peixe saltador do Mediterrâneo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Som das ondas batendo nas pedras",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer 'Drachenfutter' em alemão?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Presente dado à esposa para pedir desculpas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ração para dragões em contos de fadas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Comida muito apimentada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sobrinha de natal que ninguém quer",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'Cafuné' no Brasil?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Carinho feito na cabeça de alguém",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tipo de doce com leite condensado",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gíria para cochilar depois do almoço",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brincadeira com barulho de beijo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Ayurnamat' na língua Inuit?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Não se preocupar com o que não pode ser controlado",
+                    "correct": true
+                },
+                {
+                    "optionText": "Viver como um urso durante o inverno",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rituais de silêncio antes da caça",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rezar com as mãos enterradas na neve",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Farpotshket' em iídiche?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Algo consertado tão mal que ficou pior",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoa que tem muitos sapatos velhos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Comida que desandou no forno",
+                    "correct": false
+                },
+                {
+                    "optionText": "Barulho irritante de objetos velhos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'Shlimazel'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Pessoa que tem azar constantemente",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoa que fala sem parar",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tipo de panqueca judaica",
+                    "correct": false
+                },
+                {
+                    "optionText": "Objeto decorativo sem função",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a palavra bávara 'Oachkatzlschwoaf'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Rabo de esquilo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tombo em escada rolante",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tosse causada por cerveja quente",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gíria para pessoa muito tímida",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer 'Baragouin' em francês antigo?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Linguagem incompreensível",
+                    "correct": true
+                },
+                {
+                    "optionText": "Objeto perdido na floresta",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sobrenome de famílias nobres",
+                    "correct": false
+                },
+                {
+                    "optionText": "Papel usado para enrolar cartas",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é um 'Bakku-shan' no japonês informal?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Garota que parece bonita só de costas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gíria para garota que fala alto",
+                    "correct": false
+                },
+                {
+                    "optionText": "Menina que anda muito rápido",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alguém que nunca olha nos olhos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Krengjai' em tailandês?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Não querer incomodar alguém, mesmo se te prejudica",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dizer sim, mas querer dizer não",
+                    "correct": false
+                },
+                {
+                    "optionText": "Oferecer chá mesmo sem querer visitas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Vontade de sair andando no meio de um papo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Wabi-sabi' na estética japonesa?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Beleza na imperfeição e no efêmero",
+                    "correct": true
+                },
+                {
+                    "optionText": "Forma geométrica que representa equilíbrio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Técnica de pintura com sal e carvão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Decoração feita com folhas de bambu",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer 'Zrzędzić' em polonês?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Reclamar o tempo todo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Andar de forma desajeitada",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tomar chá enquanto grita",
+                    "correct": false
+                },
+                {
+                    "optionText": "Viver com a cabeça nas nuvens",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Tofurkey' em inglês?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Mistura de tofu com peru (substituto vegano)",
+                    "correct": true
+                },
+                {
+                    "optionText": "Molho picante de tofu",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sobremesa com textura de carne",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tipo de panqueca frita no óleo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Hygge' em dinamarquês?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Sentir conforto e aconchego em momentos simples",
+                    "correct": true
+                },
+                {
+                    "optionText": "Fazer uma festa com amigos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cozinhar pratos exóticos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Viajar para lugares frios",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Kintsugi' na cultura japonesa?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Arte de consertar cerâmica com ouro, valorizando as imperfeições",
+                    "correct": true
+                },
+                {
+                    "optionText": "Técnica de pintura com flores secas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cerimônia de chá com música tradicional",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dança folclórica em celebrações",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Ikigai' em japonês?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Razão de ser ou propósito na vida",
+                    "correct": true
+                },
+                {
+                    "optionText": "Técnica de meditação profunda",
+                    "correct": false
+                },
+                {
+                    "optionText": "Estilo de arte abstrata",
+                    "correct": false
+                },
+                {
+                    "optionText": "Comida feita com arroz e peixe",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Meraki' em grego?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Fazer algo com amor e criatividade, colocando parte de si na tarefa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Cozinhar sem receita, improvisando",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dançar sozinho em casa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Fazer uma pausa para relaxar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa a palavra 'Jayus' em indonésio?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Piada tão mal contada que você ri de nervoso",
+                    "correct": true
+                },
+                {
+                    "optionText": "Pessoa que ri sem motivo em público",
+                    "correct": false
+                },
+                {
+                    "optionText": "Riso descontrolado em funerais",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alguém que sempre conta a mesma piada",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Kilig' em tagalo (Filipinas)?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Aquela sensação de frio na barriga ao ver alguém que gosta",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vergonha alheia intensa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Desconforto por estar muito feliz",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ficar suando quando está apaixonado",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Dépaysement' em francês?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Sensação de estar fora de lugar em um país estranho",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ficar perdido numa cidade sem mapa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sentir falta de casa ao ouvir outro idioma",
+                    "correct": false
+                },
+                {
+                    "optionText": "Confundir o fuso horário e perder compromissos",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer 'Iktsuarpok' em inuit?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "A expectativa de alguém chegar, que te faz sair pra ver toda hora",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ficar nervoso quando a neve atrasa alguém",
+                    "correct": false
+                },
+                {
+                    "optionText": "Medo de que ninguém venha ao seu convite",
+                    "correct": false
+                },
+                {
+                    "optionText": "A arte de sair sem destino apenas para pensar",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Torschlusspanik' em alemão?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Medo de que o tempo esteja se esgotando para fazer algo importante",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ansiedade ao esquecer o que ia dizer",
+                    "correct": false
+                },
+                {
+                    "optionText": "Apressar-se para pegar o trem certo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sensação de culpa por não aproveitar as férias",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que é 'Shemomedjamo' em georgiano?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Continuar comendo mesmo estando cheio porque a comida está boa demais",
+                    "correct": true
+                },
+                {
+                    "optionText": "Misturar comida salgada com doce sem perceber",
+                    "correct": false
+                },
+                {
+                    "optionText": "Achar que está com fome, mas não está",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ficar com preguiça depois de comer",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que significa 'Komorebi' em japonês?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Luz do sol passando entre as folhas das árvores",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vento suave que precede uma tempestade",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brilho da lua refletido em telhados molhados",
+                    "correct": false
+                },
+                {
+                    "optionText": "Som das cigarras no verão",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "O que quer dizer 'Pelinti' em buli (Gana)?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Ato de mover comida quente na boca porque queimou",
+                    "correct": true
+                },
+                {
+                    "optionText": "Dançar de forma desajeitada em festas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dar um grito abafado de surpresa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tentar fingir que sabe o que está comendo",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

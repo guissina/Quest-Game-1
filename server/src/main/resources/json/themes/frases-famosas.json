@@ -1,0 +1,1111 @@
+{
+    "theme": {
+        "name": "Frases famosas",
+        "code": "FALAS",
+        "description": "Descubra quem disse as frases mais icônicas da história. De citações de filósofos a falas de filmes e personagens, teste sua memória sobre as palavras que marcaram gerações.",
+        "free": false,
+        "cost": 500
+    },
+    "questions": [
+        {
+            "questionText": "Quem disse a frase: 'Que a Força esteja com você'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Obi-Wan Kenobi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Luke Skywalker",
+                    "correct": false
+                },
+                {
+                    "optionText": "Han Solo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Darth Vader",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse a frase: 'Com grandes poderes vêm grandes responsabilidades'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Tio Ben",
+                    "correct": true
+                },
+                {
+                    "optionText": "Homem-Aranha",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tony Stark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Capitão América",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Eu sou inevitável'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Thanos",
+                    "correct": true
+                },
+                {
+                    "optionText": "Ultron",
+                    "correct": false
+                },
+                {
+                    "optionText": "Loki",
+                    "correct": false
+                },
+                {
+                    "optionText": "Homem de Ferro",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Say hello to my little friend!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Tony Montana",
+                    "correct": true
+                },
+                {
+                    "optionText": "Vito Corleone",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jules Winnfield",
+                    "correct": false
+                },
+                {
+                    "optionText": "John Wick",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Bazinga!'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Sheldon Cooper",
+                    "correct": true
+                },
+                {
+                    "optionText": "Leonard Hofstadter",
+                    "correct": false
+                },
+                {
+                    "optionText": "Howard Wolowitz",
+                    "correct": false
+                },
+                {
+                    "optionText": "Raj Koothrappali",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Hakuna Matata'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Timon e Pumba",
+                    "correct": true
+                },
+                {
+                    "optionText": "Simba",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rafiki",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mufasa",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Vou te esmagar!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Hulk",
+                    "correct": true
+                },
+                {
+                    "optionText": "Thor",
+                    "correct": false
+                },
+                {
+                    "optionText": "Thanos",
+                    "correct": false
+                },
+                {
+                    "optionText": "Abominável",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Winter is coming'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Ned Stark",
+                    "correct": true
+                },
+                {
+                    "optionText": "Jon Snow",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cersei Lannister",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tyrion Lannister",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Meu precioso'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Gollum",
+                    "correct": true
+                },
+                {
+                    "optionText": "Frodo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gandalf",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sam",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Por que tão sério?'",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Coringa",
+                    "correct": true
+                },
+                {
+                    "optionText": "Batman",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pinguim",
+                    "correct": false
+                },
+                {
+                    "optionText": "Duas-Caras",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'É hora de morfar!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Power Rangers",
+                    "correct": true
+                },
+                {
+                    "optionText": "Digimon",
+                    "correct": false
+                },
+                {
+                    "optionText": "Cavaleiros do Zodíaco",
+                    "correct": false
+                },
+                {
+                    "optionText": "Transformers",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Eu sou o perigo!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Walter White",
+                    "correct": true
+                },
+                {
+                    "optionText": "Saul Goodman",
+                    "correct": false
+                },
+                {
+                    "optionText": "Gustavo Fring",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jesse Pinkman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Eu escolho você!'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Ash Ketchum",
+                    "correct": true
+                },
+                {
+                    "optionText": "Misty",
+                    "correct": false
+                },
+                {
+                    "optionText": "Brock",
+                    "correct": false
+                },
+                {
+                    "optionText": "Professor Carvalho",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Você não passará!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Gandalf",
+                    "correct": true
+                },
+                {
+                    "optionText": "Saruman",
+                    "correct": false
+                },
+                {
+                    "optionText": "Legolas",
+                    "correct": false
+                },
+                {
+                    "optionText": "Boromir",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Eu sou o Batman'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Bruce Wayne",
+                    "correct": true
+                },
+                {
+                    "optionText": "Clark Kent",
+                    "correct": false
+                },
+                {
+                    "optionText": "Tony Stark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Peter Parker",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Tá tranquilo, tá favorável'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "MC Bin Laden",
+                    "correct": true
+                },
+                {
+                    "optionText": "MC Kevinho",
+                    "correct": false
+                },
+                {
+                    "optionText": "MC Loma",
+                    "correct": false
+                },
+                {
+                    "optionText": "MC Don Juan",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Ao infinito e além!'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Buzz Lightyear",
+                    "correct": true
+                },
+                {
+                    "optionText": "Woody",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sr. Cabeça de Batata",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rex",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Say my name.'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Heisenberg",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gustavo Fring",
+                    "correct": false
+                },
+                {
+                    "optionText": "Saul Goodman",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jesse Pinkman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Não tenho amigos, tenho família'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Dominic Toretto",
+                    "correct": true
+                },
+                {
+                    "optionText": "Brian O'Conner",
+                    "correct": false
+                },
+                {
+                    "optionText": "Hobbs",
+                    "correct": false
+                },
+                {
+                    "optionText": "Letty",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Eu sou o rei do mundo!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Jack Dawson",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tony Stark",
+                    "correct": false
+                },
+                {
+                    "optionText": "Forrest Gump",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Chewie, estamos em casa'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Han Solo",
+                    "correct": true
+                },
+                {
+                    "optionText": "Luke Skywalker",
+                    "correct": false
+                },
+                {
+                    "optionText": "Leia Organa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rey",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Sabe de nada, inocente!'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Compadre Washington",
+                    "correct": true
+                },
+                {
+                    "optionText": "Tiririca",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carlinhos Brown",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nego Di",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vingança nunca é plena, mata a alma e a envenena'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Seu Madruga",
+                    "correct": true
+                },
+                {
+                    "optionText": "Chaves",
+                    "correct": false
+                },
+                {
+                    "optionText": "Quico",
+                    "correct": false
+                },
+                {
+                    "optionText": "Professor Girafales",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Fala sério, você é lento até pra pensar!'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Sonic",
+                    "correct": true
+                },
+                {
+                    "optionText": "Mario",
+                    "correct": false
+                },
+                {
+                    "optionText": "Crash Bandicoot",
+                    "correct": false
+                },
+                {
+                    "optionText": "Donkey Kong",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Escolha um trabalho que você ame e você nunca terá que trabalhar um dia sequer na vida'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Confúcio",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aristóteles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Sócrates",
+                    "correct": false
+                },
+                {
+                    "optionText": "Lao Tsé",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Hasta la vista, baby'?",
+            "difficulty": "EASY",
+            "options": [
+                {
+                    "optionText": "Exterminador do Futuro",
+                    "correct": true
+                },
+                {
+                    "optionText": "Rambo",
+                    "correct": false
+                },
+                {
+                    "optionText": "Rocky Balboa",
+                    "correct": false
+                },
+                {
+                    "optionText": "Neo",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Isso é Esparta!'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Rei Leônidas",
+                    "correct": true
+                },
+                {
+                    "optionText": "Aquiles",
+                    "correct": false
+                },
+                {
+                    "optionText": "Alexandre, o Grande",
+                    "correct": false
+                },
+                {
+                    "optionText": "César",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Isso é um pequeno passo para o homem, mas um grande salto para a humanidade'?",
+            "difficulty": "MEDIUM",
+            "options": [
+                {
+                    "optionText": "Neil Armstrong",
+                    "correct": true
+                },
+                {
+                    "optionText": "Buzz Aldrin",
+                    "correct": false
+                },
+                {
+                    "optionText": "Yuri Gagarin",
+                    "correct": false
+                },
+                {
+                    "optionText": "John Glenn",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'As pessoas costumam chamar de destino aquilo que lhes acontece quando não conseguem assumir a responsabilidade por suas vidas'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Jean-Paul Sartre",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sigmund Freud",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carl Jung",
+                    "correct": false
+                },
+                {
+                    "optionText": "Friedrich Nietzsche",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é feita de escolhas'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Mahatma Gandhi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Martin Luther King Jr.",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nelson Mandela",
+                    "correct": false
+                },
+                {
+                    "optionText": "Albert Einstein",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A mente é tudo. Você se torna aquilo que você pensa'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Buda",
+                    "correct": true
+                },
+                {
+                    "optionText": "Confúcio",
+                    "correct": false
+                },
+                {
+                    "optionText": "Platão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristóteles",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A única coisa que temos a temer é o próprio medo'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Franklin D. Roosevelt",
+                    "correct": true
+                },
+                {
+                    "optionText": "Winston Churchill",
+                    "correct": false
+                },
+                {
+                    "optionText": "John F. Kennedy",
+                    "correct": false
+                },
+                {
+                    "optionText": "Abraham Lincoln",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é o que acontece enquanto você está ocupado fazendo outros planos'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "John Lennon",
+                    "correct": true
+                },
+                {
+                    "optionText": "Paul McCartney",
+                    "correct": false
+                },
+                {
+                    "optionText": "George Harrison",
+                    "correct": false
+                },
+                {
+                    "optionText": "Ringo Starr",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é como andar de bicicleta. Para manter o equilíbrio, você deve continuar em movimento'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Albert Einstein",
+                    "correct": true
+                },
+                {
+                    "optionText": "Isaac Newton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Galileu Galilei",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nikola Tesla",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é feita de escolhas, e cada escolha tem suas consequências'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Stephen King",
+                    "correct": true
+                },
+                {
+                    "optionText": "J.K. Rowling",
+                    "correct": false
+                },
+                {
+                    "optionText": "George R.R. Martin",
+                    "correct": false
+                },
+                {
+                    "optionText": "Agatha Christie",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é uma aventura ousada ou não é nada'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Helen Keller",
+                    "correct": true
+                },
+                {
+                    "optionText": "Eleanor Roosevelt",
+                    "correct": false
+                },
+                {
+                    "optionText": "Margaret Mead",
+                    "correct": false
+                },
+                {
+                    "optionText": "Virginia Woolf",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é uma jornada, não um destino'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Ralph Waldo Emerson",
+                    "correct": true
+                },
+                {
+                    "optionText": "Henry David Thoreau",
+                    "correct": false
+                },
+                {
+                    "optionText": "Mark Twain",
+                    "correct": false
+                },
+                {
+                    "optionText": "Walt Whitman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse a frase: 'O único modo de fazer um excelente trabalho é amar o que você faz'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Steve Jobs",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bill Gates",
+                    "correct": false
+                },
+                {
+                    "optionText": "Elon Musk",
+                    "correct": false
+                },
+                {
+                    "optionText": "Walt Disney",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o autor da frase: 'A imaginação é mais importante que o conhecimento'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Albert Einstein",
+                    "correct": true
+                },
+                {
+                    "optionText": "Isaac Newton",
+                    "correct": false
+                },
+                {
+                    "optionText": "Nikola Tesla",
+                    "correct": false
+                },
+                {
+                    "optionText": "Galileu Galilei",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem afirmou: 'O que não nos mata nos torna mais fortes'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Friedrich Nietzsche",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sigmund Freud",
+                    "correct": false
+                },
+                {
+                    "optionText": "Jean-Paul Sartre",
+                    "correct": false
+                },
+                {
+                    "optionText": "Immanuel Kant",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "A frase 'Penso, logo existo' foi dita por qual filósofo?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "René Descartes",
+                    "correct": true
+                },
+                {
+                    "optionText": "Baruch Spinoza",
+                    "correct": false
+                },
+                {
+                    "optionText": "John Locke",
+                    "correct": false
+                },
+                {
+                    "optionText": "David Hume",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Seja a mudança que você quer ver no mundo'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Mahatma Gandhi",
+                    "correct": true
+                },
+                {
+                    "optionText": "Nelson Mandela",
+                    "correct": false
+                },
+                {
+                    "optionText": "Martin Luther King Jr.",
+                    "correct": false
+                },
+                {
+                    "optionText": "Dalai Lama",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A vida é aquilo que acontece enquanto você está ocupado fazendo outros planos'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "John Lennon",
+                    "correct": true
+                },
+                {
+                    "optionText": "Bob Dylan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Paul McCartney",
+                    "correct": false
+                },
+                {
+                    "optionText": "Elvis Presley",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem afirmou: 'O homem é a medida de todas as coisas'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Protágoras",
+                    "correct": true
+                },
+                {
+                    "optionText": "Sócrates",
+                    "correct": false
+                },
+                {
+                    "optionText": "Platão",
+                    "correct": false
+                },
+                {
+                    "optionText": "Aristóteles",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o autor da frase: 'Conhece-te a ti mesmo'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Sócrates",
+                    "correct": true
+                },
+                {
+                    "optionText": "Heráclito",
+                    "correct": false
+                },
+                {
+                    "optionText": "Pitágoras",
+                    "correct": false
+                },
+                {
+                    "optionText": "Parmênides",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A mente que se abre a uma nova ideia jamais voltará ao seu tamanho original'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Albert Einstein",
+                    "correct": true
+                },
+                {
+                    "optionText": "Carl Sagan",
+                    "correct": false
+                },
+                {
+                    "optionText": "Stephen Hawking",
+                    "correct": false
+                },
+                {
+                    "optionText": "Richard Feynman",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Não é a espécie mais forte que sobrevive, nem a mais inteligente, mas a que melhor se adapta às mudanças'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Charles Darwin",
+                    "correct": true
+                },
+                {
+                    "optionText": "Gregor Mendel",
+                    "correct": false
+                },
+                {
+                    "optionText": "Louis Pasteur",
+                    "correct": false
+                },
+                {
+                    "optionText": "Thomas Malthus",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem é o autor da frase: 'O que sabemos é uma gota; o que ignoramos é um oceano'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Isaac Newton",
+                    "correct": true
+                },
+                {
+                    "optionText": "Galileu Galilei",
+                    "correct": false
+                },
+                {
+                    "optionText": "Johannes Kepler",
+                    "correct": false
+                },
+                {
+                    "optionText": "Carl Sagan",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'A educação é a arma mais poderosa que você pode usar para mudar o mundo'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Nelson Mandela",
+                    "correct": true
+                },
+                {
+                    "optionText": "Malcolm X",
+                    "correct": false
+                },
+                {
+                    "optionText": "Barack Obama",
+                    "correct": false
+                },
+                {
+                    "optionText": "Desmond Tutu",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "questionText": "Quem disse: 'Aquele que tem um porquê para viver pode suportar quase qualquer como'?",
+            "difficulty": "HARD",
+            "options": [
+                {
+                    "optionText": "Friedrich Nietzsche",
+                    "correct": true
+                },
+                {
+                    "optionText": "Viktor Frankl",
+                    "correct": false
+                },
+                {
+                    "optionText": "Arthur Schopenhauer",
+                    "correct": false
+                },
+                {
+                    "optionText": "Karl Marx",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
