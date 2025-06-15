@@ -31,7 +31,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   &--players {
-    width: 16rem;
+    width: 13rem;
     overflow-y: auto;
   }
 
@@ -85,13 +85,14 @@
 .gp-board {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-  grid-auto-rows: 6rem;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
   gap: 0.25rem;
   padding: 1rem;
   background: #e0f7fa;
-  align-content: start;
-  overflow: auto;
+  width: 90vw;
+  max-width: 1200px;
+  aspect-ratio: var(--cols) / var(--rows);
 
   .gp-tile {
     background: white;
@@ -111,23 +112,27 @@
     .gp-tile-theme {
       font-size: 0.85rem;
       font-style: italic;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .gp-tile-players {
       display: flex;
       gap: 0.25rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
 
-      .gp-tile-player {
-        background: #febb0b;
-        color: white;
-        padding: 0.15rem 0.3rem;
-        border-radius: 0.3rem;
-        font-size: 0.75rem;
+      .gp-tile-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
       }
     }
   }
 }
+
 
 /* --- ACTIONS PANEL --- */
 .gp-section {

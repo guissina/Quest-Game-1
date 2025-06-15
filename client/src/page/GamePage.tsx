@@ -81,7 +81,13 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
         </aside>
 
         {/* Center: Board */}
-        <section className="gp-board">
+        <section
+          className="gp-board"
+          style={{
+            '--cols': gameState.board.cols,
+            '--rows': gameState.board.rows
+          } as React.CSSProperties}
+        >
           {gameState.board.tiles.map(tile => {
             const occupants = gameState.playerStates.filter(ps => ps.tileId === tile.id);
             return (
@@ -93,14 +99,21 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
                   gridRow: tile.row + 1,
                 }}
               >
-                <div className="gp-tile-id">{tile.id}</div>
+                <div className="gp-tile-id">{tile.sequence}</div>
                 <div className="gp-tile-theme">{tile.themes[0]?.name}</div>
                 <div className="gp-tile-players">
-                  {occupants.map(o => (
-                    <span key={o.playerId} className="gp-tile-player">
-                      {o.playerId}
-                    </span>
-                  ))}
+                  {occupants.map(o => {
+                    const player = players.find(p => p.id === o.playerId);
+                    return (
+                      <img
+                        key={o.playerId}
+                        src={image1}
+                        alt={player?.name}
+                        className="gp-tile-avatar"
+                        title={player?.name}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             );

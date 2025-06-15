@@ -85,6 +85,7 @@ public class GameRoomService implements IGameRoomService {
         System.out.println("Join: " + req.playerId());
         Player player = playerServices.findPlayerById(req.playerId());
         session.joinPlayer(player);
+
         broadcastRoomState(req.sessionId(), false);
         broadcastPublicRooms();
     }
