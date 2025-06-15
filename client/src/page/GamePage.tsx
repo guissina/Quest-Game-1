@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import TurnIndicator from '../components/GameHeader/GameHeader';
 import SidebarPlayers from '../components/SidebarPlayers/SidebarPlayers';
 import SidebarActions from '../components/SidebarActions/SidebarActions';
-import { QuestionModal } from '../components/Question/QuestionModal';
+import QuestionModal from '../components/Question/QuestionModal';
 import BoardView from '../components/BoardView/BoardView';
 import { Player } from '../models/Player';
 import { AbilityType } from '../models/PlayerState';
@@ -33,10 +33,8 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     () => players.find(p => p.id === currentState?.playerId),
     [players, currentState?.playerId]
   );
-  const pendingQuestion = useMemo(
-    () => myState?.pendingQuestion,
-    [myState]
-  );
+
+  const pendingQuestion = currentState?.pendingQuestion ?? null;
   const canAnswer = currentState?.playerId === myPlayerId;
 
   const handleConfirmMove = useCallback((steps: number) => {
@@ -46,19 +44,14 @@ export default function GamePage({ sessionId, myPlayerId, players }: GamePagePro
     const themeId = destination.themes[0]?.id ?? 0;
 
     drawQuestion(myPlayerId, themeId, steps);
-  }, [
-    gameState,
-    myState?.tileId,
-    myPlayerId,
-    drawQuestion
-  ]);
+  }, [gameState, myState?.tileId, myPlayerId, drawQuestion]);
 
   const handleUseAbility = useCallback((ability: AbilityType) => {
     useAbility(myPlayerId, ability);
   }, [useAbility, myPlayerId]);
 
   const handleAnswer = useCallback((optId: number) => {
-    if (!pendingQuestion) return;
+    if (!pendingQuestion || !canAnswer) return;
 
     answerQuestion(myPlayerId, pendingQuestion.id, optId);
     setQuestionOpen(false);

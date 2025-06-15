@@ -1,0 +1,125 @@
+@use 'sass:color';
+
+$font: 'Poppins', sans-serif;
+$primary: #006a54;
+$secondary: #febb0b;
+$text-dark: #2d2d2d;
+$bg-content: #ffffff;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$overlay-bg: rgba(0, 0, 0, 0.6);
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.content {
+  position: relative;
+  background: $bg-content;
+  padding: 2rem;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 1rem;
+  box-shadow: $shadow;
+  font-family: $font;
+  color: $text-dark;
+  outline: none;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transform: translateY(0);
+  opacity: 1;
+
+  &--after-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &--before-close {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: $primary;
+  position: relative;
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: $secondary;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+  color: $text-dark;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.prompt {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.options li {
+  width: 100%;
+}
+
+.optionBtn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: $font;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  background: linear-gradient(45deg, $secondary, color.adjust($secondary, $lightness: -15%));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s, box-shadow 0.1s;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
