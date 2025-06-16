@@ -45,7 +45,7 @@ $overlay-bg: rgba(0, 0, 0, 0.6);
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
 }
@@ -87,6 +87,7 @@ $overlay-bg: rgba(0, 0, 0, 0.6);
   font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .options {
@@ -95,6 +96,14 @@ $overlay-bg: rgba(0, 0, 0, 0.6);
   margin: 0;
   display: grid;
   gap: 0.75rem;
+
+  & > li {
+    .optionBtn {
+      background-color: #ffd700;
+      border-color: #aa6600;
+      color: #aa6600;
+    }
+  }
 }
 
 .options li {
@@ -109,7 +118,6 @@ $overlay-bg: rgba(0, 0, 0, 0.6);
   color: white;
   font-weight: 600;
   border-radius: 0.75rem;
-  background: linear-gradient(45deg, $secondary, color.adjust($secondary, $lightness: -15%));
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.1s, box-shadow 0.1s;
 
