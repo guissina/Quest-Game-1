@@ -44,7 +44,7 @@ public class GameSession {
     }
 
     public boolean isStarted() {
-        return engine != null;
+        return engine != null && room.isStarted();
     }
 
     public Boolean getPublicSession() {
@@ -60,6 +60,12 @@ public class GameSession {
             return;
         this.engine = engine;
         room.markStarted();
+    }
+
+    public void endGame() {
+        if (engine == null) return;
+        this.engine = null;
+        this.room.markFinished();
     }
 
     public void joinPlayer(Player player) {

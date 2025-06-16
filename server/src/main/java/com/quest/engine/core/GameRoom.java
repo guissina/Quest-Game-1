@@ -35,6 +35,10 @@ public class GameRoom {
         this.started = true;
     }
 
+    public void markFinished() {
+        this.started = false;
+    }
+
     public boolean isStarted() {
         return started;
     }

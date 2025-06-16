@@ -62,7 +62,8 @@ public class GameRoomService implements IGameRoomService {
         this.playerMapper = playerMapper;
     }
 
-    private void broadcastRoomState(String sessionId, boolean closed) {
+    @Override
+    public void broadcastRoomState(String sessionId, boolean closed) {
         GameSession session = sessionManager.getSession(sessionId);
         GameRoom room = session.getRoom();
 

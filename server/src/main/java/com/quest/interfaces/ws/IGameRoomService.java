@@ -5,6 +5,8 @@ import com.quest.dto.ws.Room.*;
 import java.util.List;
 
 public interface IGameRoomService {
+    void broadcastRoomState(String sessionId, boolean closed);
+
     RoomCreateResponseDTO createRoom(RoomCreateRequestDTO req);
 
     void joinRoom(JoinRoomRequestDTO req);
