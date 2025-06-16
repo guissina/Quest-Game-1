@@ -28,9 +28,9 @@ public class GameService {
 
     @Autowired
     public GameService(GameSessionManager sessionManager,
-                       SimpMessagingTemplate messagingTemplate,
-                       IQuestionServices questionService,
-                       TimerService timerService) {
+            SimpMessagingTemplate messagingTemplate,
+            IQuestionServices questionService,
+            TimerService timerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
         this.questionService = questionService;
@@ -56,14 +56,14 @@ public class GameService {
             question = questionService.findRandomByTheme(req.themeId());
             System.out.println("Peguei: " + question.getId()); //
 
-        } while (false && engine.hasUsedQuestion(question.getId()));
+        } while (engine.hasUsedQuestion(question.getId()));
         Hibernate.initialize(question.getOptions());
 
         engine.prepareQuestion(req.playerId(), question, req.steps());
         broadcastGameState(sessionId, engine);
 
         timerService.cancelTurnTimer(sessionId, req.playerId());
-        timerService.startQuestionTimer(sessionId, req.playerId(), 10);
+        timerService.startQuestionTimer(sessionId, req.playerId(), question.getDifficulty().getTimeLimitInSeconds());
     }
 
     public void answerQuestion(String sessionId, AnswerRequestDTO req) {
@@ -73,7 +73,7 @@ public class GameService {
 
         timerService.cancelQuestionTimer(sessionId, req.playerId());
         Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
-        timerService.startTurnTimer(sessionId, nextPlayer, 15);
+        timerService.startTurnTimer(sessionId, nextPlayer, 60);
     }
 
     public void useAbility(String sessionId, UseAbilityRequestDTO req) {

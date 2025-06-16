@@ -1,9 +1,9 @@
 package com.quest.enums;
 
 public enum Difficulty {
-    EASY("Fácil", 30),
-    MEDIUM("Médio", 40),
-    HARD("Difícil", 60);
+    EASY("Fácil", 40),
+    MEDIUM("Médio", 60),
+    HARD("Difícil", 80);
 
     private final String description;
     private final int timeLimitInSeconds;

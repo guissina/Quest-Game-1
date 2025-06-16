@@ -1,19 +1,25 @@
 package com.quest.services.ws;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.BiConsumer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
 import com.quest.config.websocket.WsDestinations;
 import com.quest.dto.ws.Game.EngineStateDTO;
 import com.quest.dto.ws.Game.TimerDTO;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.managers.GameSessionManager;
-import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Service;
 
-import java.util.Map;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.BiConsumer;
+import jakarta.annotation.PreDestroy;
 
 @Service
 public class TimerService {
@@ -28,14 +34,14 @@ public class TimerService {
 
     @Autowired
     public TimerService(GameSessionManager sessionManager,
-                        SimpMessagingTemplate messagingTemplate) {
+            SimpMessagingTemplate messagingTemplate) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
     }
 
     private enum TimerType {
-        TURN (GameEngine::forceSkipTurn),
-        QUESTION (GameEngine::forceFailQuestion);
+        TURN(GameEngine::forceSkipTurn),
+        QUESTION(GameEngine::forceFailQuestion);
 
         private final BiConsumer<GameEngine, Long> onTimeoutAction;
 
@@ -48,8 +54,10 @@ public class TimerService {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof TimerKey other)) return false;
+            if (this == o)
+                return true;
+            if (!(o instanceof TimerKey other))
+                return false;
             return sessionId.equals(other.sessionId)
                     && playerId.equals(other.playerId)
                     && type == other.type;
@@ -99,7 +107,7 @@ public class TimerService {
 
             if (!engine.isFinished()) {
                 Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
-                startTimer(sessionId, nextPlayer, 15, TimerType.TURN);
+                startTimer(sessionId, nextPlayer, 60, TimerType.TURN);
             }
             System.out.println("Timer: " + key + " - Timeout");
         }, timeoutSeconds, TimeUnit.SECONDS);

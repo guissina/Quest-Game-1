@@ -6,6 +6,11 @@ export const getPlayers = async (): Promise<Player[]> => {
     return raw.map((props) => new Player(props));
 };
 
+export const updatePlayer = async (id: number, playerData: Partial<PlayerProps>): Promise<Player> => {
+    const raw: PlayerProps = await api.put(`players/${id}`, playerData).then((res) => res.data);
+    return new Player(raw);
+};
+
 export const getPlayerById = async (id: number): Promise<Player> => {
     const raw: PlayerProps = await api.get(`players/${id}`).then((res) => res.data);
     return new Player(raw);
