@@ -109,6 +109,8 @@
     flex-direction: column;
     gap: 1.5rem;
     margin-right: 1rem;
+    height: 100px;
+    // border: 1px solid red;
 
     .coin {
       position: relative;
@@ -119,18 +121,43 @@
 
       &:nth-child(1) {
         transform: translate(-2.25rem, 0.95rem);
+        z-index: 10;
       }
       &:nth-child(2) {
         transform: translate(-1rem, 0.25rem);
+        z-index: 10;
       }
       &:nth-child(3) {
         transform: translate(-0.4rem, 0rem);
+        z-index: 10;
       }
       &:nth-child(4) {
         transform: translate(-0.9rem, -0.25rem);
+        z-index: 10;
       }
       &:nth-child(5) {
         transform: translate(-2.05rem, -0.8rem);
+        z-index: 10;
+      }
+      &:nth-child(6) {
+        transform: translate(-0.75rem, -10.7rem);
+        z-index: 5;
+      }
+      &:nth-child(7) {
+        transform: translate(0.3rem, -11.3rem);
+        z-index: 5;
+      }
+      &:nth-child(8) {
+        transform: translate(1rem, -11.5rem);
+        z-index: 5;
+      }
+      &:nth-child(9) {
+        transform: translate(0.7rem, -11.75rem);
+        z-index: 5;
+      }
+      &:nth-child(10) {
+        transform: translate(-0.3rem, -12.2rem);
+        z-index: 5;
       }
 
       .badge {
@@ -206,15 +233,39 @@
       }
       &:nth-child(2) {
         transform: translate(-0.75rem, -0.75rem);
+        z-index: 10;
       }
       &:nth-child(3) {
         transform: translate(-0.25rem, -1rem);
+        z-index: 10;
       }
       &:nth-child(4) {
         transform: translate(-0.8rem, -1.3rem);
+        z-index: 10;
       }
       &:nth-child(5) {
         transform: translate(-2.25rem, -2.2rem);
+        z-index: 10;
+      }
+      &:nth-child(6) {
+        transform: translate(-0.75rem, -11.45rem);
+        z-index: 5;
+      }
+      &:nth-child(7) {
+        transform: translate(0.75rem, -12.2rem);
+        z-index: 5;
+      }
+      &:nth-child(8) {
+        transform: translate(1.3rem, -12.4rem);
+        z-index: 5;
+      }
+      &:nth-child(9) {
+        transform: translate(0.8rem, -12.75rem);
+        z-index: 5;
+      }
+      &:nth-child(10) {
+        transform: translate(-0.6rem, -13.5rem);
+        z-index: 5;
       }
 
       .badge {
