@@ -17,6 +17,18 @@ public class ThemeUpdateDTO {
     @Size(min = 2, max = 30, message = "Theme Code must be between 2 and 30 characters")
     private String code;
 
+    @NotBlank(message = "Theme description is required")
+    @Size(min = 2, message = "Theme description must have more than 2 characters")
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @NotNull(message = "Must specify if the theme is free or paid")
     private Boolean free;
 

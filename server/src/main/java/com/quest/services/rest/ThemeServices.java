@@ -113,6 +113,9 @@ public class ThemeServices implements IThemeServices {
         if (!currentTheme.getCode().equals(themeUpdateDTO.getCode()))
             currentTheme.setCode(themeUpdateDTO.getCode());
 
+        if (!currentTheme.getDescription().equals(themeUpdateDTO.getDescription()))
+            currentTheme.setDescription(themeUpdateDTO.getDescription());
+
         currentTheme.setCost(themeUpdateDTO.getCost());
 
         if (themeUpdateDTO.isFree())

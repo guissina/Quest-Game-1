@@ -6,6 +6,7 @@ public class ThemeResponseDTO {
     private Long id;
     private String name;
     private String code;
+    private String description;
     private Boolean free;
     private BigDecimal cost;
 
@@ -35,6 +36,14 @@ public class ThemeResponseDTO {
 
     public String getCode() {
         return code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setCode(String code) {

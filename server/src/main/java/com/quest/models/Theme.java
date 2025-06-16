@@ -34,6 +34,11 @@ public class Theme {
     @Column(name = "code", nullable = false, unique = true)
     private String code;
 
+    @NotBlank
+    @Size(min = 2, message = "Theme description have more than 2 characters")
+    @Column(name = "description", nullable = false)
+    private String description;
+
     @NotNull(message = "Must specify if the theme is free or paid")
     @Column(name = "is_free", nullable = false)
     private Boolean free;
@@ -45,6 +50,14 @@ public class Theme {
     @JsonIgnore
     @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlayerTheme> playerThemes;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public List<PlayerTheme> getPlayerThemes() {
         return playerThemes;
