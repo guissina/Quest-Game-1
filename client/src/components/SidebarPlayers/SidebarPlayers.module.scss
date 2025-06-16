@@ -1,7 +1,6 @@
 .sidebar {
-    background: white;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 13rem;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  // ADICIONAR BARRA DE SCROLL CUSTOMIZADA
 }
