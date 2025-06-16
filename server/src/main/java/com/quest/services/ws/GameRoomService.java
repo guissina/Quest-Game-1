@@ -3,12 +3,20 @@ package com.quest.services.ws;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.quest.dto.ws.Room.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import com.quest.config.websocket.WsDestinations;
+import com.quest.dto.ws.Room.ChangeVisibilityRoomRequestDTO;
+import com.quest.dto.ws.Room.JoinRoomRequestDTO;
+import com.quest.dto.ws.Room.LeaveRoomRequestDTO;
+import com.quest.dto.ws.Room.PlayerRoomResponseDTO;
+import com.quest.dto.ws.Room.RoomCreateRequestDTO;
+import com.quest.dto.ws.Room.RoomCreateResponseDTO;
+import com.quest.dto.ws.Room.RoomStateDTO;
+import com.quest.dto.ws.Room.RoomSummaryDTO;
+import com.quest.dto.ws.Room.StartRoomRequestDTO;
 import com.quest.engine.core.GameEngine;
 import com.quest.engine.core.GameRoom;
 import com.quest.engine.core.GameSession;
@@ -116,7 +124,7 @@ public class GameRoomService implements IGameRoomService {
         GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
-        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 15);
+        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 60);
 
         broadcastRoomState(req.sessionId(), false);
     }
