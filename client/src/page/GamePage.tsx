@@ -50,10 +50,6 @@ export default function GamePage({
     () => playerStates.find((ps) => ps.isCurrentTurn),
     [playerStates],
   );
-  const currentPlayer = useMemo(
-    () => players.find((p) => p.id === currentState?.playerId),
-    [players, currentState?.playerId],
-  );
 
   const pendingQuestion = currentState?.pendingQuestion ?? null;
   const canAnswer = currentState?.playerId === myPlayerId;
@@ -104,16 +100,7 @@ export default function GamePage({
 
   return (
     <div className={styles.container}>
-      {/* <TurnIndicator currentPlayerName={currentPlayer?.name} /> */}
-
       <div className={styles.main}>
-        {/* <SidebarPlayers
-          players={players}
-          playerStates={gameState.playerStates}
-          onConfirmMove={handleConfirmMove}
-          onUseAbility={handleUseAbility}
-        /> */}
-
         {player && (
           <PlayerCard
             key={player.id}
