@@ -43,21 +43,32 @@
       align-items: center;
       padding: 1rem;
 
-      & > .copy {
-        position: relative;
+      & > label {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
 
-        width: 320px;
-        height: 38px;
-        border: 2px solid black;
-        border-radius: 0.75rem;
-        background-color: white;
-        font-size: 0.75rem;
-        font-weight: 800;
-        cursor: pointer;
+        select {
+          margin-top: -1rem;
+        }
+
+        & > .copy {
+          margin-top: -1rem;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+
+          width: 320px;
+          height: 38px;
+          border: 2px solid black;
+          border-radius: 0.75rem;
+          background-color: white;
+          font-size: 0.75rem;
+          font-weight: 800;
+          cursor: pointer;
+        }
       }
 
       .iconWrapper {
@@ -100,30 +111,41 @@
         flex-direction: row;
         max-width: 320px;
 
-        & > select {
-          padding: 0.25rem;
-          width: 100%;
-          border: 2px solid black;
+        & > label {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          line-height: 1rem;
+          font-size: 0.9rem;
+          width: 320px;
 
-          option {
-            cursor: pointer;
-          }
+          select {
+            margin-top: -0.9rem;
+            padding: 0.25rem;
+            width: 100%;
+            border: 2px solid black;
 
-          &::-webkit-scrollbar {
-            margin-left: 1rem;
-          }
+            option {
+              cursor: pointer;
+            }
 
-          &::-webkit-scrollbar-track {
-            background: #8eddff;
-          }
+            &::-webkit-scrollbar {
+              margin-left: 1rem;
+            }
 
-          &::-webkit-scrollbar-thumb {
-            background: #1cbbff;
+            &::-webkit-scrollbar-track {
+              background: #8eddff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: #1cbbff;
+            }
           }
         }
       }
 
       & > input,
+      & > label select,
       & > select {
         width: 20rem;
         border: 2px solid black;
@@ -135,6 +157,15 @@
 
         &::placeholder {
           color: #737373;
+        }
+      }
+
+      & > label {
+        display: flex;
+        flex-direction: column;
+
+        & > input {
+          margin-top: -2rem;
         }
       }
 

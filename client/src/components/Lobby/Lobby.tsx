@@ -50,7 +50,6 @@ export default function Lobby({
   const [sessionType, setSessionType] = useState<'publica' | 'particular'>(
     'particular',
   );
-  const [initialTokens, setInitialTokens] = useState<number>(5);
 
   const [availableThemes, setAvailableThemes] = useState<Theme[]>([]);
   const [selectedThemes, setSelectedThemes] = useState<Theme[]>([]);
@@ -89,7 +88,7 @@ export default function Lobby({
       setErrorMessage('Selecione de 1 a 6 temas para começar');
     }
     const themeIds = selectedThemes.map((t) => Number(t.id));
-    startRoom(2, initialTokens, themeIds);
+    startRoom(2, 5, themeIds);
   };
 
   const addTheme = (theme: Theme) => {
@@ -116,67 +115,75 @@ export default function Lobby({
 
       <section className={styles.lobby}>
         <form onSubmit={(e) => e.preventDefault()}>
-          <button className={styles.copy} onClick={handleCopy}>
-            {sessionId}
-            <span className={styles.iconWrapper}>
-              <span
-                className={`${styles.icon} ${
-                  copied ? styles.hidden : styles.visible
-                }`}
-              >
-                <Copy size={16} />
+          <label htmlFor="copy">
+            Copie o convite para sua sessão:
+            <button id="copy" className={styles.copy} onClick={handleCopy}>
+              {sessionId}
+              <span className={styles.iconWrapper}>
+                <span
+                  className={`${styles.icon} ${
+                    copied ? styles.hidden : styles.visible
+                  }`}
+                >
+                  <Copy size={16} />
+                </span>
+                <span
+                  className={`${styles.icon} ${
+                    copied ? styles.visible : styles.hidden
+                  }`}
+                >
+                  <CopyCheck size={16} />
+                </span>
               </span>
-              <span
-                className={`${styles.icon} ${
-                  copied ? styles.visible : styles.hidden
-                }`}
-              >
-                <CopyCheck size={16} />
-              </span>
-            </span>
-          </button>
-          <select
-            value={sessionType}
-            onChange={(e) =>
-              setSessionType(e.target.value as 'publica' | 'particular')
-            }
-          >
-            <option value="publica">Pública</option>
-            <option value="particular">Particular</option>
-          </select>
-          <input
-            type="number"
-            placeholder="Initial Tokens"
-            value={initialTokens}
-            onChange={(e) => setInitialTokens(Number(e.target.value))}
-          />
+            </button>
+          </label>
+
+          <label htmlFor="visibilidade">
+            Visibilidade da Sessão:
+            <select
+              id="visibilidade"
+              value={sessionType}
+              onChange={(e) =>
+                setSessionType(e.target.value as 'publica' | 'particular')
+              }
+            >
+              <option value="publica">Pública</option>
+              <option value="particular">Particular</option>
+            </select>
+          </label>
           <p className={styles.error}>
             {errorMessage ? <>{errorMessage}</> : ''}
           </p>
           <div className={styles.themeList}>
-            <select multiple size={6}>
-              {availableThemes.map((theme) => (
-                <option
-                  key={theme.id}
-                  value={theme.id}
-                  onClick={() => addTheme(theme)}
-                >
-                  {theme.name}
-                </option>
-              ))}
-            </select>
+            <label htmlFor="temas">
+              Temas disponíveis
+              <select id="temas" multiple size={6}>
+                {availableThemes.map((theme) => (
+                  <option
+                    key={theme.id}
+                    value={theme.id}
+                    onClick={() => addTheme(theme)}
+                  >
+                    {theme.name}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-            <select multiple size={6}>
-              {selectedThemes.map((theme) => (
-                <option
-                  key={theme.id}
-                  value={theme.id}
-                  onClick={() => removeTheme(theme)}
-                >
-                  {theme.name}
-                </option>
-              ))}
-            </select>
+            <label htmlFor="selecionados">
+              Temas selecionados
+              <select id="selecionados" multiple size={6}>
+                {selectedThemes.map((theme) => (
+                  <option
+                    key={theme.id}
+                    value={theme.id}
+                    onClick={() => removeTheme(theme)}
+                  >
+                    {theme.name}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
         </form>
 
