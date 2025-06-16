@@ -46,6 +46,7 @@ export default function Lobby({
   } = useTheme();
 
   const [copied, setCopied] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
   const [sessionType, setSessionType] = useState<'publica' | 'particular'>(
     'particular',
   );
@@ -84,12 +85,16 @@ export default function Lobby({
   const isCreator = myPlayerId === hostId;
 
   const handleStart = () => {
-    if (initialTokens && selectedThemes.length === 0) return;
+    if (selectedThemes.length === 0) {
+      setErrorMessage('Selecione de 1 a 6 temas para começar');
+    }
     const themeIds = selectedThemes.map((t) => Number(t.id));
     startRoom(2, initialTokens, themeIds);
   };
 
   const addTheme = (theme: Theme) => {
+    setErrorMessage(null);
+    if (selectedThemes.length >= 6) return;
     setAvailableThemes((prev) => prev.filter((t) => t.id !== theme.id));
     setSelectedThemes((prev) => [...prev, theme]);
   };
@@ -145,7 +150,9 @@ export default function Lobby({
             value={initialTokens}
             onChange={(e) => setInitialTokens(Number(e.target.value))}
           />
-
+          <p className={styles.error}>
+            {errorMessage ? <>{errorMessage}</> : ''}
+          </p>
           <div className={styles.themeList}>
             <select multiple size={6}>
               {availableThemes.map((theme) => (
@@ -197,7 +204,7 @@ export default function Lobby({
         </button>
         <button
           onClick={handleStart}
-          disabled={!isCreator || started || selectedThemes.length === 0}
+          disabled={!isCreator || started}
           className="btn"
         >
           {started ? 'Partida Iniciada' : 'Iniciar Partida'}
