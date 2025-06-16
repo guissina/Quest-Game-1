@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { Question } from '../../models/Question';
+import { Question, QuestionOption } from '../../models/Question';
 import styles from './QuestionModal.module.scss';
 
 Modal.setAppElement('#root');
@@ -13,7 +13,17 @@ interface QuestionModalProps {
     onAnswer: (optId: number) => void;
 }
 
+function shuffle<T>(arr: T[]): T[] {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
 export default function QuestionModal({ isOpen, question, canAnswer, onRequestClose, onAnswer }: QuestionModalProps) {
+    const [shuffledOptions, setShuffledOptions] = useState<QuestionOption[]>([]);
 
     useEffect(() => {
         if (isOpen) {
@@ -21,6 +31,10 @@ export default function QuestionModal({ isOpen, question, canAnswer, onRequestCl
             btn?.focus();
         }
     }, [isOpen]);
+
+    useEffect(() => {
+        setShuffledOptions(shuffle(question.options));
+    }, [question]);
 
     return (
         <Modal
@@ -52,7 +66,7 @@ export default function QuestionModal({ isOpen, question, canAnswer, onRequestCl
             <p className={styles.prompt}>{question.text}</p>
 
             <ul className={styles.options}>
-                {question.options.map(opt => (
+                {shuffledOptions.map((opt: QuestionOption) => (
                     <li key={opt.id}>
                         <button
                             className={`${styles.optionBtn} secondary-btn`}
