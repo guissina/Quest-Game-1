@@ -10,178 +10,199 @@ import { useTheme } from '../../hooks/data/useTheme';
 import { getAvatarUrl } from '../../utils/avatar';
 
 interface LobbyProps {
-    sessionId: string;
-    myPlayerId: number;
-    players: Player[];
-    started: boolean;
-    hostId: number;
-    startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
-    changeVisibility: (publicSession: boolean) => void;
+  sessionId: string;
+  myPlayerId: number;
+  players: Player[];
+  started: boolean;
+  hostId: number;
+  startRoom: (
+    boardId: number,
+    initialTokens: number,
+    themeIds: number[],
+  ) => void;
+  changeVisibility: (publicSession: boolean) => void;
 }
 
-export default function Lobby({ sessionId, myPlayerId, players, started, hostId, startRoom, changeVisibility }: LobbyProps) {
-    const { player, fetchPlayer, loading: playerLoading, error: playerError } = usePlayer(myPlayerId);
-    const { themes, fetchThemes, loading: themesLoading, error: themesError } = useTheme();
+export default function Lobby({
+  sessionId,
+  myPlayerId,
+  players,
+  started,
+  hostId,
+  startRoom,
+  changeVisibility,
+}: LobbyProps) {
+  const {
+    player,
+    fetchPlayer,
+    loading: playerLoading,
+    error: playerError,
+  } = usePlayer(myPlayerId);
+  const {
+    themes,
+    fetchThemes,
+    loading: themesLoading,
+    error: themesError,
+  } = useTheme();
 
-    const [copied, setCopied] = React.useState(false);
-    const [sessionType, setSessionType] = useState<'publica' | 'particular'>('particular');
-    const [boardId, setBoardId] = useState<number>(0);
-    const [initialTokens, setInitialTokens] = useState<number>(0);
+  const [copied, setCopied] = React.useState(false);
+  const [sessionType, setSessionType] = useState<'publica' | 'particular'>(
+    'particular',
+  );
+  const [initialTokens, setInitialTokens] = useState<number>(5);
 
-    const [availableThemes, setAvailableThemes] = useState<Theme[]>([]);
-    const [selectedThemes, setSelectedThemes] = useState<Theme[]>([]);
+  const [availableThemes, setAvailableThemes] = useState<Theme[]>([]);
+  const [selectedThemes, setSelectedThemes] = useState<Theme[]>([]);
 
-    useEffect(() => {
-        fetchPlayer();
-    }, [fetchPlayer]);
+  useEffect(() => {
+    fetchPlayer();
+  }, [fetchPlayer]);
 
-    useEffect(() => {
-        fetchThemes();
-    }, [fetchThemes]);
+  useEffect(() => {
+    fetchThemes();
+  }, [fetchThemes]);
 
-    useEffect(() => {
-        if (!themesLoading && themes && player) {
-            const meus = themes
-                .filter(t => player.themeIds.includes(t.id))
-                .map(t => new Theme(t));
-            setAvailableThemes(meus);
-        }
-    }, [player, themes, themesLoading]);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(sessionId);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    useEffect(() => {
-        changeVisibility(sessionType === 'publica');
-    }, [sessionType, changeVisibility]);
-
-    const isCreator = myPlayerId === hostId;
-
-    const handleStart = () => {
-        if (boardId && initialTokens && selectedThemes.length === 0) return;
-        const themeIds = selectedThemes.map(t => Number(t.id));
-        startRoom(boardId, initialTokens, themeIds);
+  useEffect(() => {
+    if (!themesLoading && themes && player) {
+      const meus = themes
+        .filter((t) => player.themeIds.includes(t.id))
+        .map((t) => new Theme(t));
+      setAvailableThemes(meus);
     }
+  }, [player, themes, themesLoading]);
 
-    const addTheme = (theme: Theme) => {
-        setAvailableThemes(prev => prev.filter(t => t.id !== theme.id));
-        setSelectedThemes(prev => [...prev, theme]);
-    };
+  const handleCopy = () => {
+    navigator.clipboard.writeText(sessionId);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-    const removeTheme = (theme: Theme) => {
-        setSelectedThemes(prev => prev.filter(t => t.id !== theme.id));
-        setAvailableThemes(prev => [...prev, theme]);
-    };
+  useEffect(() => {
+    changeVisibility(sessionType === 'publica');
+  }, [sessionType, changeVisibility]);
 
-    if (playerLoading || themesLoading) return <p>Carregando...</p>;
-    if (playerError) return <p>Erro no jogador: {playerError}</p>;
-    if (themesError) return <p>Erro nos temas: {themesError}</p>;
+  const isCreator = myPlayerId === hostId;
 
-    return (
-        <section className={styles.dashboard}>
-            <header>
-                <h2>Lobby</h2>
-            </header>
+  const handleStart = () => {
+    if (initialTokens && selectedThemes.length === 0) return;
+    const themeIds = selectedThemes.map((t) => Number(t.id));
+    startRoom(2, initialTokens, themeIds);
+  };
 
-            <section className={styles.lobby}>
-                <form onSubmit={e => e.preventDefault()}>
+  const addTheme = (theme: Theme) => {
+    setAvailableThemes((prev) => prev.filter((t) => t.id !== theme.id));
+    setSelectedThemes((prev) => [...prev, theme]);
+  };
 
-                    <button className={styles.copy} onClick={handleCopy}>
-                        {sessionId}
-                        <span className={styles.iconWrapper}>
-                            <span className={`${styles.icon} ${copied ? styles.hidden : styles.visible}`}>
-                                <Copy size={16} />
-                            </span>
-                            <span className={`${styles.icon} ${copied ? styles.visible : styles.hidden}`}>
-                                <CopyCheck size={16} />
-                            </span>
-                        </span>
-                    </button>
-                    <select
-                        value={sessionType}
-                        onChange={e => setSessionType(e.target.value as 'publica' | 'particular')}
-                    >
-                        <option value="publica">Pública</option>
-                        <option value="particular">Particular</option>
-                    </select>
+  const removeTheme = (theme: Theme) => {
+    setSelectedThemes((prev) => prev.filter((t) => t.id !== theme.id));
+    setAvailableThemes((prev) => [...prev, theme]);
+  };
 
-                    <input
-                        type="number"
-                        placeholder="Board ID"
-                        value={boardId}
-                        onChange={e => setBoardId(Number(e.target.value))}
-                    />
+  if (playerLoading || themesLoading) return <p>Carregando...</p>;
+  if (playerError) return <p>Erro no jogador: {playerError}</p>;
+  if (themesError) return <p>Erro nos temas: {themesError}</p>;
 
-                    <input
-                        type="number"
-                        placeholder="Initial Tokens"
-                        value={initialTokens}
-                        onChange={e => setInitialTokens(Number(e.target.value))}
-                    />
+  return (
+    <section className={styles.dashboard}>
+      <header>
+        <h2>Lobby</h2>
+      </header>
 
-                    <div className={styles.themeList}>
-                        <select multiple size={6}>
-                            {availableThemes.map(theme => (
-                                <option
-                                    key={theme.id}
-                                    value={theme.id}
-                                    onClick={() => addTheme(theme)}
-                                >
-                                    {theme.name}
-                                </option>
-                            ))}
-                        </select>
+      <section className={styles.lobby}>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <button className={styles.copy} onClick={handleCopy}>
+            {sessionId}
+            <span className={styles.iconWrapper}>
+              <span
+                className={`${styles.icon} ${
+                  copied ? styles.hidden : styles.visible
+                }`}
+              >
+                <Copy size={16} />
+              </span>
+              <span
+                className={`${styles.icon} ${
+                  copied ? styles.visible : styles.hidden
+                }`}
+              >
+                <CopyCheck size={16} />
+              </span>
+            </span>
+          </button>
+          <select
+            value={sessionType}
+            onChange={(e) =>
+              setSessionType(e.target.value as 'publica' | 'particular')
+            }
+          >
+            <option value="publica">Pública</option>
+            <option value="particular">Particular</option>
+          </select>
+          <input
+            type="number"
+            placeholder="Initial Tokens"
+            value={initialTokens}
+            onChange={(e) => setInitialTokens(Number(e.target.value))}
+          />
 
-                        <select multiple size={6}>
-                            {selectedThemes.map(theme => (
-                                <option
-                                    key={theme.id}
-                                    value={theme.id}
-                                    onClick={() => removeTheme(theme)}
-                                >
-                                    {theme.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </form>
-
-                <ul>
-                    {players.map(p => (
-                        <li key={p.id}>
-                            <img
-                                src={getAvatarUrl(p.avatarIndex)}
-                                alt={`Avatar de ${p.name}`}
-                                width={80}
-                                height={80}
-                            />
-                            <p>
-                                {p.name} {p.id === myPlayerId && '(Você)'}
-                            </p>
-                            {p.id === hostId ? <p>Host</p> : <p>Na Sala</p>}
-                        </li>
-                    ))}
-                </ul>
-            </section>
-
-            <footer className={styles.actions}>
-                <button
-                    onClick={() => window.history.back()}
-                    className="secondary-btn"
+          <div className={styles.themeList}>
+            <select multiple size={6}>
+              {availableThemes.map((theme) => (
+                <option
+                  key={theme.id}
+                  value={theme.id}
+                  onClick={() => addTheme(theme)}
                 >
-                    Voltar
-                </button>
-                <button
-                    onClick={handleStart}
-                    disabled={!isCreator || started || selectedThemes.length === 0}
-                    className="btn"
+                  {theme.name}
+                </option>
+              ))}
+            </select>
+
+            <select multiple size={6}>
+              {selectedThemes.map((theme) => (
+                <option
+                  key={theme.id}
+                  value={theme.id}
+                  onClick={() => removeTheme(theme)}
                 >
-                    {started ? 'Partida Iniciada' : 'Iniciar Partida'}
-                </button>
-            </footer>
-        </section>
-    );
+                  {theme.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </form>
+
+        <ul>
+          {players.map((p) => (
+            <li key={p.id}>
+              <img
+                src={getAvatarUrl(p.avatarIndex)}
+                alt={`Avatar de ${p.name}`}
+                width={80}
+                height={80}
+              />
+              <p>
+                {p.name} {p.id === myPlayerId && '(Você)'}
+              </p>
+              {p.id === hostId ? <p>Host</p> : <p>Na Sala</p>}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <footer className={styles.actions}>
+        <button onClick={() => window.history.back()} className="secondary-btn">
+          Voltar
+        </button>
+        <button
+          onClick={handleStart}
+          disabled={!isCreator || started || selectedThemes.length === 0}
+          className="btn"
+        >
+          {started ? 'Partida Iniciada' : 'Iniciar Partida'}
+        </button>
+      </footer>
+    </section>
+  );
 }
