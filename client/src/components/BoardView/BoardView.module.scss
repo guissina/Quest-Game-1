@@ -1,51 +1,102 @@
 .board {
-    flex: 1;
-    display: grid;
+  * {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    grid-template-columns: repeat(var(--cols), 1fr);
-    grid-template-rows:    repeat(var(--rows), 1fr);
-    gap:                   0.25rem;
-    padding:               1rem;
-    background:            #e0f7fa;
-    width:                 90vw;
-    max-width:             1200px;
-    aspect-ratio:          var(--cols) / var(--rows);
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  gap: 0.25rem;
+  padding: 1rem;
+  aspect-ratio: var(--cols) / var(--rows);
 
-    .tile {
-        background: white;
-        border-radius: 0.5rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        position: relative;
-        padding: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+  .tile {
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    min-height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid transparent;
+    overflow: hidden;
+    color: white;
 
-        .tileId {
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .tileTheme {
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-bottom: 0.25rem;
-        }
-
-        .tilePlayers {
-            display: flex;
-            gap: 0.25rem;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-
-            .tileAvatar {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                border: 2px solid white;
-                box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-                object-fit: cover;
-            }
-        }
+    .tileId {
+      position: absolute;
+      z-index: 1;
+      bottom: -0.9rem;
+      right: 0.1rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 4rem;
+      line-height: 5rem;
+      font-weight: 700;
     }
+
+    .tileTheme {
+      z-index: 5;
+      font-size: 0.85rem;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+      margin-bottom: -0.5rem;
+      font-weight: 700;
+    }
+
+    .tilePlayers {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .tileAvatar {
+        z-index: 10;
+        width: 3rem;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+      }
+    }
+  }
+
+  .tema0 {
+    // rosa
+    background-color: #ff0050;
+    border-color: #cc0050;
+  }
+  .tema1 {
+    // vermelho
+    background-color: #ff160c;
+    border-color: #ff0000;
+  }
+  .tema2 {
+    // verde
+    background-color: #ccff33;
+    border-color: #66aa00;
+    color: #66aa00;
+  }
+  .tema3 {
+    // azul;
+    background-color: #00e2ff;
+    border-color: #0077aa;
+    color: #0077aa;
+  }
+  .tema4 {
+    // roxo
+    background-color: #ff69ff;
+    border-color: #aa33aa;
+    color: #aa33aa;
+  }
+  .tema5 {
+    // amarelo
+    background-color: #ffd700;
+    border-color: #aa6600;
+    color: #aa6600;
+  }
 }
