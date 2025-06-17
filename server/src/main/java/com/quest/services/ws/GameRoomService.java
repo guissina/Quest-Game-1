@@ -125,9 +125,8 @@ public class GameRoomService implements IGameRoomService {
         GameEngine engine = new GameEngine(room.getPlayers(), boardState, req.initialTokens());
         engine.seed();
         session.startGame(engine);
-        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 60);
-
         broadcastRoomState(req.sessionId(), false);
+        timerService.startTurnTimer(req.sessionId(), room.getPlayers().get(0).getId(), 60);
     }
 
     @Override
