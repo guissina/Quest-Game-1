@@ -11,7 +11,7 @@ export default function ProfileCard({ avatarUrl }: ProfileCardProps) {
             <img src={avatarUrl}
                 alt="Avatar do usuário"
                 className={styles.avatar} />
-            <Link to="/" className={`${styles.profileLink} secondary-btn`}>
+            <Link to="/edit-profile" className={`${styles.profileLink} secondary-btn`}>
                 Meu Perfil
             </Link>
         </div>

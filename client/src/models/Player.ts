@@ -5,6 +5,7 @@ export interface PlayerProps {
     balance: number;
     avatarIndex?: number;
     themeIds?: number[];
+    password?: string;
 }
 
 export class Player {
@@ -13,6 +14,7 @@ export class Player {
     public readonly email: string;
     public readonly balance: number = 0;
     public readonly themeIds: number[];
+    public readonly password?: string;
     public readonly avatarIndex: number;
 
     constructor(props: PlayerProps) {
@@ -21,6 +23,7 @@ export class Player {
         this.email = props.email;
         this.balance = props.balance;
         this.avatarIndex = props.avatarIndex ?? 0;
+        this.password = props.password;
         this.themeIds = props.themeIds ?? [];
     }
 }
