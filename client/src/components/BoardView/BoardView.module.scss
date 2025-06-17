@@ -5,13 +5,15 @@
     user-select: none;
   }
 
-  min-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(var(--cols), 1fr);
-  grid-template-rows: repeat(var(--rows), 1fr);
-  gap: 0.25rem;
-  padding: 1rem;
-  aspect-ratio: var(--cols) / var(--rows);
+  & {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    gap: 0.25rem;
+    padding: 1rem;
+    aspect-ratio: var(--cols) / var(--rows);
+  }
 
   .tile {
     position: relative;
@@ -70,29 +72,34 @@
     background-color: #ff0050;
     border-color: #cc0050;
   }
+
   .tema1 {
     // vermelho
     background-color: #ff160c;
     border-color: #ff0000;
   }
+
   .tema2 {
     // verde
     background-color: #ccff33;
     border-color: #66aa00;
     color: #66aa00;
   }
+
   .tema3 {
     // azul;
     background-color: #00e2ff;
     border-color: #0077aa;
     color: #0077aa;
   }
+
   .tema4 {
     // roxo
     background-color: #ff69ff;
     border-color: #aa33aa;
     color: #aa33aa;
   }
+
   .tema5 {
     // amarelo
     background-color: #ffd700;
