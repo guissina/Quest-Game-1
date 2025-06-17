@@ -1,6 +1,5 @@
 package com.quest.services.ws;
 
-import com.quest.interfaces.ws.IGameRoomService;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -57,7 +56,7 @@ public class GameService {
             question = questionService.findRandomByTheme(req.themeId());
             System.out.println("Peguei: " + question.getId()); //
 
-        } while (engine.hasUsedQuestion(question.getId()));
+        } while (false && engine.hasUsedQuestion(question.getId()));
         Hibernate.initialize(question.getOptions());
 
         engine.prepareQuestion(req.playerId(), question, req.steps());
