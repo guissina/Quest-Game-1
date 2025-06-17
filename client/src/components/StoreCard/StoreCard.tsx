@@ -43,7 +43,7 @@ export default function StoreCard({
             <BadgeDollarSign color="#febb0b" />
           </p>
           <button className="secondary-btn" onClick={openModal}>
-            Comprar balance
+            Comprar moedas
           </button>
         </div>
       </div>

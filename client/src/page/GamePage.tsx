@@ -8,6 +8,7 @@ import { useGameWebSocket } from '../hooks/useGameWebSocket';
 import styles from './GamePage.module.scss';
 import PlayerCard from '../components/PlayerCard/PlayerCard';
 import ConfettiOverlay from '../components/ConfettiOverlay/ConfettiOverlay';
+import TimerCountdown from '../components/TimerCountdown/TimerCountdown';
 
 interface GamePageProps {
   sessionId: string;
@@ -24,7 +25,7 @@ export default function GamePage({
   hostId,
   onFinished,
 }: GamePageProps) {
-  const { gameState, drawQuestion, answerQuestion, useAbility } =
+  const { gameState, tick, drawQuestion, answerQuestion, useAbility } =
     useGameWebSocket(sessionId);
   const [questionOpen, setQuestionOpen] = useState(false);
   const [confettiRunning, setConfettiRunning] = useState(false);
@@ -130,7 +131,7 @@ export default function GamePage({
               onUseAbility={handleUseAbility}
             />
           )}
-
+          <TimerCountdown initialTime={tick?.secondsLeft ?? 0} />
           <BoardView
             board={gameState.board}
             playerStates={gameState.playerStates}

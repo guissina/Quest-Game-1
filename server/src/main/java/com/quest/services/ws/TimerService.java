@@ -24,7 +24,9 @@ import jakarta.annotation.PreDestroy;
 @Service
 public class TimerService {
 
+    private static final int TICK_INTERVAL_MS = 1000; // 1s
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(4);
+
     private final Map<TimerKey, TimerHandles> timerTasks = new ConcurrentHashMap<>();
 
     private final GameSessionManager sessionManager;
@@ -48,9 +50,27 @@ public class TimerService {
         }
     }
 
-    private record TimerKey(String sessionId, Long playerId, TimerType type) { }
+    private record TimerKey(String sessionId, Long playerId, TimerType type) {
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o)
+                return true;
+            if (!(o instanceof TimerKey other))
+                return false;
+            return sessionId.equals(other.sessionId)
+                    && playerId.equals(other.playerId)
+                    && type == other.type;
+        }
+
+        @Override
+        public int hashCode() {
+            return (sessionId + "#" + playerId + ";" + type).hashCode();
+        }
+    }
 
     private static class TimerHandles {
+        ScheduledFuture<?> tickFuture;
         ScheduledFuture<?> timeoutFuture;
     }
 
@@ -63,34 +83,51 @@ public class TimerService {
         cancelTimerInternal(oppositeKey);
         cancelTimerInternal(key);
 
-        String destination = String.format(WsDestinations.TIMER_TICK, sessionId);
-        messagingTemplate.convertAndSend(destination, new TimerDTO(playerId, timeoutSeconds, type.name()));
+        AtomicInteger secondsLeft = new AtomicInteger(timeoutSeconds);
+        TimerHandles handles = new TimerHandles();
+        timerTasks.put(key, handles);
 
-        ScheduledFuture<?> timeout = scheduler.schedule(() -> {
+        handles.tickFuture = scheduler.scheduleAtFixedRate(() -> {
+            int seconds = secondsLeft.getAndDecrement();
+            if (seconds >= 0) {
+                String destination = String.format(WsDestinations.TIMER_TICK, sessionId);
+                messagingTemplate.convertAndSend(destination, new TimerDTO(playerId, seconds, type.name()));
+            }
+            System.out.println("Timer: " + key + " - " + seconds + "s");
+        }, 0, TICK_INTERVAL_MS, TimeUnit.MILLISECONDS);
+
+        handles.timeoutFuture = scheduler.schedule(() -> {
+            cancelTick(key);
+
             GameEngine engine = sessionManager.getEngine(sessionId);
             type.onTimeoutAction.accept(engine, playerId);
 
-            String stateDest = String.format(WsDestinations.GAME_STATE, sessionId);
-            messagingTemplate.convertAndSend(
-                    stateDest,
-                    EngineStateDTO.from(sessionId, engine)
-            );
+            String destination = String.format(WsDestinations.GAME_STATE, sessionId);
+            messagingTemplate.convertAndSend(destination, EngineStateDTO.from(sessionId, engine));
 
             if (!engine.isFinished()) {
                 Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
-                startTimer(sessionId, nextPlayer, timeoutSeconds, TimerType.TURN);
+                startTimer(sessionId, nextPlayer, 60, TimerType.TURN);
             }
+            System.out.println("Timer: " + key + " - Timeout");
         }, timeoutSeconds, TimeUnit.SECONDS);
-
-        TimerHandles handles = new TimerHandles();
-        handles.timeoutFuture = timeout;
-        timerTasks.put(key, handles);
     }
 
     private void cancelTimerInternal(TimerKey key) {
         TimerHandles handles = timerTasks.remove(key);
-        if (handles != null && handles.timeoutFuture != null && !handles.timeoutFuture.isDone())
-            handles.timeoutFuture.cancel(false);
+        if (handles != null) {
+            if (handles.timeoutFuture != null && !handles.timeoutFuture.isDone())
+                handles.timeoutFuture.cancel(false);
+
+            if (handles.tickFuture != null && !handles.tickFuture.isDone())
+                handles.tickFuture.cancel(false);
+        }
+    }
+
+    private void cancelTick(TimerKey key) {
+        TimerHandles handles = timerTasks.get(key);
+        if (handles != null && handles.tickFuture != null && !handles.tickFuture.isDone())
+            handles.tickFuture.cancel(false);
     }
 
     public void cancelAllTimersForSession(String sessionId) {

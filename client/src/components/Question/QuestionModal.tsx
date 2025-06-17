@@ -47,11 +47,8 @@ export default function QuestionModal({
   return (
     <Modal
       isOpen={isOpen}
-      // Bloqueia fechar clicando no overlay se canAnswer for true
       shouldCloseOnOverlayClick={!canAnswer}
-      // Bloqueia fechar com Esc se canAnswer for true
       shouldCloseOnEsc={!canAnswer}
-      // Só permite onRequestClose se canAnswer for false
       onRequestClose={() => {
         if (!canAnswer) onRequestClose();
       }}

@@ -1,0 +1,42 @@
+.timerContainer {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    z-index: 1000;
+
+
+    padding: 20px 24px;
+    min-width: 100px;
+    min-height: 60px;
+
+
+    background: radial-gradient(circle at 30% 30%, rgba(0, 226, 255, 0.6), transparent 70%),
+        radial-gradient(circle at 70% 70%, rgba(255, 0, 80, 0.5), transparent 70%);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timerText {
+    font-family: monospace;
+    font-size: 2rem; // texto maior
+    font-weight: bold;
+    color: #FFD700; // dourado
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.warning {
+    color: #ff4444 !important;
+}

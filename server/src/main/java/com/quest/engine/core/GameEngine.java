@@ -212,12 +212,15 @@ public class GameEngine {
     // }
 
     private void applyMovementOrReset(PlayerState ps, boolean correct) {
-        if (correct)
+        if (correct) {
             move(ps);
-        else if (ps.getTokens().isEmpty()) {
-            Long startId = boardManager.getBoardState().getStartTile().getId();
-            ps.moveTo(startId); // Move para a casa inicial
+        } else if (ps.getTokens().isEmpty()) {
             ps.resetTokens(initialTokensList);
+
+            for (AbilityType ability : AbilityType.values()) {
+                if (!ps.hasAbility(ability))
+                    ps.collectAbility(ability);
+            }
         }
     }
 

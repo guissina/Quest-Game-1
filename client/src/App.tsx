@@ -5,13 +5,16 @@ import { useRef, useEffect, useState } from "react";
 import painkiller from "./assets/music/Painkiller.mp3";
 import wastedYears from "./assets/music/wasted_years.mp3";
 import highway from "./assets/music/Highway.mp3";
+import The_Ripper from "./assets/music/The_Ripper.mp3";
+import Dissident from "./assets/music/DissidentAggressor.mp3";
+import Creeping from "./assets/music/Creeping_Death.mp3";
 
 export default function App() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
     const [playlist, setPlaylist] = useState<string[]>([]);
 
-    const soundTracks = [painkiller, wastedYears, highway];
+    const soundTracks = [painkiller, wastedYears, highway, The_Ripper, Dissident, Creeping];
 
     const shuffleArray = (array: string[]) => {
         const shuffled = [...array];
