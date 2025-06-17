@@ -24,7 +24,6 @@ public class GameService {
 
     private final GameSessionManager sessionManager;
     private final SimpMessagingTemplate messagingTemplate;
-    private final IGameRoomService gameRoomService;
     private final IQuestionServices questionService;
     private final TimerService timerService;
 
@@ -32,11 +31,9 @@ public class GameService {
     public GameService(GameSessionManager sessionManager,
             SimpMessagingTemplate messagingTemplate,
             IQuestionServices questionService,
-            IGameRoomService gameRoomService,
             TimerService timerService) {
         this.sessionManager = sessionManager;
         this.messagingTemplate = messagingTemplate;
-        this.gameRoomService = gameRoomService;
         this.questionService = questionService;
         this.timerService = timerService;
     }
@@ -76,11 +73,6 @@ public class GameService {
         broadcastGameState(sessionId, engine);
 
         timerService.cancelQuestionTimer(sessionId, req.playerId());
-        if (engine.isFinished()) {
-            sessionManager.getSession(sessionId).endGame();
-            gameRoomService.broadcastRoomState(sessionId, true);
-            return;
-        }
         Long nextPlayer = engine.getTurnManager().getCurrentPlayerId();
         timerService.startTurnTimer(sessionId, nextPlayer, 60);
     }

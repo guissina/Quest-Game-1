@@ -131,6 +131,14 @@ public class GameRoomService implements IGameRoomService {
     }
 
     @Override
+    public void closeRoom(String sessionId) { System.out.println("Close room: " + sessionId);
+        GameSession session = sessionManager.getSession(sessionId);
+        timerService.cancelAllTimersForSession(sessionId);
+        session.endGame();
+        broadcastRoomState(sessionId, false);
+    }
+
+    @Override
     public void leaveRoom(LeaveRoomRequestDTO req) {
         removeAndBroadcast(req.sessionId(), req.playerId());
     }

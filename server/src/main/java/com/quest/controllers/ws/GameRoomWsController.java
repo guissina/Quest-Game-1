@@ -54,4 +54,9 @@ public class GameRoomWsController {
     public void changeVisibility(ChangeVisibilityRoomRequestDTO req) {
         service.changeVisibility(req);
     }
+
+    @MessageMapping("/room/close")
+    public void close(String sessionId) {
+        service.closeRoom(sessionId);
+    }
 }

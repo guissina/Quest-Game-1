@@ -19,6 +19,7 @@ export default function SessionPage() {
         joinRoom,
         leaveRoom,
         startRoom,
+        closeRoom,
         changeVisibility,
     } = useRoom();
 
@@ -28,7 +29,6 @@ export default function SessionPage() {
             joinRoom(routeId);
         }
             
-        
         return () => {
             if (sessionId) leaveRoom();
         };
@@ -59,5 +59,13 @@ export default function SessionPage() {
         );
     }
 
-    return <GamePage sessionId={sessionId} myPlayerId={user.id} players={players} />
+    return (
+        <GamePage 
+            sessionId={sessionId} 
+            myPlayerId={user.id} 
+            players={players} 
+            hostId={hostId}
+            onFinished={closeRoom}
+        />
+    );
 }

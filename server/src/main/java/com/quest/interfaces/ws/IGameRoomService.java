@@ -15,6 +15,8 @@ public interface IGameRoomService {
 
     void startRoom(StartRoomRequestDTO req);
 
+    void closeRoom(String sessionId);
+
     void leaveRoom(LeaveRoomRequestDTO req);
 
     void changeVisibility(ChangeVisibilityRoomRequestDTO req);

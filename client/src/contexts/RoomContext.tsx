@@ -25,6 +25,7 @@ interface RoomContextType {
     listPublicRooms: () => void;
     leaveRoom: () => void;
     startRoom: (boardId: number, initialTokens: number, themeIds: number[]) => void;
+    closeRoom: () => void;
     changeVisibility: (publicSession: boolean) => void;
 }
 
@@ -86,6 +87,7 @@ export function RoomProvider({ children }: { children: ReactNode }) {
             setPlayers(list.map((p: PlayerProps) => new Player(p)));
             setStarted(isStarted);
             setHostId(hostId);
+            console.log('room state', list, isStarted)
         });
         return () => sub.unsubscribe();
     }, [client, ready, sessionId]);
@@ -145,6 +147,15 @@ export function RoomProvider({ children }: { children: ReactNode }) {
         });
     }, [client, ready, sessionId]);
 
+    const closeRoom = useCallback(() => {
+        if (!ready || !sessionId) return;
+
+        client!.publish({
+            destination: "/app/room/close",
+            body: sessionId
+        });
+    }, [client, ready, sessionId]);
+
     const changeVisibility = useCallback((publicSession: boolean) => {
         if (!ready || !sessionId) return;
         
@@ -167,6 +178,7 @@ export function RoomProvider({ children }: { children: ReactNode }) {
             listPublicRooms,
             leaveRoom,
             startRoom,
+            closeRoom,
             changeVisibility
         }}>
             {children}
