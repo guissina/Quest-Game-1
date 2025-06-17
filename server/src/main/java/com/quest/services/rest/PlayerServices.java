@@ -113,6 +113,10 @@ public class PlayerServices implements IPlayerServices {
             currentPlayer.setAvatarIndex(playerUpdateDTO.getAvatarIndex());
         }
 
+        if (!currentPlayer.getPassword().equals(playerUpdateDTO.getPassword())) {
+            currentPlayer.setPassword(playerUpdateDTO.getPassword());
+        }
+
         Player updatedPlayer = playerRepository.save(currentPlayer);
         return playerMapper.toPlayerResponseDTO(updatedPlayer);
     }
