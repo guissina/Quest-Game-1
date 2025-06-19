@@ -1,7 +1,15 @@
 # Quest-Game
 
-**Quest-Game** é uma plataforma multiplayer de quiz com tabuleiro virtual.  
-Frontend em React+Vite comunica-se com um backend em Spring Boot via REST e WebSocket (STOMP). Jogadores respondem perguntas, movimentam tokens, usam habilidades especiais e competem em tempo real.
+## Índice
+- [Estrutura de Diretórios do backend](#Estrutura-de-Diretórios-do-backend)
+- [Tech Stack](#tech-stack)
+- [Como Executar](#como-executar)
+- [Back-end Overview](#back-end-overview)
+- [Observações Gerais](#observações-gerais)
+- [Front-end (client) Overview](#front-end-client-overview)
+
+**Quest-Game** é um jogo multiplayer de quiz com tabuleiro virtual baseado no jogo de tabuleiro de mesa Quest.  
+Frontend em React+Vite comunica-se com um backend em Spring Boot via REST e WebSocket (STOMP). Jogadores respondem perguntas, movimentam-se utilizando tokens, usam habilidades especiais e competem em tempo real.
 
 ---
 
